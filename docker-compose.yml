@@ -1,0 +1,18 @@
+data:
+  build: ./data
+  volumes:
+    - /var/lib/mysql
+
+wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
+
+db:
+  build: ./mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: example
+  volumes_from:
+    - data
