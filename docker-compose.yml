@@ -9,10 +9,13 @@ wordpress:
     - db:mysql
   ports:
     - 8080:80
+  environment:
+    WORDPRESS_DB_PASSWORD: example
 
 db:
-  build: ./mariadb
+  image: mariadb
   environment:
     MYSQL_ROOT_PASSWORD: example
+    PORT: 3305
   volumes_from:
     - data
