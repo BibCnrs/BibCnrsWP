@@ -19,3 +19,9 @@ db:
     PORT: 3305
   volumes_from:
     - data
+
+compass:
+  image: antonienko/compass-watch
+  volumes:
+    - $PWD:/src
+  command: watch
