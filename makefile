@@ -23,3 +23,9 @@ else
 	echo 'please specify backup to restore':
 	@ls -h ./backups
 endif
+
+load-fixtures:
+	cat fixtures/portails.sql | docker exec -i bibcnrs_db_1 sh -c 'cat | mysql --password=example wordpress'
+
+connect-mysql:
+	docker exec -it bibcnrs_db_1 mysql --password wordpress

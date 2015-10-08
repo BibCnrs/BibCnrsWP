@@ -1,3 +1,5 @@
-wp-content
 backups
 .sass-cache
+wp-content/languages
+wp-content/css
+wp-content/upgrade
