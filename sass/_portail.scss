@@ -13,48 +13,135 @@ License URI: http://www.opensource.org/licenses/gpl-license.php GPL v3.0 (or lat
 
 
 /*****************************
-General 
+General
 *****************************/
 
-html {font-size:62,5%;margin-top:10px;}
-body {max-width:1280px;margin: 0 auto;}
-h1{font-size:1.8rem;}
-.biologie{background-color:rgb(156,018,109);}
-.chimie{background-color:rgb(000,126,148);}
-.ecologie{background-color:rgb(098,174,037);}
-.homme{background-color:rgb(130,014,018);}
-.ingenierie{background-color:rgb(212,000,45);}
-.mathematiques{background-color:rgb(084,125,61);}
-.nucleaire{background-color:rgb(231,081,019);}
-.physique{background-color:rgb(000,068,148);}
-.information{background-color:rgb(086,042,132);}
-.terre{background-color:rgb(204,035,129);}
-.visite{background-color:grey;}
-.font-biologie{color:rgb(156,018,109);}
-.font-chimie{color:rgb(000,126,148);}
-.font-ecologie{color:rgb(098,174,037);}
-.font-homme{color:rgb(130,014,018);}
-.font-ingenierie{color:rgb(212,000,45);}
-.font-mathematiques{color:rgb(084,125,61);}
-.font-nucleaire{color:rgb(231,081,019);}
-.font-physique{color:rgb(000,068,148);}
-.font-information{color:rgb(086,042,132);}
-.font-terre{color:rgb(204,035,129);}
-.font-visite{color:grey}
-.container{background-color:#fff;}
-.bsbb {box-sizing:border-box;}
-a {margin: 1px; text-decoration: none;}
-a:hover, a:focus{color: #333333; text-decoration:none;}
+html {
+    font-size:62.5%;
+    margin-top:10px;
+}
+
+body {
+    max-width:1280px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size:1.8rem;
+}
+
+.biologie{
+    background-color:rgb(156,018,109);
+}
+
+.chimie{
+    background-color:rgb(000,126,148);
+}
+
+.ecologie{
+    background-color:rgb(098,174,037);
+}
+
+.homme{
+    background-color:rgb(130,014,018);
+}
+
+.ingenierie{
+    background-color:rgb(212,000,45);
+}
+
+.mathematiques{
+    background-color:rgb(084,125,61);
+}
+
+.nucleaire{
+    background-color:rgb(231,081,019);
+}
+
+.physique{
+    background-color:rgb(000,068,148);
+}
+
+.information{
+    background-color:rgb(086,042,132);
+}
+
+.terre{
+    background-color:rgb(204,035,129);
+}
+
+.visite{
+    background-color:grey;
+}
+
+.font-biologie{
+    color:rgb(156,018,109);
+}
+
+.font-chimie{
+    color:rgb(000,126,148);
+}
+
+.font-ecologie{
+    color:rgb(098,174,037);
+}
+
+.font-homme{
+    color:rgb(130,014,018);
+}
+
+.font-ingenierie{
+    color:rgb(212,000,45);
+}
+
+.font-mathematiques{
+    color:rgb(084,125,61);
+}
+
+.font-nucleaire{
+    color:rgb(231,081,019);
+}
+
+.font-physique{
+    color:rgb(000,068,148);
+}
+
+.font-information{
+    color:rgb(086,042,132);
+}
+
+.font-terre{
+    color:rgb(204,035,129);
+}
+
+.font-visite{
+    color:grey
+}
+
+.container{
+    background-color:#fff;
+}
+
+.bsbb {
+    box-sizing:border-box;
+}
+
+a {
+    margin: 1px; text-decoration: none;
+    &:hover, &:focus{
+        color: #333333; text-decoration:none;
+    }
+}
 
 /*****************************
-Entete 
+Entete
 *****************************/
 #access {width:100%; height:30px;background:#f0f0f0; border:#dcded9;}
 #accessibility {display:flex;flex-direction:row;flex-wrap:wrap;justify-content: flex-end;align-items:lright;
 	display:-webkit-flex;-webkit-flex-wrap:wrap;-webkit-justify-content:flex-end;-webkit-align-items:right;
 	display:-ms-flexbox;-ms-flex-wrap:wrap;-ms-flex-pack:end;-ms-flex-align:right;
 	float:right;list-style-type:none;font-size:1rem;font-style:italic;padding-right:5%;margin:0;}
-.accessli{padding:4px 10px; background:url("images/puce1.png") left center no-repeat;}
+.accessli{padding:4px 10px; background:url("puce1.png") left center no-repeat;}
 .accessli a{color:#000;vertical-align:middle;padding-left:5px;}
 
 #hierarchie {width:100%; height:30px;background:#f0f0f0; }
@@ -62,7 +149,7 @@ Entete
 	display:-webkit-flex;-webkit-flex-wrap:wrap;-webkit-justify-content:flex-end;-webkit-align-items:right;
 	display:-ms-flexbox;-ms-flex-wrap:wrap;-ms-flex-pack:end;-ms-flex-align:right;
 	float:right;list-style-type:none;font-size:1rem;padding-right:5%;margin:0;}
-.cnrsli{padding:4px 10px; background:url("images/puce1.png") left center no-repeat;}
+.cnrsli{padding:4px 10px;}
 .cnrsli a{color:#000;vertical-align:middle;padding-left:5px;}
 
 .logoaccueil{z-index:100; position:absolute; top:28%;left:19%;width:23%;}
@@ -78,28 +165,28 @@ Entete
 /*****************************
 Navigation
 *****************************/
-#principal {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("images/ptit_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
-#principal .principalbas{background: url("images/ptit_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
-#principal ul {margin: 0;background: url("images/ptit_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 43px;}
+#principal {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("ptit_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
+#principal .principalbas{background: url("ptit_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
+#principal ul {margin: 0;background: url("ptit_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 43px;}
 #principal ul li {background: #2d3a4a;list-style-type: none;padding-right: 5px;text-align:right;}
 #principal ul li a {text-decoration: none;color: white;display: block;width: 100%;height: 30px;}
 #principal ul li a span {display:none;padding-left: 4px;vertical-align: middle;padding-right:10px;line-height:30px;}
 #principal ul li a img {vertical-align: middle;float: right;padding: 3px 7px;}
-#principal:hover {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("images/ban_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
-#principal:hover .principalbas{background: url("images/ban_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
-#principal:hover ul {margin: 0;background: url("images/ban_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 243px;}
+#principal:hover {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("ban_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
+#principal:hover .principalbas{background: url("ban_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
+#principal:hover ul {margin: 0;background: url("ban_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 243px;}
 #principal:hover ul li a span {display:inline;padding-left: 4px;vertical-align: middle;padding-right:10px;line-height:30px;}
-nav select {display: none;}   
+nav select {display: none;}
 
 @media (max-width: 880px) {
 	nav{text-align:left; width:100%;}
-	nav{margin-left: 40px;position relative;top:2%;background-image:none;}
+	nav{margin-left: 40px;position: relative;top:2%;background-image:none;}
 	.principalbas {display:none;}
 	#principal{background-image:none;}
 	#principal:hover{background-image:none;}
 	nav select{display: block; width:30%;min-width:130px;position:fixed; top:10%; left:2%;}
 }
-    
+
 /*****************************
 Centre
 *****************************/
@@ -108,7 +195,7 @@ Centre
 #contentaccueil img {max-width:100%;}
 
 #recherchebase{position:absolute; top:50%; left:40%;margin-left:-12%;z-index:200;}
-input[type=text]{background-color:white; min-width:150px;width:300px; height:16px; color:black; font-size:11px; } 
+input[type=text]{background-color:white; min-width:150px;width:300px; height:16px; color:black; font-size:11px; }
 input::-webkit-input-placeholder{color:rgb(98,195,221);}
 input:-moz-placeholder{color:rgb(98,195,221);}
 #content {background:#ffffff; padding:10px 10px 10px 10px;}
@@ -146,4 +233,3 @@ footer ul {list-style-type:none;padding:0;display:flex; flex-direction:row;flex-
 footer ul li {display:inline-block;padding : 0 10px 0 10px;}
 footer ul li a{color:#000;}
 footer ul li a ::after{content:none;}
-

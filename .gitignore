@@ -1,5 +1,5 @@
 backups
 .sass-cache
 wp-content/languages
-wp-content/css
 wp-content/upgrade
+wp-content/themes/portails/style.css

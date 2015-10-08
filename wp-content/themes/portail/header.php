@@ -14,20 +14,20 @@ if ($_SESSION['domaine']){
 	}
 	query_posts("cat=-1,");
 	while ( have_posts() ) {
-		the_post(); 
-		$category = get_the_category(); 
+		the_post();
+		$category = get_the_category();
 		$cat_nicename=$category[0]->category_nicename;
 		if ($cat_nicename === $_SESSION['domaine']){
 			$institut= $category[0]->category_description;
 			$catname=$category[0]->name;
 		}
 	}
-	wp_reset_query(); 
-}	
+	wp_reset_query();
+}
 elseif (is_single()OR is_category()) {
 // ne fonctionne que si chaque categorie a un post
 	$visite="non";
-	$category = get_the_category(); 
+	$category = get_the_category();
 	$domaine=$category[0]->category_nicename;
 	$institut= $category[0]->category_description;
 	$catname=$category[0]->name;
@@ -55,7 +55,7 @@ else {
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/portail.css" type="text/css">
+<link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/style.css" type="text/css">
 <!--[if IE]>
 	<meta http-equiv="X-UA-Compatible" content="IE=10" />
 <![endif]-->
@@ -83,15 +83,15 @@ else {
 	<!-- begin header -->
 	<header id="header" class="bsbb">
 	<div class="clear"></div>
-	<!-- accessibilite 
+	<!-- accessibilite
 	<div id="access">
                <ul id="accessibility">
                     <li class="accessli"><a href="#haut"><?php _e( 'Aller au menu', 'portail')?> </a></li>
                     <li class="accessli"><a href="#content"><?php _e( 'Aller au contenu', 'portail')?> </a></li>
                     <?php if(function_exists('wptextsizerincutil')) { wptextsizerincutil(); } ?>
-                </ul>	
+                </ul>
 	</div> -->
-		
+
 	<!-- acces hierarchique -->
 	<div id="hierarchie">
 		<ul id="cnrs">
@@ -101,14 +101,14 @@ else {
 			<li class=cnrsli">&nbsp;|&nbsp;</li>
 			<li class ="cnrsli"><a href="http://www.cnrs.fr/
 			<?php echo $insitut; ?>
-			" target="_blank"> 
+			" target="_blank">
 			<?php echo strtoupper($institut);?>
 			</a></li
 		</ul>
 	</div>
 	<div class="logo">
-		<a href="<?php bloginfo('url'); ?>" title="accueil">	
-			<img src="<?php bloginfo('template_url'); ?>/images/logocnrs.png" alt="CNRS dépasser les frontières" class="bsbb">
+		<a href="<?php bloginfo('url'); ?>" title="accueil">
+			<img src="<?php bloginfo('template_url'); ?>/images/logocnrs.png" alt="CNRS dï¿½passer les frontiï¿½res" class="bsbb">
 		</a>
 		<h1 class="font-<?php echo $domaine; ?>">
 			<?php
@@ -116,7 +116,7 @@ else {
 			?>
 				Domaine <?php echo $catname; ?>
 			<?php }
-			else { 
+			else {
 			?>
 				Visite du domaine <?php echo $catname; ?>
 			<?php
@@ -131,13 +131,13 @@ else {
 				echo $category[0]->cat_name;
 				echo ")"; ?>
 		</div>
-		
+
 			<div id="bouton" class="<?php echo $domaine; ?>">
 				<a href="/category/<?php echo $domaine; ?>">Retour &agrave;<br/> mon domaine</a>
 			</div>
 		<?php } } ?>
 	</div>
 	<div id="separateur"></div>
-	
+
 	</header>
 	<!-- end header -->

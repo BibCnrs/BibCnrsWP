@@ -18,14 +18,13 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/portail.css" type="text/css">
+<link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/style.css" type="text/css">
 <!--[if IE]>
 	<meta http-equiv="X-UA-Compatible" content="IE=10" />
 <![endif]-->
 
 <!--[if IE 9]>
 	<script src="<?php bloginfo('template_url'); ?>/js/html5-ie.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/ie-9.css"/>
 <![endif]-->
 
 <!-- google font -->
@@ -46,12 +45,12 @@
 <div class="container" >
 	<!-- begin header -->
 	<header id="header" class="bsbb">
-	
+
 	<!--	<div class="slogan block">
 			<h2><?php bloginfo('description');?></h2>
 		</div>
-	-->	
-		<div class="clear"></div>	
+	-->
+		<div class="clear"></div>
 		<!-- acces hierarchique -->
 		<div id="hierarchie">
 			<ul id="cnrs">
@@ -62,4 +61,3 @@
 		</div>
 	</header>
 	<!-- end header -->
-

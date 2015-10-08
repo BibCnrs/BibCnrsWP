@@ -1,56 +1,55 @@
 
-	// DOM ready
-	 $(function() {
+// DOM ready
+$(function() {
 
-	// Create the dropdown base
-	$("<select />").appendTo("nav");
+    // Create the dropdown base
+    $("<select />").appendTo("nav");
 
-	// Create default option "Go to..."
-      $("<option />", {
-         "selected": "selected",
-         "value"   : "http://bsn.inist.fr/",
-         "text"    : "Menu ..."
-      }).appendTo("nav select");
+    // Create default option "Go to..."
+    $("<option />", {
+        "selected": "selected",
+        "value"   : "http://bsn.inist.fr/",
+        "text"    : "Menu ..."
+    }).appendTo("nav select");
 
-      // Populate dropdown with menu items
-      $("nav > div > ul > li").each(function() {
+    // Populate dropdown with menu items
+    $("nav > div > ul > li").each(function() {
 
-      	var el = $(this);
+      var el = $(this);
 
-      	var hasChildren = el.find("ul"),
-      	    children    = el.find("li > a");
+      var hasChildren = el.find("ul"),
+          children    = el.find("li > a");
 
-      	if (hasChildren.length) {
+      if (hasChildren.length) {
 
-      		$("<optgroup />", {
-      			"label": el.find("> a").text()
-      		}).appendTo("nav select");
+          $("<optgroup />", {
+              "label": el.find("> a").text()
+          }).appendTo("nav select");
 
-      		children.each(function() {
-      			var chil =$(this);
+          children.each(function() {
+              var chil =$(this);
 
-      			$("<option />", {
-	 		          "value"   : chil.attr("href"),
- 			          "text"    : " - " + chil.text() 
-      			}).appendTo("optgroup:last");
+              $("<option />", {
+                   "value"   : chil.attr("href"),
+                   "text"    : " - " + chil.text()
+              }).appendTo("optgroup:last");
 
-      		});
+          });
 
-      	} else {
+      } else {
+        $("<option />", {
+            "value": el.find(">a").attr("href"),
+            "text": el.text()
+       }).appendTo("nav select");
 
-      		$("<option />", {
-	           "value"   : el.find(">a").attr("href"),
-	           "text"    : el.text()
-	       }).appendTo("nav select");
+      }
 
-      	}
+    });
 
-      });
-
-	   // To make dropdown actually work
-	   // To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
-      $("nav select").change(function() {
+    // To make dropdown actually work
+    // To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
+    $("nav select").change(function() {
         window.location = $(this).find("option:selected").val();
-      });
+    });
 
-	 });
+});

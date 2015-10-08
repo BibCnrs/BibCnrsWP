@@ -1,5 +1,5 @@
-<?php 
-/*Template Name: Connexion*/ 
+<?php
+/*Template Name: Connexion*/
 ?>
 <!doctype html>
 <html dir="ltr" lang="fr">
@@ -7,7 +7,7 @@
 <!-- begin head -->
 <head>
 	<title>Service d'authentification de l'Inist-CNRS</title>
-	<link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/cas.css" type="text/css">
+	<link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/style.css" type="text/css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
           <h1>Connexion s&eacute;curis&eacute;e</h1>
           <img id="keyicon" src="<?php bloginfo('template_url'); ?>/images/cas/key.png" alt="" />
           <form id="form" class="fm-v clearfix" action="<?php bloginfo('url')?>/resultats/" method="post">
-              
+
               <ul>
                   <li class="input">
                       <label>Identifiant :<br/>
@@ -43,7 +43,7 @@
               </ul>
           </form>
       </div>
- </div> 
+ </div>
 <div id="logo">
   <ul>
       <li><a href="http://www.inist.fr"><img src="<?php bloginfo('template_url'); ?>/images/cas/inist.png" alt="Inist-CNRS" /></a></li>
