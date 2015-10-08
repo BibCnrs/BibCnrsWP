@@ -141,7 +141,7 @@ Entete
 	display:-webkit-flex;-webkit-flex-wrap:wrap;-webkit-justify-content:flex-end;-webkit-align-items:right;
 	display:-ms-flexbox;-ms-flex-wrap:wrap;-ms-flex-pack:end;-ms-flex-align:right;
 	float:right;list-style-type:none;font-size:1rem;font-style:italic;padding-right:5%;margin:0;}
-.accessli{padding:4px 10px; background:url("puce1.png") left center no-repeat;}
+.accessli{padding:4px 10px; background:url("images/puce1.png") left center no-repeat;}
 .accessli a{color:#000;vertical-align:middle;padding-left:5px;}
 
 #hierarchie {width:100%; height:30px;background:#f0f0f0; }
@@ -165,16 +165,16 @@ Entete
 /*****************************
 Navigation
 *****************************/
-#principal {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("ptit_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
-#principal .principalbas{background: url("ptit_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
-#principal ul {margin: 0;background: url("ptit_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 43px;}
+#principal {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("images/ptit_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
+#principal .principalbas{background: url("images/ptit_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
+#principal ul {margin: 0;background: url("images/ptit_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 43px;}
 #principal ul li {background: #2d3a4a;list-style-type: none;padding-right: 5px;text-align:right;}
 #principal ul li a {text-decoration: none;color: white;display: block;width: 100%;height: 30px;}
 #principal ul li a span {display:none;padding-left: 4px;vertical-align: middle;padding-right:10px;line-height:30px;}
 #principal ul li a img {vertical-align: middle;float: right;padding: 3px 7px;}
-#principal:hover {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("ban_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
-#principal:hover .principalbas{background: url("ban_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
-#principal:hover ul {margin: 0;background: url("ban_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 243px;}
+#principal:hover {margin-left: -40px;z-index: 50;position: fixed;top: 20%;overflow: hidden;background: url("images/ban_gauche_top.png") no-repeat;background-position: right top;padding-top: 29px;}
+#principal:hover .principalbas{background: url("images/ban_gauche_bottom.png") no-repeat;background-position: right bottom;padding-bottom: 41px;}
+#principal:hover ul {margin: 0;background: url("images/ban_gauche_middle.png") repeat-y;background-position: right;padding-right: 7px;width: 243px;}
 #principal:hover ul li a span {display:inline;padding-left: 4px;vertical-align: middle;padding-right:10px;line-height:30px;}
 nav select {display: none;}
 

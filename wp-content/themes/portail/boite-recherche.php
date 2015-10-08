@@ -1,3 +1,4 @@
+// TODO replace with EBSCO widget
 <form action="<?php bloginfo('url')?>/connexion/" id="rechercheonglet" method="post">
 	<div id="paverecherche">
 		<fieldset>
