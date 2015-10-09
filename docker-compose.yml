@@ -4,7 +4,7 @@ data:
     - /var/lib/mysql
 
 wordpress:
-  image: conetix/wordpress-with-wp-cli
+  image: wordpress:4.3.1
   links:
     - db:mysql
   ports:
@@ -13,10 +13,10 @@ wordpress:
     WORDPRESS_DB_PASSWORD: example
   working_dir: /var/www/html
   volumes:
-    - wp-content/:/var/www/html/wp-content
+    - ./wp-content/:/var/www/html/wp-content
 
 db:
-  image: mariadb
+  image: mariadb:10.0
   environment:
     MYSQL_ROOT_PASSWORD: example
     PORT: 3305
