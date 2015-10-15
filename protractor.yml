@@ -1,0 +1,48 @@
+chrome:
+  image: selenium/standalone-chrome-debug:2.48.1
+  ports:
+    - 4444:4444
+    - 5900:5900
+  links:
+    - wordpress
+
+protractor:
+  build: ./protractor
+  links:
+    - chrome
+  volumes:
+    - ./test:/test
+  command: protractor protractor.conf.js
+
+install:
+  image: node:4.1.2
+  volumes:
+    - ./test:/app
+  working_dir: /app
+  command: npm install
+
+data:
+  extends:
+    file: ./docker-compose.yml
+    service: data
+
+wordpress:
+  image: wordpress:4.3.1-apache
+  links:
+    - db:mysql
+  environment:
+    WORDPRESS_DB_PASSWORD: example
+  working_dir: /var/www/html
+  ports:
+    - 80:80
+  volumes:
+    - ./wp-content/:/var/www/html/wp-content
+
+db:
+  image: mariadb:10.0
+  environment:
+    MYSQL_ROOT_PASSWORD: example
+    PORT: 3306
+    TERM: dumb
+  volumes_from:
+    - data

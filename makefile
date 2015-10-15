@@ -1,3 +1,4 @@
+.PHONY: default install run test
 
 # If the first argument is one of the supported commands...
 SUPPORTED_COMMANDS := restore-db save-db
@@ -18,7 +19,7 @@ endif
 
 restore-db:
 ifdef COMMAND_ARGS
-	docker run --volumes-from bibcnrs_data_1 -v $(pwd)/backups:/backups ubuntu tar xvf /backups/$(COMMAND_ARGS)
+	docker run --volumes-from bibcnrs_data_1 -v $(shell pwd)/backups:/backups ubuntu tar xvf /backups/$(COMMAND_ARGS)
 else
 	echo 'please specify backup to restore':
 	@ls -h ./backups
@@ -29,3 +30,9 @@ load-fixtures:
 
 connect-mysql:
 	docker exec -it bibcnrs_db_1 mysql --password wordpress
+
+install-test:
+	COMPOSE_FILE=protractor.yml docker-compose run install
+
+test:
+	COMPOSE_FILE=protractor.yml docker-compose run protractor

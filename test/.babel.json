@@ -1,0 +1,144 @@
+{
+  "{\"filename\":\"/home/node/hook.js\",\"extra\":{},\"env\":{},\"retainLines\":false,\"nonStandard\":true,\"experimental\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"stage\":2,\"blacklist\":[\"regenerator\"],\"optional\":[],\"modules\":\"common\",\"moduleIds\":false,\"jsxPragma\":\"React.createElement\",\"plugins\":[],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"keepModuleIdExtensions\":false,\"auxiliaryCommentAfter\":\"\",\"externalHelpers\":false,\"metadataUsedHelpers\":false,\"breakConfig\":false,\"sourceType\":\"module\"}:5.8.25:test": {
+    "metadata": {
+      "modules": {
+        "imports": [
+          {
+            "source": "co",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "co"
+              }
+            ]
+          },
+          {
+            "source": "chai",
+            "imported": [
+              "assert"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "assert",
+                "local": "assert"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "beforeLaunch",
+            "afterLaunch"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "beforeLaunch",
+              "exported": "beforeLaunch"
+            },
+            {
+              "kind": "local",
+              "local": "afterLaunch",
+              "exported": "afterLaunch"
+            }
+          ]
+        }
+      },
+      "usedHelpers": [
+        "interop-require-default"
+      ]
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, '__esModule', {\n    value: true\n});\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }\n\nvar _co = require('co');\n\nvar _co2 = _interopRequireDefault(_co);\n\nvar _chai = require('chai');\n\n// convert a generator to a function who take a callback\nvar coCb = function coCb(gen) {\n    return function (done) {\n        (0, _co2['default'])(gen).then(done, done);\n    };\n};\n\nvar beforeLaunch = coCb(function* () {\n    // initialize global to be available in all protractor test.\n    global.assert = _chai.assert;\n    global.coCb = coCb;\n});\n\nexports.beforeLaunch = beforeLaunch;\nvar afterLaunch = coCb(function* () {});\nexports.afterLaunch = afterLaunch;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25vZGUvaG9vay5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLENBQUM7Ozs7Ozs7O2tCQUVFLElBQUk7Ozs7b0JBQ0ksTUFBTTs7O0FBSTdCLElBQU0sSUFBSSxHQUFHLFNBQVAsSUFBSSxDQUFhLEdBQUcsRUFBRTtBQUN4QixXQUFPLFVBQVUsSUFBSSxFQUFFO0FBQ25CLDZCQUFHLEdBQUcsQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDNUIsQ0FBQztDQUNMLENBQUM7O0FBRUssSUFBTSxZQUFZLEdBQUcsSUFBSSxDQUFDLGFBQWE7O0FBRTFDLFVBQU0sQ0FBQyxNQUFNLGVBQVMsQ0FBQztBQUN2QixVQUFNLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztDQUN0QixDQUFDLENBQUM7OztBQUVJLElBQU0sV0FBVyxHQUFHLElBQUksQ0FBQyxhQUFhLEVBQzVDLENBQUMsQ0FBQyIsImZpbGUiOiIvaG9tZS9ub2RlL2hvb2suanMiLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIHN0cmljdCc7XG5cbmltcG9ydCBjbyBmcm9tICdjbyc7XG5pbXBvcnQgeyBhc3NlcnQgfSBmcm9tICdjaGFpJztcblxuXG4vLyBjb252ZXJ0IGEgZ2VuZXJhdG9yIHRvIGEgZnVuY3Rpb24gd2hvIHRha2UgYSBjYWxsYmFja1xuY29uc3QgY29DYiA9IGZ1bmN0aW9uIChnZW4pIHtcbiAgICByZXR1cm4gZnVuY3Rpb24gKGRvbmUpIHtcbiAgICAgICAgY28oZ2VuKS50aGVuKGRvbmUsIGRvbmUpO1xuICAgIH07XG59O1xuXG5leHBvcnQgY29uc3QgYmVmb3JlTGF1bmNoID0gY29DYihmdW5jdGlvbiogKCkge1xuICAgIC8vIGluaXRpYWxpemUgZ2xvYmFsIHRvIGJlIGF2YWlsYWJsZSBpbiBhbGwgcHJvdHJhY3RvciB0ZXN0LlxuICAgIGdsb2JhbC5hc3NlcnQgPSBhc3NlcnQ7XG4gICAgZ2xvYmFsLmNvQ2IgPSBjb0NiO1xufSk7XG5cbmV4cG9ydCBjb25zdCBhZnRlckxhdW5jaCA9IGNvQ2IoZnVuY3Rpb24qICgpIHtcbn0pO1xuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "/home/node/hook.js"
+      ],
+      "names": [],
+      "mappings": "AAAA,YAAY,CAAC;;;;;;;;kBAEE,IAAI;;;;oBACI,MAAM;;;AAI7B,IAAM,IAAI,GAAG,SAAP,IAAI,CAAa,GAAG,EAAE;AACxB,WAAO,UAAU,IAAI,EAAE;AACnB,6BAAG,GAAG,CAAC,CAAC,IAAI,CAAC,IAAI,EAAE,IAAI,CAAC,CAAC;KAC5B,CAAC;CACL,CAAC;;AAEK,IAAM,YAAY,GAAG,IAAI,CAAC,aAAa;;AAE1C,UAAM,CAAC,MAAM,eAAS,CAAC;AACvB,UAAM,CAAC,IAAI,GAAG,IAAI,CAAC;CACtB,CAAC,CAAC;;;AAEI,IAAM,WAAW,GAAG,IAAI,CAAC,aAAa,EAC5C,CAAC,CAAC",
+      "file": "/home/node/hook.js",
+      "sourcesContent": [
+        "'use strict';\n\nimport co from 'co';\nimport { assert } from 'chai';\n\n\n// convert a generator to a function who take a callback\nconst coCb = function (gen) {\n    return function (done) {\n        co(gen).then(done, done);\n    };\n};\n\nexport const beforeLaunch = coCb(function* () {\n    // initialize global to be available in all protractor test.\n    global.assert = assert;\n    global.coCb = coCb;\n});\n\nexport const afterLaunch = coCb(function* () {\n});\n"
+      ]
+    },
+    "mtime": 1444807586000
+  },
+  "{\"filename\":\"/home/node/hook.js\",\"extra\":{},\"env\":{},\"retainLines\":false,\"nonStandard\":true,\"experimental\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"stage\":2,\"blacklist\":[],\"optional\":[],\"modules\":\"common\",\"moduleIds\":false,\"jsxPragma\":\"React.createElement\",\"plugins\":[],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"keepModuleIdExtensions\":false,\"auxiliaryCommentAfter\":\"\",\"externalHelpers\":false,\"metadataUsedHelpers\":false,\"breakConfig\":false,\"sourceType\":\"module\"}:5.8.25:test": {
+    "metadata": {
+      "modules": {
+        "imports": [
+          {
+            "source": "co",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "co"
+              }
+            ]
+          },
+          {
+            "source": "chai",
+            "imported": [
+              "assert"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "assert",
+                "local": "assert"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "beforeLaunch",
+            "afterLaunch"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "beforeLaunch",
+              "exported": "beforeLaunch"
+            },
+            {
+              "kind": "local",
+              "local": "afterLaunch",
+              "exported": "afterLaunch"
+            }
+          ]
+        }
+      },
+      "usedHelpers": [
+        "interop-require-default"
+      ]
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, '__esModule', {\n    value: true\n});\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }\n\nvar _co = require('co');\n\nvar _co2 = _interopRequireDefault(_co);\n\nvar _chai = require('chai');\n\n// convert a generator to a function who take a callback\nvar coCb = function coCb(gen) {\n    return function (done) {\n        (0, _co2['default'])(gen).then(done, done);\n    };\n};\n\nvar beforeLaunch = coCb(regeneratorRuntime.mark(function callee$0$0() {\n    return regeneratorRuntime.wrap(function callee$0$0$(context$1$0) {\n        while (1) switch (context$1$0.prev = context$1$0.next) {\n            case 0:\n                // initialize global to be available in all protractor test.\n                global.assert = _chai.assert;\n                global.coCb = coCb;\n\n            case 2:\n            case 'end':\n                return context$1$0.stop();\n        }\n    }, callee$0$0, this);\n}));\n\nexports.beforeLaunch = beforeLaunch;\nvar afterLaunch = coCb(regeneratorRuntime.mark(function callee$0$0() {\n    return regeneratorRuntime.wrap(function callee$0$0$(context$1$0) {\n        while (1) switch (context$1$0.prev = context$1$0.next) {\n            case 0:\n            case 'end':\n                return context$1$0.stop();\n        }\n    }, callee$0$0, this);\n}));\nexports.afterLaunch = afterLaunch;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25vZGUvaG9vay5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLENBQUM7Ozs7Ozs7O2tCQUVFLElBQUk7Ozs7b0JBQ0ksTUFBTTs7O0FBSTdCLElBQU0sSUFBSSxHQUFHLFNBQVAsSUFBSSxDQUFhLEdBQUcsRUFBRTtBQUN4QixXQUFPLFVBQVUsSUFBSSxFQUFFO0FBQ25CLDZCQUFHLEdBQUcsQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDNUIsQ0FBQztDQUNMLENBQUM7O0FBRUssSUFBTSxZQUFZLEdBQUcsSUFBSSx5QkFBQzs7Ozs7QUFFN0Isc0JBQU0sQ0FBQyxNQUFNLGVBQVMsQ0FBQztBQUN2QixzQkFBTSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7Ozs7Ozs7Q0FDdEIsRUFBQyxDQUFDOzs7QUFFSSxJQUFNLFdBQVcsR0FBRyxJQUFJLHlCQUFDOzs7Ozs7OztDQUMvQixFQUFDLENBQUMiLCJmaWxlIjoiL2hvbWUvbm9kZS9ob29rLmpzIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xuXG5pbXBvcnQgY28gZnJvbSAnY28nO1xuaW1wb3J0IHsgYXNzZXJ0IH0gZnJvbSAnY2hhaSc7XG5cblxuLy8gY29udmVydCBhIGdlbmVyYXRvciB0byBhIGZ1bmN0aW9uIHdobyB0YWtlIGEgY2FsbGJhY2tcbmNvbnN0IGNvQ2IgPSBmdW5jdGlvbiAoZ2VuKSB7XG4gICAgcmV0dXJuIGZ1bmN0aW9uIChkb25lKSB7XG4gICAgICAgIGNvKGdlbikudGhlbihkb25lLCBkb25lKTtcbiAgICB9O1xufTtcblxuZXhwb3J0IGNvbnN0IGJlZm9yZUxhdW5jaCA9IGNvQ2IoZnVuY3Rpb24qICgpIHtcbiAgICAvLyBpbml0aWFsaXplIGdsb2JhbCB0byBiZSBhdmFpbGFibGUgaW4gYWxsIHByb3RyYWN0b3IgdGVzdC5cbiAgICBnbG9iYWwuYXNzZXJ0ID0gYXNzZXJ0O1xuICAgIGdsb2JhbC5jb0NiID0gY29DYjtcbn0pO1xuXG5leHBvcnQgY29uc3QgYWZ0ZXJMYXVuY2ggPSBjb0NiKGZ1bmN0aW9uKiAoKSB7XG59KTtcbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "/home/node/hook.js"
+      ],
+      "names": [],
+      "mappings": "AAAA,YAAY,CAAC;;;;;;;;kBAEE,IAAI;;;;oBACI,MAAM;;;AAI7B,IAAM,IAAI,GAAG,SAAP,IAAI,CAAa,GAAG,EAAE;AACxB,WAAO,UAAU,IAAI,EAAE;AACnB,6BAAG,GAAG,CAAC,CAAC,IAAI,CAAC,IAAI,EAAE,IAAI,CAAC,CAAC;KAC5B,CAAC;CACL,CAAC;;AAEK,IAAM,YAAY,GAAG,IAAI,yBAAC;;;;;AAE7B,sBAAM,CAAC,MAAM,eAAS,CAAC;AACvB,sBAAM,CAAC,IAAI,GAAG,IAAI,CAAC;;;;;;;CACtB,EAAC,CAAC;;;AAEI,IAAM,WAAW,GAAG,IAAI,yBAAC;;;;;;;;CAC/B,EAAC,CAAC",
+      "file": "/home/node/hook.js",
+      "sourcesContent": [
+        "'use strict';\n\nimport co from 'co';\nimport { assert } from 'chai';\n\n\n// convert a generator to a function who take a callback\nconst coCb = function (gen) {\n    return function (done) {\n        co(gen).then(done, done);\n    };\n};\n\nexport const beforeLaunch = coCb(function* () {\n    // initialize global to be available in all protractor test.\n    global.assert = assert;\n    global.coCb = coCb;\n});\n\nexport const afterLaunch = coCb(function* () {\n});\n"
+      ]
+    },
+    "mtime": 1444807586000
+  }
+}
