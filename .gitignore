@@ -3,3 +3,5 @@ backups
 wp-content/languages
 wp-content/upgrade
 wp-content/themes/portail/style.css
+vendor
+composer.lock

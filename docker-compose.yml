@@ -24,6 +24,13 @@ db:
   volumes_from:
     - data
 
+composer:
+  image: composer/composer:1.0.0-alpha10
+  environment:
+    http_proxy: http://proxyout.inist.fr:8080
+  volumes:
+    - $PWD:/app
+
 compass:
   build: ./compass
   volumes:

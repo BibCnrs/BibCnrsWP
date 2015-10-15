@@ -18,7 +18,7 @@ endif
 
 restore-db:
 ifdef COMMAND_ARGS
-	docker run --volumes-from bibcnrs_data_1 -v $(pwd)/backups:/backups ubuntu tar xvf /backups/$(COMMAND_ARGS)
+	docker run --volumes-from bibcnrs_data_1 -v $(shell pwd)/backups:/backups ubuntu tar xvf /backups/$(COMMAND_ARGS)
 else
 	echo 'please specify backup to restore':
 	@ls -h ./backups

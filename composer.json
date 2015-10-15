@@ -1,0 +1,21 @@
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://wpackagist.org",
+            "require" : {
+                "composer/installers": "v1.0.7"
+            }
+        }
+    ],
+    "require-dev": {
+    },
+    "require": {
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}
