@@ -1,0 +1,31 @@
+data:
+  build: ./data
+  volumes:
+    - /var/lib/mysql
+
+wordpress:
+  image: wordpress:4.3.1-apache
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
+  environment:
+    WORDPRESS_DB_PASSWORD: example
+  working_dir: /var/www/html
+  volumes:
+    - ./wp-content/:/var/www/html/wp-content
+
+db:
+  image: mariadb:10.0
+  environment:
+    MYSQL_ROOT_PASSWORD: example
+    PORT: 3305
+    TERM: dumb
+  volumes_from:
+    - data
+
+compass:
+  build: ./compass
+  volumes:
+    - $PWD:/src
+  command: watch
