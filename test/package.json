@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "babel": "5.8.23",
+    "chai": "3.3.0",
+    "co": "4.6.0",
+    "eslint": "1.6.0"
+  }
+}
