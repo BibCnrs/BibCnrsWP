@@ -37,6 +37,7 @@ else {
 	$visite="non";
 	}
 ?>
+
 <!doctype html>
 <html dir="ltr" lang="fr">
 <!-- begin head -->

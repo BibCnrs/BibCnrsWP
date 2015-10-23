@@ -19,7 +19,7 @@
       <div id="form">
           <h1>Connexion s&eacute;curis&eacute;e</h1>
           <img id="keyicon" src="<?php bloginfo('template_url'); ?>/images/cas/key.png" alt="" />
-          <form id="form" class="fm-v clearfix" action="<?php bloginfo('url')?>/resultats/" method="post">
+          <form id="form" class="fm-v clearfix" action="<?php bloginfo('url')?>/search/" method="post">
 
               <ul>
                   <li class="input">

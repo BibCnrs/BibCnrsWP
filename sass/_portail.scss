@@ -202,7 +202,17 @@ input:-moz-placeholder{color:rgb(98,195,221);}
 #center {display:flex; flex-direction: row; flex-wrap: wrap ;justify-content:center;display:-webkit-flex;-webkit-flex-wrap:wrap;-webkit-justify-content:center;display:-ms-flexbox;-ms-flex-wrap:wrap;-ms-flex-pack:center;}
 #pagenorm {min-width: 220px;max-width : 600px;margin:25px auto 0 auto;padding:0 20px 0 20px;}
 
-#sidebar{max-width:220px;min-width:155px; margin: 25px 10px 10px 10px;}
+#sidebar{
+    max-width:220px;
+    min-width:155px;
+    margin: 25px 10px 10px 10px;
+    &.left {
+        float: left;
+    }
+    &.right {
+        float: right;
+    }
+}
 .widget-container{border:#dcded9 solid 1px;margin-bottom:20px;}
 .widget-container h2{margin: 0;line-height:40px;  font-size:1.231rem;background:#f0f0f0;padding-left:5px;}
 .textwidget p{padding : 0 10px 0 10px;}
@@ -216,6 +226,12 @@ input:-moz-placeholder{color:rgb(98,195,221);}
 /*****************************
 Recherche
 *****************************/
+#ebsco-widget{
+    max-width:660px;
+    min-width:155px;
+    margin: 25px 10px 10px 10px;
+    display: inline-flex;
+}
 #paverecherche{margin-top:0.9em;width: 400px;;}
 #paverecherche legend{display:none;}
 #paverecherche fieldset{float: left;width: 300px;height:70px;margin:5px 5px 10px 5px;}

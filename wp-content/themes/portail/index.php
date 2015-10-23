@@ -14,7 +14,6 @@
  * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link     http://www.cyberchimps.com/
  */
-
 get_header(); ?>
 
 <?php do_action( 'cyberchimps_before_container' ); ?>
