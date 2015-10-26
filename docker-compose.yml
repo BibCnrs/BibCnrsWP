@@ -10,10 +10,13 @@ wordpress:
   ports:
     - 8080:80
   environment:
+    http_proxy: http://proxyout.inist.fr:8080
+    https_proxy: http://proxyout.inist.fr:8080
     WORDPRESS_DB_PASSWORD: example
   working_dir: /var/www/html
   volumes:
-    - ./wp-content/:/var/www/html/wp-content
+    - ./wp-content/plugins:/var/www/html/wp-content/plugins
+    - ./wp-content/themes:/var/www/html/wp-content/themes
 
 db:
   image: mariadb:10.0
