@@ -225,11 +225,11 @@ if (!class_exists('EbscoWidget')) {
                     true
                 );
 
+                $term = get_query_var('term');
                 // add url attribute on script tag
-                add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+                add_filter( 'script_loader_tag', function ( $tag, $handle ) use ($term) {
                     if ( $handle !== 'ebsco_widget-index' ) return $tag;
-                    return str_replace( ' src', ' id="'. $handle .'" data-url="' . ($this->options['url']) . '" src', $tag );
-                    return $tag;
+                    return str_replace( ' src', ' id="'. $handle .'" data-url="' . ($this->options['url']) . '" data-term="' . $term . '" src', $tag );
                 }, 10, 2 );
                 wp_enqueue_script($this->tag.'-index');
             }
