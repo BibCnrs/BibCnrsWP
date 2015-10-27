@@ -1,0 +1,30 @@
+data:
+  extends:
+    file: ./docker-compose.yml
+    service: data
+
+wordpress:
+  extends:
+    file: ./docker-compose.yml
+    service: wordpress
+  links:
+    - db:mysql
+  environment:
+    WORDPRESS_DB_PASSWORD: example
+
+db:
+  extends:
+    file: ./docker-compose.yml
+    service: db
+  environment:
+    MYSQL_ROOT_PASSWORD: example
+  volumes_from:
+    - data
+
+compass:
+  extends:
+    file: ./docker-compose.yml
+    service: compass
+  volumes:
+    - $PWD:/src
+  command: watch

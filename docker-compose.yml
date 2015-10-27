@@ -5,8 +5,6 @@ data:
 
 wordpress:
   image: wordpress:4.3.1-apache
-  links:
-    - db:mysql
   ports:
     - 8080:80
   environment:
@@ -24,8 +22,6 @@ db:
     MYSQL_ROOT_PASSWORD: example
     PORT: 3305
     TERM: dumb
-  volumes_from:
-    - data
 
 composer:
   image: composer/composer:1.0.0-alpha10
@@ -38,4 +34,4 @@ compass:
   build: ./compass
   volumes:
     - $PWD:/src
-  command: watch
+  command: compile
