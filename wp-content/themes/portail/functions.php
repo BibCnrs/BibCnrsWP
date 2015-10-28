@@ -166,6 +166,12 @@ add_theme_support( 'custom-background', $defaults );
 Replaces the excerpt "more" text by a link
 
 *********************************************************************************************/
+function new_excerpt_more( $more ) {
+	return '..';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
 function custom_excerpt_length( $length ) {
 	return 15;
 }
