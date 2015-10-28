@@ -4,17 +4,17 @@
 SUPPORTED_COMMANDS := restore-db _restore_db save-db _save_db composer compass
 SUPPORTS_MAKE_ARGS := $(findstring $(firstword $(MAKECMDGOALS)), $(SUPPORTED_COMMANDS))
 ifneq "$(SUPPORTS_MAKE_ARGS)" ""
-	# use the rest as arguments for the command
-	COMMAND_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-	# ...and turn them into do-nothing targets
-$(eval $(COMMAND_ARGS):;@:)
+    # use the rest as arguments for the command
+    COMMAND_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+    # ...and turn them into do-nothing targets
+    $(eval $(COMMAND_ARGS):;@:)
 endif
 
 # If the command need the db password
 DB_COMMANDS := _load_fixtures _save_db _restore_db
 NEED_DB_PASSWORD := $(findstring $(firstword $(MAKECMDGOALS)), $(DB_COMMANDS))
 ifneq "$(NEED_DB_PASSWORD)" ""
-	DB_PASSWORD := $(shell stty -echo; read -p "Password: " DB_PASSWORD; stty echo; echo $$DB_PASSWORD)
+	DB_PASSWORD ?= $(shell stty -echo; read -p "Password: " DB_PASSWORD; stty echo; echo $$DB_PASSWORD)
 endif
 
 save-db:

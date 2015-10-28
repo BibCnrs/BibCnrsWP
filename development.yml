@@ -10,14 +10,14 @@ wordpress:
   links:
     - db:mysql
   environment:
-    WORDPRESS_DB_PASSWORD: example
+    WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
 
 db:
   extends:
     file: ./docker-compose.yml
     service: db
   environment:
-    MYSQL_ROOT_PASSWORD: example
+    MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
   volumes_from:
     - data
 
