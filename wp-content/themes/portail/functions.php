@@ -1,6 +1,16 @@
 <?php
 /********************************************************************************************
 
+force user to login before accessing the site
+
+********************************************************************************************/
+function force_login() {
+	if (!is_user_logged_in() && !is_page('login')) {
+		auth_redirect();
+	}
+}
+/********************************************************************************************
+
 appel script mobile menu select*
 src http://codex.wordpress.org/Function_Reference/wp_enqueue_script
 
@@ -15,13 +25,13 @@ wp_enqueue_script(
 add_action( 'wp_enqueue_scripts', 'bsn_scripts_method' );
 
 
-/********************************************************************************************* 
+/*********************************************************************************************
 
-Definition des Widgets 
+Definition des Widgets
 
-*********************************************************************************************/ 
-register_sidebar(array( 'name'=>'widget-f1', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget1>', 'after_title' => '</h2>', )); 
-register_sidebar(array( 'name'=>'widget-f2', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget2>', 'after_title' => '</h2>', )); 
+*********************************************************************************************/
+register_sidebar(array( 'name'=>'widget-f1', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget1>', 'after_title' => '</h2>', ));
+register_sidebar(array( 'name'=>'widget-f2', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget2>', 'after_title' => '</h2>', ));
 register_sidebar(array( 'name'=>'widget-f3', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget3>', 'after_title' => '</h2>', ));
 register_sidebar(array( 'name'=>'widget-f4', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget4>', 'after_title' => '</h2>', ));
 register_sidebar(array( 'name'=>'widget-f5', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget5>', 'after_title' => '</h2>', ));
@@ -170,7 +180,7 @@ Array Random
 *********************************************************************************************/
 function array_random($arr, $num = 1) {
     shuffle($arr);
-   
+
     $r = array();
     for ($i = 0; $i < $num; $i++) {
         $r[] = $arr[$i];
@@ -247,9 +257,9 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
 
  BreadCrumbs
  * Author : Daniel Roch
- 
+
  *********************************************************************************************/
- 
+
   // Get parent categories with schema.org data
   function seomix_content_get_category_parents($id, $link = false,$separator = '/',$nicename = false,$visited = array()) {
   $final = '';
@@ -278,14 +288,14 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
   $sep = ' &raquo; ';
   $data = '<span typeof="v:Breadcrumb">';
   $dataend = '</span>';
-  $final = '<div xmlns:v="http://rdf.data-vocabulary.org/#" class="petit" id="breadcrumbs">'.  __('','bsn') ;  
+  $final = '<div xmlns:v="http://rdf.data-vocabulary.org/#" class="petit" id="breadcrumbs">'.  __('','bsn') ;
   $startdefault = $data.'<a href="'.home_url().'" rel="v:url" property="v:title"> Accueil </a>'.$dataend;
   $starthome = __('Home','bsn');
 
   // Breadcrumb start
   if ( is_front_page() && is_home() ){
     // Default homepage
-    if ( $paged >= 1 )    
+    if ( $paged >= 1 )
       $final .= $startdefault;
     else
       $final .= $starthome;
@@ -294,8 +304,8 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
     $final .= $starthome;
   } elseif ( is_home() ){
     //Blog page
-    if ( $paged >= 1 ) {  
-      $url = get_page_link(get_option('page_for_posts'));  
+    if ( $paged >= 1 ) {
+      $url = get_page_link(get_option('page_for_posts'));
       $final .= $startdefault.$sep.$data.'<a href="'.$url.'" rel="v:url" property="v:title">'.__('The articles','bsn').'</a>'.$dataend;}
     else
       $final .= $startdefault.$sep.__('The articles','bsn');
@@ -391,7 +401,7 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
         $curauth = get_user_by('slug', get_query_var('author_name'));
     else
         $curauth = get_userdata(get_query_var('author'));
-    $final .= __('Articles by the author: ','bsn').$curauth->nickname;}  
+    $final .= __('Articles by the author: ','bsn').$curauth->nickname;}
   // tags
   elseif ( is_tag() ){
     $final .=__('Articles on the subject: ','bsn').single_tag_title("",FALSE);}
@@ -431,4 +441,3 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
   // The End
   $final .= '</div>';
   echo $final;}
-	
