@@ -10,6 +10,8 @@ If you do not have the INIST proxy you additionally need to remove the
 Replace ${DB_PASSWORD} in development.yml and production.yml file with you wanted db password
 (Once docker-compose 1.5 is released, this will use DB_PASSWORD environment variable instead)
 
+Run `make composer install` to install wordpress plugins defined in composer.json.
+
 ### in development
 Simply do `make run-dev`
 This will launch wordpress, maraidb and compass (that will build the css and the watch for change).
