@@ -18,7 +18,7 @@ $args =array(
 $myposts = get_posts($args);
 
 
-get_template_part('header'); ?>        
+get_template_part('header'); ?>
 
 <div id="content" class="bsbb">
 
@@ -28,10 +28,11 @@ get_template_part('header'); ?>
 <div id="center">
 
 	<div id="pagenorm">
-	<?php include 'boite-recherche.php'; ?>
+	<?php echo do_shortcode('[ebsco_widget]');?>
+
 	<h1 class="font-<?php echo $category[0]->category_nicename; ?>">Actualit&eacute;s <?php echo single_cat_title( '', false ); ?></dh1>
 
-<?php foreach($myposts as $post) : ?>	
+<?php foreach($myposts as $post) : ?>
 
 	<?php
 
@@ -70,7 +71,6 @@ get_template_part('header'); ?>
 	else {get_template_part('sidebar-right'); }
 	?>
 	<!-- fin sidebar-->
-</div><!--/center-->  
+</div><!--/center-->
 </div><!--/#content-->
-<?php get_template_part('footer'); ?>    	
-	
+<?php get_template_part('footer'); ?>

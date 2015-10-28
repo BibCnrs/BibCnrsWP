@@ -14,7 +14,7 @@ endif
 DB_COMMANDS := _load_fixtures _save_db _restore_db
 NEED_DB_PASSWORD := $(findstring $(firstword $(MAKECMDGOALS)), $(DB_COMMANDS))
 ifneq "$(NEED_DB_PASSWORD)" ""
-	DB_PASSWORD ?= $(shell stty -echo; read -p "Password: " DB_PASSWORD; stty echo; echo $$DB_PASSWORD)
+    DB_PASSWORD ?= $(shell stty -echo; read -p "Password: " DB_PASSWORD; stty echo; echo $$DB_PASSWORD)
 endif
 
 save-db:
@@ -54,7 +54,11 @@ run-dev:
 	COMPOSE_FILE=development.yml docker-compose up
 
 run-prod:
-	COMPOSE_FILE=production.yml docker-compose up
+	COMPOSE_FILE=production.yml docker-compose up -d
+
+stop:
+	docker stop bibcnrs_wordpress_1
+	docker stop bibcnrs_db_1
 
 build-css:
 	docker-compose run compass compile
