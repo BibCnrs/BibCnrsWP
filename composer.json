@@ -6,11 +6,27 @@
             "require" : {
                 "composer/installers": "v1.0.7"
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-block-admin",
+                "type": "wordpress-plugin",
+                "version": "0.2.3",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/wp-block-admin.0.2.3.0.zip"
+                },
+                "require": {
+                    "composer/installers": "v1.0.7"
+                }
+            }
         }
     ],
     "require-dev": {
     },
     "require": {
+        "wp-block-admin": "0.2.3"
     },
     "extra": {
         "installer-paths": {

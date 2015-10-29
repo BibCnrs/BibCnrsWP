@@ -1,4 +1,5 @@
 <?php
+force_login();
 session_start();
 if ($_POST["username"]){
 	$_SESSION["domaine"]=$_POST["username"];
