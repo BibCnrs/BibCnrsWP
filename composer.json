@@ -1,12 +1,6 @@
 {
     "repositories": [
-        {
-            "type": "composer",
-            "url": "http://wpackagist.org",
-            "require" : {
-                "composer/installers": "v1.0.7"
-            }
-        },
+
         {
             "type": "package",
             "package": {
@@ -26,7 +20,8 @@
     "require-dev": {
     },
     "require": {
-        "wp-block-admin": "0.2.3"
+        "wp-block-admin": "0.2.3",
+        "firebase/php-jwt": "3.0.0"
     },
     "extra": {
         "installer-paths": {

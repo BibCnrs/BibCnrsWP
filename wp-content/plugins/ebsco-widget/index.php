@@ -8,6 +8,9 @@ Author: BibCnrs
 Author URI: https://github.com/BibCnrs/BibCnrs
 */
 
+require_once plugin_dir_path(__FILE__).'../../../vendor/autoload.php';
+use \Firebase\JWT\JWT;
+
 defined('ABSPATH') or die('Plugin file cannot be accessed directly.');
 
 if (!class_exists('EbscoWidget')) {
@@ -36,10 +39,15 @@ if (!class_exists('EbscoWidget')) {
          * @var array
          */
         protected $settings = array('url' => array(
-            'description' => 'url pour accéder à BibCnrs Api',
+            'description' => 'Url pour accéder à BibCnrs Api.',
             'validator' => 'url',
             'type' => 'url',
             'placeholder' => 'http://BibCnrsHost'
+        ),
+        'secret' => array(
+            'description' => 'Secret to encode jwt token used by the widget to access the api.',
+            'type' => 'password',
+            'placeholder' => ''
         ));
 
         public function __construct()
@@ -224,12 +232,14 @@ if (!class_exists('EbscoWidget')) {
                     $this->version,
                     true
                 );
-
+                if (session_id()) {
+                    $token = JWT::encode(array(user => 'tester'), $this->options['secret']);
+                }
                 $term = get_query_var('term');
                 // add url attribute on script tag
-                add_filter( 'script_loader_tag', function ( $tag, $handle ) use ($term) {
+                add_filter( 'script_loader_tag', function ( $tag, $handle ) use ($term, $token) {
                     if ( $handle !== 'ebsco_widget-index' ) return $tag;
-                    return str_replace( ' src', ' id="'. $handle .'" data-url="' . ($this->options['url']) . '" data-term="' . $term . '" src', $tag );
+                    return str_replace( ' src', ' id="'. $handle .'" data-url="' . ($this->options['url']) . '" data-term="' . $term . '" data-token="' . $token . '" src', $tag );
                 }, 10, 2 );
                 wp_enqueue_script($this->tag.'-index');
             }
