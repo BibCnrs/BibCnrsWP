@@ -50,6 +50,9 @@ _load_fixtures:
 connect-mysql:
 	docker exec -it bibcnrs_db_1 mysql --password wordpress
 
+load-config:
+	docker cp config/wp-config.php bibcnrs_wordpress_1:/var/www/html/wp-config.php
+
 run-dev:
 	COMPOSE_FILE=development.yml docker-compose up
 
