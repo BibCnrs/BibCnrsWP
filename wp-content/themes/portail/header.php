@@ -1,42 +1,47 @@
 <?php
-force_login();
 session_start();
-if ($_POST["username"]){
-	$_SESSION["domaine"]=$_POST["username"];
+$category=get_the_category();
+$domaine=$category[0]->category_nicename;
+if ($domaine == 'une' OR $domaine == 'formations' OR $domaine == 'infosist'){
+    $titre=$category[0]->name;
+    $domaine = "visite";
 }
+else {
+force_login();
+}
+if (is_user_logged_in()){
+    $_SESSION["domaine"]='biologie';
+}
+
+$category = get_category_by_slug($_SESSION['domaine']);
 if ($_SESSION['domaine']){
-	$domaine=$_SESSION['domaine'];
-	if (is_single()OR is_category()) {
-		$categ=get_the_category();
-		$categ_nicename=$categ[0]->category_nicename;
-		if ($categ_nicename != $_SESSION['domaine']){
-			$visite="OK";
-		}
-	}
-	query_posts("cat=-1,");
-	while ( have_posts() ) {
-		the_post();
-		$category = get_the_category();
-		$cat_nicename=$category[0]->category_nicename;
-		if ($cat_nicename === $_SESSION['domaine']){
-			$institut= $category[0]->category_description;
-			$catname=$category[0]->name;
-		}
-	}
-	wp_reset_query();
+    $domaine=$_SESSION['domaine'];
+    if (is_single()OR is_category() OR is_page('search')) {
+        $currentCategory = get_the_category()[0]->category_nicename;
+        if ($currentCategory != $_SESSION['domaine']){
+            $visite = true;
+        }
+    }
+    $institut= $category->category_description;
+    $catname=$category->name;
+    // wp_reset_query();
 }
 elseif (is_single()OR is_category()) {
 // ne fonctionne que si chaque categorie a un post
-	$visite="non";
-	$category = get_the_category();
-	$domaine=$category[0]->category_nicename;
-	$institut= $category[0]->category_description;
-	$catname=$category[0]->name;
+    $visite = false;
+    $category = get_the_category();
+    $domaine=$category[0]->category_nicename;
+    $institut= $category[0]->category_description;
+    $catname=$category[0]->name;
+    if ($domaine == 'une' OR $domaine == 'formations' OR $domaine == 'infosist'){
+        $titre=$category[0]->name;
+        $domaine = "visite";
+    }
 }
 else {
-	$domaine="visite";
-	$visite="non";
-	}
+    $domaine="visite";
+    $visite = false;
+}
 ?>
 
 <!doctype html>
@@ -59,12 +64,12 @@ else {
 
 <link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/style.css" type="text/css">
 <!--[if IE]>
-	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
 <![endif]-->
 
 <!--[if IE 9]>
-	<script src="<?php bloginfo('template_url'); ?>/js/html5-ie.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/ie-9.css"/>
+    <script src="<?php bloginfo('template_url'); ?>/js/html5-ie.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/ie-9.css"/>
 <![endif]-->
 
 <!-- google font -->
@@ -82,64 +87,71 @@ else {
 <body class="<?php echo $domaine ?>"
 <!-- begin container -->
 <div class="container" >
-	<!-- begin header -->
-	<header id="header" class="bsbb">
-	<div class="clear"></div>
-	<!-- accessibilite
-	<div id="access">
+    <!-- begin header -->
+    <header id="header" class="bsbb">
+    <div class="clear"></div>
+    <!-- accessibilite
+    <div id="access">
                <ul id="accessibility">
                     <li class="accessli"><a href="#haut"><?php _e( 'Aller au menu', 'portail')?> </a></li>
                     <li class="accessli"><a href="#content"><?php _e( 'Aller au contenu', 'portail')?> </a></li>
                     <?php if(function_exists('wptextsizerincutil')) { wptextsizerincutil(); } ?>
                 </ul>
-	</div> -->
+    </div> -->
 
-	<!-- acces hierarchique -->
-	<div id="hierarchie">
-		<ul id="cnrs">
-			<li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
-			<li class=cnrsli">&nbsp;|&nbsp;</li>
-			<li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-			<li class=cnrsli">&nbsp;|&nbsp;</li>
-			<li class ="cnrsli"><a href="http://www.cnrs.fr/
-			<?php echo $insitut; ?>
-			" target="_blank">
-			<?php echo strtoupper($institut);?>
-			</a></li
-		</ul>
-	</div>
-	<div class="logo">
-		<a href="<?php bloginfo('url'); ?>" title="accueil">
-			<img src="<?php bloginfo('template_url'); ?>/images/logocnrs.png" alt="CNRS d�passer les fronti�res" class="bsbb">
-		</a>
-		<h1 class="font-<?php echo $domaine; ?>">
-			<?php
-			if ($_SESSION['domaine']){
-			?>
-				Domaine <?php echo $catname; ?>
-			<?php }
-			else {
-			?>
-				Visite du domaine <?php echo $catname; ?>
-			<?php
-			}
-			?>
-		</h1>
-		<?php if ($_SESSION['domaine']) {
-			if ($visite==="OK") { ?>
-		<div id="soustitre">
-				<?php echo "(en visite dans ";
-				$category = get_the_category();
-				echo $category[0]->cat_name;
-				echo ")"; ?>
-		</div>
+    <!-- acces hierarchique -->
+    <div id="hierarchie">
+        <ul id="cnrs">
+            <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+            <li class=cnrsli">&nbsp;|&nbsp;</li>
+            <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
+            <li class=cnrsli">&nbsp;|&nbsp;</li>
+            <li class ="cnrsli"><a href="http://www.cnrs.fr/
+            <?php echo $insitut; ?>
+            " target="_blank">
+            <?php echo strtoupper($institut);?>
+            </a></li
+        </ul>
+    </div>
+    <div class="logo">
+        <a href="<?php bloginfo('url'); ?>" title="accueil">
+            <img src="<?php bloginfo('template_url'); ?>/images/logocnrs.png" alt="CNRS d�passer les fronti�res" class="bsbb">
+        </a>
+        <h1 class="font-<?php echo $domaine; ?>">
+            <?php
+            if ($_SESSION['domaine']){
+            ?>
+                Domaine <?php echo $catname; ?>
+            <?php }
+            else {
+                $category=get_the_category();
+                $domaine=$category[0]->category_nicename;
+                if ($domaine == 'une' OR $domaine == 'formations' OR $domaine == 'infosist'){
+                    $titre=$category[0]->name;
+                    echo $titre;
+                }
+                else {
+            ?>
+                Visite du domaine <?php echo $catname; ?>
+            <?php
+        } }
+            ?>
+        </h1>
+        <?php if ($_SESSION['domaine']) {
+            if ($visite) { ?>
+        <div id="soustitre">
+                <?php echo "(en visite dans ";
+                $category = get_the_category();
+                echo $category[0]->cat_name;
+                echo ")"; ?>
+        </div>
 
-			<div id="bouton" class="<?php echo $domaine; ?>">
-				<a href="/category/<?php echo $domaine; ?>">Retour &agrave;<br/> mon domaine</a>
-			</div>
-		<?php } } ?>
-	</div>
-	<div id="separateur"></div>
+            <div id="bouton" class="<?php echo $domaine; ?>">
+                <a href="/category/<?php echo $domaine; ?>">Retour &agrave;<br/> mon domaine</a>
+            </div>
+        <?php } } ?>
+    </div>
+    <div id="separateur"></div>
 
-	</header>
-	<!-- end header -->
+    </header>
+    <!-- end header -->
