@@ -28,7 +28,13 @@ get_template_part('header'); ?>
 <div id="center">
 
 	<div id="pagenorm">
-	<?php echo do_shortcode('[ebsco_widget]');?>
+	<?php
+	if ($category[0]->category_nicename != 'infosist' &&
+		$category[0]->category_nicename != 'formations' &&
+		$category[0]->category_nicename != 'une') {
+			echo do_shortcode('[ebsco_widget]');
+		}
+	?>
 
 	<h1 class="font-<?php echo $category[0]->category_nicename; ?>">Actualit&eacute;s <?php echo single_cat_title( '', false ); ?></dh1>
 

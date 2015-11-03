@@ -7,8 +7,8 @@
 		<img src="<?php bloginfo('template_url'); ?>/images/sommaire2.jpg" alt="bsn reseau" class="bsbb"/>
 		<img src="<?php bloginfo('template_url'); ?>/images/logocnrs2.png" alt="bsn reseau" class="bsbb logoaccueil"/>
 		<div id="recherchegenerale">
-			<form action="<?php bloginfo('url')?>/connexion/" id="recherchebase" method="post">
-				<label for "searchterm"><input type="text" id="searchterm" name="recherche" placeholder="d&eacute;passer les fronti&egrave;res">
+			<form action="<?php bloginfo('url')?>/category/biologie/" id="recherchebase" method="get">
+				<label for "searchterm"><input type="text" id="searchterm" name="term" placeholder="d&eacute;passer les fronti&egrave;res">
 					<input type="submit" value="Chercher"/>
 				</form>
 			</div>
