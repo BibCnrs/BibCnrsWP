@@ -1,7 +1,5 @@
 FROM ubuntu:14.04
 
-ENV http_proxy http://proxyout.inist.fr:8080
-
 RUN apt-get update && apt-get install -y \
     ruby-dev \
     make

@@ -54,10 +54,10 @@ load-config:
 	docker cp config/wp-config.php bibcnrs_wordpress_1:/var/www/html/wp-config.php
 
 run-dev:
-	COMPOSE_FILE=development.yml docker-compose up
+	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 
 run-prod:
-	COMPOSE_FILE=production.yml docker-compose up -d
+	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
 
 stop:
 	docker stop bibcnrs_wordpress_1

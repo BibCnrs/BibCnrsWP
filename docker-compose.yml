@@ -7,10 +7,12 @@ wordpress:
   image: wordpress:4.3.1-apache
   ports:
     - 8080:80
+  links:
+    - db:mysql
   environment:
-    http_proxy: http://proxyout.inist.fr:8080
-    https_proxy: http://proxyout.inist.fr:8080
-    WORDPRESS_DB_PASSWORD: example
+    http_proxy: ${http_proxy}
+    https_proxy: ${https_proxy}
+    WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
   working_dir: /var/www/html
   volumes:
     - ./wp-content/plugins:/var/www/html/wp-content/plugins
@@ -20,14 +22,16 @@ wordpress:
 db:
   image: mariadb:10.0
   environment:
-    MYSQL_ROOT_PASSWORD: example
+    MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     PORT: 3305
     TERM: dumb
+  volumes_from:
+    - data
 
 composer:
   image: composer/composer:1.0.0-alpha10
   environment:
-    http_proxy: http://proxyout.inist.fr:8080
+    http_proxy: ${http_proxy}
   volumes:
     - $PWD:/app
 
