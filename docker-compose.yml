@@ -40,3 +40,10 @@ compass:
   volumes:
     - $PWD:/src
   command: compile
+
+wpcli:
+  build: ./wpcli
+  links:
+    - db:mysql
+  volumes_from:
+    - wordpress

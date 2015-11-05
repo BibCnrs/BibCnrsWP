@@ -71,3 +71,6 @@ compass:
 
 composer:
 	docker-compose run composer $(COMMAND_ARGS)
+
+wp-cli-replace:
+	docker-compose run wpcli wp-cli.phar --allow-root --path=/var/www/html search-replace 'localhost:8081' 'localhost:8080'
