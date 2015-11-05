@@ -42,7 +42,7 @@ compass:
   command: compile
 
 wpcli:
-  build: ./wpcli
+  build: ./appstack-wpcli
   links:
     - db:mysql
   volumes_from:
