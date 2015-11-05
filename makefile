@@ -1,7 +1,7 @@
 .PHONY: save-db restore-db load-fixtures connect-mysql run-dev run-prod build-css composer compass
 
 # If the first argument is one of the supported commands...
-SUPPORTED_COMMANDS := restore-db _restore_db save-db _save_db composer compass
+SUPPORTED_COMMANDS := restore-db _restore_db save-db _save_db composer compass wp-cli-replace
 SUPPORTS_MAKE_ARGS := $(findstring $(firstword $(MAKECMDGOALS)), $(SUPPORTED_COMMANDS))
 ifneq "$(SUPPORTS_MAKE_ARGS)" ""
     # use the rest as arguments for the command
@@ -73,4 +73,4 @@ composer:
 	docker-compose run composer $(COMMAND_ARGS)
 
 wp-cli-replace:
-	docker-compose run wpcli wp-cli.phar --allow-root --path=/var/www/html search-replace 'localhost:8081' 'localhost:8080'
+	docker-compose run wpcli wp-cli.phar --allow-root --path=/var/www/html search-replace $(COMMAND_ARGS)
