@@ -82,7 +82,7 @@ define('WP_DEBUG', false);
 // If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
 // see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-	$_SERVER['HTTPS'] = 'on';
+    $_SERVER['HTTPS'] = $_SERVER['HTTP_X_FORWARDED_PROTO'];
 }
 
 // this code make reverse proxy transparent for wordpress
@@ -96,11 +96,6 @@ if (isset($_SERVER['HTTP_HOST'])) {
 
 if (isset($_SERVER['SERVER_ADDR'])) {
     $_SERVER['SERVER_ADDR'] = isset($_SERVER['HTTP_X_FORWARDED_SERVER']) ? $_SERVER['HTTP_X_FORWARDED_SERVER'] : $_SERVER['SERVER_ADDR'];
-}
-
-if (isset($_SERVER['SERVER_PORT'])) {
-    $_SERVER['SERVER_PORT'] = 80;
-    unset($_SERVER['HTTPS']);
 }
 
 /* That's all, stop editing! Happy blogging. */
