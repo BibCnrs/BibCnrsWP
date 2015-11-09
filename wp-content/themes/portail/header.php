@@ -55,6 +55,7 @@ else {
 <meta charset="utf-8"/>
 <meta name="description" content="site des portails CNRS">
 <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="robots" content="noindex, nofollow">
 <!-- end meta -->
 
 <!-- Mobile Specific Metas

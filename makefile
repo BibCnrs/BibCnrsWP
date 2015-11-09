@@ -52,6 +52,7 @@ connect-mysql:
 
 load-config:
 	docker cp config/wp-config.php bibcnrs_wordpress_1:/var/www/html/wp-config.php
+	docker cp config/robots.txt bibcnrs_wordpress_1:/var/www/html/robots.txt
 
 run-dev:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
