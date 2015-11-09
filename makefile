@@ -7,7 +7,6 @@ ifneq "$(SUPPORTS_MAKE_ARGS)" ""
     # use the rest as arguments for the command
     COMMAND_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
     # ...and turn them into do-nothing targets
-    $(eval $(COMMAND_ARGS):;@:)
 endif
 
 # If the command need the db password
