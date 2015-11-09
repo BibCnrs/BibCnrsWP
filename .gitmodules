@@ -1,0 +1,3 @@
+[submodule "appstack-wpcli"]
+	path = appstack-wpcli
+	url = https://github.com/DockerDemos/appstack-wpcli.git

@@ -4,11 +4,8 @@
 You need to have docker and docker-compose installed.
 
 You need to run `docker-compose build` to build the image.
-
-If you do not have the INIST proxy you additionally need to remove the
-`ENV http_proxy=proxyout.inist.fr:8080` in the Dockerfiles.
-Replace ${DB_PASSWORD} in development.yml and production.yml file with you wanted db password
-(Once docker-compose 1.5 is released, this will use DB_PASSWORD environment variable instead)
+You can set proxy with --build-args http_proxy=proxy.url
+You must set the DB_PASSWORD environment variable to configure the wordpress database password
 
 Run `make composer install` to install wordpress plugins defined in composer.json.
 
