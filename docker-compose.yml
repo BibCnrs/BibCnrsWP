@@ -4,9 +4,9 @@ data:
     - /var/lib/mysql
 
 wordpress:
-  image: wordpress:4.3.1-apache
+  build: ./wordpress
   ports:
-    - 8080:80
+    - 8080:8080
   links:
     - db:mysql
   environment:
