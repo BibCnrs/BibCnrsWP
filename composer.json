@@ -1,6 +1,5 @@
 {
     "repositories": [
-
         {
             "type": "package",
             "package": {
@@ -15,13 +14,28 @@
                     "composer/installers": "v1.0.7"
                 }
             }
+        }, {
+            "type": "package",
+            "package": {
+                "name": "wordpress-https",
+                "type": "wordpress-plugin",
+                "version": "3.3.6",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/wordpress-https.3.3.6.zip"
+                },
+                "require": {
+                    "composer/installers": "v1.0.7"
+                }
+            }
         }
     ],
     "require-dev": {
     },
     "require": {
         "wp-block-admin": "0.2.3",
-        "firebase/php-jwt": "3.0.0"
+        "firebase/php-jwt": "3.0.0",
+        "wordpress-https": "3.3.6"
     },
     "extra": {
         "installer-paths": {
