@@ -7,7 +7,6 @@ ifneq "$(SUPPORTS_MAKE_ARGS)" ""
     # use the rest as arguments for the command
     COMMAND_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
     # ...and turn them into do-nothing targets
-    $(eval $(COMMAND_ARGS):;@:)
 endif
 
 # If the command need the db password
@@ -58,7 +57,7 @@ run-dev:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 
 run-prod:
-	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
+	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 stop:
 	docker stop bibcnrs_wordpress_1

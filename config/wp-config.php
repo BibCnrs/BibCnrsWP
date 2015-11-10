@@ -26,7 +26,7 @@ define('DB_NAME', 'wordpress');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'example');
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
 
 /** MySQL hostname */
 define('DB_HOST', 'mysql');
@@ -81,8 +81,8 @@ define('WP_DEBUG', false);
 
 // If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
 // see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-	$_SERVER['HTTPS'] = 'on';
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $_SERVER['HTTPS'] = 'on';
 }
 
 // this code make reverse proxy transparent for wordpress
@@ -96,11 +96,6 @@ if (isset($_SERVER['HTTP_HOST'])) {
 
 if (isset($_SERVER['SERVER_ADDR'])) {
     $_SERVER['SERVER_ADDR'] = isset($_SERVER['HTTP_X_FORWARDED_SERVER']) ? $_SERVER['HTTP_X_FORWARDED_SERVER'] : $_SERVER['SERVER_ADDR'];
-}
-
-if (isset($_SERVER['SERVER_PORT'])) {
-    $_SERVER['SERVER_PORT'] = 80;
-    unset($_SERVER['HTTPS']);
 }
 
 /* That's all, stop editing! Happy blogging. */

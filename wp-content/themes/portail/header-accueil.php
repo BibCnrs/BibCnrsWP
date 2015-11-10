@@ -29,7 +29,6 @@
 
 <!-- google font -->
 <script src="<?php bloginfo('template_url'); ?>/js/skip.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
 
 <!-- wp_head -->
