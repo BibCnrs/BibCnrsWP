@@ -58,7 +58,7 @@ build:
 	docker build --build-arg http_proxy --build-arg https_proxy ./data/
 	docker build --build-arg http_proxy --build-arg https_proxy ./appstack-wpcli/
 
-run-dev: build
+run-dev:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 
 run-prod:
