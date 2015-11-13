@@ -52,8 +52,13 @@ connect-mysql:
 load-config:
 	docker cp config/wp-config.php bibcnrs_wordpress_1:/var/www/html/wp-config.php
 	docker cp config/robots.txt bibcnrs_wordpress_1:/var/www/html/robots.txt
+build:
+	docker build --build-arg http_proxy --build-arg https_proxy ./compass/
+	docker build --build-arg http_proxy --build-arg https_proxy ./wordpress/
+	docker build --build-arg http_proxy --build-arg https_proxy ./data/
+	docker build --build-arg http_proxy --build-arg https_proxy ./appstack-wpcli/
 
-run-dev:
+run-dev: build
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 
 run-prod:
