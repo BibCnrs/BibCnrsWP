@@ -17,7 +17,7 @@ wordpress:
   volumes:
     - ./wp-content/plugins:/var/www/html/wp-content/plugins
     - ./wp-content/themes:/var/www/html/wp-content/themes
-    - ./vendor:/var/www/html/vendor
+    - ./wp-content/vendor:/var/www/html/wp-content/vendor
 
 db:
   image: mariadb:10.0

@@ -1,4 +1,7 @@
 {
+    "config": {
+        "vendor-dir": "wp-content/vendor"
+    },
     "minimum-stability": "dev",
     "repositories": [
         {
@@ -21,7 +24,8 @@
     },
     "require": {
         "wp-block-admin": "0.2.3",
-        "bibcnrs/wp-ebsco-widget": "dev-master"
+        "bibcnrs/wp-ebsco-widget": "dev-master",
+        "jarednova/timber": "0.22.1"
     },
     "extra": {
         "installer-paths": {
