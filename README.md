@@ -11,7 +11,7 @@ Run `make composer install` to install wordpress plugins defined in composer.jso
 
 ### in development
 Simply do `make run-dev`
-This will launch wordpress, maraidb and compass (that will build the css and the watch for change).
+This will launch wordpress, mariadb and compass (that will build the css and the watch for change).
 Then you need to visit localhost:8080 to setup wordpress, simply follow the instruction.
 Once the installation is successful.
 Run `make load-fixtures` to load the themes data in wordpress db.
@@ -19,21 +19,19 @@ This command need the DB_PASSWORD env variable to be set with the password, othe
 Now you are all set.
 
 ### in production
-setup the port and password in production.yml
 make build-css
 make run-prod
-install wordpress by visiting configured address
+install wordpress by visiting production address
+
 then load the themes fixtures. (this will overwrite the site name and administrator email, feel free to change them back in admin)
 `make load-fixtures`
-You then need to change
-`make connect-mysql`
-And then excute the following sql query to change the host to the the correct url
-```sql
-UPDATE wp_options SET option_value = replace(option_value, "localhost:8080", "<newHost>") WHERE option_name = "home" OR option_name = "siteurl";
-UPDATE wp_posts SET guid = replace(guid, "localhost:8080", "<newHost>");
-UPDATE wp_posts SET post_content = replace(post_content, "localhost:8080", "<newHost>");
-UPDATE wp_posts SET post_content_filtered = replace(post_content_filtered, 'localhost:8080', '<newHost>');
+
+And then execute the following command to change the host to the correct url
 ```
+make wp-cli-replace http://localhost:8080 <new host>
+```
+To make the site function behind a reverse proxy you also need to run
+`make load-config`
 
 ## useful command
 

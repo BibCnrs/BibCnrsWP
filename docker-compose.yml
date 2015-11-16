@@ -32,6 +32,7 @@ composer:
   image: composer/composer:1.0.0-alpha10
   environment:
     http_proxy: ${http_proxy}
+    https_proxy: ${https_proxy}
   volumes:
     - $PWD:/app
 
@@ -42,7 +43,7 @@ compass:
   command: compile
 
 wpcli:
-  build: ./appstack-wpcli
+  image: bibcnrs/appstack-wpcli
   links:
     - db:mysql
   volumes_from:

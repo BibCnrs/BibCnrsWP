@@ -8,7 +8,7 @@
 		<img src="<?php bloginfo('template_url'); ?>/images/logocnrs2.png" alt="bsn reseau" class="bsbb logoaccueil"/>
 		<div id="recherchegenerale">
 			<form action="<?php bloginfo('url')?>/category/biologie/" id="recherchebase" method="get">
-				<label for "searchterm"><input type="text" id="searchterm" name="term" placeholder="d&eacute;passer les fronti&egrave;res">
+				<label for "searchterm"><input type="text" id="searchterm" name="search_term" placeholder="d&eacute;passer les fronti&egrave;res">
 					<input type="submit" value="Chercher"/>
 				</form>
 			</div>

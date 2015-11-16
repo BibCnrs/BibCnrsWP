@@ -1,6 +1,6 @@
 {
+    "minimum-stability": "dev",
     "repositories": [
-
         {
             "type": "package",
             "package": {
@@ -21,7 +21,7 @@
     },
     "require": {
         "wp-block-admin": "0.2.3",
-        "firebase/php-jwt": "3.0.0"
+        "bibcnrs/wp-ebsco-widget": "dev-master"
     },
     "extra": {
         "installer-paths": {
