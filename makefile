@@ -57,7 +57,7 @@ run-dev:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 
 run-prod:
-	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+	docker-compose up -d
 
 stop:
 	docker stop bibcnrs_wordpress_1

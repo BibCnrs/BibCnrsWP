@@ -1,10 +1,10 @@
 data:
-  build: ./data
+  image: bibcnrs/data
   volumes:
     - /var/lib/mysql
 
 wordpress:
-  build: ./wordpress
+  image: bibcnrs/wordpress
   ports:
     - 8080:8080
   links:
@@ -37,7 +37,7 @@ composer:
     - $PWD:/app
 
 compass:
-  build: ./compass
+  image: bibcnrs/compass
   volumes:
     - $PWD:/src
   command: compile
