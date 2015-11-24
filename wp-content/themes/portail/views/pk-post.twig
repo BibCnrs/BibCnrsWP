@@ -1,0 +1,7 @@
+{# pk-post.twig #}
+{% macro pkPost(post) %}
+    <div class="itemactus">
+        <a href="{{post.get_path}}" target=_blanck>{{post.post_title}}</a>
+        <div class="resume">{{post.post_content|excerpt(20)}}</div>
+    </div>
+{% endmacro %}

@@ -1,0 +1,79 @@
+{% extends 'page-layout.twig' %}
+{% block header %}
+    <header id="header" class="bsbb">
+        <div class="clear"></div>
+        <!-- accessibilite
+        <div id="access">
+            <ul id="accessibility">
+                <li class="accessli"><a href="#haut"><?php _e( 'Aller au menu', 'portail')?> </a></li>
+                <li class="accessli"><a href="#content"><?php _e( 'Aller au contenu', 'portail')?> </a></li>
+                <?php if(function_exists('wptextsizerincutil')) { wptextsizerincutil(); } ?>
+            </ul>
+        </div> -->
+
+        <!-- acces hierarchique -->
+        <div id="hierarchie">
+            <ul id="cnrs">
+                <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+                <li class="cnrsli">&nbsp;|&nbsp;</li>
+                <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
+                {% if prefix != 'visite' %}
+                    <li class="cnrsli">&nbsp;|&nbsp;</li>
+                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{institute}}" target="_blank">{{institute|upper}}</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+        <div class="logo">
+            <a href="{{url}}" title="accueil">
+                <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
+            </a>
+            <h1 class="font-{{prefix}}">
+                {{title}}
+            </h1>
+            {% if visit %}
+                <div id="soustitre">
+                    en visite dans {{subtitle}}
+                </div>
+            {% endif %}
+            <div id="bouton" class="{{prefix}}">
+                <a href="/category/{{institute}}">Retour &agrave;<br/> mon domaine</a>
+            </div>
+        </div>
+        <div id="separateur"></div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content" class="bsbb">
+        {% block breadcrumb %}
+            {{parent()}} >> {{subtitle}}
+        {% endblock %}
+        <br class="clear"/>
+        <div id="center">
+            <div id="pagenorm">
+                ebsco-widget
+                <h1 class="font-{{subprefix}}">Actualit&eacute;s "{{subtitle}}"</h1>
+                <ul>
+                    {% for post in posts %}
+                        <li><span>{{post.display_date}} - </span> <span><a href="{{url}}/{{post.slug}}">{{post.title}}</a></span></li>
+                    {% endfor %}
+                </ul>
+            </div>	<!-- fin pagenorm -->
+    	       <!-- siderbar-right -->
+               <sidebar>
+                   {% block sidebar %}
+                   <div class="box-container">
+                       <h2>{{title}}</h2>
+                       {% for post in postsdomain %}
+                           <p><a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
+                       {% endfor %}
+                   </div>
+                   <div class="box-container">
+
+                   </div>
+                   {% endblock %}
+               </sidebar>
+               <!-- fin sidebar-->
+           </div><!--/center-->
+       </div><!--/#content-->
+{% endblock %}
