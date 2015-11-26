@@ -439,7 +439,7 @@ nav select {
 			top: 10%;
 			left: 2%;
 		}
-	}nicename
+	}
 	.principalbas {
 		display: none;
 	}
@@ -496,6 +496,7 @@ input:-moz-placeholder {
 #content {
 	background: #ffffff;
 	padding: 10px 10px 10px 10px;
+    min-height: 300px;
 }
 
 #center {
