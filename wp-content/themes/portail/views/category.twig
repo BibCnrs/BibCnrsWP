@@ -36,9 +36,11 @@
                     en visite dans {{subtitle}}
                 </div>
             {% endif %}
+            {% if visit %}
             <div id="bouton" class="{{prefix}}">
-                <a href="/category/{{institute}}">Retour &agrave;<br/> mon domaine</a>
+                <a href="/category/{{prefix}}">Retour &agrave;<br/> mon domaine</a>
             </div>
+            {% endif %}
         </div>
         <div id="separateur"></div>
     </header>
@@ -46,12 +48,14 @@
 {% block content %}
     <div id="content" class="bsbb">
         {% block breadcrumb %}
-            {{parent()}} >> {{subtitle}}
+            {{parent()}} >> <a href="{{url}}/category/{{subprefix}}">{{subtitle}}</a>
         {% endblock %}
         <br class="clear"/>
         <div id="center">
             <div id="pagenorm">
-                ebsco-widget
+                    <div style="position:relative; width:inherit; height:inherit;">
+                        {{ '[ebsco_widget]'|shortcodes }}
+                    </div>
                 <h1 class="font-{{subprefix}}">Actualit&eacute;s "{{subtitle}}"</h1>
                 <ul>
                     {% for post in posts %}
@@ -59,21 +63,17 @@
                     {% endfor %}
                 </ul>
             </div>	<!-- fin pagenorm -->
-    	       <!-- siderbar-right -->
-               <sidebar>
-                   {% block sidebar %}
-                   <div class="box-container">
-                       <h2>{{title}}</h2>
-                       {% for post in postsdomain %}
-                           <p><a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
-                       {% endfor %}
-                   </div>
-                   <div class="box-container">
-
-                   </div>
-                   {% endblock %}
-               </sidebar>
-               <!-- fin sidebar-->
+	       <!-- sidebar-right -->
+           <sidebar>
+               {% block sidebar %}
+                {% if visit %}
+                    {% include 'sidebar-right-visit.twig' %}
+                {% else %}
+                    {% include 'sidebar-right.twig' %}
+                {% endif %}
+               {% endblock %}
+           </sidebar>
+           <!-- fin sidebar-->
            </div><!--/center-->
        </div><!--/#content-->
 {% endblock %}

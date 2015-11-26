@@ -33,27 +33,42 @@ add_action( 'wp_enqueue_scripts', 'bsn_scripts_method' );
 
 /*********************************************************************************************
 
-Definition des Widgets
+Ajout au contexte Definition des Menus
 
 *********************************************************************************************/
-register_sidebar(array( 'name'=>'widget-f1', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget1>', 'after_title' => '</h2>', ));
-register_sidebar(array( 'name'=>'widget-f2', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget2>', 'after_title' => '</h2>', ));
-register_sidebar(array( 'name'=>'widget-f3', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget3>', 'after_title' => '</h2>', ));
-register_sidebar(array( 'name'=>'widget-f4', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget4>', 'after_title' => '</h2>', ));
-register_sidebar(array( 'name'=>'widget-f5', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget5>', 'after_title' => '</h2>', ));
-register_sidebar(array( 'name'=>'widget-f6', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget6>', 'after_title' => '</h2>', ));
-register_sidebar(array( 'name'=>'widget-f7', 'before_widget' => '<div class=widget-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget7>', 'after_title' => '</h2>', ));
-
-
-/********************************************************************************************
-
-Definition des menus
-
-********************************************************************************************/
 register_nav_menus( array(
 	'principal' => __( 'Principal'),
 	'secondaire' => __( 'Secondaire'),
 ) );
+
+add_filter('timber_context', 'add_to_context');
+function add_to_context($data){
+    /* So here you are adding data to Timber's context object, i.e...
+    $data['foo'] = 'I am some other typical value set in your functions.php file, unrelated to the menu';
+	*/
+    /* add a Timber menu and send it along to the context. */
+	$data['principal'] = new TimberMenu('principal');
+	$data['secondaire'] = new TimberMenu('secondaire');
+	return $data;
+}
+
+/* $data['principal_fr'] = wp_nav_menu( array('depth' => 1,  'menu'=>'principal-fr',  'walker'=> new Custom_Walker_Nav_Menu()));
+*/
+
+/*********************************************************************************************
+
+Definition des Widgets
+
+*********************************************************************************************/
+
+register_sidebar(array( 'name'=>'widget-f1', 'id' => 'sidebar-1', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget1>', 'after_title' => '</h2>', ));
+register_sidebar(array( 'name'=>'widget-f2', 'id' => 'sidebar-2', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget2>', 'after_title' => '</h2>', ));
+register_sidebar(array( 'name'=>'widget-f3', 'id' => 'sidebar-3', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget3>', 'after_title' => '</h2>', ));
+register_sidebar(array( 'name'=>'widget-f4', 'id' => 'sidebar-4', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget4>', 'after_title' => '</h2>', ));
+register_sidebar(array( 'name'=>'widget-f5', 'id' => 'sidebar-5', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget5>', 'after_title' => '</h2>', ));
+register_sidebar(array( 'name'=>'widget-f6', 'id' => 'sidebar-6', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget6>', 'after_title' => '</h2>', ));
+register_sidebar(array( 'name'=>'widget-f7', 'id' => 'sidebar-7', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget7>', 'after_title' => '</h2>', ));
+
 
 /*********************************************************************************************
 
@@ -208,7 +223,7 @@ function array_random($arr, $num = 1) {
 walkerr menu
 
 *********************************************************************************************/
-
+/*
 class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
 
   function start_lvl(&$output, $depth) {
@@ -219,7 +234,7 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
       $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
   }
 
-  function start_el ( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+  function start_el ( &$output, $item, $depth = 0, $args = array (), $id = 0 ) {
     // Most of this code is copied from original Walker_Nav_Menu
     global $wp_query, $wpdb;
     $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -259,11 +274,11 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
     $item_output .= '</a>';
     $item_output .= $args->after;
 
-    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id );
   }
 
 }
-
+*/
 
 /*********************************************************************************************
 
