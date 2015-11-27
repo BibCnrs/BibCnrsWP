@@ -2,7 +2,7 @@ backups
 .sass-cache
 wp-content/index.php
 wp-content/themes
-!wp-content/themes/portail
+!wp-content/themes/portail/
 wp-content/themes/portail/style.css
 wp-content/plugins
 vendor
