@@ -15,13 +15,15 @@
             </div>	<!-- fin pagenorm -->
             <!-- sidebar-right -->
             <sidebar>
-            {% block sidebar %}
-                {% if visit %}
-                    {% include 'sidebar-right-visit.twig' %}
-                {% else %}
-                    {% include 'sidebar-right.twig' %}
-                {% endif %}
-            {% endblock %}
+                {% block sidebar %}
+                 {% if subprefix == 'visite' %}
+                     {% include 'sidebar-right-visit.twig' %}
+                 {% elseif visit %}
+                     {% include 'sidebar-right-visit.twig' %}
+                 {% else %}
+                     {% include 'sidebar-right.twig' %}
+                 {% endif %}
+                {% endblock %}
             </sidebar>
             <!-- fin sidebar-->
         </div><!--/center-->

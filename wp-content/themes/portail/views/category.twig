@@ -31,12 +31,12 @@
             <h1 class="font-{{prefix}}">
                 {{title}}
             </h1>
-            {% if visit %}
+            {% if subprefix != 'visite' and visit %}
                 <div id="soustitre">
                     en visite dans {{subtitle}}
                 </div>
             {% endif %}
-            {% if visit %}
+            {% if subprefix != 'visite' and visit %}
             <div id="bouton" class="{{prefix}}">
                 <a href="/category/{{prefix}}">Retour &agrave;<br/> mon domaine</a>
             </div>
@@ -66,7 +66,9 @@
 	       <!-- sidebar-right -->
            <sidebar>
                {% block sidebar %}
-                {% if visit %}
+                {% if subprefix == 'visite' %}
+                    {% include 'sidebar-right-visit.twig' %}
+                {% elseif visit %}
                     {% include 'sidebar-right-visit.twig' %}
                 {% else %}
                     {% include 'sidebar-right.twig' %}

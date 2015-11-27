@@ -3,7 +3,6 @@
 Template Name: category
 */
 /*  connexion */
-session_start();
 $category=get_the_category();
 $title=$category[0]->name;
 $subtitle=$category[0]->name;
@@ -30,11 +29,14 @@ if (isset($_SESSION['domaine'])){
         $subtitle = $title;
         $title = $categOrigin->name;
         $subprefix = $nicename;
+        if ($nicename == 'une' OR $nicename == 'formations' OR $nicename == 'infosist'){
+            $subprefix = "visite";
+        }
     }
 }
 else {
     $domain = $nicename;
-    $visit = true;
+    $visit = false;
     if ($nicename == 'une' OR $nicename == 'formations' OR $nicename == 'infosist'){
         $prefix = "visite";
         $subprefix = "visite";

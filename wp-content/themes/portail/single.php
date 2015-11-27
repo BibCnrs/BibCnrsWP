@@ -7,7 +7,7 @@ $category=get_the_category();
 $title=$category[0]->name;
 $subtitle=$category[0]->name;
 $nicename= $category[0]->category_nicename;
-$slugs = array('une', 'formations', 'infosist');
+$home = array('une', 'formations', 'infosist');
 if ($nicename == 'une' OR $nicename == 'formations' OR $nicename == 'infosist'){
     $prefix = "visite";
 }
@@ -29,6 +29,9 @@ if (isset($_SESSION['domaine'])){
         $subtitle = $title;
         $title = $categOrigin->name;
         $subprefix = $nicename;
+        if ($nicename == 'une' OR $nicename == 'formations' OR $nicename == 'infosist'){
+            $subprefix = "visite";
+        }
     }
 }
 else {
