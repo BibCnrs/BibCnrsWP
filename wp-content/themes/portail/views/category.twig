@@ -42,9 +42,11 @@
         <br class="clear"/>
         <div id="center">
             <div id="pagenorm">
+                {% if subprefix != 'visite' and visit %}
                     <div style="position:relative; width:inherit; height:inherit;">
                         {{ '[ebsco_widget]'|shortcodes }}
                     </div>
+                {% endif %}
                 <h1 class="font-{{subprefix}}">Actualit&eacute;s "{{subtitle}}"</h1>
                 <ul>
                     {% for post in posts %}
