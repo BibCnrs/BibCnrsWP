@@ -1,0 +1,16 @@
+{# homenews.twig #}
+{% macro macro(title, slug, posts) %}
+    <div class="boite">
+        <div id="titrerubactus">
+            <h2 id="titreactus">{{title}}</h2>
+        </div>
+        {% for post in posts %}
+            <div class="itemactus">
+                <a href="{{post.get_path}}" target=_blanck>{{post.post_title}}</a>
+                <div class="resume">{{post.post_content|excerpt(20)}}</div>
+            </div>
+        {% endfor %}
+        <br class="clear"/>
+        <div id="archivesactus"><a href="/category/{{slug}}">Voir tout</a></div>
+    </div>
+{% endmacro %}

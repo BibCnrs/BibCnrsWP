@@ -1,47 +1,70 @@
 <?php
 /*
-Template Name: Archives chronologique
+Template Name: category
 */
+/*  Connexion */
+$category = get_the_category();
+$title = $category[0]->name;
+$subtitle = $category[0]->name;
+$nicename = $category[0]->category_nicename;
+/* Include CNRS domains definition ($cnrscat) and home category definition ($homenews) arrays*/
+include 'config/catconfig.php';
+if (in_array($nicename,$homenews)){
+    $prefix = 'visite';
+}
+else {
+force_login();
+}
+if (is_user_logged_in()){
+    $_SESSION['domaine'] = 'biologie';
+}
+if (isset($_SESSION['domaine'])){
+    $domain = $_SESSION['domaine'];
+    $categOrigin = get_category_by_slug($_SESSION['domaine']);
+    $institute = $categOrigin->category_description;
+    $prefix = $_SESSION['domaine'];
+    $subprefix = $_SESSION['domaine'];
+    $visit = false;
+    if ($nicename != $_SESSION['domaine']){
+        $visit = true;
+        $subtitle = $title;
+        $title = $categOrigin->name;
+        $subprefix = $nicename;
+        if (in_array($nicename,$homenews)){
+            $subprefix = 'visite';
+        }
+    }
+    /* Delete origin domain from domains array for searching all the posts */
+    while ( ($key = array_search($domain, $cnrscat)) !== false) {
+        unset($cnrscat[$key]);
+    }
+    foreach ($cnrscat as $value){
+        $cnrscatId[] = get_category_by_slug($value)->term_id;
+    }
+}
+else {
+    $domain = $nicename;
+    $visit = false;
+    if (in_array($nicename,$homenews)){
+        $prefix = 'visite';
+        $subprefix = 'visite';
+        $institute = '';
+    }
+    else {
+        $subprefix = $nicename;
+        $prefix = $nicename;
+        $institute = $category[0]->category_description;
+    }
+}
+/* Display */
+$context = Timber::get_context();
+$context['prefix'] = $prefix;
+$context['subprefix'] = $subprefix;
+$context['visit'] = $visit;
+$context['title'] = $title;
+$context['subtitle'] = $subtitle;
+$context['institute'] = $institute;
+$context['postsdomain'] =Timber::get_posts(['category_name' => $domain ]);
+$context['alltheposts'] = Timber::get_posts(array( 'category__in' => $cnrscatId, 'showposts' => '5'));
+Timber::render('category.twig', $context);
 ?>
-<?php
-$previous_year = $year = 0;
-$previous_month = $month = 0;
-$ul_open = false;
-$category=get_the_category();
-$cat_id= $category[0]->cat_ID;
-$args =array(
-	'category' => $cat_id,
-	'numberposts' => -1,
-	'orderby' => 'post_date',
-	'order' => 'DESC'
-	);
-$myposts = get_posts($args);
-
-
-get_template_part('header'); ?>
-
-<div id="content" class="bsbb">
-
-	<?php if (function_exists('seomix_content_breadcrumb')) seomix_content_breadcrumb();?>
-	<br class="clear">
-
-<div id="center">
-
-	<div id="pagenorm">
-	<?php
-	if ($category[0]->category_nicename != 'infosist' &&
-		$category[0]->category_nicename != 'formations' &&
-		$category[0]->category_nicename != 'une') {
-			echo do_shortcode('[ebsco_widget]');
-		}
-	?>
-
-	</div>	<!-- fin pagenorm -->
-	<!-- siderbar-right -->
-	<?php if (!$_SESSION['domaine']) {get_template_part('sidebar-right-visite'); }
-	else {get_template_part('sidebar-right'); }
-	?>
-	<!-- fin sidebar-->
-</div><!--/center-->
-</div><!--/#content-->
-<?php get_template_part('footer'); ?>

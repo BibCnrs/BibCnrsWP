@@ -1,0 +1,72 @@
+{% extends 'page-layout.twig' %}
+{% block header %}
+    <header id="header" class="bsbb">
+        <div class="clear"></div>
+        <!-- acces hierarchique -->
+        <div id="hierarchie">
+            <ul id="cnrs">
+                <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+                <li class="cnrsli">&nbsp;|&nbsp;</li>
+                <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
+                {% if prefix != 'visite' %}
+                    <li class="cnrsli">&nbsp;|&nbsp;</li>
+                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{institute}}" target="_blank">{{institute|upper}}</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+        <div class="logo">
+            <a href="{{site.url}}" title="accueil">
+                <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
+            </a>
+            <h1 class="font-{{prefix}}">
+                {{title}}
+            </h1>
+            {% if subprefix != 'visite' and visit %}
+                <div id="soustitre">
+                    en visite dans {{subtitle}}
+                </div>
+                <div id="bouton" class="{{prefix}}">
+                    <a href="/category/{{prefix}}">Retour &agrave;<br/> mon domaine</a>
+                </div>
+            {% endif %}
+        </div>
+        <div id="separateur"></div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content" class="bsbb">
+        {% block breadcrumb %}
+            {{parent()}} >> <a href="{{url}}/category/{{subprefix}}">{{subtitle}}</a>
+        {% endblock %}
+        <br class="clear"/>
+        <div id="center">
+            <div id="pagenorm">
+                {% if subprefix != 'visite' %}
+                    <div style="position:relative; width:inherit; height:inherit;">
+                        {{ '[ebsco_widget]'|shortcodes }}
+                    </div>
+                {% endif %}
+                <h1 class="font-{{subprefix}}">Actualit&eacute;s "{{subtitle}}"</h1>
+                <ul>
+                    {% for post in posts %}
+                        <li><span>{{post.display_date}} - </span> <span><a href="{{url}}/{{post.slug}}">{{post.title}}</a></span></li>
+                    {% endfor %}
+                </ul>
+            </div>	<!-- fin pagenorm -->
+	       <!-- sidebar-right -->
+           <sidebar>
+               {% block sidebar %}
+                {% if subprefix == 'visite' %}
+                    {% include 'sidebar-right-visit.twig' %}
+                {% elseif visit %}
+                    {% include 'sidebar-right-visit.twig' %}
+                {% else %}
+                    {% include 'sidebar-right.twig' %}
+                {% endif %}
+               {% endblock %}
+           </sidebar>
+           <!-- fin sidebar-->
+           </div><!--/center-->
+       </div><!--/#content-->
+{% endblock %}

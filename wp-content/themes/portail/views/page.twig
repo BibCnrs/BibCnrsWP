@@ -1,0 +1,39 @@
+{% extends 'page-layout.twig' %}
+{% block header %}
+<header id="header" class="bsbb">
+    <div class="clear"></div>
+    <!-- acces hierarchique -->
+    <div id="hierarchie">
+        <ul id="cnrs">
+            <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+            <li class="cnrsli">&nbsp;|&nbsp;</li>
+            <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
+        </ul>
+    </div>
+    <div class="logo">
+        <a href="{{url}}" title="accueil">
+            <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
+        </a>
+        <h1 class="font-{{prefix}}">
+            {% for post in posts %}
+            {{post.post_title}}
+            {% endfor %}
+        </h1>
+    </div>
+    <div id="separateur"></div>
+</header>
+{% endblock %}
+{% block content %}
+<div id="content" class="bsbb">
+    {% block breadcrumb %}
+    {{parent()}} >>
+    {% endblock %}
+    <div id="center">
+        <div id="pagenorm">
+            {% for post in posts %}
+            {{post.post_content}}
+            {% endfor %}
+        </div>
+    </div><!-- fin center -->
+</div><!--/contentaacueil-->
+{% endblock %}
