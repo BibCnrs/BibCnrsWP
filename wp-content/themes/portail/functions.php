@@ -62,14 +62,16 @@ Definition des Widgets
 
 *********************************************************************************************/
 
-register_sidebar(['name'=>'widget-f1', 'id' => 'sidebar-1', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget1>', 'after_title' => '</h2>', ]);
-register_sidebar(['name'=>'widget-f2', 'id' => 'sidebar-2', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget2>', 'after_title' => '</h2>', ]);
-register_sidebar(['name'=>'widget-f3', 'id' => 'sidebar-3', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget3>', 'after_title' => '</h2>', ]);
-register_sidebar(['name'=>'widget-f4', 'id' => 'sidebar-4', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget4>', 'after_title' => '</h2>', ]);
-register_sidebar(['name'=>'widget-f5', 'id' => 'sidebar-5', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget5>', 'after_title' => '</h2>', ]);
-register_sidebar(['name'=>'widget-f6', 'id' => 'sidebar-6', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget6>', 'after_title' => '</h2>', ]);
-register_sidebar(['name'=>'widget-f7', 'id' => 'sidebar-7', 'before_widget' => '<div class=box-container>', 'after_widget' => '</div>','before_title' => '<h2 class=widget7>', 'after_title' => '</h2>', ]);
-
+for ($i = 1; $i <= 7; $i++) {
+    register_sidebar([
+        'name'=>'widget-f'.$i,
+        'id' => 'sidebar-'.$i,
+        'before_widget' => '<div class=box-container>',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class=widget'.$i.'>',
+        'after_title' => '</h2>',
+    ]);
+}
 
 /*********************************************************************************************
 
