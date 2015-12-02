@@ -2,15 +2,14 @@
 {% block header %}
     <header id="header" class="bsbb">
         <div class="clear"></div>
-        <!-- acces hierarchique -->
         <div id="hierarchie">
             <ul id="cnrs">
                 <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
                 <li class="cnrsli">&nbsp;|&nbsp;</li>
                 <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-                {% if userDomain != 'visit' %}
+                {% if not visit %}
                     <li class="cnrsli">&nbsp;|&nbsp;</li>
-                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{institute}}" target="_blank">{{institute|upper}}</a></li>
+                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{userDomain.description}}" target="_blank">{{userDomain.description|upper}}</a></li>
                 {% endif %}
 
             </ul>
@@ -19,16 +18,22 @@
             <a href="{{site.url}}" title="accueil">
                 <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
             </a>
-            <h1 class="font-{{userDomain}}">
-                {{title}}
-            </h1>
-            {% if userDomain != 'visit' and visit %}
-                <div id="soustitre">
-                    en visite dans {{currentDomain}}
-                </div>
-                <div id="bouton" class="{{userDomain}}">
-                    <a href="/category/{{userDomain}}">Retour &agrave;<br/> mon domaine</a>
-                </div>
+            {% if userDomain %}
+                <h1 class="font-{{userDomain.slug}}">
+                    {{userDomain.name}}
+                </h1>
+                {% if visit  %}
+                    <div id="soustitre">
+                        en visite dans {{currentDomain.name}}
+                    </div>
+                    <div id="bouton" class="{{userDomain.slug}}">
+                        <a href="/category/{{userDomain.slug}}">Retour &agrave;<br/> mon domaine</a>
+                    </div>
+                {% endif %}
+            {% else %}
+                <h1 class="font-{{currentDomain.slug}}">
+                    {{currentDomain.name}}
+                </h1>
             {% endif %}
         </div>
         <div id="separateur"></div>
@@ -37,30 +42,30 @@
 {% block content %}
     <div id="content" class="bsbb">
         {% block breadcrumb %}
-            {{parent()}} >> <a href="{{url}}/category/{{userDomain}}">{{currentDomain}}</a>
+            {{parent()}} >> <a href="{{url}}/category/{{currentDomain.slug}}">{{currentDomain.name}}</a>
         {% endblock %}
         <br class="clear"/>
         <div id="center">
             <div id="pagenorm">
-                {% if userDomain != 'visit' %}
+                {% if userDomain %}
                     <div style="position:relative; width:inherit; height:inherit;">
                         {{ '[ebsco_widget]'|shortcodes }}
                     </div>
                 {% endif %}
-                <h1 class="font-{{currentDomain}}">Actualit&eacute;s "{{currentDomain}}"</h1>
+                <h1 class="font-{{currentDomain.slug}}">Actualit&eacute;s "{{currentDomain.name}}"</h1>
                 <ul>
                     {% for post in posts %}
                         <li><span>{{post.display_date}} - </span> <span><a href="{{url}}/{{post.slug}}">{{post.title}}</a></span></li>
                     {% endfor %}
                 </ul>
-            </div>	<!-- fin pagenorm -->
+            </div>
             {% block sidebar %}
-                {% if (userDomain == 'visit' or visit) %}
+                {% if (visit) %}
                     {% include 'sidebar-right-visit.twig' %}
                 {% else %}
                     {% include 'sidebar-right.twig' %}
                 {% endif %}
             {% endblock %}
-           </div><!--/center-->
-       </div><!--/#content-->
+        </div>
+       </div>
 {% endblock %}

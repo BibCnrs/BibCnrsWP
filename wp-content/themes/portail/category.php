@@ -9,17 +9,16 @@ $category = getCategory($config['category']['domains'], $config['category']['new
 
 /* Display */
 $context = Timber::get_context();
-$context['prefix'] = $category['prefix'];
-$context['subprefix'] = $category['subprefix'];
 $context['visit'] = $category['visit'];
-$context['title'] = $category['title'];
 $context['currentDomain'] = $category['currentDomain'];
-$context['institute'] = $category['institute'];
 $context['userDomain'] = $category['userDomain'];
 
-$context['postsdomain'] = Timber::get_posts(['category_name' => $category['userDomain'] ]);
+$context['postsdomain'] = Timber::get_posts(['category_name' => $category['currentDomain']->slug ]);
 foreach ($config['category']['domains'] as $value) {
-    $domainIds[] = get_category_by_slug($value)->term_id;
+    $cat = get_category_by_slug($value);
+    if ($cat->slug != $context['currentDomain']->slug) {
+        $domainIds[] = get_category_by_slug($value)->term_id;
+    }
 }
 
 $context['alltheposts'] = Timber::get_posts(array( 'category__in' => $domainIds, 'showposts' => '5'));

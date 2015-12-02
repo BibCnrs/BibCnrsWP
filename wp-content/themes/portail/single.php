@@ -15,7 +15,7 @@ $context['currentDomain'] = $category['currentDomain'];
 $context['institute'] = $category['institute'];
 $context['userDomain'] = $category['userDomain'];
 
-$context['postsdomain'] = Timber::get_posts(['category_name' => $category['userDomain'] ]);
+$context['postsdomain'] = Timber::get_posts(['category_name' => $category['userDomain']->name ]);
 $context['post'] = new TimberPost();
 
 foreach ($config['category']['domains'] as $value){
