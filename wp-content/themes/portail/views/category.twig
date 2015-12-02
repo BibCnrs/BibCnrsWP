@@ -8,7 +8,7 @@
                 <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
                 <li class="cnrsli">&nbsp;|&nbsp;</li>
                 <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-                {% if prefix != 'visite' %}
+                {% if userDomain != 'visit' %}
                     <li class="cnrsli">&nbsp;|&nbsp;</li>
                     <li class ="cnrsli"><a href="http://www.cnrs.fr/{{institute}}" target="_blank">{{institute|upper}}</a></li>
                 {% endif %}
@@ -19,15 +19,15 @@
             <a href="{{site.url}}" title="accueil">
                 <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
             </a>
-            <h1 class="font-{{prefix}}">
+            <h1 class="font-{{userDomain}}">
                 {{title}}
             </h1>
-            {% if subprefix != 'visite' and visit %}
+            {% if userDomain != 'visit' and visit %}
                 <div id="soustitre">
-                    en visite dans {{subtitle}}
+                    en visite dans {{currentDomain}}
                 </div>
-                <div id="bouton" class="{{prefix}}">
-                    <a href="/category/{{prefix}}">Retour &agrave;<br/> mon domaine</a>
+                <div id="bouton" class="{{userDomain}}">
+                    <a href="/category/{{userDomain}}">Retour &agrave;<br/> mon domaine</a>
                 </div>
             {% endif %}
         </div>
@@ -37,17 +37,17 @@
 {% block content %}
     <div id="content" class="bsbb">
         {% block breadcrumb %}
-            {{parent()}} >> <a href="{{url}}/category/{{subprefix}}">{{subtitle}}</a>
+            {{parent()}} >> <a href="{{url}}/category/{{userDomain}}">{{currentDomain}}</a>
         {% endblock %}
         <br class="clear"/>
         <div id="center">
             <div id="pagenorm">
-                {% if subprefix != 'visite' %}
+                {% if userDomain != 'visit' %}
                     <div style="position:relative; width:inherit; height:inherit;">
                         {{ '[ebsco_widget]'|shortcodes }}
                     </div>
                 {% endif %}
-                <h1 class="font-{{subprefix}}">Actualit&eacute;s "{{subtitle}}"</h1>
+                <h1 class="font-{{currentDomain}}">Actualit&eacute;s "{{currentDomain}}"</h1>
                 <ul>
                     {% for post in posts %}
                         <li><span>{{post.display_date}} - </span> <span><a href="{{url}}/{{post.slug}}">{{post.title}}</a></span></li>
@@ -55,7 +55,7 @@
                 </ul>
             </div>	<!-- fin pagenorm -->
             {% block sidebar %}
-                {% if (subprefix == 'visite' or visit) %}
+                {% if (userDomain == 'visit' or visit) %}
                     {% include 'sidebar-right-visit.twig' %}
                 {% else %}
                     {% include 'sidebar-right.twig' %}

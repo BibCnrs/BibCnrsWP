@@ -6,5 +6,5 @@
  *
  */
 $context = Timber::get_context();
-$context['prefix'] = "visite";
+$context['domain'] = "visite";
 Timber::render('page.twig', $context);

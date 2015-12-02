@@ -8,24 +8,22 @@
     <div id="center">
         <div id="pagenorm">
             <div id="titrerubnorm2">
-                <h1 class="font-{{subprefix}}">{{post.title}}</h1>
+                <h1 class="font-{{currentDomain}}">{{post.title}}</h1>
             </div>
-            <div id="retour"><a href="{{url}}/category/{{subprefix}}" class="font-{{subprefix}}">Voir toutes les actualit&eacute;s de {{subtitle}}</a></div>
+            <div id="retour">
+                <a href="{{url}}/category/{{currentDomain}}" class="font-{{currentDomain}}">
+                    Voir toutes les actualit&eacute;s de {{currentDomain}}
+                </a>
+            </div>
             {{post.content}}
-        </div>	<!-- fin pagenorm -->
-        <!-- sidebar-right -->
-        <sidebar>
-            {% block sidebar %}
-            {% if subprefix == 'visite' %}
-            {% include 'sidebar-right-visit.twig' %}
-            {% elseif visit %}
-            {% include 'sidebar-right-visit.twig' %}
+        </div>
+        {% block sidebar %}
+            {% if userDomain == 'visit' or visit %}
+                {% include 'sidebar-right-visit.twig' %}
             {% else %}
-            {% include 'sidebar-right.twig' %}
+                {% include 'sidebar-right.twig' %}
             {% endif %}
-            {% endblock %}
-        </sidebar>
-        <!-- fin sidebar-->
-    </div><!--/center-->
-</div><!--/#content-->
+        {% endblock %}
+    </div>
+</div>
 {% endblock %}
