@@ -69,4 +69,3 @@ $context['post'] = new TimberPost();
 $context['postsdomain'] =Timber::get_posts(['category_name' => $domain ]);
 $context['alltheposts'] = Timber::get_posts(array( 'category__in' => $cnrscatId, 'showposts' => '5'));
 Timber::render('single.twig', $context);
-?>

@@ -54,19 +54,13 @@
                     {% endfor %}
                 </ul>
             </div>	<!-- fin pagenorm -->
-	       <!-- sidebar-right -->
-           <sidebar>
-               {% block sidebar %}
-                {% if subprefix == 'visite' %}
-                    {% include 'sidebar-right-visit.twig' %}
-                {% elseif visit %}
+            {% block sidebar %}
+                {% if (subprefix == 'visite' or visit) %}
                     {% include 'sidebar-right-visit.twig' %}
                 {% else %}
                     {% include 'sidebar-right.twig' %}
                 {% endif %}
-               {% endblock %}
-           </sidebar>
-           <!-- fin sidebar-->
+            {% endblock %}
            </div><!--/center-->
        </div><!--/#content-->
 {% endblock %}

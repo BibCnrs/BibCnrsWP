@@ -13,7 +13,7 @@ if (in_array($nicename,$homenews)){
     $prefix = 'visite';
 }
 else {
-force_login();
+    force_login();
 }
 if (is_user_logged_in()){
     $_SESSION['domaine'] = 'biologie';
@@ -67,4 +67,3 @@ $context['institute'] = $institute;
 $context['postsdomain'] =Timber::get_posts(['category_name' => $domain ]);
 $context['alltheposts'] = Timber::get_posts(array( 'category__in' => $cnrscatId, 'showposts' => '5'));
 Timber::render('category.twig', $context);
-?>
