@@ -4,15 +4,18 @@
 force user to login before accessing the site
 
 ********************************************************************************************/
-function force_login() {
-    if (is_ssl()) {
-        add_filter('login_url', 'login_https', 10, 1);
-        function login_https($login_url) {
-            return str_replace('http:', 'https:', $login_url);
+function force_login($currentDomain, $domains) {
+
+    if (!is_user_logged_in() && $currentDomain && in_array($currentDomain->slug, $domains)){
+        if (is_ssl()) {
+            add_filter('login_url', 'login_https', 10, 1);
+            function login_https($login_url) {
+                return str_replace('http:', 'https:', $login_url);
+            }
         }
-    }
-    if (!is_user_logged_in() && !is_page('login')) {
-        auth_redirect();
+        if (!is_user_logged_in() && !is_page('login')) {
+            auth_redirect();
+        }
     }
 }
 

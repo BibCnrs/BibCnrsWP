@@ -4,18 +4,20 @@ Template Name: single
 */
 /*  Connexion */
 require 'config.php';
-require 'models/getCategory.php';
+require 'models/BibCnrsDomain.php';
 
-$category = getCategory($config['category']['domains'], $config['category']['news']);
+$domain = new BibCnrsDomain($config['category']['domains'], $config['category']['news']);
+force_login($domain->currentDomain, $config['category']['domains']);
+
 /* Display */
 $context = Timber::get_context();
-$context['visit'] = $category['visit'];
-$context['title'] = $category['title'];
-$context['currentDomain'] = $category['currentDomain'];
-$context['institute'] = $category['institute'];
-$context['userDomain'] = $category['userDomain'];
+$context['visit'] = $domain['visit'];
+$context['title'] = $domain['title'];
+$context['currentDomain'] = $domain['currentDomain'];
+$context['institute'] = $domain['institute'];
+$context['userDomain'] = $domain['userDomain'];
 
-$context['postsdomain'] = Timber::get_posts(['category_name' => $category['userDomain']->name ]);
+$context['postsdomain'] = Timber::get_posts(['category_name' => $domain['userDomain']->name ]);
 $context['post'] = new TimberPost();
 
 foreach ($config['category']['domains'] as $value){
