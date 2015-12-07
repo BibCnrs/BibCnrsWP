@@ -262,7 +262,13 @@ Accueil
     left: 25%;
     width: 23%;
 }
-
+.logobibcnrs {
+    z_index: 150;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 17%;
+}
 #contentaccueil {
     max-width: 100%;
     img {
