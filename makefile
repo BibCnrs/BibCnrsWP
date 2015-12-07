@@ -76,6 +76,6 @@ build-css:
 	docker-compose run compass compile
 
 composer-update:
-	docker-compose run composer update
+	docker-compose run composer update --prefer-dist
 
 install: build-css composer-update

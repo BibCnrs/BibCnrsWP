@@ -34,12 +34,12 @@ composer:
     http_proxy: ${http_proxy}
     https_proxy: ${https_proxy}
   volumes:
-    - $PWD:/app
+    - .:/app
 
 compass:
   image: bibcnrs/compass
   volumes:
-    - $PWD:/src
+    - .:/src
   command: compile
 
 wpcli:
