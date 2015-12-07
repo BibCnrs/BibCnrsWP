@@ -8,33 +8,44 @@ class BibCnrsCategoriesProviderTest extends PHPUnit_Framework_TestCase
 
     public function testgetCurrentCategory()
     {
-        function get_the_category() {
+        $getTheCategoryCall = 0;
+        $getTheCategory = function () use(&$getTheCategoryCall) {
+            $getTheCategoryCall++;
             return ['wantedCurrentCategory'];
-        }
-        $categoryProvider = new BibCnrsCategoriesProvider();
+        };
+        $categoryProvider = new BibCnrsCategoriesProvider($getTheCategory, null, null);
         $category = $categoryProvider->getCurrentCategory();
+        $this->assertEquals(1, $getTheCategoryCall);
         $this->assertEquals('wantedCurrentCategory', $category);
     }
 
     public function testgetUserCategory()
     {
-        function wp_get_current_user() {
+        $getCurrentUserCall = 0;
+        $getCurrentUser = function () use(&$getCurrentUserCall) {
+            $getCurrentUserCall++;
+
             return new Literal([
                 'get' => function ($fieldname) {
                     return 'userDomain';
                 }
             ]);
-        }
-        function get_category_by_slug($slug) {
+        };
+
+        $getCategoryBySlugCall = [];
+        $getCategoryBySlug = function ($slug) use(&$getCategoryBySlugCall) {
+            $getCategoryBySlugCall[] = $slug;
             if ($slug == 'userDomain') {
                 return 'wantedUserCategory';
             }
 
             return 'wrongDomain';
-        }
+        };
 
-        $categoryProvider = new BibCnrsCategoriesProvider();
+        $categoryProvider = new BibCnrsCategoriesProvider(null, $getCategoryBySlug, $getCurrentUser);
         $category = $categoryProvider->getUserCategory();
+        $this->assertEquals(1, $getCurrentUserCall);
+        $this->assertEquals(['userDomain'], $getCategoryBySlugCall);
         $this->assertEquals('wantedUserCategory', $category);
     }
 }

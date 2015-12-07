@@ -1,5 +1,4 @@
 <?php
-
 class Literal {
     public function __construct(array $arguments = array()) {
         if (!empty($arguments)) {

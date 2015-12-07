@@ -6,7 +6,7 @@ Template Name: single
 require 'config.php';
 
 require 'models/BibCnrsCategoriesProvider.php';
-$categoriesProvider = new BibCnrsCategoriesProvider();
+$categoriesProvider = new BibCnrsCategoriesProvider(get_the_category, get_category_by_slug, wp_get_current_user);
 $currentCategory = $categoriesProvider->getCurrentCategory();
 $userCategory = $categoriesProvider->getUserCategory();
 
