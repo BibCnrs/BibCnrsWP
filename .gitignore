@@ -7,3 +7,4 @@ wp-content/themes/portail/style.css
 wp-content/plugins
 vendor
 composer.lock
+.currentCommit

@@ -78,4 +78,7 @@ build-css:
 composer-update:
 	docker-compose run composer update --prefer-dist
 
-install: build-css composer-update
+bump:
+	git rev-parse HEAD > .currentCommit
+
+install: build-css composer-update bump
