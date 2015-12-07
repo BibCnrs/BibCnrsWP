@@ -63,9 +63,6 @@ stop:
 	docker stop bibcnrs_wordpress_1
 	docker stop bibcnrs_db_1
 
-build-css:
-	docker-compose run compass compile
-
 compass:
 	docker-compose run compass $(COMMAND_ARGS)
 
@@ -74,3 +71,11 @@ composer:
 
 wp-cli-replace:
 	docker-compose run wpcli wp-cli.phar --allow-root --path=/var/www/html search-replace $(COMMAND_ARGS)
+
+build-css:
+	docker-compose run compass compile
+
+composer-update:
+	docker-compose run composer update
+
+install: build-css composer-update
