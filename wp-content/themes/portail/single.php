@@ -5,24 +5,25 @@ Template Name: single
 /*  Connexion */
 require 'config.php';
 
-require 'models/BibCnrsCategory.php';
-$category = new BibCnrsCategory($config['category']['domains'], $config['category']['news']);
-force_login($category->currentCategory, $config['category']['domains']);
+require 'models/BibCnrsCategoriesProvider.php';
+$categoriesProvider = new BibCnrsCategoriesProvider();
+$currentCategory = $categoriesProvider->getCurrentCategory();
+$userCategory = $categoriesProvider->getUserCategory();
 
-require 'models/BibCnrsPosts.php';
-$posts = new BibCnrsPosts($config['category']['domains']);
+force_login($currentCategory, $config['category']['domains']);
+
+require 'models/BibCnrsPostsProvider.php';
+$postsProvider = new BibCnrsPostsProvider($config['category']['domains']);
 
 /* Display */
 $context = Timber::get_context();
-$context['visit'] = $category['visit'];
-$context['title'] = $category['title'];
-$context['currentCategory'] = $category['currentCategory'];
-$context['institute'] = $category['institute'];
-$context['userCategory'] = $category['userCategory'];
+$context['currentCategory'] = $currentCategory;
+$context['userCategory'] = $userCategory;
+$context['visit'] = $currentCategory->slug != $userCategory->slug;
 
-$context['post'] = $posts->getCurrentPost();
+$context['post'] = $postsProvider->getCurrentPost();
 
-$context['categoryPosts'] = $posts->getPostsFor($category->currentCategory);
-$context['allOtherPosts'] = $posts->getPostsNotIn($category->currentCategory, 5);
+$context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
+$context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
 
 Timber::render('single.twig', $context);

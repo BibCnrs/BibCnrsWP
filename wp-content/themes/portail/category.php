@@ -5,21 +5,24 @@ Template Name: category
 /*  Connexion */
 require 'config.php';
 
-require 'models/BibCnrsCategory.php';
-$category = new BibCnrsCategory($config['category']['domains'], $config['category']['news']);
+require 'models/BibCnrsCategoriesProvider.php';
+$categoriesProvider = new BibCnrsCategoriesProvider();
 
-force_login($category->currentCategory, $config['category']['domains']);
+$currentCategory = $categoriesProvider->getCurrentCategory();
+$userCategory = $categoriesProvider->getUserCategory();
 
-require 'models/BibCnrsPosts.php';
-$bibCnrsPosts = new BibCnrsPosts($config['category']['domains']);
+force_login($currentCategory, $config['category']['domains']);
+
+require 'models/BibCnrsPostsProvider.php';
+$postsProvider = new BibCnrsPostsProvider($config['category']['domains']);
 
 /* Display */
 $context = Timber::get_context();
-$context['visit'] = $category->visit;
-$context['currentCategory'] = $category->currentCategory;
-$context['userCategory'] = $category->userCategory;
+$context['currentCategory'] = $currentCategory;
+$context['userCategory'] = $userCategory;
+$context['visit'] = $currentCategory->slug != $userCategory->slug;
 
-$context['categoryPosts'] = $bibCnrsPosts->getPostsFor($category->currentCategory);
-$context['allOtherPosts'] = $bibCnrsPosts->getPostsNotIn($category->currentCategory, 5);
+$context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
+$context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
 
 Timber::render('category.twig', $context);

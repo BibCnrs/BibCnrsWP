@@ -1,4 +1,4 @@
-.PHONY: save-db restore-db load-fixtures connect-mysql run-dev run-prod build-css composer compass
+.PHONY: save-db restore-db load-fixtures connect-mysql run-dev run-prod build-css composer compass test
 
 # If the first argument is one of the supported commands...
 SUPPORTED_COMMANDS := restore-db _restore_db save-db _save_db composer compass wp-cli-replace
@@ -52,6 +52,9 @@ connect-mysql:
 load-config:
 	docker cp config/wp-config.php bibcnrs_wordpress_1:/var/www/html/wp-config.php
 	docker cp config/robots.txt bibcnrs_wordpress_1:/var/www/html/robots.txt
+
+test:
+	docker-compose -f docker-compose.yml -f docker-compose.test.yml run phpunit test
 
 run-dev:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
