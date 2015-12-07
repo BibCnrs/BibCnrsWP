@@ -13,7 +13,11 @@ $userCategory = $categoriesProvider->getUserCategory();
 force_login($currentCategory, $config['category']['domains']);
 
 require 'models/BibCnrsPostsProvider.php';
-$postsProvider = new BibCnrsPostsProvider($config['category']['domains']);
+$getPosts = function ($args) {
+    return Timber::get_posts($args);
+};
+
+$postsProvider = new BibCnrsPostsProvider($config['category']['domains'], get_category_by_slug, $getPosts, TimberPost);
 
 /* Display */
 $context = Timber::get_context();
@@ -21,7 +25,7 @@ $context['currentCategory'] = $currentCategory;
 $context['userCategory'] = $userCategory;
 $context['visit'] = $currentCategory->slug != $userCategory->slug;
 
-$context['post'] = $postsProvider->getCurrentPost();
+$context['post'] = new TimberPost();
 
 $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
 $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);

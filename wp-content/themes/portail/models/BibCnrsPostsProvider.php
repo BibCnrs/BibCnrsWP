@@ -1,28 +1,30 @@
 <?php
+require_once dirname(__FILE__) . '/../utils/CallablePropertyTrait.php';
+
 class BibCnrsPostsProvider {
+    use CallablePropertyTrait;
 
     private $domains;
+    private $getCategoryBySlug;
+    private $getPosts;
 
-    public function __construct($domains) {
+    public function __construct($domains, $getCategoryBySlug, $getPosts) {
         $this->domains = $domains;
+        $this->getCategoryBySlug = $getCategoryBySlug;
+        $this->getPosts = $getPosts;
     }
 
     public function getPostsNotIn($category, $max) {
         foreach ($this->domains as $value) {
-            $cat = get_category_by_slug($value);
+            $cat = $this->getCategoryBySlug($value);
             if ($cat->slug != $category->slug) {
-                $categoryIds[] = get_category_by_slug($value)->term_id;
+                $categoryIds[] = $cat->term_id;
             }
         }
-
-        return Timber::get_posts(array( 'category__in' => $categoryIds, 'showposts' => $max));
+        return $this->getPosts(['category__in' => $categoryIds, 'showposts' => $max]);
     }
 
     public function getPostsFor($category) {
-        return Timber::get_posts(['category_name' => $category->slug ]);
-    }
-
-    public function getCurrentPost() {
-        return new TimberPost();
+        return $this->getPosts(['category_name' => $category->slug ]);
     }
 }

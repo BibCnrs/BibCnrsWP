@@ -1,7 +1,7 @@
 <?php
 
-require dirname(__FILE__) . '/../../wp-content/themes/portail/models/BibCnrsCategoriesProvider.php';
-require dirname(__FILE__) . '/../utils/Literal.php';
+require_once dirname(__FILE__) . '/../../wp-content/themes/portail/models/BibCnrsCategoriesProvider.php';
+require_once dirname(__FILE__) . '/../utils/Literal.php';
 
 class BibCnrsCategoriesProviderTest extends PHPUnit_Framework_TestCase
 {

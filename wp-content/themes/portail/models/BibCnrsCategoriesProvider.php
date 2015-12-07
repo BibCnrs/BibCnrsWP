@@ -1,6 +1,9 @@
 <?php
 
+require_once dirname(__FILE__) . '/../utils/CallablePropertyTrait.php';
+
 class BibCnrsCategoriesProvider {
+    use CallablePropertyTrait;
 
     private $getTheCategory;
     private $getCategoryBySlug;
@@ -18,16 +21,5 @@ class BibCnrsCategoriesProvider {
 
     public function getUserCategory() {
         return $this->getCategoryBySlug($this->getCurrentUser()->get('domain'));
-    }
-
-    /**
-     * allow to call anonymous function stored in this class property
-    **/
-    public function __call($method, $args) {
-        if (isset($this->$method)) {
-            $func = $this->$method;
-
-            return call_user_func_array($func, $args);
-        }
     }
 }
