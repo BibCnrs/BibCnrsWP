@@ -1,65 +1,62 @@
 <html>
-<head>
-    <title>{% block title '' %}</title>
-    <meta charset="utf-8"/>
-    <meta name="description" content="site des portails CNRS">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    {% block css %}
-    <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css" type="text/css">
-    {% endblock %}
-    <!--[if IE]>
-    <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <![endif]-->
+    <head>
+        <title>{% block title '' %}</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="site des portails CNRS">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        {% block css %}
+            <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css" type="text/css">
+        {% endblock %}
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <![endif]-->
 
-    <!--[if IE 9]>
-    <script src="/js/html5-ie.js" type="text/javascript"></script>
-    <![endif]-->
-    {% block js %}
-    <script src="/js/skip.js" type="text/javascript"></script>
-    {% endblock %}
-    {{wp_head}}
-</head>
-<body class="{{userDomain.slug}}">
-    <div class="container" >
-        {% block header %}
-        <header id="header" class="bsbb">
-            <div class="clear"></div>
-            <!-- acces hierarchique -->
-            <div id="hierarchie">
-                <ul id="cnrs">
-                    <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
-                    <li class="cnrsli">&nbsp;|&nbsp;</li>
-                    <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-                </ul>
-            </div>
-        </header>
+        <!--[if IE 9]>
+        <script src="/js/html5-ie.js" type="text/javascript"></script>
+        <![endif]-->
+        {% block js %}
+            <script src="/js/skip.js" type="text/javascript"></script>
         {% endblock %}
-        {% block content %}
-        {% block breadcrumb %}
-        <a href="{{ http_host }}">Accueil</a>
-        {% endblock %}
-        {% endblock %}
-        {% block footer %}
-        <div class="clear"></div>
-        <footer>
-            <!-- begin nav -->
-            <div class="menbu-bas-fr-container">
-                <ul class="menu-bas-fr">
-                    {% for item in secondaire.get_items %}
-                    <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <!-- end nav -->
-                <div id="titre-bas">
-                    <strong>B</strong>iblioth&egrave;que d'<strong>A</strong>rticles, &nbsp;<strong>S</strong>&eacute;ries et &nbsp;<strong>A</strong>utres &nbsp;<strong>R</strong>essources &nbsp;<strong>D</strong>ocumentaires
-                    <a href="https://twitter.com/bibcnrs"><img src="{{theme.uri}}/images/twitter.png" alt="logo twitter" target="_blank"/></a>
-                </div>
-            </footer>
+        {{ wp_head }}
+    </head>
+    <body class="{{userCategory.slug}}">
+        <div class="container" >
+            {% block header %}
+                <header id="header" class="bsbb">
+                    <div class="clear"></div>
+                    <div id="hierarchie">
+                        <ul id="cnrs">
+                            <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+                            <li class="cnrsli">&nbsp;|&nbsp;</li>
+                            <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
+                        </ul>
+                    </div>
+                </header>
             {% endblock %}
-        </div> <!-- fin container -->
+            {% block content %}
+                {% block breadcrumb %}
+                    <a href="{{ http_host }}">Accueil</a>
+                {% endblock %}
+            {% endblock %}
+            {% block footer %}
+                <div class="clear"></div>
+                <footer>
+                    <div class="menbu-bas-fr-container">
+                        <ul class="menu-bas-fr">
+                            {% for item in secondaire.get_items %}
+                            <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                    <div id="titre-bas">
+                        <strong>B</strong>iblioth&egrave;que d'<strong>A</strong>rticles, &nbsp;<strong>S</strong>&eacute;ries et &nbsp;<strong>A</strong>utres &nbsp;<strong>R</strong>essources &nbsp;<strong>D</strong>ocumentaires
+                        <a href="https://twitter.com/bibcnrs"><img src="{{theme.uri}}/images/twitter.png" alt="logo twitter" target="_blank"/></a>
+                    </div>
+                </footer>
+            {% endblock %}
+        </div>
         {{wp_footer}}
     </body>
-    </html>
+</html>

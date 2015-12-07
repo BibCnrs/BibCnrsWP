@@ -9,7 +9,7 @@
                 <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
                 {% if not visit %}
                     <li class="cnrsli">&nbsp;|&nbsp;</li>
-                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{userDomain.description}}" target="_blank">{{userDomain.description|upper}}</a></li>
+                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{userCategory.description}}" target="_blank">{{userCategory.description|upper}}</a></li>
                 {% endif %}
 
             </ul>
@@ -18,21 +18,21 @@
             <a href="{{site.url}}" title="accueil">
                 <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
             </a>
-            {% if userDomain %}
-                <h1 class="font-{{userDomain.slug}}">
-                    {{userDomain.name}}
+            {% if userCategory %}
+                <h1 class="font-{{userCategory.slug}}">
+                    {{userCategory.name}}
                 </h1>
                 {% if visit  %}
                     <div id="soustitre">
-                        en visite dans {{currentDomain.name}}
+                        en visite dans {{currentCategory.name}}
                     </div>
-                    <div id="bouton" class="{{userDomain.slug}}">
-                        <a href="/category/{{userDomain.slug}}">Retour &agrave;<br/> mon domaine</a>
+                    <div id="bouton" class="{{userCategory.slug}}">
+                        <a href="/category/{{userCategory.slug}}">Retour &agrave;<br/> mon domaine</a>
                     </div>
                 {% endif %}
             {% else %}
-                <h1 class="font-{{currentDomain.slug}}">
-                    {{currentDomain.name}}
+                <h1 class="font-{{currentCategory.slug}}">
+                    {{currentCategory.name}}
                 </h1>
             {% endif %}
         </div>
@@ -42,17 +42,17 @@
 {% block content %}
     <div id="content" class="bsbb">
         {% block breadcrumb %}
-            {{parent()}} >> <a href="{{url}}/category/{{currentDomain.slug}}">{{currentDomain.name}}</a>
+            {{parent()}} >> <a href="{{url}}/category/{{currentCategory.slug}}">{{currentCategory.name}}</a>
         {% endblock %}
         <br class="clear"/>
         <div id="center">
             <div id="pagenorm">
-                {% if userDomain %}
+                {% if userCategory %}
                     <div style="position:relative; width:inherit; height:inherit;">
                         {{ '[ebsco_widget]'|shortcodes }}
                     </div>
                 {% endif %}
-                <h1 class="font-{{currentDomain.slug}}">Actualit&eacute;s "{{currentDomain.name}}"</h1>
+                <h1 class="font-{{currentCategory.slug}}">Actualit&eacute;s "{{currentCategory.name}}"</h1>
                 <ul>
                     {% for post in posts %}
                         <li><span>{{post.display_date}} - </span> <span><a href="{{url}}/{{post.slug}}">{{post.title}}</a></span></li>

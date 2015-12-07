@@ -1,13 +1,13 @@
 <sidebar>
     <div class="box-container">
         <h2>Actualit&eacute;s {{title}}</h2>
-        {% for post in postsdomain %}
+        {% for post in categoryPosts %}
         <p><a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
         {% endfor %}
     </div>
     <div class="box-container">
         <h2>Autres Domaines</h2>
-        {% for post in alltheposts %}
+        {% for post in allOtherPosts %}
         <p>{{post.display_date}} - <a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
         <p class="font-{{post.category.slug}}">({{post.category}})</p>
         {% endfor %}

@@ -1,5 +1,6 @@
 <?php
 class BibCnrsPosts {
+
     private $domains;
 
     public function __construct($domains) {

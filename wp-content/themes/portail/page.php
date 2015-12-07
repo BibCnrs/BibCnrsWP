@@ -6,5 +6,5 @@
  *
  */
 $context = Timber::get_context();
-$context['userDomain'] = (object) ['slug' => 'visit'];
+$context['userCategory'] = (object) ['slug' => 'visit'];
 Timber::render('page.twig', $context);

@@ -4,9 +4,9 @@
 force user to login before accessing the site
 
 ********************************************************************************************/
-function force_login($currentDomain, $domains) {
+function force_login($currentCategory, $categories) {
 
-    if (!is_user_logged_in() && $currentDomain && in_array($currentDomain->slug, $domains)){
+    if (!is_user_logged_in() && $currentCategory && in_array($currentCategory->slug, $categories)){
         if (is_ssl()) {
             add_filter('login_url', 'login_https', 10, 1);
             function login_https($login_url) {

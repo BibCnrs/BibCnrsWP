@@ -8,11 +8,11 @@
     <div id="center">
         <div id="pagenorm">
             <div id="titrerubnorm2">
-                <h1 class="font-{{currentDomain.slug}}">{{post.title}}</h1>
+                <h1 class="font-{{currentCategory.slug}}">{{post.title}}</h1>
             </div>
             <div id="retour">
-                <a href="{{url}}/category/{{currentDomain.slug}}" class="font-{{currentDomain.slug}}">
-                    Voir toutes les actualit&eacute;s de {{currentDomain.name}}
+                <a href="{{url}}/category/{{currentCategory.slug}}" class="font-{{currentCategory.slug}}">
+                    Voir toutes les actualit&eacute;s de {{currentCategory.name}}
                 </a>
             </div>
             {{post.content}}
