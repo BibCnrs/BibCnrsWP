@@ -1,23 +1,25 @@
-<div class="box-container">
-    <h2>Actualit&eacute;s {{title}}</h2>
-    {% for post in postsdomain %}
-    <p><a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
-    {% endfor %}
-</div>
-<div class="box-container">
-    <h2>Autres Domaines</h2>
-    {% for post in alltheposts %}
-    <p>{{post.display_date}} - <a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
-    <p class="font-{{post.category.slug}}">({{post.category}})</p>
-    {% endfor %}
-</div>
-<div class="box-container">
-    <h2>Nouvelles ressources</h2>
-    <p><a href="{{url}}/">Nouvelles ressources 1</a></p>
-    <p><a href="{{url}}/">Nouvelles ressources 2</a></p>
-</div>
-<div class="box-container">
-    <h2>Les + interrogées</h2>
-    <p><a href="https://www.webofknowledge.com/">WOS</a></p>
-    <p><a href="www.nature.com/">Nature</a></p>
-</div>
+<sidebar>
+    <div class="box-container">
+        <h2>Actualit&eacute;s {{title}}</h2>
+        {% for post in categoryPosts %}
+        <p><a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
+        {% endfor %}
+    </div>
+    <div class="box-container">
+        <h2>Autres Domaines</h2>
+        {% for post in allOtherPosts %}
+        <p>{{post.display_date}} - <a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
+        <p class="font-{{post.category.slug}}">({{post.category}})</p>
+        {% endfor %}
+    </div>
+    <div class="box-container">
+        <h2>Nouvelles ressources</h2>
+        <p><a href="{{url}}/">Nouvelles ressources 1</a></p>
+        <p><a href="{{url}}/">Nouvelles ressources 2</a></p>
+    </div>
+    <div class="box-container">
+        <h2>Les + interrogées</h2>
+        <p><a href="https://www.webofknowledge.com/">WOS</a></p>
+        <p><a href="www.nature.com/">Nature</a></p>
+    </div>
+</sidebar>

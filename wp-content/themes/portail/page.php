@@ -6,5 +6,5 @@
  *
  */
 $context = Timber::get_context();
-$context['prefix'] = "visite";
+$context['userCategory'] = (object) ['slug' => 'visit'];
 Timber::render('page.twig', $context);

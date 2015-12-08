@@ -1,0 +1,34 @@
+{% extends 'page-layout.twig' %}
+
+{% block content %}
+    <div id="content"  class="bsbb">
+        {% block breadcrumb %}
+            {{parent()}} >> not found
+        {% endblock %}
+
+    <br class="clear">
+
+        <div id="center">
+            <div id="pagenorm">
+                <h1>Page non trouvée</h1>
+                <br/>
+                <p>
+                    Retrourner à
+                    <a href="{{site.url}}">
+                        l'accueil
+                    </a>
+                </p>
+            </div> <!--finpagenorm -->
+            {% block sidebar %}
+                {% if (subprefix == 'visite' or visit) %}
+                    {% include 'sidebar-right-visit.twig' %}
+                {% else %}
+                    {% include 'sidebar-right.twig' %}
+                {% endif %}
+            {% endblock %}
+
+            <br class="clear" />
+        </div><!-- fin center -->
+    </div><!--/content-->
+
+{% endblock %}
