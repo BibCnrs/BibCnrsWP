@@ -54,7 +54,7 @@ load-config:
 	docker cp config/robots.txt bibcnrs_wordpress_1:/var/www/html/robots.txt
 
 test:
-	docker-compose -f docker-compose.yml -f docker-compose.test.yml run phpunit test
+	docker-compose -f docker-compose.test.yml run phpunit test
 
 run-dev:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
