@@ -47,11 +47,9 @@
         <br class="clear"/>
         <div id="center">
             <div id="pagenorm">
-                {% if userCategory %}
-                    <div style="position:relative; width:inherit; height:inherit;">
-                        {{ '[ebsco_widget]'|shortcodes }}
-                    </div>
-                {% endif %}
+                <div style="position:relative; width:inherit; height:inherit;">
+                    {{ ebsco_widget|shortcodes }}
+                </div>
                 <h1 class="font-{{currentCategory.slug}}">Actualit&eacute;s "{{currentCategory.name}}"</h1>
                 <ul>
                     {% for post in posts %}
