@@ -11,8 +11,6 @@ $categoriesProvider = new BibCnrsCategoriesProvider(get_the_category, get_catego
 $currentCategory = $categoriesProvider->getCurrentCategory();
 $userCategory = $categoriesProvider->getUserCategory();
 
-force_login($currentCategory, $config['category']['domains']);
-
 require 'models/BibCnrsPostsProvider.php';
 $getPosts = function ($args) {
     return Timber::get_posts($args);
