@@ -1,23 +1,4 @@
 <?php
-/********************************************************************************************
-
-force user to login before accessing the site
-
-********************************************************************************************/
-function force_login($currentCategory, $categories) {
-
-    if (!is_user_logged_in() && $currentCategory && in_array($currentCategory->slug, $categories)){
-        if (is_ssl()) {
-            add_filter('login_url', 'login_https', 10, 1);
-            function login_https($login_url) {
-                return str_replace('http:', 'https:', $login_url);
-            }
-        }
-        if (!is_user_logged_in() && !is_page('login')) {
-            auth_redirect();
-        }
-    }
-}
 
 function modify_contact_methods($profile_fields) {
 

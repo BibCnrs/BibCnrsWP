@@ -79,7 +79,9 @@ build-css:
 	docker-compose run compass compile
 
 composer-update:
-	docker-compose run composer update --prefer-dist
+	docker-compose run composer update --prefer-dist || true
+	cd wp-content/plugins/wp-ebsco-widget && docker-compose run composer update --prefer-dist
+	cd -
 
 bump:
 	git rev-parse HEAD > .currentCommit
