@@ -19,5 +19,17 @@ $config = [
             'physique',
             'terre'
         ]
+    ],
+    'profile_map' => [
+        'biologie' => 'vie',
+        'chimie' => 'c',
+        'ecologie' => 'ee',
+        'homme' => 'shs',
+        'information' => 's2i',
+        'ingenierie' => 'sis',
+        'mathematiques' => 'smi',
+        'nucleaire' => '2p3',
+        'physique' => 'p',
+        'terre' => 'su'
     ]
 ];

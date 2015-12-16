@@ -16,12 +16,9 @@
         <!--[if IE 9]>
         <script src="/js/html5-ie.js" type="text/javascript"></script>
         <![endif]-->
-        {% block js %}
-            <script src="/js/skip.js" type="text/javascript"></script>
-        {% endblock %}
         {{ wp_head }}
     </head>
-    <body class="{{userCategory.slug}}">
+    <body class="{{currentCategory.slug}}">
         <div class="container" >
             {% block header %}
                 <header id="header" class="bsbb">

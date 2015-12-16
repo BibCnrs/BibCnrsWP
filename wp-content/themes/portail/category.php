@@ -11,8 +11,6 @@ $categoriesProvider = new BibCnrsCategoriesProvider(get_the_category, get_catego
 $currentCategory = $categoriesProvider->getCurrentCategory();
 $userCategory = $categoriesProvider->getUserCategory();
 
-force_login($currentCategory, $config['category']['domains']);
-
 require 'models/BibCnrsPostsProvider.php';
 $getPosts = function ($args) {
     return Timber::get_posts($args);
@@ -25,6 +23,7 @@ $context = Timber::get_context();
 $context['currentCategory'] = $currentCategory;
 $context['userCategory'] = $userCategory;
 $context['visit'] = $currentCategory->slug != $userCategory->slug;
+$context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
 
 $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
 $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
