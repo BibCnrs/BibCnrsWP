@@ -27,5 +27,4 @@ $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$cu
 
 $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
 $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
-
 Timber::render('category.twig', $context);

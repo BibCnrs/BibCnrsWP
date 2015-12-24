@@ -7,16 +7,16 @@
                 <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
                 <li class="cnrsli">&nbsp;|&nbsp;</li>
                 <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-                {% if not visit %}
+                {% if currentCategory.slug %}
                     <li class="cnrsli">&nbsp;|&nbsp;</li>
-                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{userCategory.description}}" target="_blank">{{userCategory.description|upper}}</a></li>
+                    <li class ="cnrsli"><a href="http://www.cnrs.fr/{{currentCategory.description}}" target="_blank">{{currentCategory.description|upper}}</a></li>
                 {% endif %}
 
             </ul>
         </div>
         <div class="logo">
             <a href="{{site.url}}" title="accueil">
-                <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
+                <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb logocnrs">
             </a>
             {% if userCategory %}
                 <h1 class="font-{{userCategory.slug}}">
@@ -29,11 +29,13 @@
                     <div id="bouton" class="{{userCategory.slug}}">
                         <a href="/category/{{userCategory.slug}}">Retour &agrave;<br/> mon domaine</a>
                     </div>
+                    <img src="{{theme.uri}}/images/bibcnrs-logo-{{userCategory.slug}}.png" alt="logo bibcnrs {{userCategory.name}}" class="bsbb bibcnrslogo">
                 {% endif %}
             {% else %}
                 <h1 class="font-{{currentCategory.slug}}">
                     {{currentCategory.name}}
                 </h1>
+                <img src="{{theme.uri}}/images/bibcnrs-logo-{{currentCategory.slug}}.png" alt="logo bibcnrs {{currentCategory.slug}}" class="bsbb bibcnrslogo">
             {% endif %}
         </div>
         <div id="separateur"></div>
