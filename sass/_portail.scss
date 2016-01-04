@@ -213,12 +213,17 @@ Entete
         vertical-align: middle;
         margin: 0;
     }
-    img {
-        width: 24%;
+    .logocnrs {
         position: absolute;
         left: -24px;
         top: -20px;
         width: 23%;
+    }
+    .bibcnrslogo{
+        position: absolute;
+        width: 17%;
+        right: 20px;
+        top :10px;
     }
 }
 
@@ -232,7 +237,7 @@ Entete
 
 #bouton {
     float: right;
-    margin: 10px 20px 0 0;
+    margin: 30px 25% 0 0;
     text-align: center;
     border: 1px solid;
     padding: 5px 5px 5px 5px;
@@ -262,7 +267,13 @@ Accueil
     left: 25%;
     width: 23%;
 }
-
+.logobibcnrs {
+    z-index: 150;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 17%;
+}
 #contentaccueil {
     max-width: 100%;
     img {

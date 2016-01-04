@@ -12,13 +12,14 @@
         </div>
         <div class="logo">
             <a href="{{site.url}}" title="accueil">
-                <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb">
+                <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb logocnrs">
             </a>
             <h1 class="font-{{domain}}">
                 {% for post in posts %}
                 {{post.post_title}}
                 {% endfor %}
             </h1>
+            <img src="{{theme.uri}}/images/bibcnrs-logo-visite.png" alt="logo bibcnrs" class="bsbb bibcnrslogo">
         </div>
         <div id="separateur"></div>
     </header>
