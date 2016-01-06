@@ -1,4 +1,15 @@
 {% extends 'page-layout.twig' %}
+{% block body %}
+    {% if userCategory %}
+        <body class="{{userCategory.slug}}">
+    {% else %}
+        {% if other %}
+            <body class="{{currentCategory.slug}}">
+        {% else %}
+                <body class="visite">
+        {% endif %}
+    {% endif %}
+{% endblock %}
 {% block header %}
     <header id="header" class="bsbb">
         <div class="clear"></div>
@@ -7,7 +18,7 @@
                 <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
                 <li class="cnrsli">&nbsp;|&nbsp;</li>
                 <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-                {% if currentCategory.slug %}
+                {% if other %}
                     <li class="cnrsli">&nbsp;|&nbsp;</li>
                     <li class ="cnrsli"><a href="http://www.cnrs.fr/{{currentCategory.description}}" target="_blank">{{currentCategory.description|upper}}</a></li>
                 {% endif %}
@@ -29,13 +40,20 @@
                     <div id="bouton" class="{{userCategory.slug}}">
                         <a href="/category/{{userCategory.slug}}">Retour &agrave;<br/> mon domaine</a>
                     </div>
-                    <img src="{{theme.uri}}/images/bibcnrs-logo-{{userCategory.slug}}.png" alt="logo bibcnrs {{userCategory.name}}" class="bsbb bibcnrslogo">
                 {% endif %}
+                <img src="{{theme.uri}}/images/bibcnrs-logo-{{userCategory.slug}}.png" alt="logo bibcnrs {{userCategory.name}}" class="bsbb bibcnrslogo">
             {% else %}
-                <h1 class="font-{{currentCategory.slug}}">
+                {% if other %}
+                    <h1 class="font-{{currentCategory.slug}}">
+                        {{currentCategory.name}}
+                    </h1>
+                    <img src="{{theme.uri}}/images/bibcnrs-logo-{{currentCategory.slug}}.png" alt="logo bibcnrs {{currentCategory.slug}}" class="bsbb bibcnrslogo">
+                {% else %}
+                <h1 class="font-visite">
                     {{currentCategory.name}}
                 </h1>
-                <img src="{{theme.uri}}/images/bibcnrs-logo-{{currentCategory.slug}}.png" alt="logo bibcnrs {{currentCategory.slug}}" class="bsbb bibcnrslogo">
+                <img src="{{theme.uri}}/images/bibcnrs-logo-visite.png" alt="logo bibcnrs visite" class="bsbb bibcnrslogo">
+                {% endif %}
             {% endif %}
         </div>
         <div id="separateur"></div>

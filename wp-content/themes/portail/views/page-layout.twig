@@ -18,7 +18,9 @@
         <![endif]-->
         {{ wp_head }}
     </head>
-    <body class="{{currentCategory.slug}}">
+    {% block body %}
+        <body>
+    {% endblock %}
         <div class="container" >
             {% block header %}
                 <header id="header" class="bsbb">
