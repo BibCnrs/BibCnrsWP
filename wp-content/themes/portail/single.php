@@ -22,7 +22,7 @@ $context = Timber::get_context();
 $context['currentCategory'] = $currentCategory;
 $context['userCategory'] = $userCategory;
 $context['visit'] = $currentCategory->slug != $userCategory->slug;
-$context['other'] = array_search($currentCategory->slug,$config['category']['domains']);
+$context['other'] = in_array($currentCategory->slug,$config['category']['domains']);
 $context['post'] = new TimberPost();
 
 $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
