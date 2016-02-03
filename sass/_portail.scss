@@ -560,9 +560,73 @@ sidebar {
     }
 }
 
-
 /*****************************
-Recherche
+Databases
+*****************************/
+#pagenormbdd {
+    position: relative;
+    min-width: 220px;
+    max-width: 1200px;
+    margin: 25px auto 0 auto;
+    padding: 0 20px 0 20px;
+}
+
+#return {
+    max-width: 1200px;
+    text-align : center;
+    width: 200px;
+    height: 40px;
+    border: #dcded9 solid 2px;
+    border-radius: 10px;
+    line-height: 40px;
+    margin: auto;
+    font-size: 1.5rem;
+    a {
+        color:#000;
+    }
+}
+#bdddomains {
+    max-width: 1200px;
+    text-align: center;
+    font-size: 1.2rem;
+    ul {
+        list-style: none;
+        li {
+            border-radius:5px;
+            display: inline-block;
+            padding: 0 2px 0 2px;
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+.bases{
+    @include display-flex;
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    list-style: none;
+    -webkit-padding-start: 0;
+}
+
+.bdd{
+    margin: 5px 5px 0px 5px;
+    padding: 2px 5px 2px 2px;
+    width: 200px;
+    height: 40px;
+    border: #dcded9 solid 2px;
+    border-radius: 10px;
+    line-height: 40px;
+}
+.bdd img {
+    float: left;
+}
+.bdd a {
+    float: right;
+    color: #000;
+}
+/*****************************
+Search
 *****************************/
 #paverecherche {
     margin-top: 0.9em;
