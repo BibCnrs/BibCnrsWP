@@ -52,6 +52,7 @@ connect-mysql:
 load-config:
 	docker cp config/wp-config.php bibcnrs_wordpress_1:/var/www/html/wp-config.php
 	docker cp config/robots.txt bibcnrs_wordpress_1:/var/www/html/robots.txt
+	docker cp config/.htaccess bibcnrs_wordpress_1:/var/www/html/.htaccess
 
 test:
 	docker-compose -f docker-compose.test.yml run phpunit test
