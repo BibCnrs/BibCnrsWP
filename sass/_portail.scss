@@ -585,12 +585,14 @@ Databases
         color:#000;
     }
 }
+
 #bdddomains {
     max-width: 1200px;
     text-align: center;
     font-size: 1.2rem;
     ul {
         list-style: none;
+        -webkit-padding-start: 0;
         li {
             border-radius:5px;
             display: inline-block;
@@ -601,6 +603,22 @@ Databases
         }
     }
 }
+
+#titrerubnorm2 {
+    margin-top: 20px;
+    >img {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    h1 {
+        display: inline-block;
+    }
+}
+
+#db_url {
+    margin-top: 20px;
+}
+
 .bases{
     @include display-flex;
     @include flex-direction(row);
@@ -617,13 +635,17 @@ Databases
     border: #dcded9 solid 2px;
     border-radius: 10px;
     line-height: 40px;
+    img {
+        vertical-align: middle;
+    }
+    a {
+        float: right;
+        color: #000;
+    }
 }
-.bdd img {
-    float: left;
-}
-.bdd a {
-    float: right;
-    color: #000;
+
+#contentrubnorm2 {
+    text-align: justify;
 }
 /*****************************
 Search
