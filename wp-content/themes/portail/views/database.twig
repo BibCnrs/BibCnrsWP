@@ -1,0 +1,63 @@
+{% extends 'page-layout.twig' %}
+{% block body %}
+    {% if userCategory %}
+        <body class="{{userCategory.slug}}">
+    {% else %}
+        <body class="visite">
+    {% endif %}
+{% endblock %}
+{% block header %}
+    <header id="header" class="bsbb">
+        <div class="clear"></div>
+        <div id="hierarchie">
+            <ul id="cnrs">
+                <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+                <li class="cnrsli">&nbsp;|&nbsp;</li>
+                <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
+                <li class="cnrsli">&nbsp;|&nbsp;</li>
+                <li class ="cnrsli"><a href="http://www.cnrs.fr/{{term.description}}" target="_blank">{{term.description|upper}}</a></li>
+            </ul>
+        </div>
+        <div class="logo">
+            <a href="{{site.url}}" title="accueil">
+                <img src="{{theme.uri}}/images/logocnrs.png" alt="CNRS d&eacute;passer les fronti&eacute;res" class="bsbb logocnrs">
+            </a>
+            {% if userCategory %}
+                <h1 class="font-{{userCategory.slug}}">
+                    {{userCategory.name}}
+                </h1>
+                <img src="{{theme.uri}}/images/bibcnrs-logo-{{userCategory.slug}}.png" alt="logo bibcnrs {{userCategory.name}}" class="bsbb bibcnrslogo">
+            {% else %}
+                <h1 class="font-visite">
+                    Bases de donn&eacute;es
+                </h1>
+                <img src="{{theme.uri}}/images/bibcnrs-logo-visite.png" alt="logo bibcnrs" class="bsbb bibcnrslogo">
+            {% endif %}
+        </div>
+        <div id="separateur"></div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content" class="bsbb">
+        {% block breadcrumb %}
+            {{parent()}} >> <a href="{{url}}/database/">Bases de donn&eacute;es {{term.name}}</a>
+        {% endblock %}
+        <br class="clear"/>
+        <div id="bdddomains">
+            <ul>
+            {% for item in terms %}
+                <li class="{{item.slug}}"><a href="{{site.url}}//{{item.taxonomy}}/{{item.slug}}">{{item.name}}</a> </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div id="center">
+            <div id="pagenormbdd">
+                <ul class="bases">
+                    {% for post in origin %}
+                        <li class="bdd"><img src="{{post.thumbnail.src}}" ><a href="{{post.db_url}}" target="_blank" title="{{post.post_content}}">{{post.post_title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+       </div>
+{% endblock %}

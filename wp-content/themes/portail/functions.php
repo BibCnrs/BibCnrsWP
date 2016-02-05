@@ -11,6 +11,45 @@ add_filter('user_contactmethods', 'modify_contact_methods');
 
 /********************************************************************************************
 
+Add Database type posts
+
+********************************************************************************************/
+$dataBases = [
+    'public' => true,
+    'supports' => ['title', 'editor', 'thumbnail'],
+    'labels' => [
+        'name' => 'Bases de donnees',
+        'add_new_item' => 'Ajouter une base',
+        'edit_item' => 'Editer une base',
+    ]
+
+];
+register_post_type( 'database', $dataBases);
+
+register_taxonomy("databases", array("database"), array("hierarchical" => true, "label" => "Domaines", "singular_label" => "Domaine", "rewrite" => true));
+
+add_action("admin_init", "admin_init");
+function admin_init(){
+    add_meta_box("db_url-meta", "URL base", "db_url", "database", "normal", "low");
+}
+function db_url(){
+  global $post;
+  $custom = get_post_custom($post->ID);
+  $db_url = $custom["db_url"][0];
+  ?>
+  <label>URL</label>
+  <input name="db_url" value="<?php echo $db_url; ?>" />
+  <?php
+}
+add_action('save_post', 'save_details');
+function save_details(){
+    global $post;
+    update_post_meta ($post->ID, "db_url", $_POST["db_url"]);
+}
+
+
+/********************************************************************************************
+
 appel script mobile menu select*
 src http://codex.wordpress.org/Function_Reference/wp_enqueue_script
 
