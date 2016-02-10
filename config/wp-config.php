@@ -91,7 +91,7 @@ if (isset($_SERVER['REMOTE_ADDR'])) {
 }
 
 if (isset($_SERVER['HTTP_HOST'])) {
-    $_SERVER['HTTP_HOST'] = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? explode($_SERVER['HTTP_X_FORWARDED_HOST'], ',')[0] : $_SERVER['HTTP_HOST'];
+    $_SERVER['HTTP_HOST'] = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? explode(',', $_SERVER['HTTP_X_FORWARDED_HOST'])[0] : $_SERVER['HTTP_HOST'];
 }
 
 if (isset($_SERVER['SERVER_ADDR'])) {
