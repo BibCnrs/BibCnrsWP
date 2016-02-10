@@ -46,7 +46,7 @@
         <div id="bdddomains">
             <ul>
             {% for item in terms %}
-                <li class="{{item.slug}}"><a href="{{site.url}}//{{item.taxonomy}}/{{item.slug}}">{{item.name}}</a> </li>
+                <li class="{{item.slug}}"><a href="{{site.url}}/{{item.taxonomy}}/{{item.slug}}">{{item.name}}</a></li>
             {% endfor %}
             </ul>
         </div>
@@ -54,7 +54,12 @@
             <div id="pagenormbdd">
                 <ul class="bases">
                     {% for post in origin %}
-                        <li class="bdd"><img src="{{post.thumbnail.src}}" ><a href="{{post.db_url}}" target="_blank" title="{{post.post_content}}">{{post.post_title}}</a></li>
+                        <a href="{{post.db_url}}" target="_blank" title="{{post.post_content}}" class="bddlink">
+                            <li class="bdd">
+                                <img src="{{post.thumbnail.src}}" />
+                                <span class="bddtitle">{{post.post_title}}</span>
+                            </li>
+                        </a>
                     {% endfor %}
                 </ul>
             </div>
