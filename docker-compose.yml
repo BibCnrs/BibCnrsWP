@@ -46,5 +46,7 @@ wpcli:
   image: bibcnrs/appstack-wpcli
   links:
     - db:mysql
+  environment:
+    WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
   volumes_from:
     - wordpress
