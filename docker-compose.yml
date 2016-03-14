@@ -18,6 +18,7 @@ wordpress:
     - ./wp-content/plugins:/var/www/html/wp-content/plugins
     - ./wp-content/themes:/var/www/html/wp-content/themes
     - ./wp-content/vendor:/var/www/html/wp-content/vendor
+    - ./wp-content/uploads:/var/www/html/wp-content/uploads
 
 db:
   image: mariadb:10.0
