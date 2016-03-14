@@ -171,7 +171,6 @@ Entete
 
 .accessli {
     padding: 4px 10px;
-    background: url("images/puce1.png") left center no-repeat;
     a {
         color: #000;
         vertical-align: middle;
@@ -200,7 +199,6 @@ Entete
 
 .cnrsli {
     padding: 4px 10px;
-    background: url("images/puce1.png") left center no-repeat;
     a {
         color: #000;
         vertical-align: middle;
@@ -541,7 +539,7 @@ sidebar {
     h2 {
         margin: 0;
         line-height: 40px;
-        font-size: 1.231rem;
+        font-size: 1.4rem;
         background: #f0f0f0;
         padding-left: 5px;
     }
@@ -552,6 +550,12 @@ sidebar {
         color: #000000;
         text-decoration: none;
     }
+}
+
+.titlepref {
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding-left: 10px;
 }
 
 .imgwidget {

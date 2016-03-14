@@ -12,4 +12,13 @@
         <p class="font-{{post.category.slug}}">({{post.category}})</p>
         {% endfor %}
     </div>
+    {% if pref %}
+    <div class="box-container">
+        <h2>A voir</h2>
+        {% for post in pref %}
+            <h3 class="titlepref">{{post.post_title}}</h3>
+            {{post.post_content}}
+        {% endfor %}
+    </div>
+    {% endif %}
 </sidebar>

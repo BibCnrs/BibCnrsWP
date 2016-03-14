@@ -18,8 +18,12 @@ $getPosts = function ($args) {
 
 $postsProvider = new BibCnrsPostsProvider($config['category']['domains'], get_category_by_slug, $getPosts);
 
+
+
 /* Display */
 $context = Timber::get_context();
+$preferences="pref-".$currentCategory->slug;
+$context['pref'] = Timber::get_posts(array('category_name' => $preferences));
 $context['currentCategory'] = $currentCategory;
 $context['userCategory'] = $userCategory;
 $context['visit'] = $currentCategory->slug != $userCategory->slug;
