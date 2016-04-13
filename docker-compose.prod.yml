@@ -1,0 +1,8 @@
+wordpress:
+    image: bibcnrs/bibcnrs:latest
+    links:
+        - db:mysql
+    environment:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+        WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
