@@ -40,7 +40,8 @@ composer:
 compass:
   image: bibcnrs/compass
   volumes:
-    - .:/src
+    - ./sass:/src/sass
+    - ./config.rb:/src/config.rb
   command: compile
 
 wpcli:
