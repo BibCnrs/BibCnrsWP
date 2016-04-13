@@ -1,7 +1,7 @@
 .PHONY: save-db restore-db load-fixtures connect-mysql run-dev run-prod build-css composer compass test
 
 # If the first argument is one of the supported commands...
-SUPPORTED_COMMANDS := restore-db _restore_db save-db _save_db composer compass wp-cli-replace
+SUPPORTED_COMMANDS := restore-db _restore_db save-db _save_db composer compass wp-cli-replace build-docker build
 SUPPORTS_MAKE_ARGS := $(findstring $(firstword $(MAKECMDGOALS)), $(SUPPORTED_COMMANDS))
 ifneq "$(SUPPORTS_MAKE_ARGS)" ""
     # use the rest as arguments for the command
@@ -61,11 +61,15 @@ run-dev:
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 
 run-prod:
-	docker-compose up -d
+	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --force-recreate
 
-stop:
-	docker stop bibcnrs_wordpress_1
-	docker stop bibcnrs_db_1
+cleanup-docker: ## remove all bibcnrs docker image
+	test -z "$$(docker ps -a | grep bibcnrs)" || \
+            docker rm --force $$(docker ps -a | grep bibcnrs | awk '{ print $$1 }')
+
+stop: ## stop all bibcnrs docker image
+	test -z "$$(docker ps | grep bibcnrs)" || \
+            docker stop $$(docker ps -a | grep bibcnrs | awk '{ print $$1 }')
 
 compass:
 	docker-compose run compass $(COMMAND_ARGS)
@@ -83,6 +87,15 @@ composer-update:
 	docker-compose run composer update --prefer-dist || true
 	cd wp-content/plugins/wp-ebsco-widget && docker-compose run composer update --prefer-dist
 	cd -
+
+build-docker: ## args: <version> build bibcnrs/bibcnrs:<version> docker image default <version> to latest
+ifdef COMMAND_ARGS
+	docker build -t bibcnrs/bibcnrs:$(COMMAND_ARGS) .
+else
+	docker build -t bibcnrs/bibcnrs:latest .
+endif
+
+build: install build-docker $(COMMAND_ARGS)
 
 bump:
 	git rev-parse HEAD > .currentCommit
