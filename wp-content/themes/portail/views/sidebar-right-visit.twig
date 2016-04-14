@@ -6,11 +6,28 @@
         {% endfor %}
     </div>
     <div class="box-container">
-        <h2>Autres Domaines</h2>
-        {% for post in allOtherPosts %}
-        <p>{{post.display_date}} - <a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
-        <p class="font-{{post.category.slug}}">({{post.category}})</p>
-        {% endfor %}
+        {% if currentCategory.slug == 'physique' %}
+            <h2>Actualit&eacute;s (fil RSS {{currentCategory.name}})</h2>
+            {% filter shortcodes %}
+                [rss feed="http://www.cnrs.fr/inp/spip.php?page=backend" num="5" excerpt="false"]
+            {% endfilter %}
+        {% elseif currentCategory.slug == 'information' %}
+            <h2>Actualit&eacute;s (fil RSS {{currentCategory.name}})</h2>
+            {% filter shortcodes %}
+                [rss feed="http://www.cnrs.fr/ins2i/spip.php?page=rss" num="5" excerpt="false"]
+            {% endfilter %}
+        {% elseif currentCategory.slug == 'biologie' %}
+            <h2>Actualit&eacute;s (fil RSS - CNRS)</h2>
+            {% filter shortcodes %}
+                [rss feed="http://www.cnrs.fr/fr/une/actus/alaune.xml" num="5" excerpt="false"]
+            {% endfilter %}
+        {% else %}
+            <h2>Autres Domaines</h2>
+            {% for post in allOtherPosts %}
+                <p>{{post.display_date}} - <a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
+                <p class="font-{{post.category.slug}}">({{post.category}})</p>
+            {% endfor %}
+        {% endif %}
     </div>
     {% if pref %}
     <div class="box-container">
