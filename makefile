@@ -85,8 +85,8 @@ build-css: ## build css from sass
 	docker-compose run compass compile
 
 composer-update: ## update dependency
-	docker-compose run composer update --prefer-dist || true
-	cd wp-content/plugins/wp-ebsco-widget && docker-compose run composer update --prefer-dist
+	docker-compose run composer update --no-dev --prefer-dist || true
+	cd wp-content/plugins/wp-ebsco-widget && docker-compose run composer update --no-dev --prefer-dist
 	cd -
 
 build-docker: ## args: <version> build bibcnrs/bibcnrs:<version> docker image default <version> to latest
