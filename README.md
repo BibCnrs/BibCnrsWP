@@ -18,8 +18,13 @@ Run `make load-fixtures` to load the themes data in wordpress db.
 This command need the DB_PASSWORD env variable to be set with the password, otherwise it will prompt for it
 Now you are all set.
 
+### in order to deploy
+make build <version>
+to build wordpress docker image used in production environment with incorporated dependencies and built css
+
+TODO make deploy... to publish wordpress docker production image
+
 ### in production
-make build-css
 make run-prod
 install wordpress by visiting production address
 
@@ -30,8 +35,6 @@ And then execute the following command to change the host to the correct url
 ```
 make wp-cli-replace http://localhost:8080 <new host>
 ```
-To make the site function behind a reverse proxy you also need to run
-`make load-config`
 
 ## useful command
 
