@@ -4,7 +4,7 @@ data:
     - /var/lib/mysql
 
 wordpress:
-  image: bibcnrs/wordpress
+  image: bibcnrs/wordpress:latest
   ports:
     - 8080:8080
   links:
@@ -13,6 +13,15 @@ wordpress:
     http_proxy: ${http_proxy}
     https_proxy: ${https_proxy}
     WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+    WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+    AUTH_KEY: AUTH_KEY
+    SECURE_AUTH_KEY: SECURE_AUTH_KEY
+    LOGGED_IN_KEY: LOGGED_IN_KEY
+    NONCE_KEY: NONCE_KEY
+    AUTH_SALT: AUTH_SALT
+    SECURE_AUTH_SALT: SECURE_AUTH_SALT
+    LOGGED_IN_SALT: LOGGED_IN_SALT
+    NONCE_SALT: NONCE_SALT
   working_dir: /var/www/html
   volumes:
     - ./wp-content/plugins:/var/www/html/wp-content/plugins
@@ -40,7 +49,9 @@ composer:
 compass:
   image: bibcnrs/compass
   volumes:
-    - .:/src
+    - ./sass:/src/sass
+    - ./config.rb:/src/config.rb
+    - ./wp-content/themes/portail:/src/wp-content/themes/portail
   command: compile
 
 wpcli:
