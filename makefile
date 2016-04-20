@@ -89,11 +89,11 @@ composer-update: ## update dependency
 	cd wp-content/plugins/wp-ebsco-widget && docker-compose run composer update --no-dev --prefer-dist
 	cd -
 
-build-docker: ## args: <version> build bibcnrs/bibcnrs:<version> docker image default <version> to latest
+build-docker: ## args: <version> build vsregistry.intra.inist.fr:5000/bibcnrs:<version> docker image default <version> to latest
 ifdef COMMAND_ARGS
-	docker build -t bibcnrs/bibcnrs:$(COMMAND_ARGS) .
+	docker build -t 'vsregistry.intra.inist.fr:5000/bibcnrs:$(COMMAND_ARGS)' .
 else
-	docker build -t bibcnrs/bibcnrs:latest .
+	docker build -t 'vsregistry.intra.inist.fr:5000/bibcnrs:latest' .
 endif
 
 bump: ## create a file with current commit hash
