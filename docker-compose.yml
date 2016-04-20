@@ -51,6 +51,7 @@ compass:
   volumes:
     - ./sass:/src/sass
     - ./config.rb:/src/config.rb
+    - ./wp-content/themes/portail:/src/wp-content/themes/portail
   command: compile
 
 wpcli:
