@@ -1,5 +1,5 @@
 wordpress:
-    image: bibcnrs/bibcnrs:${bibcnrs_version}
+    image: vsregistry.intra.inist.fr:5000/bibcnrs:${bibcnrs_version}
     links:
         - db:mysql
     environment:
