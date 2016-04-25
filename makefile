@@ -62,7 +62,7 @@ run-dev: ## launch bibcnrs for development environment
 	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 
 run-prod: ## launch bibcnrs for production environment
-	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --force-recreate
+	docker-compose -f docker-compose.prod.yml up -d --force-recreate
 
 cleanup-docker: ## remove all bibcnrs docker image
 	test -z "$$(docker ps -a | grep bibcnrs)" || \

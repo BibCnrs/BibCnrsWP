@@ -1,5 +1,7 @@
 wordpress:
     image: vsregistry.intra.inist.fr:5000/bibcnrs:${bibcnrs_version}
+    ports:
+        - 8080:8080
     links:
         - db:mysql
     environment:
@@ -14,4 +16,20 @@ wordpress:
         SECURE_AUTH_SALT: ${SECURE_AUTH_SALT}
         LOGGED_IN_SALT: ${LOGGED_IN_SALT}
         NONCE_SALT: ${NONCE_SALT}
+    volumes:
+        - ./wp-content/uploads:/var/www/html/wp-content/uploads
     restart: always
+
+db:
+  image: mariadb:10.0
+  environment:
+    MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    PORT: 3305
+    TERM: dumb
+  volumes_from:
+    - data
+
+data:
+  image: bibcnrs/data
+  volumes:
+    - /var/lib/mysql
