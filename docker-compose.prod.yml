@@ -21,13 +21,14 @@ wordpress:
     restart: always
 
 db:
-  image: mariadb:10.0
-  environment:
-    MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-    PORT: 3305
-    TERM: dumb
-  volumes_from:
-    - data
+    image: mariadb:10.0
+    environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        PORT: 3305
+        TERM: dumb
+    volumes_from:
+        - data
+    restart: always
 
 data:
   image: bibcnrs/data
