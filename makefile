@@ -91,9 +91,9 @@ composer-update: ## update dependency
 
 build-docker: ## args: <version> build vsregistry.intra.inist.fr:5000/bibcnrs:<version> docker image default <version> to latest
 ifdef COMMAND_ARGS
-	docker build -t 'vsregistry.intra.inist.fr:5000/bibcnrs:$(COMMAND_ARGS)' .
+	docker build --no-cache -t 'vsregistry.intra.inist.fr:5000/bibcnrs:$(COMMAND_ARGS)' .
 else
-	docker build -t 'vsregistry.intra.inist.fr:5000/bibcnrs:latest' .
+	docker build --no-cache -t 'vsregistry.intra.inist.fr:5000/bibcnrs:latest' .
 endif
 
 bump: ## create a file with current commit hash
