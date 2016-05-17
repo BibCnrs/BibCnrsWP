@@ -26,6 +26,7 @@ $context['userCategory'] = $userCategory;
 $context['visit'] = $currentCategory->slug != $userCategory->slug;
 $context['other'] = in_array($currentCategory->slug,$config['category']['domains']);
 $context['post'] = new TimberPost();
+$context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
 
 $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
 $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);

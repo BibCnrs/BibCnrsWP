@@ -47,25 +47,9 @@ function save_details(){
     update_post_meta ($post->ID, "db_url", $_POST["db_url"]);
 }
 
-
-/********************************************************************************************
-
-appel script mobile menu select*
-src http://codex.wordpress.org/Function_Reference/wp_enqueue_script
-
-********************************************************************************************/
-function bsn_scripts_method() {
-    wp_enqueue_script(
-        'dropdownmenu',
-        get_stylesheet_directory_uri() . '/js/dropdownmenu.js',
-        ['jquery']
-    );
-}
-add_action('wp_enqueue_scripts', 'bsn_scripts_method');
-
 /*********************************************************************************************
 
-Ajout au contexte Definition des Menus
+Register menu
 
 *********************************************************************************************/
 register_nav_menus([
@@ -74,27 +58,43 @@ register_nav_menus([
 ]);
 
 add_filter('timber_context', 'add_to_context');
-function add_to_context($data) {
+/*********************************************************************************************
+
+Add to context
+
+*********************************************************************************************/
+
+function add_to_context($context) {
     /* So here you are adding data to Timber's context object, i.e...
     $data['foo'] = 'I am some other typical value set in your functions.php file, unrelated to the menu';
     */
     /* add a Timber menu and send it along to the context. */
-    $data['principal'] = new TimberMenu('principal');
-    $data['secondaire'] = new TimberMenu('secondaire');
-
-    return $data;
+    $context['principal'] = new TimberMenu('principal');
+    $context['secondaire'] = new TimberMenu('secondaire');
+    if (function_exists('pll_the_languages')) {
+        $context['language_switcher'] = pll_the_languages($args = [
+        'dropdown' => 1,
+        'show_names' => 1,
+        'show_flags' => 0,
+        'hide_if_empty' => 0,
+        'hide_if_no_translation' => 0,
+        'hide_current' => 1,
+        'echo' => 0
+        ] );
+    }
+    return $context;
 }
 
 /*********************************************************************************************
 
-suppression des tags <p> dans description de la categorie
+suppress tags <p>  in category description
 
 *********************************************************************************************/
 remove_filter('term_description','wpautop');
 
 /*********************************************************************************************
 
-suppose rajouter une classe categorie a body pour les post
+add category class to body for posts
 
 *********************************************************************************************/
 

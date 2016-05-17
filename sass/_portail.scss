@@ -17,10 +17,9 @@ General
 *****************************/
 
 html {
-    font-size: 62.5%;
     margin-top: 10px;
     body {
-        max-width: 1280px;
+        max-width: 1403px;
         margin:  0 auto;
     }
 }
@@ -36,44 +35,63 @@ h1{
     padding: 0 20px 0 20px;
 }
 
-.biologie {
-    background-color: rgb(156,018,109);
+.biologie:hover,
+.biologie.current-menu-item,
+.biologie.current-menu-parent {
+    border-bottom: 4px solid rgb(156,018,109);
 }
 
-.chimie {
-    background-color: rgb(000,126,148);
+.chimie:hover,
+.chimie.current-menu-item,
+.chimie.current-menu-parent {
+    border-bottom: 4px solid rgb(000,126,148);
+}
+.ecologie:hover,
+.ecologie.current-menu-item,
+.ecologie.current-menu-parent {
+    border-bottom: 4px solid rgb(098,174,037);
 }
 
-.ecologie {
-    background-color: rgb(098,174,037);
+.homme:hover,
+.homme.current-menu-item,
+.homme.current-menu-parent {
+    border-bottom: 4px solid rgb(130,014,018);
 }
 
-.homme {
-    background-color: rgb(130,014,018);
+.ingenierie:hover,
+.ingenierie.current-menu-item,
+.ingenierie.current-menu-parent {
+    border-bottom: 4px solid rgb(212,000,45);
 }
 
-.ingenierie {
-    background-color: rgb(212,000,45);
+.mathematiques:hover,
+.mathematiques.current-menu-item,
+ .mathematiques.current-menu-parent{
+    border-bottom: 4px solid rgb(084,125,61);
 }
 
-.mathematiques {
-    background-color: rgb(084,125,61);
+.nucleaire:hover,
+.nucleaire.current-menu-item,
+.nucleaire.current-menu-parent {
+    border-bottom: 4px solid rgb(231,081,019);
 }
 
-.nucleaire {
-    background-color: rgb(231,081,019);
+.physique:hover,
+.physique.current-menu-item,
+.physique.current-menu-parent {
+    border-bottom: 4px solid rgb(000,068,148);
 }
 
-.physique {
-    background-color: rgb(000,068,148);
+.information:hover,
+.information.current-menu-item,
+.information.current-menu-parent{
+    border-bottom: 4px solid rgb(086,042,132);
 }
 
-.information {
-    background-color: rgb(086,042,132);
-}
-
-.terre {
-    background-color: rgb(204,035,129);
+.terre:hover,
+.terre.current-menu-item,
+.terre.current-menu-parent {
+    border-bottom: 4px solid rgb(204,035,129);
 }
 
 .visite {
@@ -84,43 +102,43 @@ h1{
     color: grey;
 }
 
-.font-biologie {
+.font-insb {
     color: rgb(156,018,109);
 }
 
-.font-chimie {
+.font-inc {
     color: rgb(000,126,148);
 }
 
-.font-ecologie {
+.font-inee {
     color: rgb(098,174,037);
 }
 
-.font-homme {
+.font-inshs {
     color: rgb(130,014,018);
 }
 
-.font-ingenierie {
+.font-insis {
     color: rgb(212,000,45);
 }
 
-.font-mathematiques {
+.font-insmi {
     color: rgb(084,125,61);
 }
 
-.font-nucleaire {
+.font-in2p3 {
     color: rgb(231,081,019);
 }
 
-.font-physique {
+.font-inp {
     color: rgb(000,068,148);
 }
 
-.font-information {
+.font-ins2i {
     color: rgb(086,042,132);
 }
 
-.font-terre {
+.font-insu {
     color: rgb(204,035,129);
 }
 
@@ -148,6 +166,19 @@ a {
 /*****************************
 Entete
 *****************************/
+header {
+    width: 75%;
+    height: 90px;
+    margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+    .bibcnrslogo {
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        max-width: 70px;
+    }
+}
 #access {
     width: 100%;
     height: 30px;
@@ -163,7 +194,7 @@ Entete
     @include align-items(right);
     float: right;
     list-style-type: none;
-    font-size: 1rem;
+    font-size: 12px;
     font-style: italic;
     padding-right: 5%;
     margin: 0;
@@ -181,7 +212,6 @@ Entete
 #hierarchie {
     width: 100%;
     height: 30px;
-    background: #f0f0f0;
 }
 
 #cnrs {
@@ -191,8 +221,8 @@ Entete
     @include justify-content(flex-end);
     @include align-items(right);
     float: right;
+    font-size: 12px;
     list-style-type: none;
-    font-size: 1rem;
     padding-right: 5%;
     margin: 0;
 }
@@ -206,28 +236,24 @@ Entete
     }
 }
 
-.logo {
-    position: relative;
-    height: 200px;
-    h1 {
-        display: inline-block;
-        position: absolute;
-        left : 24%;
-        top: 50%;
-        vertical-align: middle;
-        margin: 0;
+.infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 60px;
+    font-style: italic;
+    font-size: 14px;
+    .name {
+        padding: 0 10px 0 10px;
+        min-width: 180px;
     }
-    .logocnrs {
-        position: absolute;
-        left: -24px;
-        top: -20px;
-        width: 23%;
+    .domains {
+        min-width: 300px;
+        padding: 0 10px 0 10px;
     }
-    .bibcnrslogo{
-        position: absolute;
-        width: 17%;
-        right: 20px;
-        top :10px;
+    .language {
+        padding: 0 10px 0 10px;
     }
 }
 
@@ -264,41 +290,46 @@ Entete
 Accueil
 *****************************/
 
-.logoaccueil {
-    z-index: 100;
-    position: absolute;
-    top: 16%;
-    left: 25%;
-    width: 23%;
+.main{
+    width: 100%;
+    min-height: 937px;
+    background-image: url("images/fond.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
-.logobibcnrs {
-    z-index: 150;
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 17%;
+.navigations {
+    width: 75%;
+    margin: 0 auto;
 }
-#contentaccueil {
-    max-width: 100%;
-    img {
-        max-width: 100%;
+.bread {
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 2%;
+    a {
+        color: #fff;
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
-#entete {
-    position: relative;
+#contentaccueil {
+    width: 75%;
+    margin: 0 auto;
 }
 #center3 {
     @include display-flex;
     @include flex-direction(row);
     @include flex-wrap(wrap);
     @include justify-content(center);
-    background-color: #f0f0f0;
+    background-color: transparent;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .boite {
     @include display-flex;
     @include flex-direction(column);
-    max-width: 340px;
+    max-width: 300px;
     min-width: 200px;
     border: #dcded9 solid 1px;
     margin:  25px 10px 10px 10px;
@@ -364,73 +395,36 @@ Accueil
 /*****************************
 Navigation
 *****************************/
-#principal {
-    margin-left: -40px;
-    z-index: 50;
-    position: fixed;
-    top: 10%;
-    overflow: hidden;
-    background: url("images/ptit_gauche_top.png") no-repeat;
-    background-position: right top;
-    padding-top: 29px;
-    .principalbas {
-        background: url("images/ptit_gauche_bottom.png") no-repeat;
-        background-position: right bottom;
-        padding-bottom: 40px;
-    }
-    &:hover {
-        background: url("images/ban_gauche_top.png") no-repeat;
-        background-position: right top;
-        .principalbas {
-            background: url("images/ban_gauche_bottom.png") no-repeat;
-            background-position: right bottom;
-            padding-bottom: 40px;
-        }
-        ul {
-            margin: 0;
-            background: url("images/ban_gauche_middle.png") repeat-y;
-            background-position: right;
-            padding-right: 7px;
-            width: 243px;
-            li a span {
-                display: inline;
-                padding-left: 4px;
-                vertical-align: middle;
-                padding-right: 10px;
-                line-height: 30px;
-            }
-        }
-    }
+.principal {
+    background-color: #fff;
     ul {
         margin: 0;
-        background: url("images/ptit_gauche_middle.png") repeat-y;
-        background-position: right;
-        padding-right: 7px;
-        width: 43px;
+        width: 100%;
+        -webkit-padding-start: 0px;
+        @include display-flex;
+        @include flex-direction(row);
         li {
-            background: #2d3a4a;
+            padding: 0 1px 5px 1px;
+            border-right: 1px solid #f0f0f0;
+            border-top: 4px solid #f0f0f0;
+            border-bottom: 4px solid #f0f0f0;
             list-style-type: none;
-            padding-right: 5px;
-            text-align: right;
-            a {
-                text-decoration: none;
-                color: white;
-                display: block;
-                width: 100%;
-                height: 30px;
-                span {
-                    display: none;
-                    padding-left: 4px;
-                    vertical-align: middle;
-                    padding-right: 10px;
-                    line-height: 30px;
-                }
-                img {
-                    vertical-align: middle;
-                    float: right;
-                    padding:  3px 7px;
-                }
+            width: 10%;
+            line-height: 1.5;
+            text-align: center;
+            &:hover {
+                transform: scale(1.2);
             }
+            a {
+            display: block;
+            text-transform: uppercase;
+            font-size: 10px;
+            text-decoration: none;
+            color: #000;
+            }
+        }
+        li:last-child {
+            border-right: 0px;
         }
     }
 }
@@ -460,7 +454,7 @@ nav select {
         display: none;
     }
 
-    #principal {
+    .principal {
         background-image: none;
         &:hover {
             background-image: none;
@@ -475,35 +469,37 @@ Centre
     margin-top: 20px;
 }
 
-#recherchebase {
-    position: absolute;
-    top: 50%;
-    left: 46%;
-    margin-left: -12%;
-    z-index: 200;
+#recherchegenerale {
+    width: 75%;
+    margin: 0 auto;
 }
 
 #atoz {
     max-width: 250px;
-    position: absolute;
-    top: 70%;
-    left: 46%;
-    margin-left : -12%;
-    z-index: 200;
+    margin: 20px auto;
+}
+#searchterm {
+    width: 80%;
+    height: 40px;
+    padding-left: 30px;
 }
 
 input::-webkit-input-placeholder {
     color: rgb(98,195,221);
+    font-style: italic;
 }
 
 input:-moz-placeholder {
+    padding-left: 30px;
     color: rgb(98,195,221);
+    font-style: italic;
 }
 
 #content {
-    background: #ffffff;
     padding: 10px 10px 10px 10px;
     min-height: 300px;
+    width: 75%;
+    margin: 0 auto;
 }
 
 #center {
@@ -514,17 +510,21 @@ input:-moz-placeholder {
 }
 
 #pagenorm {
-    position: relative;
-    min-width: 220px;
-    max-width: 800px;
-    margin: 25px auto 0 auto;
+    background: #fff;
+    min-width: 300px;
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0;
+    margin: 25px 5px 10px 10px;
     padding: 0 20px 0 20px;
 }
 
 sidebar {
-    max-width: 320px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
     min-width: 255px;
-    margin: 25px 10px 10px 10px;
+    margin: 25px 10px 10px 5px;
     &.left {
         float: left;
     }
@@ -536,6 +536,7 @@ sidebar {
 .box-container {
     border: #dcded9 solid 1px;
     margin-bottom: 20px;
+    background-color: #fff;
     h2 {
         margin: 0;
         line-height: 40px;
@@ -647,11 +648,13 @@ Databases
         border: #dcded9 solid 2px;
         border-radius: 10px;
         line-height: 40px;
+        background-color: #fff;
         img {
             vertical-align: middle;
         }
         .bddtitle {
             float:right;
+            font-size: 12px;
         }
     }
 }
@@ -716,13 +719,14 @@ Search
 Pied de page
 *****************************/
 footer {
-    max-width: 100%;
+    max-width: 75%;
+    margin: 0 auto;
     height: 70px;
-    background: #f0f0f0;
-    border: #dcded9;
+    background: #fff;
     text-align: center;
     display: block;
     color: rgb(069,100,135);
+    position: relative;
     div {
         @include display-flex;
         @include flex-direction(row);
@@ -730,33 +734,25 @@ footer {
         @include justify-content(center);
         font-family: "Open Sans";
     }
-    #titre-bas {
-        font-size: 1.4rem;
-        letter-spacing: 3px;
-        position: relative;
-        img {
-            max-height: 50px;
-            position: absolute;
-            right: 10px;
-            bottom: -10px;
-        }
+    .twitter {
+        position: absolute;
+        top: 5px;
+        right: 10px;
     }
     ul {
         @include display-flex;
         @include flex-direction(row);
         @include flex-wrap(wrap);
         @include justify-content(center);
-        font-size: 1rem;
+        font-size: 14px;;
         list-style-type: none;
-        padding: 0;
+        padding: 10px 0 0 0;
         li {
             display: inline-block;
             padding: 0 10px 0 10px;
             a {
                 color: #000;
-                &::after {
-                    content: none;
-                }
+                text-decoration: none;
             }
         }
     }

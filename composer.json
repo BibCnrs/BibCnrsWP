@@ -48,7 +48,7 @@
                     "composer/installers": "v1.0.7"
                 }
             }
-        }
+        },
         {
             "type": "package",
             "package": {

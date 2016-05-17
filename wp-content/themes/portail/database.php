@@ -13,9 +13,10 @@ $args = (array(
     'post_type' => 'database',
     'tax_query' => array(
         array(
-        'taxonomy' => 'databases',
-        'field' => 'slug',
-        'terms' => $config['category']['domains'])
+            'taxonomy' => 'databases',
+            'field' => 'slug',
+            'terms' => $config['category']['domains']
+        )
     ),
     'orderby' => 'title',
     'order' => 'ASC')
