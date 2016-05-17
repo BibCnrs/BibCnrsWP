@@ -401,6 +401,7 @@ Navigation
         margin: 0;
         width: 100%;
         -webkit-padding-start: 0px;
+        -moz-padding-start: 0px;
         @include display-flex;
         @include flex-direction(row);
         li {
