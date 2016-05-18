@@ -25,7 +25,7 @@
             <h2>Autres Domaines</h2>
             {% for post in allOtherPosts %}
                 <p>{{post.display_date}} - <a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
-                <p class="font-{{post.category.slug}}">({{post.category}})</p>
+                <p class="font-{{post.category.description}}">({{post.category}})</p>
             {% endfor %}
         {% endif %}
     </div>

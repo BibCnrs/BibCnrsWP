@@ -23,22 +23,62 @@
     {% endblock %}
         <div class="bib-container" >
             {% block header %}
-                <header id="header" class="bsbb">
-                    <div class="clear"></div>
-                    <div id="hierarchie">
-                        <ul id="cnrs">
-                            <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+            <header id="header" class="bsbb">
+                <div class="clear"></div>
+                <div id="hierarchie">
+                    <ul id="cnrs">
+                        <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
+                        <li class="cnrsli">&nbsp;|&nbsp;</li>
+                        <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
+                        {% if other %}
                             <li class="cnrsli">&nbsp;|&nbsp;</li>
-                            <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-                        </ul>
+                            <li class ="cnrsli"><a href="http://www.cnrs.fr/{{currentCategory.description}}" target="_blank">{{currentCategory.description|upper}}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <a href="{{site.url}}" title="accueil">
+                    <img src="{{theme.uri}}/images/bibcnrs-logo-visite.png" alt="logo bibcnrs {{userCategory.name}}" class="bsbb bibcnrslogo">
+                </a>
+                <div class="infos">
+                    <div class="name">
+                        Bonjour
                     </div>
-                </header>
+                    &nbsp;|&nbsp;
+                    <div class="domains">
+                        Vos domaines : Connectez-vous !
+                    </div>
+                    <div class="language">
+                        {{language_switcher}}
+                    </div>
+                <div id="separateur"></div>
+            </header>
             {% endblock %}
+            <div class="main">
+                <div class="navigations">
+                    {% block navigation %}
+                    <nav role="navigation" class="principal">
+                        <div class=principalbas>
+                            <ul class="menu">
+                                {% for item in principal.get_items %}
+                                <li class="nav-main-item  {{item.classes | join(' ')}}">
+                                    <a class="nav-main-link" href="{{item.get_link}}">
+                                        {{item.title}}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </nav>
+                    {% endblock %}
+                    <div class="bread">
+                    {% block breadcrumb %}
+                        <a href="{{ http_host }}">Accueil</a>
+                    {% endblock %}
+                    </div>
+                </div>
             {% block content %}
-                {% block breadcrumb %}
-                    <a href="{{ http_host }}">Accueil</a>
-                {% endblock %}
             {% endblock %}
+            </div>
             {% block footer %}
                 <div class="clear"></div>
                 <footer>
@@ -49,10 +89,7 @@
                                 {% endfor %}
                             </ul>
                     </div>
-                    <div id="titre-bas">
-                        <strong>B</strong>iblioth&egrave;que d'<strong>A</strong>rticles, &nbsp;<strong>S</strong>&eacute;ries et &nbsp;<strong>A</strong>utres &nbsp;<strong>R</strong>essources &nbsp;<strong>D</strong>ocumentaires
-                        <a href="https://twitter.com/bibcnrs"><img src="{{theme.uri}}/images/twitter.png" alt="logo twitter" target="_blank"/></a>
-                    </div>
+                    <a href="https://twitter.com/bibcnrs" target="_blank" ><img src="{{theme.uri}}/images/twitter.png" alt="logo twitter" class="twitter"/></a>
                 </footer>
             {% endblock %}
         </div>

@@ -20,5 +20,6 @@ $args = (array(
     'orderby' => 'post_title',
     'order' => 'ASC')
 );
+$context['terms'] = get_terms('databases');
 $context['origin'] = Timber::get_posts( $args );
 Timber::render('taxonomy-databases.twig', $context);
