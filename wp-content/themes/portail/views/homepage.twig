@@ -4,13 +4,7 @@
 {% endblock %}
 {% block content %}
 <div id="contentaccueil" class="bsbb">
-        <div id="recherchegenerale">
-            <form action="{{site.url}}/category/biologie/" id="recherchebase" method="get">
-                <label for "searchterm"><input type="text" id="searchterm" name="search_term" placeholder="Rechercher...">
-                <input type="submit" value="Chercher"/>
-            </form>
-        </div>
-        <div id="atoz">
+        {{ ebsco_widget|shortcodes }}        <div id="atoz">
             <img src ="{{theme.uri}}/images/atoz.png" alt="bientot A to Z" usemap="#zonemap"/>
             <map name="zonemap">
                 <area shape="rect" coords="125,0,300,33" href="{{site.url}}/bases-de-donnees" alt="bases">
