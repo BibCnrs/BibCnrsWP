@@ -4,12 +4,7 @@
 {% endblock %}
 {% block content %}
 <div id="contentaccueil" class="bsbb">
-        {{ ebsco_widget|shortcodes }}        <div id="atoz">
-            <img src ="{{theme.uri}}/images/atoz.png" alt="bientot A to Z" usemap="#zonemap"/>
-            <map name="zonemap">
-                <area shape="rect" coords="125,0,300,33" href="{{site.url}}/bases-de-donnees" alt="bases">
-            </map>
-        </div>
+        {{ ebsco_widget|shortcodes }}
     <div id="center3">
         {% for box in news %}
         {{ homenews.macro(box.title, box.slug, box.posts) }}
