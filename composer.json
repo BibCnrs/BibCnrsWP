@@ -68,6 +68,7 @@
     "require-dev": {
     },
     "require": {
+        "koala-framework/composer-extra-assets": "~1.1",
         "wp-block-admin": "0.2.3",
         "bibcnrs/wp-ebsco-widget": "dev-master",
         "timber/timber": "0.22.1",
@@ -79,6 +80,9 @@
         "installer-paths": {
             "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
             "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "require-npm": {
+            "bibcnrs-widget": "latest"
         }
     }
 }

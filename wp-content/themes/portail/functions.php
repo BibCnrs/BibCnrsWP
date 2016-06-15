@@ -1,5 +1,11 @@
 <?php
 
+require 'widgetShortcode.php';
+
+add_shortcode('bibcnrs_header', $getShortcode([
+    tag => 'BibHeader'
+]));
+
 function modify_contact_methods($profile_fields) {
 
     // Add new fields
