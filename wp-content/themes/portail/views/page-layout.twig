@@ -36,21 +36,7 @@
                         {% endif %}
                     </ul>
                 </div>
-                <div class="connexion">
-                    <a href="{{site.url}}" title="accueil">
-                        <img src="{{theme.uri}}/images/bibcnrs-logo-visite.png" alt="logo bibcnrs {{userCategory.name}}" class="bsbb bibcnrslogo">
-                    </a>
-                    <div class="infos">
-                        <div class="name">
-                            Bonjour
-                        </div>
-                    <div class="domain">
-                        Votre domaine : Connectez-vous !
-                    </div>
-                    <div class="otherDomains">
-                        Vos domaines possibles :
-                    </div>
-                </div>
+                <div>{{ '[bibcnrs_header]'|shortcodes }}</div>
                 <div class="language">
                     {{language_switcher}}
                 </div>

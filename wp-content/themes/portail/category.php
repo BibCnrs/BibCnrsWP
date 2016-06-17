@@ -6,7 +6,7 @@ Template Name: category
 require 'config.php';
 
 require 'models/BibCnrsCategoriesProvider.php';
-$categoriesProvider = new BibCnrsCategoriesProvider(get_the_category, get_category_by_slug, wp_get_current_user);
+$categoriesProvider = new BibCnrsCategoriesProvider('get_the_category', 'get_category_by_slug', 'wp_get_current_user');
 
 $currentCategory = $categoriesProvider->getCurrentCategory();
 $userCategory = $categoriesProvider->getUserCategory();
@@ -16,9 +16,7 @@ $getPosts = function ($args) {
     return Timber::get_posts($args);
 };
 
-$postsProvider = new BibCnrsPostsProvider($config['category']['domains'], get_category_by_slug, $getPosts);
-
-
+$postsProvider = new BibCnrsPostsProvider($config['category']['domains'], 'get_category_by_slug', $getPosts);
 
 /* Display */
 $context = Timber::get_context();
