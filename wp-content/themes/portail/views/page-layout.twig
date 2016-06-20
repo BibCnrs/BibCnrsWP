@@ -59,13 +59,11 @@
                         </div>
                     </nav>
                     {% endblock %}
-                    <div class="bread">
-                    {% block breadcrumb %}
-                        <a href="{{ http_host }}">Accueil</a>
-                    {% endblock %}
-                    </div>
                 </div>
             {% block content %}
+                    {% block breadcrumb %}
+                        <span class="bread"><a href="{{ http_host }}">Accueil</a></span>
+                    {% endblock %}
             {% endblock %}
             </div>
             {% block footer %}

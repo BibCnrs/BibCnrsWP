@@ -1,9 +1,9 @@
 {% extends 'page-layout.twig' %}
-{% block breadcrumb %}
-    {{parent()}} >> Bases de donn&eacute;es
-{% endblock %}
 {% block content %}
     <div id="content" class="bsbb">
+    {% block breadcrumb %}
+        <span class="bread">{{parent()}} >> Bases de donn&eacute;es</span>
+    {% endblock %}
         <br class="clear"/>
         <div id="bdddomains">
             <form>
@@ -15,7 +15,7 @@
                     {% endfor %}
                 </select>
             </form>
-            <div class="font-visit">Toutes les bases</div>
+            <div class="white bold">Toutes les bases</div>
         </div>
         <div id="center">
             <div id="pagenormbdd">

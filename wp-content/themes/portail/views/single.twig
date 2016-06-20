@@ -1,9 +1,9 @@
 {% extends 'category.twig' %}
-{% block breadcrumb %}
-    {{parent()}} >> {{post.title}}
-{% endblock %}
 {% block content %}
 <div id="content" class="bsbb">
+{% block breadcrumb %}
+    <span class="bread">{{parent()}} >> {{post.title}}</span>
+{% endblock %}
     <br class="clear"/>
     <div id="center">
         {{ ebsco_widget|shortcodes }}

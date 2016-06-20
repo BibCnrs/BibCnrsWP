@@ -1,16 +1,16 @@
 {% extends 'page-layout.twig' %}
-{% block breadcrumb %}
-    {{parent()}} >> <a href="{{url}}/category/{{currentCategory.slug}}">{{currentCategory.name}}</a>
-{% endblock %}
 {% block content %}
     <div id="content" class="bsbb">
+    {% for post in posts %}
+    {% block breadcrumb %}
+        <span class="bread">{{parent()}} >> {{post.title}}</span>
+    {% endblock %}
         <div id="center">
             <div id="pagenorm">
-                {% for post in posts %}
                 <h1 class="font-visit">{{post.title}}</h1>
                     {{post.post_content}}
-                {% endfor %}
             </div>
         </div>
+    {% endfor %}
     </div>
 {% endblock %}

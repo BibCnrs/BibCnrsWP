@@ -1,9 +1,9 @@
 {% extends 'page-layout.twig' %}
-{% block breadcrumb %}
-    {{parent()}} >> <a href="{{url}}/category/{{currentCategory.slug}}">{{currentCategory.name}}</a>
-{% endblock %}
 {% block content %}
     <div id="content" class="bsbb">
+    {% block breadcrumb %}
+        <span class="bread">{{parent()}} >> <a href="{{url}}/category/{{currentCategory.slug}}">{{currentCategory.name}}</a></span>
+    {% endblock %}
         <br class="clear"/>
         <div id="center">
             {{ ebsco_widget|shortcodes }}
