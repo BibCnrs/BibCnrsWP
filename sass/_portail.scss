@@ -31,6 +31,8 @@ h1{
 
 #ebsco_widget{
     position: relative;
+    z-index: 1;
+    background-color: white;
     width: 100%;
     padding: 20px 20px 20px 20px;
 }
@@ -261,7 +263,7 @@ header {
     }
 }
 
-.language {
+.header .language {
     position: absolute;
     bottom: 35px;
     right: 10px;
