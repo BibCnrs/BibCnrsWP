@@ -35,6 +35,7 @@ h1{
     background-color: white;
     width: 100%;
     padding: 20px 20px 20px 20px;
+    margin-top: 10px;
 }
 
 .biologie:hover,
@@ -326,9 +327,10 @@ Accueil
 }
 #contentaccueil {
     width: 75%;
-    height: 100%;
+    min-height: inherit;
     background-color: rgba(255,255,255,.35);
     margin: 0 auto;
+    padding: 10px 10px 10px 10px;
 }
 #center3 {
     @include display-flex;
@@ -513,9 +515,8 @@ input:-moz-placeholder {
 #content {
     padding: 10px 10px 10px 10px;
     background-color: rgba(255,255,255,.35);
-    min-height: 300px;
+    min-height: inherit;
     width: 75%;
-    height: 100%;
     margin: 0 auto;
 }
 
