@@ -1,0 +1,9 @@
+{# faqsubcat.twig #}
+{% macro macro(title, slug, posts) %}
+    <div class="h2faq">{{title}}
+        {% for post in posts %}
+                <div class="faqtitle" onclick="flipflop('rep-{{post.id}}');">{{post.post_title}}</div>
+                <div id="rep-{{post.id}}" class="repfaq">{{post.post_content}}</div>
+        {% endfor %}
+    </div>
+{% endmacro %}

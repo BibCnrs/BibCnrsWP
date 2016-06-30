@@ -1,0 +1,19 @@
+{% import "faqsubcat.twig" as faqsubcat %}
+{% extends 'page-layout.twig' %}
+{% block content %}
+    <div id="content" class="bsbb">
+    {% block breadcrumb %}
+        <span class="bread">{{parent()}} >> <a href="{{url}}/category/{{currentCategory.slug}}">{{currentCategory.name}}</a></span>
+    {% endblock %}
+        <br class="clear"/>
+        <div id="center">
+            {{ ebsco_widget|shortcodes }}
+            <div id="pagefaq">
+                <h1 class="font-{{currentCategory.description}}">FAQ</h1>
+                {% for sscat in faqPosts %}
+                {{ faqsubcat.macro(sscat.title, sscat.slug, sscat.posts) }}
+                {% endfor %}
+            </div>
+       </div>
+   </div>
+{% endblock %}
