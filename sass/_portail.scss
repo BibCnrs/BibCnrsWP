@@ -11,7 +11,6 @@ License URI:  http: //www.opensource.org/licenses/gpl-license.php GPL v3.0 (or l
 /******************************************** STYLES ******************************************************/
 /********************************************************************************************************************/
 
-
 /*****************************
 General
 *****************************/
@@ -587,6 +586,32 @@ sidebar {
     a {
         text-decoration: none;
     }
+}
+/*****************************
+FAQ
+*****************************/
+#pagefaq {
+    background: #fff;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    padding: 20px 20px 20px 20px;
+}
+.h2faq {
+    font-size: 1.7rem;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.faqtitle {
+    color: #455F7A;
+    font-size: 1.4rem;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.repfaq {
+    padding-left: 10px;
+    display: none;
+    font-size: 1.4rem;    
 }
 
 /*****************************
