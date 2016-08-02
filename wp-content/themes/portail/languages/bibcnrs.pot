@@ -1,0 +1,121 @@
+
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: bibcnrs\n"
+
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+
+#: 404.php:19
+msgid "Not found"
+msgstr ""
+
+#: 404.php:21
+msgid "This website changed."
+msgstr ""
+
+#: 404.php:22
+msgid "Browse the"
+msgstr ""
+
+#: 404.php:22 plan.php:16
+msgid "Sitemap"
+msgstr ""
+
+#: category.php:10
+msgid "Category Archives: %s"
+msgstr ""
+
+#: content-none.php:11
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+#: content-none.php:17
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: footer.php:6
+msgid "This site uses PIWIK to analyze the audience and improve its content"
+msgstr ""
+
+#: functions.php:53
+msgid "You are here: "
+msgstr ""
+
+#: functions.php:55
+msgid "Home"
+msgstr ""
+
+#: functions.php:71 73
+msgid "The articles"
+msgstr ""
+
+#: functions.php:166
+msgid "Articles by the author: "
+msgstr ""
+
+#: functions.php:169
+msgid "Articles on the subject: "
+msgstr ""
+
+#: functions.php:172
+msgid "Search Results for: "
+msgstr ""
+
+#: functions.php:180
+msgid "Archives"
+msgstr ""
+
+#: header.php:33
+msgid "Aller au menu"
+msgstr ""
+
+#: header.php:34
+msgid "Aller au contenu"
+msgstr ""
+
+#: functions.php:189
+msgid "404 Not found"
+msgstr ""
+
+#: page.php:20
+msgid "Edit"
+msgstr ""
+
+#: plan.php:18
+msgid "Pages"
+msgstr ""
+
+#: plan.php:20
+msgid "Categories"
+msgstr ""
+
+#: plan.php:22
+msgid "All Blog Posts"
+msgstr ""
+
+#: search.php:18
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:2,3
+msgid "Search"
+msgstr ""

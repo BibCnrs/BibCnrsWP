@@ -2,20 +2,20 @@
 {% block content %}
     <div id="content" class="bsbb">
     {% block breadcrumb %}
-        <span class="bread">{{parent()}} >> Bases de donn&eacute;es {{domain.name}}</span>
+        <span class="bread">{{parent()}} >> {{__('Databases', 'bibcnrs')}} {{domain.name}}</span>
     {% endblock %}
         <br class="clear"/>
         <div id="bdddomains">
             <form>
                 <select name="URL"onchange="window.location.href= this.form.URL.options[this.form.URL.selectedIndex].value">
-                    <option value ="nul">Voir les bases en ... </option>
-                    <option value="{{site.url}}/bases-de-donnees">Toutes les bases</option>
+                    <option value ="nul">{{__('See databases for ...', 'bibcnrs')}} </option>
+                    <option value="{{site.url}}/bases-de-donnees">{{__('All databases', 'bibcnrs')}}</option>
                     {% for item in terms %}
                     <option value ="{{site.url}}/databases/{{item.slug}}">{{item.name}}</option>
                     {% endfor %}
                 </select>
             </form>
-            <div class="white bold">Bases {{domain.name}}</div>
+            <div class="white bold">{{__('Databases', 'bibcnrs')}} {{domain.name}}</div>
         </div>
         <div id="center">
             <div id="pagenormbdd">

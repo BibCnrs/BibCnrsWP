@@ -3,19 +3,19 @@
 {% block content %}
     <div id="content"  class="bsbb">
         {% block breadcrumb %}
-            {{parent()}} >> not found
+            {{parent()}} >> {{__('not found', 'bibcnrs')}}
         {% endblock %}
 
     <br class="clear">
 
         <div id="center">
             <div id="pagenorm">
-                <h1>Page non trouvée</h1>
+                <h1>{{__('Page not found', 'bibcnrs')}}</h1>
                 <br/>
                 <p>
-                    Retrourner à
+                    {{__('Go back to', 'bibcnrs')}}
                     <a href="{{site.url}}">
-                        l'accueil
+                        {{__('home', 'bibcnrs')}}
                     </a>
                 </p>
             </div> <!--finpagenorm -->
