@@ -70,7 +70,7 @@
     "require": {
         "koala-framework/composer-extra-assets": "~1.1",
         "wp-block-admin": "0.2.3",
-        "bibcnrs/wp-ebsco-widget": "0.7.0",
+        "bibcnrs/wp-ebsco-widget": "dev-master",
         "timber/timber": "0.22.1",
         "restrict-taxonomies": "1.3.0",
         "rss-shortcode": "0.2",
