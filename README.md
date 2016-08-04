@@ -7,7 +7,7 @@ You need to run `docker-compose build` to build the image.
 You can set proxy with --build-arg http_proxy=proxy.url
 You must set the DB_PASSWORD environment variable to configure the wordpress database password
 
-Run `make composer install` to install wordpress plugins defined in composer.json.
+Run `make install` to install wordpress plugins defined in composer.json.
 
 ### in development
 Simply do `make run-dev`
