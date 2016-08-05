@@ -1,0 +1,130 @@
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: bibcnrs\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-06-15 10:40+0100\n"
+"Last-Translator: kremer <patrick.kremer@inist.fr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+
+#: 404.php:19
+#, fuzzy
+msgid "not found"
+msgstr "Non trouv&eacute;"
+
+#: 404.php:22 plan.php:16
+#, fuzzy
+msgid "Sitemap"
+msgstr "Plan du site"
+
+#: 404.php:11
+#, fuzzy
+msgid "home"
+msgstr "l&rsquo;accueil"
+
+#: 404.php:11
+#, fuzzy
+msgid "Go back to"
+msgstr "Retourner &agrave;"
+
+#: 404.php
+msgid "Page not found"
+msgstr "Page non trouv&eacute;e"
+
+#: functions.php:53
+#, fuzzy
+msgid "You are here: "
+msgstr "Vous êtes ici : "
+
+#: functions.php:55
+#, fuzzy
+msgid "Home"
+msgstr "Accueil"
+
+#: functions.php:71 73
+#, fuzzy
+msgid "The articles"
+msgstr "Les articles"
+
+#: functions.php:166
+#, fuzzy
+msgid "Articles by the author: "
+msgstr "Articles de l'auteur : "
+
+#: functions.php:169
+#, fuzzy
+msgid "Articles on the subject: "
+msgstr "Articles sur le thème : "
+
+#: functions.php:172
+#, fuzzy
+msgid "Search Results for: "
+msgstr "Résultats de recherche pour : "
+
+#: functions.php:180
+#, fuzzy
+msgid "Archives"
+msgstr "Archives"
+
+#: page.php:20
+#, fuzzy
+msgid "Edit"
+msgstr "(Modifier)"
+
+#: plan.php:18
+#, fuzzy
+msgid "Pages"
+msgstr "Pages&nbsp;:"
+
+#: plan.php:20
+#, fuzzy
+msgid "Categories"
+msgstr "Catégories"
+
+#: plan.php:22
+#, fuzzy
+msgid "All Blog Posts"
+msgstr "Tous les articles"
+
+#: search.php:18
+#, fuzzy
+msgid "Last news"
+msgstr "Dernières actualités"
+
+#: searchform.php:2,3
+msgid "Search"
+msgstr "Recherche"
+
+#: sidebar-right-visit.php
+msgid "News"
+msgstr "Actualités"
+
+#: sidebar-right-visit.php
+msgid "Other domains"
+msgstr "Autres domaines"
+
+#: single.php
+msgid "See all news"
+msgstr "Voir toutes les actualités"
+
+#: database.php
+msgid "See all"
+msgstr "Voir tout"
+
+#: database.php
+msgid "All databases"
+msgstr "Toutes les bases"
+
+#: database.php
+msgid "See databases for ..."
+msgstr "Voir les bases en ..."
+
+#: database.php
+msgid "Databases"
+msgstr "Bases de donn&eacute;es"
