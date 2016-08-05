@@ -10,13 +10,11 @@ You must set the DB_PASSWORD environment variable to configure the wordpress dat
 Run `make install` to install wordpress plugins defined in composer.json.
 
 ### in development
-Simply do `make run-dev`
-This will launch wordpress, mariadb and compass (that will build the css and the watch for change).
-Then you need to visit localhost:8080 to setup wordpress, simply follow the instruction.
-Once the installation is successful.
-Run `make load-fixtures` to load the themes data in wordpress db.
-This command need the DB_PASSWORD env variable to be set with the password, otherwise it will prompt for it
-Now you are all set.
+
+- Simply do `make run-dev`. This will launch wordpress, mariadb and compass (that will build the css and the watch for change).
+- Then you need to visit http://localhost:8080 to setup wordpress. Simply follow the install instructions (language, admin account).
+- Set the DB_PASSWORD env variable, then run `make load-fixtures` in a new terminal (when `make run-dev` is running) to load the themes data in wordpress db.
+- Then login to the [wordpress backoffice](http://localhost:8080/wp-admin/plugins.php) to manually activate the plugins: EbscoWidget, Polylang, Restrict Taxonomies, RSS Shortcode, Timber, WP Block Admin
 
 ### in order to deploy
 make build <version>
