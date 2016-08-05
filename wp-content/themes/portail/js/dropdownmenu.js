@@ -8,7 +8,7 @@
         // Create default option "Go to..."
         $("<option />", {
             "selected": "selected",
-            "value"   : "http://bsn.inist.fr/",
+            "value"   : "http://bib-preprod.cnrs.fr/",
             "text"    : "Menu ..."
         }).appendTo("nav select");
 

@@ -16,11 +16,7 @@
                 </ul>
             </div>
             {% block sidebar %}
-                {% if (visit) %}
                     {% include 'sidebar-right-visit.twig' %}
-                {% else %}
-                    {% include 'sidebar-right.twig' %}
-                {% endif %}
             {% endblock %}
         </div>
        </div>

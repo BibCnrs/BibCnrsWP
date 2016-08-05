@@ -1,10 +1,12 @@
 <sidebar>
+    {% if page != 'category' %}
     <div class="box-container">
-        <h2>{{__('News', 'bibcnrs')}} {{title}}</h2>
+        <h2>{{__('News', 'bibcnrs')}} {{currentCategory.name}}</h2>
         {% for post in categoryPosts %}
         <p><a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
         {% endfor %}
     </div>
+    {% endif %}
     <div class="box-container">
         {% if currentCategory.slug == 'physique' %}
             <h2>{{__('News', 'bibcnrs')}} (fil RSS {{currentCategory.name}})</h2>

@@ -42,10 +42,10 @@ else{
     $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
     $context['currentCategory'] = $currentCategory;
     $context['userCategory'] = $userCategory;
-    $context['visit'] = $currentCategory->slug != $userCategory->slug;
     $context['other'] = in_array($currentCategory->slug,$config['category']['domains']);
     $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
     $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
+    $context['page'] = "category";
     Timber::render('category.twig', $context);
 }
 ?>

@@ -1,8 +1,9 @@
 {# homenews.twig #}
-{% macro macro(title, slug, posts) %}
+{% macro macro(title, slug, posts, theme) %}
     <div class="boite">
         <div id="titrerubactus">
-            <h2 id="titreactus">{{title}}</h2>
+            <h2 id="titreactus">{{title|upper}}</h2>
+            <img src ="{{theme}}/images/decor-bloc-home.png" alt="decoration" class="decohome" />
         </div>
         {% for post in posts %}
             <div class="itemactus">
@@ -10,7 +11,7 @@
                 <span class="resume">{{post.post_content|excerpt(20)}}</span>
             </div>
         {% endfor %}
-        <br class="clear"/>
+        <hr class="actussepar"/>
         <div id="archivesactus"><a href="/category/{{slug}}">{{__('See all', 'bibcnrs')}}</a></div>
     </div>
 {% endmacro %}

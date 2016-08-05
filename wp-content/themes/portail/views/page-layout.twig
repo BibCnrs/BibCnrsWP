@@ -26,17 +26,6 @@
             {% block header %}
             <header id="header" class="bsbb">
                 <div class="clear"></div>
-                <div id="hierarchie">
-                    <ul id="cnrs">
-                        <li class ="cnrsli"><a href="http://www.cnrs.fr" target="_blank">CNRS</a></li>
-                        <li class="cnrsli">&nbsp;|&nbsp;</li>
-                        <li class ="cnrsli"><a href="http://www.cnrs.fr/dist/" target="_blank">DIST</a></li>
-                        {% if other %}
-                            <li class="cnrsli">&nbsp;|&nbsp;</li>
-                            <li class ="cnrsli"><a href="http://www.cnrs.fr/{{currentCategory.description}}" target="_blank">{{currentCategory.description|upper}}</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
                 <div>{{ '[bibcnrs_header]'|shortcodes }}</div>
                 <div class="language">
                     {{language_switcher}}
@@ -70,14 +59,21 @@
             {% block footer %}
                 <div class="clear"></div>
                 <footer>
+
                     <div class="menbu-bas-fr-container">
+                        <a href="https://www.cnrs.fr" target="_blank" ><img src="{{theme.uri}}/images/cnrs.png" alt="logo cnrs" class="logocnrs"/></a>
                         <ul class="menu-bas-fr">
+                            {% if other %}
+                                <li class="nav-main-item font-{{currentCategory.description}}"><a href="http://www.cnrs.fr/{{currentCategory.description}}" class ="font-{{currentCategory.description}}" target="_blank">{{currentCategory.description|upper}}</a></li>
+                                <li class="cnrsli">&nbsp;|&nbsp;</li>
+                            {% endif %}
                             {% for item in secondaire.get_items %}
-                            <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
-                                {% endfor %}
+                                <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+                                <li class="footerslash">&nbsp;|&nbsp;</li>
+                            {% endfor %}
                             </ul>
                     </div>
-                    <a href="https://twitter.com/bibcnrs" target="_blank" ><img src="{{theme.uri}}/images/twitter.png" alt="logo twitter" class="twitter"/></a>
+                    <a href="https://twitter.com/bibcnrs" target="_blank" ><img src="{{theme.uri}}/images/twitter.png" alt="logo twitter" class="logotwitter"/></a>
                 </footer>
             {% endblock %}
         </div>
