@@ -24,12 +24,12 @@ $config = [
         'biologie' => 'INSB',
         'chimie' => 'INC',
         'ecologie' => 'INEE',
-        'homme' => 'INSH',
+        'homme' => 'INSHS',
         'information' => 'INS2I',
-        'ingenierie' => 'INSI',
+        'ingenierie' => 'INSIS',
         'mathematiques' => 'INSMI',
         'nucleaire' => 'IN2P3',
-        'physique' => 'INB',
+        'physique' => 'INP',
         'terre' => 'INSU'
     ]
 ];
