@@ -21,15 +21,15 @@ $config = [
         ]
     ],
     'profile_map' => [
-        'biologie' => 'vie',
-        'chimie' => 'c',
-        'ecologie' => 'ee',
-        'homme' => 'shs',
-        'information' => 's2i',
-        'ingenierie' => 'sis',
-        'mathematiques' => 'smi',
-        'nucleaire' => '2p3',
-        'physique' => 'p',
-        'terre' => 'su'
+        'biologie' => 'INSB',
+        'chimie' => 'INC',
+        'ecologie' => 'INEE',
+        'homme' => 'INSH',
+        'information' => 'INS2I',
+        'ingenierie' => 'INSI',
+        'mathematiques' => 'INSMI',
+        'nucleaire' => 'IN2P3',
+        'physique' => 'INB',
+        'terre' => 'INSU'
     ]
 ];

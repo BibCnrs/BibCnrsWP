@@ -7,7 +7,7 @@
         {{ ebsco_widget|shortcodes }}
     <div id="center3">
         {% for box in news %}
-        {{ homenews.macro(box.title, box.slug, box.posts) }}
+        {{ homenews.macro(box.title, box.slug, box.posts, theme.uri) }}
         {% endfor %}
     </div><!-- fin center -->
 </div><!--/contentaacueil-->
