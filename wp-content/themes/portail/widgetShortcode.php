@@ -10,7 +10,7 @@ $getShortcode = function ($config) {
     return function ($atts, $content = null, $a) use ($config)
     {
         $widgetDir = get_home_path() . "wp-content/node_modules/bibcnrs-widget";
-        $widgetUrl = home_url() . DIRECTORY_SEPARATOR . "wp-content/node_modules/bibcnrs-widget";
+        $widgetUrl = site_url() . DIRECTORY_SEPARATOR . "wp-content/node_modules/bibcnrs-widget";
 
         $string = file_get_contents($widgetDir . "/package.json");
         $json = json_decode($string, true);
