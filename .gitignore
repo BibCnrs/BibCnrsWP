@@ -4,6 +4,7 @@ wp-content/index.php
 wp-content/themes/*
 !wp-content/themes/portail
 wp-content/themes/portail/style.css
+wp-content/uploads
 vendor
 composer.lock
 .currentCommit
