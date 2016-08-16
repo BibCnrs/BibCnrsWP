@@ -54,7 +54,7 @@
             "package": {
                 "name": "polylang",
                 "type": "wordpress-plugin",
-                "version": "2.02",
+                "version": "2.0.2",
                 "dist": {
                     "type": "zip",
                     "url": "https://downloads.wordpress.org/plugin/polylang.2.0.2.zip"
@@ -74,7 +74,7 @@
         "timber/timber": "0.22.1",
         "restrict-taxonomies": "1.3.0",
         "rss-shortcode": "0.2",
-        "polylang": "1.9"
+        "polylang": "2.0.2"
     },
     "extra": {
         "installer-paths": {
