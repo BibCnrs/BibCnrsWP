@@ -4,7 +4,7 @@ data:
     - /var/lib/mysql
 
 wordpress:
-  image: bibcnrs/wordpress:latest
+  image: bibcnrs/wordpress:4.5.3-apache
   ports:
     - 8080:8080
   links:
