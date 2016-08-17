@@ -68,7 +68,7 @@
     "require-dev": {
     },
     "require": {
-        "koala-framework/composer-extra-assets": "2.0.5",
+        "koala-framework/composer-extra-assets": "1.2.1",
         "wp-block-admin": "0.2.3",
         "bibcnrs/wp-ebsco-widget": "dev-master",
         "timber/timber": "0.22.1",
