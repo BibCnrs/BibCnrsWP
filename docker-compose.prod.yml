@@ -26,11 +26,6 @@ db:
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         PORT: 3305
         TERM: dumb
-    volumes_from:
-        - data
+    volumes:
+        - /applis/bibcnrs/home/mariadb:/var/lib/mysql
     restart: always
-
-data:
-  image: bibcnrs/data
-  volumes:
-    - /var/lib/mysql
