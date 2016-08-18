@@ -30,8 +30,12 @@ then load the themes fixtures. (this will overwrite the site name and administra
 `make load-fixtures`
 
 And then execute the following command to change the host to the correct url
-```
+```sh
 make wp-cli-replace http://localhost:8080 <new host>
+```
+Makefile does not accept `:` (it is interpreted as a noop and is not escapable) so instead do:
+```sh
+docker exec bibcnrs_wordpress_1 wp --allow-root --path=/var/www/html search-replace http://localhost:8080 <new host>
 ```
 
 ## useful command

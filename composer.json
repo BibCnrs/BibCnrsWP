@@ -68,6 +68,7 @@
     "require-dev": {
     },
     "require": {
+        "wp-cli/wp-cli" : "0.24.1",
         "koala-framework/composer-extra-assets": "1.2.1",
         "wp-block-admin": "0.2.3",
         "bibcnrs/wp-ebsco-widget": "dev-master",
@@ -84,5 +85,12 @@
         "require-npm": {
             "bibcnrs-widget": "1.0.3"
         }
+    },
+    "scripts" : {
+        "post-install-cmd" : [
+            "ln -s /var/www/html/wp-content/vendor/wp-cli/wp-cli/bin/wp /usr/bin/wp",
+            "source /var/www/vendor/wp-cli/wp-cli/utils/wp-completion.bash",
+            "source ~/.bash_profile"
+        ]
     }
 }

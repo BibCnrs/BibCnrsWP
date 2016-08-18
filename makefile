@@ -13,6 +13,7 @@ ifneq "$(SUPPORTS_MAKE_ARGS)" ""
     # use the rest as arguments for the command
     COMMAND_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
     # ...and turn them into do-nothing targets
+    $(eval $(COMMAND_ARGS):;@:)
 endif
 
 # If the command need the db password
@@ -79,7 +80,7 @@ composer: ## allow to run dockerized composer command
 	docker-compose run composer $(COMMAND_ARGS)
 
 wp-cli-replace: ## allow to run replace one string by another inside wordpress database
-	docker-compose run wpcli wp-cli.phar --allow-root --path=/var/www/html search-replace $(COMMAND_ARGS)
+	docker exec bibcnrs_wordpress_1 wp --allow-root --path=/var/www/html search-replace $(COMMAND_ARGS)
 
 build-css: ## build css from sass
 	docker-compose run compass compile
