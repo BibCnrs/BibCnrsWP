@@ -101,11 +101,11 @@ msgstr "Dernières actualités"
 msgid "Search"
 msgstr "Recherche"
 
-#: sidebar-right-visit.php
+#: sidebar-right.php
 msgid "News"
 msgstr "Actualités"
 
-#: sidebar-right-visit.php
+#: sidebar-right.php
 msgid "Other domains"
 msgstr "Autres domaines"
 
