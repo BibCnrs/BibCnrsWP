@@ -20,11 +20,7 @@
                 </p>
             </div> <!--finpagenorm -->
             {% block sidebar %}
-                {% if (subprefix == 'visite' or visit) %}
-                    {% include 'sidebar-right-visit.twig' %}
-                {% else %}
-                    {% include 'sidebar-right.twig' %}
-                {% endif %}
+                {% include 'sidebar-right.twig' %}
             {% endblock %}
 
             <br class="clear" />
