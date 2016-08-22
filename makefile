@@ -29,9 +29,9 @@ save-db: ## create a dump of the mariadb database arg: <name> default to current
 
 _save_db:
 ifdef COMMAND_ARGS
-	docker exec -it bibcnrs_db_1 mysqldump --password=$(DB_PASSWORD) wordpress > backups/$(COMMAND_ARGS).sql
+	docker exec bibcnrs_db_1 mysqldump --password=$(DB_PASSWORD) wordpress > backups/$(COMMAND_ARGS).sql
 else
-	docker exec -it bibcnrs_db_1 mysqldump --password=$(DB_PASSWORD) wordpress > backups/db_backup_$(shell date +%Y_%m_%d_%H_%M).sql
+	docker exec bibcnrs_db_1 mysqldump --password=$(DB_PASSWORD) wordpress > backups/db_backup_$(shell date +%Y_%m_%d_%H_%M).sql
 endif
 
 restore-db: ## restore a given dump to the mariadb database list all dump if none specified
