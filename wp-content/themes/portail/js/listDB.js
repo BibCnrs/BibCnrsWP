@@ -11,7 +11,7 @@
          * If letter is not in list
          * Creation of sublist
          */
-        if ( $( "#_" + letter ).length == 0 ){
+        if ( $( "#_" + letter ).length === 0 ){
             $( '#bases' ).append(
                 $( '<div/>' ).attr('class', 'blockletter letter' +letter)
             );
