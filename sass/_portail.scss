@@ -553,6 +553,7 @@ sidebar {
 
 #retour {
     font-style: italic;
+    padding-bottom: 10px;
     a {
         text-decoration: none;
     }
@@ -588,8 +589,7 @@ FAQ
 Databases
 *****************************/
 #pagenormbdd {
-    position: relative;
-    min-width: 220px;
+    min-width: 230px;
     max-width: 1200px;
     margin: 25px auto;
     padding: 0 20px 0 20px;
@@ -614,6 +614,7 @@ Databases
     max-width: 1200px;
     text-align: center;
     font-size: 1.2rem;
+    margin-top: 15px;
     ul {
         list-style: none;
         -webkit-padding-start: 0;
@@ -626,6 +627,11 @@ Databases
             }
         }
     }
+}
+.bddchoice {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 #titrerubnorm2 {
@@ -643,32 +649,68 @@ Databases
     margin-top: 20px;
 }
 
-.bases{
-    @include display-flex;
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    list-style: none;
+#bases{
+    column-count: auto;
+    -moz-column-count: auto;
+    -webkit-column-count: auto;
+    column-width: 220px;
+    -moz-column-width: 220px;
+    -webkit-column-width: 220px;
+    column-gap: 2rem;
+    -moz-column-gap: 2rem;
+    -webkit-column-gap: 2rem;
+    list-style-type: none;
     -webkit-padding-start: 0;
+    column-fill: auto;
+}
+#bases ul {
+    list-style: none;
+    -webkit-padding-start :0;
+    list-style-position: unset;
+    margin: 0;
+    padding: 0;
 }
 
-.bddlink {
-    color: #000;
-    .bdd{
-        margin: 5px 5px 0px 5px;
-        padding: 2px 5px 2px 2px;
-        width: 200px;
-        height: 40px;
-        border: #dcded9 solid 2px;
-        border-radius: 10px;
+.blockletter {
+    padding: 10px 0 10px 0;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+    h2 {
+        margin-top: 0px;
+        padding-left: 20px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #fff;
+    }
+}
+.bdd {
+    color:#000;
+    margin: 5px 5px 0px 5px;
+    padding: 2px 5px 2px 2px;
+    width: 211px;
+    height: 48px;
+    border: #dcded9 solid 2px;
+    border-radius: 10px;
+    line-height: 40px;
+    background-color: #fff;
+    break-inside: avoid-column;
+    -webkit-column-break-inside: avoid;
+    vertical-align: middle;
+    .bddtitle {
+        float:right;
+        font-size: 12px;
+        vertical-align: middle;
         line-height: 40px;
-        background-color: #fff;
-        img {
-            vertical-align: middle;
-        }
-        .bddtitle {
-            float:right;
-            font-size: 12px;
-        }
+    }
+    a {
+        color: #000;
+        line-height: 40px;
+        vertical-align: middle;
+    }
+    img {
+        vertical-align: middle;
     }
 }
 

@@ -7,6 +7,7 @@
 */
 require 'config.php';
 $context = Timber::get_context();
+$context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
 $context['domain'] = (array) $wp_query->queried_object;
 $args = (array(
     'showposts' => -1,

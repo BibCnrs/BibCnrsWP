@@ -5,6 +5,7 @@
         <span class="bread">{{parent()}} >> {{__('Databases', 'bibcnrs')}} {{domain.name}}</span>
     {% endblock %}
         <br class="clear"/>
+        {{ ebsco_widget|shortcodes }}
         <div id="bdddomains">
             <form>
                 <select name="URL"onchange="window.location.href= this.form.URL.options[this.form.URL.selectedIndex].value">
@@ -15,21 +16,20 @@
                     {% endfor %}
                 </select>
             </form>
-            <div class="white bold">{{__('Databases', 'bibcnrs')}} {{domain.name}}</div>
+            <div class="bddchoice">{{__('Databases', 'bibcnrs')}} {{domain.name}}</div>
         </div>
-        <div id="center">
-            <div id="pagenormbdd">
-                <ul class="bases">
-                    {% for post in origin %}
-                        <a href="{{post.db_url}}" target="_blank" title ="{{post.post_content}}" class="bddlink">
-                            <li class="bdd">
-                                <img src="{{post.thumbnail.src}}"/>
-                                <span class="bddtitle">{{post.post_title}}</span>
-                            </li>
+        <div id="pagenormbdd">
+            <ul id="bases">
+                {% for post in origin %}
+                    <li class="bdd">
+                        <a href="http://{{domain.description}}.bib.cnrs.fr/login?url={{post.db_url}}" target="_blank" title ="{{post.post_content}}" class="bddlink">
+                            <img src="{{post.thumbnail.src}}"/>
+                            <span class="bddtitle">{{post.post_title}}</span>
                         </a>
-                    {% endfor %}
-                </ul>
-            </div>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-       </div>
+        <script type="text/javascript" src="{{theme.uri}}/js/listDB.js" /></script>
+    </div>
 {% endblock %}

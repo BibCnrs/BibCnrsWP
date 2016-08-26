@@ -7,9 +7,11 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% block css %}
-            <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css" type="text/css">
+            <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css?v=1" type="text/css">
         {% endblock %}
-        <script src="{{theme.uri}}/js/flipflop.js" type="text/javascript"></script>
+        {% block js %}
+            <script src="{{theme.uri}}/js/flipflop.js" type="text/javascript"></script>
+        {% endblock %}
         <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=10" />
         <![endif]-->
@@ -60,7 +62,7 @@
                 <div class="clear"></div>
                 <footer>
 
-                    <div class="menbu-bas-fr-container">
+                    <div class="menu-bas-fr-container">
                         <a href="https://www.cnrs.fr" target="_blank" ><img src="{{theme.uri}}/images/cnrs.png" alt="logo cnrs" class="logocnrs"/></a>
                         <ul class="menu-bas-fr">
                             {% if other %}
