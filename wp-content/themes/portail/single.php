@@ -41,6 +41,4 @@ $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
 $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
 
 Timber::render('single.twig', $context);
-print_r($multicat);
-echo count($multicat);
 ?>
