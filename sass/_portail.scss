@@ -632,6 +632,7 @@ Databases
     color: #fff;
     font-weight: bold;
     font-size: 18px;
+    margin-bottom: 15px;
 }
 
 #titrerubnorm2 {
@@ -695,8 +696,6 @@ Databases
     border-radius: 10px;
     line-height: 40px;
     background-color: #fff;
-    break-inside: avoid-column;
-    -webkit-column-break-inside: avoid;
     vertical-align: middle;
     .bddtitle {
         float:right;
@@ -712,6 +711,17 @@ Databases
     img {
         vertical-align: middle;
     }
+}
+
+.bddletter {
+    color: #fff;
+    margin: 5px 5px 0px 5px;
+    padding: 2px 5px 2px 2px;
+    width: 211px;
+    height: 38px;
+    line-height: 30px;
+    vertical-align: middle;
+    font-weight: bold;
 }
 
 #contentrubnorm2 {

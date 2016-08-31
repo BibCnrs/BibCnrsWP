@@ -10,7 +10,7 @@ require 'config.php';
 $context = Timber::get_context();
 $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
 $args = (array(
-    'showposts' => -1,
+    'posts_per_page' => -1,
     'post_type' => 'database',
     'tax_query' => array(
         array(
@@ -25,3 +25,4 @@ $args = (array(
 $context['terms'] = get_terms('databases');
 $context['origin'] = Timber::get_posts( $args );
 Timber::render('database.twig', $context);
+?>

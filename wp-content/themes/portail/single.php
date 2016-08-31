@@ -9,13 +9,13 @@ $multicat=get_the_category();
 
 require 'models/BibCnrsCategoriesProvider.php';
 $categoriesProvider = new BibCnrsCategoriesProvider(get_the_category, get_category_by_slug, wp_get_current_user);
-if (count($multicat) < 2){
-    $currentCategory = $categoriesProvider->getCurrentCategory();
+if (count($multicat) > 1){
+    $exp = explode('/' , parse_url(wp_get_referer(), PHP_URL_PATH));
+    $categoryReference = $exp[2];
+    $currentCategory = get_category_by_slug($categoryReference);
 }
 else {
-    $exp = explode('/' , parse_url(wp_get_referer(), PHP_URL_PATH));
-    $categref = $exp['2'];
-    $currentCategory = get_category_by_slug($categref);
+    $currentCategory = $categoriesProvider->getCurrentCategory();
 }
 $userCategory = $categoriesProvider->getUserCategory();
 

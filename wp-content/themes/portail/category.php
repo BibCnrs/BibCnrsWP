@@ -7,7 +7,6 @@ require 'config.php';
 require 'models/BibCnrsCategoriesProvider.php';
 $categoriesProvider = new BibCnrsCategoriesProvider('get_the_category', 'get_category_by_slug', 'wp_get_current_user');
 
-//$currentCategory = $categoriesProvider->getCurrentCategory();
 $userCategory = $categoriesProvider->getUserCategory();
 $currentCategory = get_queried_object();
 require 'models/BibCnrsPostsProvider.php';
@@ -19,8 +18,6 @@ $postsProvider = new BibCnrsPostsProvider($config['category']['domains'], 'get_c
 /* Display */
 $context = Timber::get_context();
 $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
-
-//$thisCat = get_category(get_query_var('cat'));
 
 // IF FAQ other display and sub-categories
 $parentCatName = single_cat_title('',false);
@@ -48,5 +45,4 @@ else{
     $context['page'] = "category";
     Timber::render('category.twig', $context);
 }
-//print_r($thisCat);
 ?>
