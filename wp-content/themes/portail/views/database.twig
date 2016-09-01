@@ -8,6 +8,7 @@
             {{ ebsco_widget|shortcodes }}
         <div id="bdddomains">
             <div class="bddchoice">{{__('All databases', 'bibcnrs')}}</div>
+            <div class="bddmessage">{{__('Choose your domain in the list below', 'bibcnrs')}}</div>
             <form>
                 <select name="URL"onchange="window.location.href= this.form.URL.options[this.form.URL.selectedIndex].value">
                     <option value ="nul">{{__('See databases for ...', 'bibcnrs')}} </option>
@@ -18,30 +19,8 @@
                 </select>
             </form>
         </div>
-            <div id="pagenormbdd">
-                <div id="bases">
-                    {% set prevletter = '' %}
-                    {% set actualletter = 'A' %}
-                    {% for post in origin %}
-                        {% set postletter = post.post_title[:1]|upper %}
-                        {% if actualletter != postletter %}
-                            </ul>
-                            {% set actualletter = postletter %}
-                        {% endif %}
-                        {% if postletter != prevletter %}
-                            <ul class="blockletter">
-                            <li class="bddletter">{{postletter}}</li>
-                        {% endif %}
-                            <li class="bdd">
-                                <a href="{{post.db_url}}" target="_blank" title="{{post.post_content}}" class="bddlink">
-                                    <img src="{{post.thumbnail.src}}"/>
-                                    <span class="bddtitle">{{post.post_title}}</span>
-                                </a>
-                            </li>
-                            {% set prevletter = postletter %}
-                    {% endfor %}
-                    </ul>
-                </div>
-            </div>
+        <div id="pagenormbdd">
+            {{include('databases-display.twig')}}
+        </div>
     </div>
 {% endblock %}
