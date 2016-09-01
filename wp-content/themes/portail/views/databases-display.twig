@@ -1,0 +1,23 @@
+<div id="bases">
+    {% set prevletter = '' %}
+    {% set actualletter = 'A' %}
+    {% for post in origin %}
+        {% set postletter = post.post_title[:1]|upper %}
+        {% if actualletter != postletter %}
+            </ul>
+            {% set actualletter = postletter %}
+        {% endif %}
+        {% if postletter != prevletter %}
+            <ul class="blockletter">
+            <li class="bddletter">{{postletter}}</li>
+        {% endif %}
+            <li class="bdd">
+                <a href="{{post.db_url}}" target="_blank" title="{{post.post_content}}" class="bddlink">
+                    <img src="{{post.thumbnail.src}}"/>
+                    <span class="bddtitle">{{post.post_title}}</span>
+                </a>
+            </li>
+            {% set prevletter = postletter %}
+    {% endfor %}
+    </ul>
+</div>

@@ -5,7 +5,9 @@
         <span class="bread">{{parent()}} >> {{__('Databases', 'bibcnrs')}} {{domain.name}}</span>
     {% endblock %}
         <br class="clear"/>
+        {{ ebsco_widget|shortcodes }}
         <div id="bdddomains">
+            <div class="bddchoice">{{__('Databases', 'bibcnrs')}} {{domain.name}}</div>
             <form>
                 <select name="URL"onchange="window.location.href= this.form.URL.options[this.form.URL.selectedIndex].value">
                     <option value ="nul">{{__('See databases for ...', 'bibcnrs')}} </option>
@@ -15,21 +17,10 @@
                     {% endfor %}
                 </select>
             </form>
-            <div class="white bold">{{__('Databases', 'bibcnrs')}} {{domain.name}}</div>
         </div>
-        <div id="center">
-            <div id="pagenormbdd">
-                <ul class="bases">
-                    {% for post in origin %}
-                        <a href="{{post.db_url}}" target="_blank" title ="{{post.post_content}}" class="bddlink">
-                            <li class="bdd">
-                                <img src="{{post.thumbnail.src}}"/>
-                                <span class="bddtitle">{{post.post_title}}</span>
-                            </li>
-                        </a>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div id="pagenormbdd">
+            {{include('databases-display.twig')}}
         </div>
-       </div>
+        <script type="text/javascript" src="{{theme.uri}}/js/listDB.js" /></script>
+    </div>
 {% endblock %}
