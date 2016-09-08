@@ -7,37 +7,46 @@
         {% endfor %}
     </div>
     {% endif %}
+    {% if currentCategory.slug == 'physique' %}
     <div class="box-container">
-        {% if currentCategory.slug == 'physique' %}
-            <h2>{{__('News', 'bibcnrs')}} (fil RSS {{currentCategory.name}})</h2>
-            {% filter shortcodes %}
-                [rss feed="http://www.cnrs.fr/inp/spip.php?page=backend" num="5" excerpt="false"]
-            {% endfilter %}
-        {% elseif currentCategory.slug == 'information' %}
-            <h2>Actualit&eacute;s (fil RSS {{currentCategory.name}})</h2>
-            {% filter shortcodes %}
-                [rss feed="http://www.cnrs.fr/ins2i/spip.php?page=rss" num="5" excerpt="false"]
-            {% endfilter %}
-        {% elseif currentCategory.slug == 'biologie' %}
-            <h2>{{__('News', 'bibcnrs')}} (RSS - CNRS)</h2>
-            {% filter shortcodes %}
-                [rss feed="http://www.cnrs.fr/fr/une/actus/alaune.xml" num="5" excerpt="false"]
-            {% endfilter %}
-        {% else %}
-            <h2>{{__('Other domains', 'bibcnrs')}}</h2>
-            {% for post in allOtherPosts %}
-                <p>{{post.display_date}} - <a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
-                <p class="font-{{post.category.description}}">({{post.category}})</p>
-            {% endfor %}
-        {% endif %}
+
+        <h2>{{__('News', 'bibcnrs')}} (fil RSS {{currentCategory.name}})</h2>
+        {% filter shortcodes %}
+            [rss feed="http://www.cnrs.fr/inp/spip.php?page=backend" excerpt="false" target="_blank"]
+        {% endfilter %}
     </div>
+    {% elseif currentCategory.slug == 'information' %}
+    <div class="box-container">
+        <h2>{{__('News', 'bibcnrs')}} (fil RSS {{currentCategory.name}})</h2>
+        {% filter shortcodes %}
+            [rss feed="http://www.cnrs.fr/ins2i/spip.php?page=rss" excerpt="false" target="_blank"]
+        {% endfilter %}
+    </div>
+    {% elseif currentCategory.slug == 'biologie' or currentCategory.slug == 'biology' %}
+    <div class="box-container">
+        <h2>{{__('News', 'bibcnrs')}} (RSS - CNRS)</h2>
+        {% filter shortcodes %}
+            [rss feed="http://www.cnrs.fr/fr/une/actus/alaune.xml" excerpt="false" target="_blank"]
+        {% endfilter %}
+    </div>
+    {% endif %}
     {% if pref %}
     <div class="box-container">
-        <h2>A voir</h2>
+        <h2>{{__('STI correspondent -', 'bibcnrs')}} {{currentCategory.name}}</h2>
         {% for post in pref %}
             <h3 class="titlepref">{{post.post_title}}</h3>
             {{post.post_content}}
         {% endfor %}
     </div>
     {% endif %}
+    <div class="box-container">
+        <h2>{{__('Other domains', 'bibcnrs')}}</h2>
+        {% for post in allOtherPosts %}
+            <p>
+                {{post.display_date|date("d")}} {{__(post.display_date|date("F"), 'bibcnrs')}} {{post.display_date|date("Y")}} -
+                <a href="{{url}}/{{post.slug}}/?category={{post.category.slug}}">{{post.title}}</a>
+            </p>
+            <p class="font-{{post.category.description}}">({{post.category}})</p>
+        {% endfor %}
+    </div>
 </sidebar>
