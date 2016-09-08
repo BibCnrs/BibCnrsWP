@@ -179,11 +179,11 @@ msgstr novembre
 
 #: category.php
 msgid December
-msgstr decembre
+msgstr décembre
 
 #: header widget
 msgid Hello
-msgstr bonjour
+msgstr Bonjour
 
 #: header widget
 msgid Authorized domain(s)
@@ -192,3 +192,7 @@ msgstr Domaine(s) autorisé(s)
 #: sidebar-right.twig
 msgid To see
 msgstr A voir
+
+#: sidebar-right.twig
+msgid STI correspondent -
+msgstr Correspondant STI -
