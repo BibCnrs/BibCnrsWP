@@ -132,3 +132,67 @@ msgstr "Bases de donn&eacute;es"
 #: database.php
 msgid "Choose your domain in the list below"
 msgstr "Choisissez votre domaine dans la liste ci-dessous"
+
+#: category.php
+msgid January
+msgstr janvier
+
+#: category.php
+msgid February
+msgstr février
+
+#: category.php
+msgid March
+msgstr mars
+
+#: category.php
+msgid April
+msgstr avril
+
+#: category.php
+msgid May
+msgstr mai
+
+#: category.php
+msgid June
+msgstr juin
+
+#: category.php
+msgid July
+msgstr juillet
+
+#: category.php
+msgid August
+msgstr août
+
+#: category.php
+msgid September
+msgstr septembre
+
+#: category.php
+msgid October
+msgstr octobre
+
+#: category.php
+msgid November
+msgstr novembre
+
+#: category.php
+msgid December
+msgstr décembre
+
+#: header widget
+msgid Hello
+msgstr Bonjour
+
+#: header widget
+msgid Authorized domain(s)
+msgstr Domaine(s) autorisé(s)
+
+#: sidebar-right.twig
+msgid To see
+msgstr A voir
+
+#: sidebar-right.twig
+msgid STI correspondent -
+msgstr Correspondant STI -
