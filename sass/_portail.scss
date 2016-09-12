@@ -523,6 +523,7 @@ sidebar {
     border: #dcded9 solid 1px;
     margin-bottom: 20px;
     background-color: #fff;
+    padding-bottom: 10px;
     h2 {
         margin: 0;
         line-height: 40px;
@@ -530,18 +531,23 @@ sidebar {
         background: #f0f0f0;
         padding-left: 5px;
     }
+    h3 {
+        margin: 10px 0 5px 0;
+    }
     p {
         padding: 0 10px 0 10px;
+        margin: 0;
     }
-    a {
+    a, a:hover{
         color: #000000;
         text-decoration: none;
+        margin: 10px 0 5px 0;
     }
 }
 
 .titlepref {
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-style: italic;
     padding-left: 10px;
 }
 

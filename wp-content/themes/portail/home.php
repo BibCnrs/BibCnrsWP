@@ -13,4 +13,3 @@ foreach($slugs as $slug){
 	];
 }
 Timber::render('homepage.twig', $context);
-?>

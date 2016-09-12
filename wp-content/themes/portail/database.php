@@ -25,4 +25,3 @@ $args = (array(
 $context['terms'] = get_terms('databases');
 $context['origin'] = Timber::get_posts( $args );
 Timber::render('database.twig', $context);
-?>

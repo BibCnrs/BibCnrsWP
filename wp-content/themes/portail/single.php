@@ -9,9 +9,10 @@ $multicat=get_the_category();
 
 require 'models/BibCnrsCategoriesProvider.php';
 $categoriesProvider = new BibCnrsCategoriesProvider(get_the_category, get_category_by_slug, wp_get_current_user);
-if (count($multicat) > 1){
-    $exp = explode('/' , parse_url(wp_get_referer(), PHP_URL_PATH));
-    $categoryReference = $exp[2];
+$current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$categoryRetrieve = explode('category=' , $current_url);
+if ($categoryRetrieve){
+    $categoryReference = $categoryRetrieve[1];
     $currentCategory = get_category_by_slug($categoryReference);
 }
 else {
@@ -41,4 +42,3 @@ $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
 $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
 
 Timber::render('single.twig', $context);
-?>
