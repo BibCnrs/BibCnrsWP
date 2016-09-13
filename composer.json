@@ -85,12 +85,5 @@
         "require-npm": {
             "bibcnrs-widget": "1.0.3"
         }
-    },
-    "scripts" : {
-        "post-install-cmd" : [
-            "ln -s /var/www/html/wp-content/vendor/wp-cli/wp-cli/bin/wp /usr/bin/wp",
-            "source /var/www/vendor/wp-cli/wp-cli/utils/wp-completion.bash",
-            "source ~/.bash_profile"
-        ]
     }
 }
