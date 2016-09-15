@@ -63,7 +63,7 @@
                     "composer/installers": "v1.1.0"
                 }
             }
-        }
+        },
         {
             "type": "package",
             "package": {
@@ -78,7 +78,7 @@
                     "composer/installers": "v1.1.0"
                 }
             }
-        }
+        },
         {
             "type": "package",
             "package": {
