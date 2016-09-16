@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <meta name="description" content="site des portails CNRS">
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="robots" content="noindex, nofollow">
+        <meta name="robots" content="{{ index_index == 'true' ? 'index follow' : 'noindex nofollow' }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% block css %}
             <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css?v=1" type="text/css">
@@ -21,9 +21,7 @@
         <![endif]-->
         {{ wp_head }}
     </head>
-    {% block body %}
-        <body>
-    {% endblock %}
+    <body>
         <div class="bib-container" >
             {% block header %}
             <header id="header" class="bsbb">

@@ -17,6 +17,7 @@ $getPosts = function ($args) {
 $postsProvider = new BibCnrsPostsProvider($config['category']['domains'], 'get_category_by_slug', $getPosts);
 /* Display */
 $context = Timber::get_context();
+$context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
 
 // IF FAQ other display and sub-categories

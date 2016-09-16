@@ -5,6 +5,7 @@ wordpress:
   links:
     - db:mysql
   environment:
+    ROBOT_INDEX: "false"
     http_proxy: ${http_proxy}
     https_proxy: ${https_proxy}
     WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
