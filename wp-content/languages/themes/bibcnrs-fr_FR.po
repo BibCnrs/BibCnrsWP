@@ -106,8 +106,8 @@ msgid "News"
 msgstr "Actualités"
 
 #: sidebar-right.php
-msgid "Other domains"
-msgstr "Autres domaines"
+msgid "Other domains news"
+msgstr "Actualités autres domaines"
 
 #: single.php
 msgid "See all news"
@@ -185,14 +185,10 @@ msgstr décembre
 msgid Hello
 msgstr Bonjour
 
-#: header widget
-msgid Authorized domain(s)
-msgstr Domaine(s) autorisé(s)
-
 #: sidebar-right.twig
 msgid To see
 msgstr A voir
 
 #: sidebar-right.twig
-msgid STI correspondent -
-msgstr Correspondant STI -
+msgid Resources focus -
+msgstr Focus sur les ressources -

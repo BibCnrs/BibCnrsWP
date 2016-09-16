@@ -38,7 +38,7 @@ $context['other'] = in_array($currentCategory->slug,$config['category']['domains
 $context['post'] = new TimberPost();
 $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
 
-$context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
+$context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);
 $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
 
 Timber::render('single.twig', $context);

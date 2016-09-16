@@ -24,6 +24,7 @@ $parentCatName = single_cat_title('',false);
 if ($parentCatName == "F.A.Q." OR $parentCatName == "FAQ"){
     $parentCatID = get_cat_ID($parentCatName);
     $slugs = get_categories( 'child_of='.$parentCatID );
+    $context['currentCategory'] = $currentCategory;
     foreach($slugs as $slug){
         $nom=$slug->slug;
     	$context['faqPosts'][] = [

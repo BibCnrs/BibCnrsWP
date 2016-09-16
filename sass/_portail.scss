@@ -24,8 +24,8 @@ html {
 }
 
 
-h1{
-    font-size: 1.8rem;
+.wph1{
+    font-size: 2em;
 }
 
 #ebsco_widget{
@@ -317,8 +317,8 @@ Accueil
 .boite {
     @include display-flex;
     @include flex-direction(column);
-    max-width: 300px;
-    min-width: 200px;
+    max-width: 400px;
+    min-width: 350px;
     border: #dcded9 solid 1px;
     margin:  25px 10px 10px 10px;
     padding: 5px 5px 5px 5px;
@@ -328,7 +328,7 @@ Accueil
 #titrerubactus {
     position: relative;
     height: 30px;
-    margin: 0 0 30px 0;
+    margin: 0 0 15px 0;
     max-width: 340px;
     background-color: rgb(069,100,135);
 }
@@ -364,7 +364,7 @@ Accueil
 .actussepar {
     height: 1px;
     border-top: 1px solid rgb(069,100,135);
-    margin: 5px 0;
+    margin: 5px 0 5px 0;
 }
 #archivesactus {
     @include align-self(flex-end);
@@ -376,6 +376,7 @@ Accueil
     background-position: 10%;
     font-size: 14px;
     font-style: italic;
+    text-align: center;
     a {
         color: rgb(069,100,135);
         text-decoration: none;

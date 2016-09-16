@@ -4,7 +4,6 @@ $config = [
     'category' => [
         'news' => [
             'une',
-            'formations',
             'infosist'
         ],
         'domains' => [
