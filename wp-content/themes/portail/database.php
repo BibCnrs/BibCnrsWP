@@ -8,6 +8,7 @@
 
 require 'config.php';
 $context = Timber::get_context();
+$context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
 $args = (array(
     'posts_per_page' => -1,
