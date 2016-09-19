@@ -8,10 +8,10 @@
         <div id="center">
             {{ ebsco_widget|shortcodes }}
             <div id="pagenorm">
-                <h1 class="font-{{currentCategory.description}}">{{__('News', 'bibcnrs')}} "{{currentCategory.name}}"</h1>
+                <h1 class="font-{{currentCategory.description}} wph1">{{__('News', 'bibcnrs')}} "{{currentCategory.name}}"</h1>
                 <ul>
                     {% for post in posts %}
-                        <li><span>{{post.display_date}} - </span> <span><a href="{{url}}/{{post.slug}}">{{post.title}}</a></span></li>
+                        <li><span>{{post.display_date}} - </span> <span><a href="{{url}}/{{post.slug}}?category={{currentCategory.slug}}">{{post.title}}</a></span></li>
                     {% endfor %}
                 </ul>
             </div>

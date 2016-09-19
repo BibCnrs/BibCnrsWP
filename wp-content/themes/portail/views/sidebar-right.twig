@@ -3,7 +3,7 @@
     <div class="box-container">
         <h2>{{__('News', 'bibcnrs')}} {{currentCategory.name}}</h2>
         {% for post in categoryPosts %}
-        <p><a href="{{url}}/{{post.slug}}">{{post.title}}</a></p>
+        <p><a href="{{url}}/{{post.slug}}?category={{currentCategory.slug}}">{{post.title}}</a></p>
         {% endfor %}
     </div>
     {% endif %}
@@ -31,7 +31,7 @@
     {% endif %}
     {% if pref %}
     <div class="box-container">
-        <h2>{{__('STI correspondent -', 'bibcnrs')}} {{currentCategory.name}}</h2>
+        <h2>{{__('Resources focus -', 'bibcnrs')}} {{currentCategory.name}}</h2>
         {% for post in pref %}
             <h3 class="titlepref">{{post.post_title}}</h3>
             {{post.post_content}}
@@ -39,7 +39,7 @@
     </div>
     {% endif %}
     <div class="box-container">
-        <h2>{{__('Other domains', 'bibcnrs')}}</h2>
+        <h2>{{__('Other domains news', 'bibcnrs')}}</h2>
         {% for post in allOtherPosts %}
             <p>
                 {{post.display_date|date("d")}} {{__(post.display_date|date("F"), 'bibcnrs')}} {{post.display_date|date("Y")}} -

@@ -3,14 +3,14 @@
     <div class="boite">
         <div id="titrerubactus">
             <h2 id="titreactus">{{title|upper}}</h2>
+            <img src="{{theme}}/images/decor-bloc-home.png" class="decohome"/>
         </div>
         {% for post in posts %}
             <div class="itemactus">
-                <a href="{{post.get_path}}" target=_blanck>{{post.post_title}}</a>
-                <span class="resume">{{post.post_content|excerpt(20)}}</span>
+                <a href="{{post.get_path}}/?category={{slug}}">{{post.post_title}}</a>
             </div>
         {% endfor %}
-        <br class="actussepar"/>
+        <hr class="actussepar"/>
         <div id="archivesactus"><a href="/category/{{slug}}">{{__('See all', 'bibcnrs')}}</a></div>
     </div>
 {% endmacro %}
