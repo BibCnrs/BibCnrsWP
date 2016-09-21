@@ -115,7 +115,7 @@
             "wp-content/themes/{$name}/": ["type:wordpress-theme"]
         },
         "require-npm": {
-            "bibcnrs-widget": "1.0.3"
+            "bibcnrs-widget": "1.0.4"
         }
     }
 }

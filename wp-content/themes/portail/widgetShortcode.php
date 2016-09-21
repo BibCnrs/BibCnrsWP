@@ -76,6 +76,14 @@ $getShortcode = function ($config) {
                 true
             );
 
+            // add filter to bibcnrs widget
+            add_filter('script_loader_tag', function ( $tag, $handle ) use ($language) {
+                if ( $handle !== 'BibHeader' ) return $tag;
+                $addedAttr = sprintf(' id="%s" data-language="%s" src', $handle, $language);
+
+                return str_replace(' src', $addedAttr, $tag);
+            }, 10, 2);
+
             wp_enqueue_script($config->tag.'init');
         }
 

@@ -10,6 +10,7 @@ require 'config.php';
 $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
+$context['bibcnrs_header'] = '[bibcnrs_header language="' . substr($context['site']->language, 0, 2) . '"]';
 $args = (array(
     'posts_per_page' => -1,
     'post_type' => 'database',

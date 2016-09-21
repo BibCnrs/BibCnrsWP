@@ -19,6 +19,8 @@ $postsProvider = new BibCnrsPostsProvider($config['category']['domains'], 'get_c
 $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
+$context['bibcnrs_header'] = '[bibcnrs_header language="' . substr($context['site']->language, 0, 2) . '"]';
+$context['alerte']=Timber::get_posts(['category_name' => 'alertes', 'numberposts' => 1]);
 
 // IF FAQ other display and sub-categories
 $parentCatName = single_cat_title('',false);
@@ -41,7 +43,6 @@ else{
     $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
     $context['currentCategory'] = $currentCategory;
     $context['userCategory'] = $userCategory;
-    $context['other'] = in_array(pll_get_term($currentCategory->slug),$config['category']['domains']);
     $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
     $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
     $context['page'] = "category";

@@ -192,3 +192,11 @@ msgstr A voir
 #: sidebar-right.twig
 msgid Resources focus -
 msgstr Focus sur les ressources -
+
+#: footer
+msgid mailing-list-for
+msgstr liste-de-diffusion
+
+#: footer
+msgid Mailing list
+msgstr Liste de diffusion

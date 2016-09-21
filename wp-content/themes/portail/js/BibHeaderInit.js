@@ -1,4 +1,5 @@
 "use strict";
 
 var widgetElement = document.getElementById('BibHeader');
-window.ReactDOM.render(window.React.createElement(window.bibcnrsWidget.BibHeader), widgetElement);
+var language = widgetElement.getAttribute('data-language');
+window.ReactDOM.render(window.React.createElement(window.bibcnrsWidget.BibHeader, {language: language}), widgetElement);
