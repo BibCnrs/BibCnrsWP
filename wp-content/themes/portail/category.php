@@ -19,7 +19,7 @@ $postsProvider = new BibCnrsPostsProvider($config['category']['domains'], 'get_c
 $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $language = substr($context['site']->language, 0, 2);
-$domain = $config['profile_map'][$currentCategory->slug];
+$domain = $config['profile_map'][$currentCategory->description];
 $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
 $context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
 $context['alerte']=Timber::get_posts(['category_name' => 'alertes', 'numberposts' => 1]);

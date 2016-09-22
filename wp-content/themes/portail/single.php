@@ -43,7 +43,7 @@ else {
     $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
     $context['currentCategory'] = $currentCategory;
     $context['userCategory'] = $userCategory;
-    $domain = $config['profile_map'][$currentCategory->slug];
+    $domain = $config['profile_map'][$currentCategory->description];
     $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
     $context['post'] = new TimberPost();
 
