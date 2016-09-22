@@ -1,5 +1,5 @@
 <sidebar>
-    {% if page != 'category' %}
+    {% if page == 'single' %}
     <div class="box-container">
         <h2>{{__('News', 'bibcnrs')}} {{currentCategory.name}}</h2>
         {% for post in categoryPosts %}

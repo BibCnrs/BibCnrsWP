@@ -34,13 +34,6 @@ add_action('wp_enqueue_scripts', 'bibcnrs_scripts_method');
 
 /********************************************************************************************
 
-Add Translation Option
-
-********************************************************************************************/
-load_theme_textdomain('bibcnrs', get_template_directory().'/languages');
-
-/********************************************************************************************
-
 Add Database type posts
 
 ********************************************************************************************/
@@ -162,5 +155,5 @@ function custom_excerpt_length($length) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 add_shortcode('bibcnrs_header', $getShortcode((object)[
-    "tag" => 'BibHeader'
+    "tag" => 'bib_header'
 ]));

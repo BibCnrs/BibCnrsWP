@@ -172,7 +172,7 @@ Entete
 *****************************/
 header {
     width: 85%;
-    height: 100px;
+    height: 80px;
     margin: 0 auto;
     position: relative;
     .bibcnrslogo {
@@ -237,6 +237,7 @@ header {
 }
 
 header .language {
+    z-index: 999;
     position: absolute;
     bottom: 35px;
     right: 10px;
@@ -329,7 +330,7 @@ Accueil
     position: relative;
     height: 30px;
     margin: 0 0 15px 0;
-    max-width: 340px;
+    max-width: 400px;
     background-color: rgb(069,100,135);
 }
 
@@ -454,6 +455,19 @@ nav select {
 /*****************************
 Centre
 *****************************/
+.alerte {
+    width: 70%;
+    background-color: #fff;
+    color: red;
+    border-radius: 5px;
+    height: 40px;
+    text-align: center;
+    margin: 5px auto;
+    line-height: 40px;
+    vertical-align: middle;
+    border: 1px solid red;
+    font-weight: bold;
+}
 
 #recherchegenerale {
     width: 75%;
@@ -576,7 +590,7 @@ FAQ
 }
 .h2faq {
     font-size: 1.7rem;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 0;
 }
 .faqtitle {
@@ -589,8 +603,36 @@ FAQ
     padding-left: 10px;
     display: none;
     font-size: 1.4rem;
+    margin-bottom: 5px;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+.repfaq p {
+    margin: 0;
+}
+.repfaq ul {
+    -webkit-margin-after: 0px;
 }
 
+/*****************************
+Contact-form
+*****************************/
+.wpcf7-form label, .wpcf7-form .object {
+    clear: left;
+    float: left;
+    width: 30%;
+    text-align: right;
+    margin: 0 15px 0 0;
+}
+
+#choix {
+    position: relative;
+}
+.alignright {
+    text-align: right;
+}
 /*****************************
 Databases
 *****************************/
@@ -831,6 +873,7 @@ Responsive
 *****************************/
 @media only screen and (max-width: 820px){
     .language {
+        z-index: 999;
         position: absolute;
         left: 20px;
         top: 0px;
