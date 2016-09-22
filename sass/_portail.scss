@@ -237,6 +237,7 @@ header {
 }
 
 header .language {
+    z-index: 999;
     position: absolute;
     bottom: 35px;
     right: 10px;
@@ -872,6 +873,7 @@ Responsive
 *****************************/
 @media only screen and (max-width: 820px){
     .language {
+        z-index: 999;
         position: absolute;
         left: 20px;
         top: 0px;

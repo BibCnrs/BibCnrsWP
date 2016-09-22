@@ -155,5 +155,5 @@ function custom_excerpt_length($length) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 add_shortcode('bibcnrs_header', $getShortcode((object)[
-    "tag" => 'BibHeader'
+    "tag" => 'bib_header'
 ]));

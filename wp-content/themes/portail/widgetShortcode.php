@@ -7,8 +7,9 @@
  * @return string
  */
 $getShortcode = function ($config) {
-    return function ($atts, $content = null, $a) use ($config)
+    return function ($atts = [], $content = null, $a) use ($config)
     {
+        $language = $atts['language'];
         $widgetDir = get_home_path() . "wp-content/node_modules/bibcnrs-widget";
         $widgetUrl = site_url() . DIRECTORY_SEPARATOR . "wp-content/node_modules/bibcnrs-widget";
 
@@ -67,9 +68,9 @@ $getShortcode = function ($config) {
             wp_enqueue_script($config->tag);
         }
 
-        if (!wp_script_is($config->tag.'init', 'enqueued')) {
+        if (!wp_script_is($config->tag . '-init', 'enqueued')) {
             wp_register_script(
-                $config->tag.'init',
+                $config->tag . '-init',
                 get_theme_root_uri() . DIRECTORY_SEPARATOR . portail . DIRECTORY_SEPARATOR . 'js/'.$config->tag.'Init.js',
                 [$config->tag],
                 $json['version'],
@@ -77,14 +78,14 @@ $getShortcode = function ($config) {
             );
 
             // add filter to bibcnrs widget
-            add_filter('script_loader_tag', function ( $tag, $handle ) use ($language) {
-                if ( $handle !== 'BibHeader' ) return $tag;
+            add_filter('script_loader_tag', function ( $tag, $handle ) use ($config, $language) {
+                if ($handle != $config->tag . '-init') return $tag;
                 $addedAttr = sprintf(' id="%s" data-language="%s" src', $handle, $language);
 
                 return str_replace(' src', $addedAttr, $tag);
             }, 10, 2);
 
-            wp_enqueue_script($config->tag.'init');
+            wp_enqueue_script($config->tag . '-init');
         }
 
         Timber::render('widget.twig', [
