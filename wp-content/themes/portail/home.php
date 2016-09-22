@@ -3,8 +3,10 @@
 require 'config.php';
 $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
-$context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
-$context['bibcnrs_header'] = '[bibcnrs_header language="' . substr($context['site']->language, 0, 2) . '"]';
+$language = substr($context['site']->language, 0, 2);
+$domain = $config['profile_map'][$currentCategory->slug];
+$context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
+$context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
 $slugs = $config['category']['news']; //category list by slug
 $context['news'] = array();
 foreach($slugs as $slug){

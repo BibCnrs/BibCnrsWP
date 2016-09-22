@@ -5,9 +5,13 @@ Template Name: single
 
 require 'config.php';
 
+
+$language = substr($context['site']->language, 0, 2);
+
 $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
-$context['bibcnrs_header'] = '[bibcnrs_header language="' . substr($context['site']->language, 0, 2) . '"]';
+$language = substr($context['site']->language, 0, 2);
+$context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
 $multicat=get_the_category();
 if ($multicat[0]->slug == 'list-diff' or $multicat[0]->slug == 'mail-list') {
     $context['profile']=$config['profile_map'];
@@ -39,7 +43,8 @@ else {
     $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
     $context['currentCategory'] = $currentCategory;
     $context['userCategory'] = $userCategory;
-    $context['ebsco_widget'] = '[ebsco_widget domain="' . $config['profile_map'][$currentCategory->slug] . '"]';
+    $domain = $config['profile_map'][$currentCategory->slug];
+    $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
     $context['post'] = new TimberPost();
 
     $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);
