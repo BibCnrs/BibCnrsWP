@@ -17,7 +17,7 @@ if ($multicat[0]->slug == 'list-diff' or $multicat[0]->slug == 'mail-list') {
 else {
     require 'models/BibCnrsCategoriesProvider.php';
     $categoriesProvider = new BibCnrsCategoriesProvider(get_the_category, get_category_by_slug, wp_get_current_user);
-    $current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $current_url = "//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $categoryRetrieve = explode('category=' , $current_url);
     if ($categoryRetrieve[1]){
         $currentCategory = get_category_by_slug($categoryRetrieve[1]);
@@ -35,7 +35,7 @@ else {
     $postsProvider = new BibCnrsPostsProvider($config['category']['domains'], get_category_by_slug, $getPosts, TimberPost);
 
     /* Display */
-    $preferences="pref-".$currentCategory->slug;
+    $preferences = "pref-" . $currentCategory->slug;
     $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
     $context['currentCategory'] = $currentCategory;
     $context['userCategory'] = $userCategory;

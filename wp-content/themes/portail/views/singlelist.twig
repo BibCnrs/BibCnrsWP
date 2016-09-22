@@ -24,12 +24,22 @@
     <div class="clear"></div>
     <footer>
         <div class="menu-bas-fr-container">
-            <a href="https://www.cnrs.fr" target="_blank" ><img src="{{theme.uri}}/images/cnrs.png" alt="logo cnrs" class="logocnrs"/></a>
+            <a href="https://www.cnrs.fr" target="_blank" >
+                <img src="{{theme.uri}}/images/cnrs.png" alt="logo cnrs" class="logocnrs"/>
+            </a>
             <ul class="menu-bas-fr">
-                    <li class="nav-main-item font-{{institut}}"><a href="http://www.cnrs.fr/{{institut}}" class ="font-{{institut}}" target="_blank">{{institut|upper}}</a></li>
+                    <li class="nav-main-item font-{{institut}}">
+                        <a href="http://www.cnrs.fr/{{institut}}" class ="font-{{institut}}" target="_blank">
+                            {{institut|upper}}
+                        </a>
+                    </li>
                     <li class="cnrsli">&nbsp;|&nbsp;</li>
                 {% for item in secondaire.get_items %}
-                    <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+                    <li class="nav-main-item {{item.classes | join(' ')}}">
+                        <a class="nav-main-link" href="{{item.get_link}}">
+                            {{item.title}}
+                        </a>
+                    </li>
                     <li class="footerslash">&nbsp;|&nbsp;</li>
                 {% endfor %}
                 </ul>

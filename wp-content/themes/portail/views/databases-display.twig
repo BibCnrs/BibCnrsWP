@@ -13,7 +13,12 @@
         {% endif %}
             <li class="bdd">
                 {% if domain.description %}
-                <a href="https://{{domain.description}}.bib.cnrs.fr/login?url={{post.db_url}}" target="_blank" title="{{post.post_content}}" class="bddlink">
+                <a
+                    href="https://{{domain.description}}.bib.cnrs.fr/login?url={{post.db_url}}"
+                    target="_blank"
+                    title="{{post.post_content}}"
+                    class="bddlink"
+                >
                     <img src="{{post.thumbnail.src}}"/>
                     <span class="bddtitle">{{post.post_title}}</span>
                 </a>
