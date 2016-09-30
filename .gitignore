@@ -9,3 +9,7 @@ vendor
 composer.lock
 .currentCommit
 node_modules
+bower.json
+package.json
+.bowerrc
+composer-extra-assets.lock
