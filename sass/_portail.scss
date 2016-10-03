@@ -593,13 +593,14 @@ FAQ
     cursor: pointer;
 }
 .repfaq {
-    padding-left: 10px;
+    padding-left: 50px;
     display: none;
     font-size: 1.4rem;
     margin-bottom: 5px;
     img {
         max-width: 100%;
         height: auto;
+        margin: 10px 0 10px 0;
     }
 }
 .repfaq p {
@@ -827,8 +828,7 @@ footer {
         @include flex-direction(row);
         @include flex-wrap(wrap);
         @include justify-content(center);
-        font-family: "Open Sans";
-    }
+        }
     .logotwitter {
         position: absolute;
         top: 5px;
@@ -849,7 +849,7 @@ footer {
         padding: 10px 0 0 0;
         li {
             display: inline-block;
-            padding: 0 10px 0 10px;
+            padding: 0 5px 0 5px;
             a, a:hover {
                 color: #000;
                 text-decoration: none;

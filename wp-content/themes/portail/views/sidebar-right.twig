@@ -28,6 +28,13 @@
             [rss feed="http://www.cnrs.fr/fr/une/actus/alaune.xml" excerpt="false" target="_blank"]
         {% endfilter %}
     </div>
+    {% elseif currentCategory.slug == 'terre' or currentCategory.slug == 'earth' %}
+    <div class="box-container">
+        <h2>{{__('News', 'bibcnrs')}} (RSS - INSU)</h2>
+        {% filter shortcodes %}
+            [rss feed="http://www.insu.cnrs.fr/feed" excerpt="false" target="_blank"]
+        {% endfilter %}
+    </div>
     {% endif %}
     {% if pref %}
     <div class="box-container">
