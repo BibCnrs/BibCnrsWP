@@ -24,7 +24,7 @@ class BibCnrsPostsProvider {
         return $this->getPosts(['category__in' => $categoryIds, 'showposts' => $max]);
     }
 
-    public function getPostsFor($category) {
-        return $this->getPosts(['category_name' => $category->slug ]);
+    public function getPostsFor($category, $max) {
+        return $this->getPosts(['category_name' => $category->slug, $max ]);
     }
 }

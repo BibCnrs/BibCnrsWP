@@ -46,7 +46,7 @@ else {
     $domain = $config['profile_map'][$currentCategory->description];
     $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
     $context['post'] = new TimberPost();
-
+    $context['page'] = "single";
     $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);
     $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
 

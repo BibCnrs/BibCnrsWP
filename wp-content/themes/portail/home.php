@@ -7,7 +7,7 @@ $language = substr($context['site']->language, 0, 2);
 $domain = $config['profile_map'][$currentCategory->description];
 $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
 $context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
-$slugs = $config['category']['news']; //category list by slug
+$slugs = $config['category']['news'];
 $context['news'] = array();
 foreach($slugs as $slug){
 	$context['news'][] = [
