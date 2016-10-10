@@ -1,0 +1,21 @@
+{# sidebarOtherdomains.twig #}
+{% macro macro(posts) %}
+<div class="box-container">
+    <h2>{{__('Other domains news', 'bibcnrs')}}</h2>
+    {% for post in posts %}
+        <p>
+            <span class="dateDisplay">{{post.post_date|date("d")}} {{__(post.post_date|date("F"), 'bibcnrs')}} {{post.post_date|date("Y")}} - </span>
+            {{post.title}}
+        </p>
+        <p class="italic font-cnrs">
+            (
+            {% for categories in post.terms('category')%}
+                <a href="{{url}}/{{post.slug}}/?category={{categories.slug}}">
+                    <span class="font-cnrs"> - {{categories.name}}</span>
+                </a>
+            {% endfor %}
+            - )
+        </p>
+    {% endfor %}
+</div>
+{% endmacro %}

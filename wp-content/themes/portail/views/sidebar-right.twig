@@ -1,42 +1,15 @@
+{% import "sidebarOtherdomains.twig" as sidebarOtherdomains %}
+{% import "sidebarRSS.twig" as sidebarRSS %}
 <sidebar>
     {% if page == 'single' %}
     <div class="box-container">
         <h2 class="font-{{currentCategory.description}}">{{__('News', 'bibcnrs')}} {{currentCategory.name}}</h2>
         {% for post in categoryPosts %}
         <p>
-            {{post.display_date|date("d")}} {{__(post.display_date|date("F"), 'bibcnrs')}} {{post.display_date|date("Y")}} -
+            <span class="dateDisplay">{{post.post_date|date("d")}} {{__(post.post_date|date("F"), 'bibcnrs')}} {{post.post_date|date("Y")}} - </span>
             <a href="{{url}}/{{post.slug}}?category={{currentCategory.slug}}">{{post.title}}</a>
         </p>
         {% endfor %}
-    </div>
-    {% endif %}
-    {% if currentCategory.slug == __('physics', 'bibcnrs') %}
-    <div class="box-container">
-        <h2>{{__('News', 'bibcnrs')}} (fil RSS {{currentCategory.name}})</h2>
-        {% filter shortcodes %}
-            [rss feed="http://www.cnrs.fr/inp/spip.php?page=backend" excerpt="false" target="_blank"]
-        {% endfilter %}
-    </div>
-    {% elseif currentCategory.slug == __('information-en', 'bibcnrs') %}
-    <div class="box-container">
-        <h2>{{__('News', 'bibcnrs')}} (fil RSS {{currentCategory.name}})</h2>
-        {% filter shortcodes %}
-            [rss feed="http://www.cnrs.fr/ins2i/spip.php?page=rss" excerpt="false" target="_blank"]
-        {% endfilter %}
-    </div>
-    {% elseif currentCategory.slug == __('biology', 'bibcnrs') %}
-    <div class="box-container">
-        <h2>{{__('News', 'bibcnrs')}} (RSS - CNRS)</h2>
-        {% filter shortcodes %}
-            [rss feed="http://www.cnrs.fr/fr/une/actus/alaune.xml" excerpt="false" target="_blank"]
-        {% endfilter %}
-    </div>
-    {% elseif currentCategory.slug == __('earth', 'bibcnrs') %}
-    <div class="box-container">
-        <h2>{{__('News', 'bibcnrs')}} (RSS - INSU)</h2>
-        {% filter shortcodes %}
-            [rss feed="http://www.insu.cnrs.fr/feed" excerpt="false" target="_blank"]
-        {% endfilter %}
     </div>
     {% endif %}
     {% if pref %}
@@ -48,22 +21,34 @@
         {% endfor %}
     </div>
     {% endif %}
-    <div class="box-container">
-        <h2>{{__('Other domains news', 'bibcnrs')}}</h2>
-        {% for post in allOtherPosts %}
-            <p>
-                {{post.display_date|date("d")}} {{__(post.display_date|date("F"), 'bibcnrs')}} {{post.display_date|date("Y")}} -
-                {{post.title}}
-            </p>
-            <p class="italic font-cnrs">
-                (
-                {% for categories in post.terms('category')%}
-                    <a href="{{url}}/{{post.slug}}/?category={{categories.slug}}">
-                        <span class="font-cnrs"> - {{categories.name}}</span>
-                    </a>
-                {% endfor %}
-                - )
-            </p>
-        {% endfor %}
-    </div>
+    {% if currentCategory.slug == __('biology', 'bibcnrs') %}
+        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+    {% elseif currentCategory.slug == __('chemistry', 'bibcnrs') %}
+        <a class="twitter-timeline" href="https://twitter.com/INC_CNRS" height="350">
+            Tweets INC_CNRS
+        </a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    {% elseif currentCategory.slug == __('earth', 'bibcnrs') %}
+        {{ sidebarRSS.macro(currentCategory.name, 'http://www.insu.cnrs.fr/feed') }}
+        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+    {% elseif currentCategory.slug == __('ecology', 'bibcnrs') %}
+        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+    {% elseif currentCategory.slug == __('engineering', 'bibcnrs') %}
+        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+    {% elseif currentCategory.slug == __('humanities', 'bibcnrs') %}
+        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+    {% elseif currentCategory.slug == __('information-en', 'bibcnrs') %}
+        {{ sidebarRSS.macro(currentCategory.name, 'http://www.cnrs.fr/ins2i/spip.php?page=rss') }}
+        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+    {% elseif currentCategory.slug == __('mathematics', 'bibcnrs') %}
+        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+    {% elseif currentCategory.slug == __('nuclear', 'bibcnrs') %}
+        {% if site.language|slice(0,2) == 'en' %}
+            {{ sidebarRSS.macro(currentCategory.name, 'http://cc.in2p3.fr/spip.php?page=rss&id_rubrique=11&lang=en') }}
+        {% else %}
+            {{ sidebarRSS.macro(currentCategory.name, 'http://cc.in2p3.fr/spip.php?page=rss&id_rubrique=11&lang=fr') }}
+        {% endif %}
+    {% elseif currentCategory.slug == __('physics', 'bibcnrs') %}
+        {{ sidebarRSS.macro(currentCategory.name, 'http://www.cnrs.fr/inp/spip.php?page=backend') }}
+    {% endif %}
 </sidebar>
