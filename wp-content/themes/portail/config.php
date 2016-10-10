@@ -3,20 +3,20 @@
 $config = [
     'category' => [
         'news' => [
-            'une',
-            'infosist'
+            __('headlines','bibcnrs'),
+            __('infosist-en','bibcnrs')
         ],
         'domains' => [
-            'biologie',
-            'chimie',
-            'ecologie',
-            'homme',
-            'information',
-            'ingenierie',
-            'mathematiques',
-            'nucleaire',
-            'physique',
-            'terre'
+            __('biology', 'bibcnrs'),
+            __('chemistry', 'bibcnrs'),
+            __('ecology', 'bibcnrs'),
+            __('humanities', 'bibcnrs'),
+            __('information-en', 'bibcnrs'),
+            __('engineering', 'bibcnrs'),
+            __('mathematics', 'bibcnrs'),
+            __('nuclear', 'bibcnrs'),
+            __('physics', 'bibcnrs'),
+            __('earth', 'bibcnrs')
         ]
     ],
     'profile_map' => [

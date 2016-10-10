@@ -204,3 +204,55 @@ msgstr liste-de-diffusion
 #: footer
 msgid Mailing list
 msgstr Liste de diffusion
+
+#: homepage
+msgid headlines
+msgstr une
+
+#: homepage
+msgid infosist-en
+msgstr infosist
+
+#: config.php
+msgid biology
+msgstr biologie
+
+#: config.php
+msgid chemistry
+msgstr chimie
+
+#: config.php
+msgid ecology
+msgstr ecologie
+
+#: config.php
+msgid humanities
+msgstr homme
+
+#: config.php
+msgid information-en
+msgstr information
+
+#: config.php
+msgid engineering
+msgstr ingenierie
+
+#: config.php
+msgid mathematics
+msgstr mathematiques
+
+#: config.php
+msgid nuclear
+msgstr nucleaire
+
+#: config.php
+msgid physics
+msgstr physique
+
+#: config.php
+msgid earth
+msgstr terre
+
+#: databases.php
+msgid data-bases
+msgstr bases-de-donnees

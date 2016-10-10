@@ -25,6 +25,6 @@ class BibCnrsPostsProvider {
     }
 
     public function getPostsFor($category) {
-        return $this->getPosts(['category_name' => $category->slug ]);
+        return $this->getPosts(['category_name' => $category->slug]);
     }
 }

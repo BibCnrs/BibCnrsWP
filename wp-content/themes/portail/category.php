@@ -24,7 +24,7 @@ $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $
 $context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
 $context['alerte']=Timber::get_posts(['category_name' => 'alertes', 'numberposts' => 1]);
 
-// IF FAQ other display and sub-categories
+// IF FAQ sub-categories display
 $parentCatName = single_cat_title('',false);
 if ($parentCatName == "F.A.Q." OR $parentCatName == "FAQ"){
     $parentCatID = get_cat_ID($parentCatName);
@@ -44,9 +44,7 @@ else{
     $preferences="pref-".$currentCategory->slug;
     $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
     $context['currentCategory'] = $currentCategory;
-    $context['userCategory'] = $userCategory;
-    $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory);
+    $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);
     $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
-    $context['page'] = "category";
     Timber::render('category.twig', $context);
 }

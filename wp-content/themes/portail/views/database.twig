@@ -12,7 +12,7 @@
             <form>
                 <select name="URL"onchange="window.location.href= this.form.URL.options[this.form.URL.selectedIndex].value">
                     <option value ="nul">{{__('See databases for ...', 'bibcnrs')}} </option>
-                    <option value="{{site.url}}/bases-de-donnees">{{__('All databases', 'bibcnrs')}}</option>
+                    <option value="{{site.url}}/{{__('data-bases', 'bibcnrs')}}">{{__('All databases', 'bibcnrs')}}</option>
                     {% for item in terms %}
                         <option value ="{{site.url}}/{{item.taxonomy}}/{{item.slug}}">{{item.name}}</option>
                     {% endfor %}
