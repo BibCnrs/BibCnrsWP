@@ -57,10 +57,10 @@ connect-mysql: ## connect into mysql
 	docker exec -it bibcnrs_db_1 mysql --password wordpress
 
 test: ## launch phpunit test
-	docker-compose -f docker-compose.test.yml run phpunit test
+	docker-compose -f docker-compose.test.yml run --rm phpunit test
 
 run-dev: ## launch bibcnrs for development environment
-	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --force-recreate
 
 run-prod: ## launch bibcnrs for production environment
 	docker-compose -f docker-compose.prod.yml up -d --force-recreate
@@ -74,19 +74,19 @@ stop: ## stop all bibcnrs docker image
             docker stop $$(docker ps -a | grep bibcnrs | awk '{ print $$1 }')
 
 compass: ## allow to run dockerized compass command
-	docker-compose run compass $(COMMAND_ARGS)
+	docker-compose run --rm compass $(COMMAND_ARGS)
 
 composer: ## allow to run dockerized composer command
-	docker-compose run composer $(COMMAND_ARGS)
+	docker-compose run --rm composer $(COMMAND_ARGS)
 
 wp-cli-replace: ## allow to run replace one string by another inside wordpress database
 	docker exec bibcnrs_wordpress_1 ./wp-content/vendor/wp-cli/wp-cli/bin/wp --allow-root --path=/var/www/html search-replace $(COMMAND_ARGS)
 
 build-css: ## build css from sass
-	docker-compose run compass compile
+	docker-compose run --rm compass compile
 
 composer-update: ## update dependency
-	docker-compose run composer update --no-dev --prefer-dist
+	docker-compose run --rm composer update --no-dev --prefer-dist
 	sudo cp -Rf ./wp-content/vendor/bibcnrs/wp-ebsco-widget/ ./wp-content/plugins/
 
 build-docker: ## args: <version> build vsregistry.intra.inist.fr:5000/bibcnrs:<version> docker image default <version> to latest
