@@ -44,7 +44,8 @@ else {
     $context['currentCategory'] = $currentCategory;
     $context['userCategory'] = $userCategory;
     $domain = $config['profile_map'][$currentCategory->description];
-    $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
+    $dbUrl = $language === 'fr' ? '\/bases-de-donnees\/' : '\/data-bases\/';
+    $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
     $context['post'] = new TimberPost();
     $context['page'] = "single";
     $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);

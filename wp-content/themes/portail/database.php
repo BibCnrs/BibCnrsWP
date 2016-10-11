@@ -11,7 +11,8 @@ $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $language = substr($context['site']->language, 0, 2);
 $domain = $config['profile_map'][$currentCategory->description];
-$context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $domain, $language);
+$dbUrl = $language === 'fr' ? '\/bases-de-donnees\/' : '\/data-bases\/';
+$context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
 $context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
 $args = (array(
     'posts_per_page' => -1,
