@@ -1,0 +1,9 @@
+{# sidebarRSS.twig #}
+{% macro macro(domain, url) %}
+<div class="box-container">
+    <h2>{{__('News', 'bibcnrs')}} (fil RSS {{domain}})</h2>
+    {% filter shortcodes %}
+        [rss feed="{{url}}{{site.language|slice(0,2)}}" excerpt="false" target="_blank"]
+    {% endfilter %}
+</div>
+{% endmacro %}
