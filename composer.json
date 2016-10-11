@@ -45,10 +45,10 @@
             "package": {
                 "name": "polylang",
                 "type": "wordpress-plugin",
-                "version": "2.0.5",
+                "version": "2.0.4",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/polylang.2.0.5.zip"
+                    "url": "https://downloads.wordpress.org/plugin/polylang.2.0.4.zip"
                 }
             }
         },
@@ -57,10 +57,10 @@
             "package": {
                 "name": "contact-form-7",
                 "type": "wordpress-plugin",
-                "version": "4.5",
+                "version": "4.5.1",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.4.5.zip"
+                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.4.5.1.zip"
                 }
             }
         },
@@ -87,8 +87,8 @@
         "timber/timber": "0.22.1",
         "restrict-taxonomies": "1.3.0",
         "rss-shortcode": "0.2",
-        "polylang": "2.0.5",
-        "contact-form-7": "4.5",
+        "polylang": "2.0.4",
+        "contact-form-7": "4.5.1",
         "order-categories": "1.0.3"
     },
     "extra": {
