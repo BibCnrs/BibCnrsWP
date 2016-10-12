@@ -110,7 +110,7 @@ msgid "News"
 msgstr "Actualités"
 
 #: sidebar-right.php
-msgid "Other domains news"
+msgid "News from other disciplines"
 msgstr "Actualités autres domaines"
 
 #: single.php
@@ -134,7 +134,7 @@ msgid "Databases"
 msgstr "Bases de donn&eacute;es"
 
 #: database.php
-msgid "Choose your domain to access to your databases"
+msgid "Please choose your discipline to access your databases"
 msgstr "Choisissez votre domaine pour accéder à vos bases de données"
 
 #: category.php
