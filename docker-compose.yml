@@ -37,7 +37,7 @@ db:
     - /applis/bibcnrs/home/mariadb:/var/lib/mysql
 
 composer:
-  image: bibcnrs/composer-npm
+  image: bibcnrs/composer-npm:1.2
   environment:
     http_proxy: ${http_proxy}
     https_proxy: ${https_proxy}

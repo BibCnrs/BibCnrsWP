@@ -1,6 +1,6 @@
 {
     "config": {
-        "vendor-dir": "wp-content/vendor"
+        "vendor-dir": "wp-content/plugins"
     },
     "minimum-stability": "dev",
     "repositories": [
@@ -75,6 +75,18 @@
                     "url": "https://downloads.wordpress.org/plugin/order-categories.zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "timber",
+                "type": "wordpress-plugin",
+                "version": "1.1.7",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/timber-library.1.1.7.zip"
+                }
+            }
         }
     ],
     "require-dev": {
@@ -84,7 +96,7 @@
         "koala-framework/composer-extra-assets": "2.0.8",
         "wp-block-admin": "0.2.3",
         "bibcnrs/wp-ebsco-widget": "dev-master",
-        "timber/timber": "0.22.1",
+        "timber": "1.1.7",
         "restrict-taxonomies": "1.3.0",
         "rss-shortcode": "0.2",
         "polylang": "2.0.5",
