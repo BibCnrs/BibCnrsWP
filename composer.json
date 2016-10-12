@@ -1,0 +1,99 @@
+{
+    "config": {
+        "vendor-dir": "wp-content/vendor"
+    },
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-block-admin",
+                "type": "wordpress-plugin",
+                "version": "0.2.3",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/wp-block-admin.0.2.3.0.zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "restrict-taxonomies",
+                "type": "wordpress-plugin",
+                "version": "1.3.0",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/restrict-taxonomies.1.3.0.zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "rss-shortcode",
+                "type": "wordpress-plugin",
+                "version": "0.2",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/rss-shortcode.0.2.zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "polylang",
+                "type": "wordpress-plugin",
+                "version": "2.0.5",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/polylang.2.0.5.zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "contact-form-7",
+                "type": "wordpress-plugin",
+                "version": "4.5.1",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.4.5.1.zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "order-categories",
+                "type": "wordpress-plugin",
+                "version": "1.0.3",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/order-categories.zip"
+                }
+            }
+        }
+    ],
+    "require-dev": {
+    },
+    "require": {
+        "wp-cli/wp-cli" : "0.24.1",
+        "koala-framework/composer-extra-assets": "2.0.8",
+        "wp-block-admin": "0.2.3",
+        "bibcnrs/wp-ebsco-widget": "dev-master",
+        "timber/timber": "0.22.1",
+        "restrict-taxonomies": "1.3.0",
+        "rss-shortcode": "0.2",
+        "polylang": "2.0.5",
+        "contact-form-7": "4.5.1",
+        "order-categories": "1.0.3"
+    },
+    "extra": {
+        "require-npm": {
+            "bibcnrs-widget": "latest"
+        }
+    }
+}
