@@ -90,7 +90,7 @@ build-css: ## build css from sass
 
 composer-update: ## update dependency
 	docker-compose run --rm composer update --no-dev --prefer-dist
-	sudo cp -Rf ./wp-content/vendor/bibcnrs/wp-ebsco-widget/ ./wp-content/plugins/
+	sudo cp -Rf ./wp-content/plugins/bibcnrs/wp-ebsco-widget/ ./wp-content/plugins/
 
 build-docker: ## args: <version> build vsregistry.intra.inist.fr:5000/bibcnrs:<version> docker image default <version> to latest
 ifdef COMMAND_ARGS
