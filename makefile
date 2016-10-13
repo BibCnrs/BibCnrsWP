@@ -83,7 +83,10 @@ composer: ## allow to run dockerized composer command
 	docker-compose run --rm composer $(COMMAND_ARGS)
 
 wp-cli-replace: ## allow to run replace one string by another inside wordpress database
-	docker exec bibcnrs_wordpress_1 ./wp-content/vendor/wp-cli/wp-cli/bin/wp --allow-root --path=/var/www/html search-replace $(COMMAND_ARGS)
+	docker exec bibcnrs_wordpress_1 wp --allow-root --path=/var/www/html search-replace $(COMMAND_ARGS)
+
+wp-cli: ## allow to run dockerized wp-cli command
+	docker exec bibcnrs_wordpress_1 wp --allow-root --path=/var/www/html $(COMMAND_ARGS)
 
 build-css: ## build css from sass
 	docker-compose run --rm compass compile

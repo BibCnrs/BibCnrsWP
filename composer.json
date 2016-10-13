@@ -104,7 +104,6 @@
     "require-dev": {
     },
     "require": {
-        "wp-cli/wp-cli" : "0.24.1",
         "koala-framework/composer-extra-assets": "2.0.8",
         "wp-block-admin": "0.2.3",
         "bibcnrs/wp-ebsco-widget": "dev-master",
