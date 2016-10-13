@@ -87,6 +87,18 @@
                     "url": "https://downloads.wordpress.org/plugin/timber-library.1.1.7.zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-mail-smtp",
+                "type": "wordpress-plugin",
+                "version": "0.9.6",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.0.9.6.zip"
+                }
+            }
         }
     ],
     "require-dev": {
@@ -101,7 +113,8 @@
         "rss-shortcode": "0.2",
         "polylang": "2.0.5",
         "contact-form-7": "4.5.1",
-        "order-categories": "1.0.3"
+        "order-categories": "1.0.3",
+        "wp-mail-smtp": "0.9.6"
     },
     "extra": {
         "require-npm": {
