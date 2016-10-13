@@ -20,7 +20,7 @@
                     {% for post in posts %}
                         <li>
                             <span class="dateDisplay">
-                                {{post.post_date|date("d")}} {{__(post.post_date|date("F"), 'bibcnrs')}} {{post.post_date|date("Y")}} - 
+                                {{post.post_date|date("d")}} {{__(post.post_date|date("F"), 'bibcnrs')}} {{post.post_date|date("Y")}} -
                             </span>
                             <span>
                                 <a href="{{url}}/{{post.slug}}?category={{currentCategory.slug}}">
