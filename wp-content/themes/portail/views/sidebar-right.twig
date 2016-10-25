@@ -5,12 +5,14 @@
     <div class="box-container">
         <h2 class="font-{{currentCategory.description}}">{{__('News', 'bibcnrs')}} {{currentCategory.name}}</h2>
         {% for post in categoryPosts %}
-        <p>
-            <span class="dateDisplay">
-                {{post.post_date|date("d")}} {{__(post.post_date|date("F"), 'bibcnrs')}} {{post.post_date|date("Y")}} -
-            </span>
-            <a href="{{url}}/{{post.slug}}?category={{currentCategory.slug}}">{{post.title}}</a>
-        </p>
+            {% if loop.index < 6 %}
+            <p>
+                <span class="dateDisplay">
+                    {{post.post_date|date("d")}} {{__(post.post_date|date("F"), 'bibcnrs')}} {{post.post_date|date("Y")}} -
+                </span>
+                <a href="{{url}}/{{post.slug}}?category={{currentCategory.slug}}">{{post.title}}</a>
+            </p>
+            {% endif %}
         {% endfor %}
     </div>
     {% endif %}

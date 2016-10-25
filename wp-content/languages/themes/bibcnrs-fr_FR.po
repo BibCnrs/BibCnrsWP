@@ -202,7 +202,7 @@ msgid mailing-list-for
 msgstr liste-de-diffusion
 
 #: footer
-msgid Mailing list
+msgid mailing list
 msgstr Liste de diffusion
 
 #: homepage
