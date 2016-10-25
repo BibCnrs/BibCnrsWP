@@ -45,10 +45,10 @@
             "package": {
                 "name": "polylang",
                 "type": "wordpress-plugin",
-                "version": "2.0.5",
+                "version": "2.0.7",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/polylang.2.0.5.zip"
+                    "url": "https://downloads.wordpress.org/plugin/polylang.2.0.7.zip"
                 }
             }
         },
@@ -110,7 +110,7 @@
         "timber": "1.1.7",
         "restrict-taxonomies": "1.3.0",
         "rss-shortcode": "0.2",
-        "polylang": "2.0.5",
+        "polylang": "2.0.7",
         "contact-form-7": "4.5.1",
         "order-categories": "1.0.3",
         "wp-mail-smtp": "0.9.6"

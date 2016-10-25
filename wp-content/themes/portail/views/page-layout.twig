@@ -82,8 +82,12 @@
                                 </li>
                                 <li class="cnrsli">&nbsp;|&nbsp;</li>
                                 <li class="nav-main-item">
-                                    <a href="/{{__('mailing-list-for', 'bibcnrs')}}-{{currentCategory.slug}}">
-                                        {{__('Mailing list', 'bibcnrs')}} {{currentCategory.name}}
+                                    <a href="/{{__('mailing-list-for', 'bibcnrs')}}-{{currentCategory.description}}">
+                                        {% if site.language|slice(0,2) == 'en' %}
+                                            {{currentCategory.name}} {{__('mailing list', 'bibcnrs')}}
+                                        {% else %}
+                                            {{__('mailing list', 'bibcnrs')}} {{currentCategory.name}}
+                                        {% endif %}
                                     </a>
                                 </li>
                                 <li class="cnrsli">&nbsp;|&nbsp;</li>
