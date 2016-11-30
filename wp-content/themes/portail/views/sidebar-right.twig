@@ -29,12 +29,13 @@
         {{ sidebarOtherdomains.macro(allOtherPosts) }}
     {% elseif currentCategory.slug == __('chemistry', 'bibcnrs') %}
         <a class="twitter-timeline" href="https://twitter.com/INC_CNRS" height="350">
-            Tweets INC_CNRS
+            Tweets INC CNRS
         </a>
-        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     {% elseif currentCategory.slug == __('earth', 'bibcnrs') %}
         {{ sidebarRSS.macro(currentCategory.name, 'http://www.insu.cnrs.fr/feed') }}
-        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+        <a class="twitter-timeline" href="https://twitter.com/INSU_CNRS" height="350">
+            Tweets INSU CNRS
+        </a>
     {% elseif currentCategory.slug == __('ecology', 'bibcnrs') %}
         {{ sidebarOtherdomains.macro(allOtherPosts) }}
     {% elseif currentCategory.slug == __('engineering', 'bibcnrs') %}
@@ -55,4 +56,5 @@
     {% elseif currentCategory.slug == __('physics', 'bibcnrs') %}
         {{ sidebarRSS.macro(currentCategory.name, 'http://www.cnrs.fr/inp/spip.php?page=backend') }}
     {% endif %}
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </sidebar>
