@@ -417,17 +417,20 @@ nav select {
 Centre
 *****************************/
 .alerte {
-    width: 70%;
+    width: 100%;
     background-color: #fff;
     color: red;
     border-radius: 5px;
-    height: 40px;
+    min-height: 40px;
     text-align: center;
     margin: 5px auto;
-    line-height: 40px;
+    line-height: 30px;
     vertical-align: middle;
     border: 1px solid red;
     font-weight: bold;
+    p {
+        margin: 0;
+    }
 }
 
 #recherchegenerale {
@@ -473,12 +476,12 @@ input:-moz-placeholder {
 
 #pagenorm {
     background: #fff;
-    min-width: 300px;
+    width: 100%;
     flex-grow: 2;
     flex-shrink: 1;
     flex-basis: 0;
-    margin: 25px 5px 0 10px;
-    padding: 0 20px 0 20px;
+    margin: 25px 0 20px 0;
+    padding: 0 20px 20px 20px;
     ul {
         list-style-type: none;
     }
@@ -555,23 +558,23 @@ FAQ
     width: 100%;
     margin-top: 25px;
     margin-bottom: 20px;
-    padding: 20px 20px 20px 20px;
+    padding: 0px 20px 20px 20px;
 }
 .h2faq {
-    font-size: 1.7rem;
     margin-top: 5px;
     margin-bottom: 0;
+    line-height: 1.4rem;
 }
 .faqtitle {
     color: #455F7A;
-    font-size: 1.4rem;
+    font-size: 0.9rem;
     padding-left: 10px;
     cursor: pointer;
 }
 .repfaq {
     padding-left: 50px;
     display: none;
-    font-size: 1.4rem;
+    font-size: 0.9rem;
     margin-bottom: 5px;
     img {
         max-width: 100%;

@@ -2,12 +2,12 @@
 {% extends 'page-layout.twig' %}
 {% block content %}
 {% block breadcrumb %}
-    {% for warning in alerte %}
-        <div class="alerte">{{warning.post_content}}</div>
-    {% endfor %}
 {% endblock %}
 <div id="contentaccueil" class="bsbb">
-        {{ ebsco_widget|shortcodes }}
+    {% for warning in alerte %}
+        <div class="alerte">{{warning.content}}</div>
+    {% endfor %}
+    {{ ebsco_widget|shortcodes }}
     <div id="center3">
         {% for box in news %}
         {{ homenews.macro(box.title, box.slug, box.posts, theme.uri) }}
