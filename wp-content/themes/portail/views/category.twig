@@ -1,4 +1,7 @@
 {% extends 'page-layout.twig' %}
+{% block title %}
+    {{site.name}} - {{currentCategory.name}}
+{% endblock %}
 {% block content %}
     <div id="content" class="bsbb">
     {% block breadcrumb %}

@@ -1,4 +1,9 @@
 {% extends 'page-layout.twig' %}
+{% block title %}
+    {% for post in posts %}
+        {{site.name}} - {{post.title}}
+    {% endfor %}
+{% endblock %}
 {% block content %}
     <div id="content" class="bsbb">
     {% for post in posts %}

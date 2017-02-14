@@ -1,13 +1,13 @@
 {% extends 'page-layout.twig' %}
-
+{% block title %}
+    {{site.name}} - 404
+{% endblock %}
 {% block content %}
     <div id="content"  class="bsbb">
         {% block breadcrumb %}
             {{parent()}} >> {{__('not found', 'bibcnrs')}}
         {% endblock %}
-
-    <br class="clear">
-
+        <br class="clear">
         <div id="center">
             <div id="pagenorm">
                 <h1>{{__('Page not found', 'bibcnrs')}}</h1>
@@ -18,13 +18,11 @@
                         {{__('home', 'bibcnrs')}}
                     </a>
                 </p>
-            </div> <!--finpagenorm -->
+            </div>
             {% block sidebar %}
                 {% include 'sidebar-right.twig' %}
             {% endblock %}
-
             <br class="clear" />
-        </div><!-- fin center -->
-    </div><!--/content-->
-
+        </div>
+    </div>
 {% endblock %}
