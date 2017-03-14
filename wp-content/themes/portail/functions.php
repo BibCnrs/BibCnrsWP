@@ -34,40 +34,39 @@ add_action('wp_enqueue_scripts', 'bibcnrs_scripts_method');
 
 /********************************************************************************************
 
-Add Database type posts
+Add Discovery peiod and url to posts
 
 ********************************************************************************************/
-$dataBases = [
-    'public' => true,
-    'supports' => ['title', 'editor', 'thumbnail'],
-    'labels' => [
-        'name' => 'Bases de donnees',
-        'add_new_item' => 'Ajouter une base',
-        'edit_item' => 'Editer une base',
-    ]
-
-];
-register_post_type( 'database', $dataBases);
-
-register_taxonomy("databases", array("database"), array("hierarchical" => true, "label" => "Domaines", "singular_label" => "Domaine", "rewrite" => true));
 
 add_action("admin_init", "admin_init");
 function admin_init(){
-    add_meta_box("db_url-meta", "URL base", "db_url", "database", "normal", "low");
+    add_meta_box("periode-meta", "Période", "periode", "post", "normal", "low");
+    add_meta_box("disc_url-meta", "URL", "disc_url", "post", "normal", "low");
 }
-function db_url(){
+function periode(){
   global $post;
   $custom = get_post_custom($post->ID);
-  $db_url = $custom["db_url"][0];
+  $periode = $custom["periode"][0];
   ?>
-  <label>URL</label>
-  <input name="db_url" value="<?php echo $db_url; ?>" />
+  <label>Dates (format selon langue d/m/Y ou m/D/Y)</label>
+  <input name="periode" value="<?php echo $periode; ?>" />
   <?php
 }
+function disc_url(){
+  global $post;
+  $custom = get_post_custom($post->ID);
+  $disc_url = $custom["disc_url"][0];
+  ?>
+  <label>Url ressource</label>
+  <input name="disc_url" value="<?php echo $disc_url; ?>" />
+  <?php
+}
+
 add_action('save_post', 'save_details');
 function save_details(){
     global $post;
-    update_post_meta ($post->ID, "db_url", $_POST["db_url"]);
+    update_post_meta ($post->ID, "periode", $_POST["periode"]);
+    update_post_meta ($post->ID, "disc_url", $_POST["disc_url"]);
 }
 
 /*********************************************************************************************

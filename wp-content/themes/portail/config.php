@@ -30,5 +30,17 @@ $config = [
         'in2p3' => 'IN2P3',
         'inp' => 'INP',
         'insu' => 'INSU'
+    ],
+    'correspondence_map' => [
+        'insb' => __('biology', 'bibcnrs'),
+        'inc' => __('chemistry', 'bibcnrs'),
+        'inee' => __('ecology', 'bibcnrs'),
+        'inshs' => __('humanities', 'bibcnrs'),
+        'ins2i' => __('information-en', 'bibcnrs'),
+        'insis' => __('engineering', 'bibcnrs'),
+        'insmi' => __('mathematics', 'bibcnrs'),
+        'in2p3' => __('nuclear', 'bibcnrs'),
+        'inp' => __('physics', 'bibcnrs'),
+        'insu' => __('earth', 'bibcnrs')
     ]
 ];
