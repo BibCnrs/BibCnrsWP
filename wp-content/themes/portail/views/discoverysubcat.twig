@@ -1,0 +1,26 @@
+{# discoverysubcat.twig #}
+{% macro macro(title, slug, posts, lang) %}
+    <div class="h2disc">
+        <div class="discdomain">{{title|upper}}</div>
+        <hr class="titleline font-{{slug.description}}"></hr>
+        {% for post in posts %}
+                {% set dateFin = post.periode|split(' - ', 2)|last %}
+                {% if lang == 'fr' %}
+                    {% set dateFr = dateFin|split('/') %}
+                    {% set dateEng = [dateFr.1, dateFr.0, dateFr.2]|join("/") %}
+                {% else %}
+                    {% set dateEng = dateFin %}
+                {% endif %}
+                {% if now|date('m/d/Y') <= dateEng %}
+                <div class="disctitle">
+                    <a href="http://{{slug.description}}.bib.cnrs.fr/login?url={{post.disc_url}}" target="_blank" class="font-{{slug.description}}">
+                        {{post.title}}
+                    </a>
+                    {{__('Test date:', 'bibcnrs')}} <span class="testdate">{{post.periode}}</span>
+                </div>
+                <div class="flipflop" onclick="flipflop('rep-{{post.id}}');">{{__('More', 'bibcnrs')}} ...</div>
+                <div id="rep-{{post.id}}" class="repdisc">{{post.content}}</div>
+             {% endif %}
+        {% endfor %}
+    </div>
+{% endmacro %}

@@ -1,0 +1,29 @@
+{% import "discoverysubcat.twig" as discoverysubcat %}
+{% extends 'category.twig' %}
+{% block title %}
+    {{site.name}} - {{presentation.title}}
+{% endblock %}
+{% block content %}
+<div id="content" class="bsbb">
+{% block breadcrumb %}
+    <span class="bread">{{parent()}} {{presentation.title}}</span>
+{% endblock %}
+    <br class="clear"/>
+    <div id="center">
+        {{ ebsco_widget|shortcodes }}
+        <div id="pagenorm">
+            <div style="position:relative; width:inherit; height:inherit;">
+            </div>
+            <h1 class="font-{{currentCategory.description}}">{{presentation.title}}</h1>
+            {{presentation.content}}
+            {% set lang = site.language|split('-')|first %}
+            {% for sscat in discoveryPosts %}
+                {{ discoverysubcat.macro(sscat.title, sscat.slug, sscat.posts, lang) }}
+            {% endfor %}
+            {% block sidebar %}
+                {% include 'sidebar-right.twig' %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

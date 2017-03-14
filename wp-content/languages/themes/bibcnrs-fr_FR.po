@@ -256,3 +256,11 @@ msgstr terre
 #: databases.php
 msgid data-bases
 msgstr bases-de-donnees
+
+#: dicovery.twig
+msgid Test date:
+msgstr Date de test :
+
+#: discovery.twig
+msgid More
+msgstr En savoir plus

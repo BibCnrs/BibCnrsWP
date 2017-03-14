@@ -43,7 +43,7 @@ html {
 .biologie:hover,
 .biologie.current-menu-item,
 .biologie.current-menu-parent {
-    border-bottom: 4px solid rgb(156,018,109);
+    border-bottom: 3px solid rgb(156,018,109);
 }
 
 .chimie:hover,
@@ -109,42 +109,52 @@ html {
 
 .font-insb {
     color: rgb(156,018,109);
+    border-color: rgb(156,018,109);
 }
 
 .font-inc {
     color: rgb(000,126,148);
+    border-color: rgb(000,126,148);
 }
 
 .font-inee {
     color: rgb(098,174,037);
+    border-color: rgb(098,174,037);
 }
 
 .font-inshs {
     color: rgb(130,014,018);
+    border-color: rgb(130,014,018);
 }
 
 .font-insis {
     color: rgb(212,000,45);
+    border-color: rgb(212,000,45);
 }
 
 .font-insmi {
     color: rgb(084,125,61);
+    border-color: rgb(084,125,61);
 }
 
 .font-in2p3 {
     color: rgb(231,081,019);
+    border-color: rgb(231,081,019);
 }
 
 .font-inp {
     color: rgb(000,068,148);
+    border-color: rgb(000,068,148);
 }
 
 .font-ins2i {
     color: rgb(086,042,132);
+    border-color: rgb(086,042,132);
 }
 
 .font-insu {
     color: rgb(204,035,129);
+    border-color: rgb(204,035,129);
 }
 
 .font-cnrs {
@@ -474,7 +484,7 @@ input:-moz-placeholder {
     @include justify-content(center);
 }
 
-#pagenorm {
+#pagenorm, #pagenormCat {
     background: #fff;
     width: 100%;
     flex-grow: 2;
@@ -482,9 +492,9 @@ input:-moz-placeholder {
     flex-basis: 0;
     margin: 25px 0 20px 0;
     padding: 0 20px 20px 20px;
-    ul {
+}
+#pagenormCat ul {
         list-style-type: none;
-    }
 }
 
 .dateDisplay {
@@ -590,6 +600,57 @@ FAQ
 }
 
 /*****************************
+Discovery
+*****************************/
+.h2disc {
+        margin-bottom: 5px;
+}
+.discdomain {
+    margin-top: 20px;
+    font-size: 16px;
+}
+.disctitle {
+    line-height: 20px;
+    font-size: 14px;
+    padding-left: 20px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.testdate {
+    font-weight: bold;
+}
+.titleline {
+    width: 400px;
+    -webkit-margin-start: 0px;
+    margin: 0;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-top: none;
+}
+.flipflop {
+    line-height: 20px;
+    cursor: pointer;
+    font-style: italic;
+    padding-left: 20px;
+    font-size:14px;
+}
+.repdisc {
+    padding-left: 50px;
+    display: none;
+    font-size: 14px;
+    margin-bottom: 15px;
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 10px 0 10px 0;
+    }
+}
+.repdisc p {
+    margin: 0;
+}
+
+
+/*****************************
 Contact-form
 *****************************/
 .wpcf7-form label, .wpcf7-form .object {
@@ -605,155 +666,6 @@ Contact-form
 }
 .alignright {
     text-align: right;
-}
-/*****************************
-Databases
-*****************************/
-#pagenormbdd {
-    min-width: 230px;
-    max-width: 1200px;
-    margin: 25px auto;
-    padding: 0 20px 0 20px;
-}
-
-#return {
-    max-width: 1200px;
-    text-align : center;
-    width: 200px;
-    height: 40px;
-    border: #dcded9 solid 2px;
-    border-radius: 10px;
-    line-height: 40px;
-    margin: auto;
-    font-size: 1.5rem;
-    a {
-        color:#000;
-    }
-}
-
-#bdddomains {
-    max-width: 1200px;
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 15px;
-    ul {
-        list-style: none;
-        -webkit-padding-start: 0;
-        li {
-            border-radius:5px;
-            display: inline-block;
-            padding: 0 2px 0 2px;
-            a {
-                color: #fff;
-            }
-        }
-    }
-}
-.bddchoice {
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-.bddmessage {
-    color: #fff;
-    font-style: italic;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#titrerubnorm2 {
-    margin-top: 20px;
-    >img {
-        display: inline-block;
-        margin-right: 10px;
-    }
-    h1 {
-        display: inline-block;
-    }
-}
-
-#db_url {
-    margin-top: 20px;
-}
-
-#bases{
-    column-count: auto;
-    -moz-column-count: auto;
-    -webkit-column-count: auto;
-    column-width: 220px;
-    -moz-column-width: 220px;
-    -webkit-column-width: 220px;
-    column-gap: 2rem;
-    -moz-column-gap: 2rem;
-    -webkit-column-gap: 2rem;
-    list-style-type: none;
-    -webkit-padding-start: 0;
-    column-fill: auto;
-}
-#bases ul {
-    list-style: none;
-    -webkit-padding-start :0;
-    list-style-position: unset;
-    margin: 0;
-    padding: 0;
-}
-
-.blockletter {
-    padding: 10px 0 10px 0;
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid-column;
-    h2 {
-        margin-top: 0px;
-        padding-left: 20px;
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: #fff;
-    }
-}
-.bdd {
-    color:#000;
-    margin: 5px 5px 0px 5px;
-    padding: 2px 5px 2px 2px;
-    width: 211px;
-    height: 48px;
-    border: #dcded9 solid 2px;
-    border-radius: 10px;
-    line-height: 40px;
-    background-color: #fff;
-    vertical-align: middle;
-    .bddtitle {
-        float:right;
-        font-size: 12px;
-        vertical-align: middle;
-        line-height: 40px;
-    }
-    a {
-        color: #000;
-        line-height: 40px;
-        vertical-align: middle;
-    }
-    img {
-        vertical-align: middle;
-    }
-}
-
-.bddletter {
-    color: #fff;
-    margin: 5px 5px 0px 5px;
-    padding: 2px 5px 2px 2px;
-    width: 211px;
-    height: 38px;
-    line-height: 30px;
-    vertical-align: middle;
-    font-weight: bold;
-}
-
-#contentrubnorm2 {
-    text-align: justify;
 }
 /*****************************
 Search
