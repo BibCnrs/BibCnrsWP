@@ -264,3 +264,43 @@ msgstr Date de test :
 #: discovery.twig
 msgid More
 msgstr En savoir plus
+
+#: single.php
+msgid Biology
+msgstr Biologie
+
+#: single.php
+msgid Chemistry
+msgstr Chimie
+
+#: single.php
+msgid Ecology & Environment
+msgstr Ecologie & Environnement
+
+#: single.php
+msgid Humanities & Social Sciences
+msgstr Homme & Société
+
+#: single.php
+msgid Informations Sciences
+msgstr Sciences de l'information
+
+#: single.php
+msgid Engineering & Systems
+msgstr Ingénierie & Système
+
+#: single.php
+msgid Mathematics
+msgstr Mathématiques
+
+#: single.php
+msgid Nuclear & Particle Physics
+msgstr Nucléaire & Particules
+
+#: single.php
+msgid Physics
+msgstr Physique
+
+#: single
+msgid Earth Sciences & Astronomy
+msgstr Terre & Univers
