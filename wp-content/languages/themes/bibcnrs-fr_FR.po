@@ -266,7 +266,7 @@ msgid More
 msgstr En savoir plus
 
 #: single.php
-msgid Biology
+msgid Biological Sciences
 msgstr Biologie
 
 #: single.php
@@ -287,7 +287,7 @@ msgstr Sciences de l'information
 
 #: single.php
 msgid Engineering & Systems
-msgstr Ingénierie & Système
+msgstr Ingénierie & Systèmes
 
 #: single.php
 msgid Mathematics
@@ -301,6 +301,10 @@ msgstr Nucléaire & Particules
 msgid Physics
 msgstr Physique
 
-#: single
+#: single.php
 msgid Earth Sciences & Astronomy
 msgstr Terre & Univers
+
+#: single.php
+msgid Go back
+msgstr Retour

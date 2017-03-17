@@ -72,7 +72,13 @@ else {
         $context['page'] = "single";
         $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);
         $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
+        if ($currentCategory->slug =='non-classe' or $currentCategory->slug == 'non-classe-en') {
+            $context['referer'] = $_SERVER['HTTP_REFERER'];
+            Timber::render('singleNC.twig', $context);
+        }
+        else {
+            Timber::render('single.twig', $context);
+        }
 
-        Timber::render('single.twig', $context);
     }
 }
