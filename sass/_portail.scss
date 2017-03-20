@@ -613,8 +613,10 @@ Discovery
     line-height: 20px;
     font-size: 14px;
     padding-left: 20px;
-    cursor: pointer;
     margin-top: 5px;
+    a {
+    cursor: pointer;
+    }
 }
 .testdate {
     font-weight: bold;
@@ -633,6 +635,9 @@ Discovery
     font-style: italic;
     padding-left: 20px;
     font-size:14px;
+}
+.arrow{
+    font-size: 16px;
 }
 .repdisc {
     padding-left: 50px;

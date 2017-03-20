@@ -32,7 +32,7 @@ $config = [
         'insu' => 'INSU'
     ],
     'correspondence_map' => [
-        'insb' => __('Biology', 'bibcnrs'),
+        'insb' => __('Biological Sciences', 'bibcnrs'),
         'inc' => __('Chemistry', 'bibcnrs'),
         'inee' => __('Ecology & Environment', 'bibcnrs'),
         'inshs' => __('Humanities & Social Sciences', 'bibcnrs'),

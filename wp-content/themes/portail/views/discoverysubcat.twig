@@ -4,6 +4,7 @@
         <div class="discdomain">{{title|upper}}</div>
         <hr class="titleline font-{{slug.description}}"></hr>
         {% for post in posts %}
+            {% if post.periode %}
                 {% set dateFin = post.periode|split(' - ', 2)|last %}
                 {% if lang == 'fr' %}
                     {% set dateFr = dateFin|split('/') %}
@@ -11,15 +12,22 @@
                 {% else %}
                     {% set dateEng = dateFin %}
                 {% endif %}
-                {% if now|date('m/d/Y') <= dateEng %}
+            {% else %}
+                {% set dateEng = '12/31/2020' %}
+            {% endif %}
+            {% if now|date('m/d/Y') <= dateEng %}
                 <div class="disctitle">
+                    {% if post.disc_url %}
                     <a href="http://{{slug.description}}.bib.cnrs.fr/login?url={{post.disc_url}}" target="_blank" class="font-{{slug.description}}">
                         {{post.title}}
                     </a>
+                    {% else %}
+                        <span class="font-{{slug.description}}">{{post.title}}</span>
+                    {% endif %}
                     {{__('Test date:', 'bibcnrs')}} <span class="testdate">{{post.periode}}</span>
                 </div>
-                <div class="flipflop" onclick="flipflop('rep-{{post.id}}');">{{__('More', 'bibcnrs')}} ...</div>
-                <div id="rep-{{post.id}}" class="repdisc">{{post.content}}</div>
+                <div class="flipflop" onclick="flipflop('{{slug.description}}-{{loop.index}}');">{{__('More', 'bibcnrs')}}<span class="arrow"> → </span></div>
+                <div id="{{slug.description}}-{{loop.index}}" class="repdisc">{{post.content}}</div>
              {% endif %}
         {% endfor %}
     </div>
