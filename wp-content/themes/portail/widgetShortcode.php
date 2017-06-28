@@ -10,6 +10,8 @@ $getShortcode = function ($config) {
     return function ($atts = [], $content = null, $a) use ($config)
     {
         $language = $atts['language'];
+        if ( !function_exists( 'get_home_path' ) )
+	       require_once( dirname(__FILE__) . '/../../../wp-admin/includes/file.php' );
         $widgetDir = get_home_path() . "wp-content/node_modules/bibcnrs-widget";
         $widgetUrl = site_url() . DIRECTORY_SEPARATOR . "wp-content/node_modules/bibcnrs-widget";
 

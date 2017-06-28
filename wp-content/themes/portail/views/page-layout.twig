@@ -72,11 +72,25 @@
                         <ul class="menu-bas-fr">
                             {% if currentCategory.description %}
                                 <li class="nav-main-item font-{{currentCategory.description}}">
+                                {% if site.language|slice(0,2) == 'en' %}
+                                    <a
+                                        href="http://www.cnrs.fr/en/institutes/{{currentCategory.description}}-{{links}}.html"
+                                        class ="font-{{currentCategory.description}}"
+                                        target="_blank"
+                                    >
+                                {% elseif  site.language|slice(0,2) == 'fr' and currentCategory.description == 'insu' %}
+                                    <a
+                                        href="http://www.{{currentCategory.description}}.cnrs.fr"
+                                        class ="font-{{currentCategory.description}}"
+                                        target="_blank"
+                                    >
+                                {% else %}
                                     <a
                                         href="http://www.cnrs.fr/{{currentCategory.description}}"
                                         class ="font-{{currentCategory.description}}"
                                         target="_blank"
                                     >
+                                {% endif %}
                                         {{currentCategory.description|upper}}
                                     </a>
                                 </li>
