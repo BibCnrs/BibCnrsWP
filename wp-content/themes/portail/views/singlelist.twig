@@ -1,6 +1,4 @@
 {% extends 'category.twig' %}
-{% set abbrv = post.slug|split('-') %}
-{% set institut = abbrv[3] %}
 {% block content %}
 <div id="content" class="bsbb">
 {% block breadcrumb %}
@@ -13,7 +11,7 @@
             <div style="position:relative; width:inherit; height:inherit;">
             </div>
             <div id="titrerubnorm2">
-                <h1 class="font-{{institut}} wph1">{{post.title}}</h1>
+                <h1 class="font-{{institute}} wph1">{{post.title}}</h1>
             </div>
             {{post.content}}
         </div>
@@ -28,9 +26,27 @@
                 <img src="{{theme.uri}}/images/cnrs.png" alt="logo cnrs" class="logocnrs"/>
             </a>
             <ul class="menu-bas-fr">
-                    <li class="nav-main-item font-{{institut}}">
-                        <a href="http://www.cnrs.fr/{{institut}}" class ="font-{{institut}}" target="_blank">
-                            {{institut|upper}}
+                    <li class="nav-main-item font-{{institute}}">
+                        {% if site.language|slice(0,2) == 'en' %}
+                            <a
+                                href="http://www.cnrs.fr/en/institutes/{{institute}}-{{links}}.html"
+                                class ="font-{{institute}}"
+                                target="_blank"
+                            >
+                        {% elseif  site.language|slice(0,2) == 'fr' and institute == 'insu' %}
+                            <a
+                                href="http://www.{{institute}}.cnrs.fr"
+                                class ="font-{{institute}}"
+                                target="_blank"
+                            >
+                        {% else %}
+                            <a
+                                href="http://www.cnrs.fr/{{institute}}"
+                                class ="font-{{institute}}"
+                                target="_blank"
+                            >
+                        {% endif %}
+                            {{institute|upper}}
                         </a>
                     </li>
                     <li class="cnrsli">&nbsp;|&nbsp;</li>

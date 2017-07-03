@@ -9,7 +9,6 @@ $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $language = substr($context['site']->language, 0, 2);
 $context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
-
 $multicat=get_the_category();
 
 for ($i = 0; $i < sizeof($multicat); $i++){
@@ -38,6 +37,8 @@ else {
     if ($multicat[0]->slug == 'list-diff' or $multicat[0]->slug == 'mail-list') {
         $context['profile']=$config['profile_map'];
         $context['post'] = Timber::get_post();
+        $context['institute'] = explode("-",$context['post']->slug)[3];
+        $context['links'] = $config['cnrs_links'][$context['institute']];
         Timber::render('singlelist.twig', $context);
     }
     else {
@@ -70,6 +71,7 @@ else {
         $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
         $context['post'] = new TimberPost();
         $context['page'] = "single";
+        $context['links'] = $config['cnrs_links'][$currentCategory->description];
         $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);
         $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
         if ($currentCategory->slug =='non-classe' or $currentCategory->slug == 'non-classe-en') {

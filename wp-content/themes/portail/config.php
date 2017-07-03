@@ -42,5 +42,17 @@ $config = [
         'in2p3' => __('Nuclear & Particle Physics', 'bibcnrs'),
         'inp' => __('Physics', 'bibcnrs'),
         'insu' => __('Earth Sciences & Astronomy', 'bibcnrs')
+    ],
+    'cnrs_links' => [
+        'insb' => __('biological-sciences', 'bibcnrs'),
+        'inc' => __('chemistry', 'bibcnrs'),
+        'inee' => __('ecology-environment', 'bibcnrs'),
+        'inshs' => __('humanities-social-sciences', 'bibcnrs'),
+        'ins2i' => __('information-sciences-technologies', 'bibcnrs'),
+        'insis' => __('engineering-systems-sciences', 'bibcnrs'),
+        'insmi' => __('mathematical-sciences', 'bibcnrs'),
+        'in2p3' => __('nuclear-particle-physics', 'bibcnrs'),
+        'inp' => __('physics', 'bibcnrs'),
+        'insu' => __('earth-science-astronomy', 'bibcnrs')
     ]
 ];
