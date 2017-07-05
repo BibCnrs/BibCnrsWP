@@ -54,6 +54,10 @@
             {{ sidebarRSS.macro(currentCategory.name, 'http://cc.in2p3.fr/spip.php?page=rss&id_rubrique=11&lang=fr') }}
         {% endif %}
     {% elseif currentCategory.slug == __('physics', 'bibcnrs') %}
+    <a class="twitter-timeline" href="https://twitter.com/INP_CNRS" height="350">
+        Tweets INP CNRS
+    </a>
+    <br/><br/>
         {{ sidebarRSS.macro(currentCategory.name, 'http://www.cnrs.fr/inp/spip.php?page=backend') }}
     {% endif %}
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
