@@ -24,7 +24,8 @@ $context['links'] = $config['cnrs_links'][$currentCategory->description];
 $dbUrl = $language === 'fr' ? '\/bases-de-donnees\/' : '\/data-bases\/';
 $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
 $context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
-$context['alerte']=Timber::get_posts(['category_name' => 'alertes', 'numberposts' => 1]);
+$alert = $language === 'fr' ? 'alertes' : 'warning';
+$context['alerte']=Timber::get_posts(['category_name' => $alert, 'numberposts' => 1]);
 
 // IF FAQ sub-categories display
 $parentCatName = single_cat_title('',false);

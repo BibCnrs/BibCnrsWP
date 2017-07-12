@@ -17,5 +17,6 @@ foreach($slugs as $slug){
 		'posts' => Timber::get_posts(['category_name' => $slug, 'numberposts' => 3])
 	];
 }
-$context['alerte']=Timber::get_posts(['category_name' => 'alertes', 'numberposts' => 1]);
+$alert = $language === 'fr' ? 'alertes' : 'warning';
+$context['alerte']=Timber::get_posts(['category_name' => $alert, 'numberposts' => 1]);
 Timber::render('homepage.twig', $context);
