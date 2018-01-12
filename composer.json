@@ -21,10 +21,10 @@
             "package": {
                 "name": "restrict-taxonomies",
                 "type": "wordpress-plugin",
-                "version": "1.3.0",
+                "version": "1.3.3",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/restrict-taxonomies.1.3.0.zip"
+                    "url": "https://downloads.wordpress.org/plugin/restrict-taxonomies.1.3.3.zip"
                 }
             }
         },
@@ -45,10 +45,10 @@
             "package": {
                 "name": "polylang",
                 "type": "wordpress-plugin",
-                "version": "2.1.5",
+                "version": "2.2.8",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/polylang.2.1.5.zip"
+                    "url": "https://downloads.wordpress.org/plugin/polylang.2.2.8.zip"
                 }
             }
         },
@@ -57,10 +57,10 @@
             "package": {
                 "name": "contact-form-7",
                 "type": "wordpress-plugin",
-                "version": "4.8",
+                "version": "4.9.2",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.4.8.zip"
+                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.4.9.2.zip"
                 }
             }
         },
@@ -81,10 +81,10 @@
             "package": {
                 "name": "timber",
                 "type": "wordpress-plugin",
-                "version": "1.3.2",
+                "version": "1.6.0",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/timber-library.1.3.2.zip"
+                    "url": "https://downloads.wordpress.org/plugin/timber-library.1.6.0.zip"
                 }
             }
         },
@@ -93,10 +93,10 @@
             "package": {
                 "name": "wp-mail-smtp",
                 "type": "wordpress-plugin",
-                "version": "0.10.1",
+                "version": "1.2.2",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.0.10.1.zip"
+                    "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.zip"
                 }
             }
         }
@@ -107,13 +107,13 @@
         "koala-framework/composer-extra-assets": "2.0.8",
         "wp-block-admin": "0.2.3",
         "bibcnrs/wp-ebsco-widget": "1.0.8",
-        "timber": "1.3.2",
-        "restrict-taxonomies": "1.3.0",
+        "timber": "1.6.0",
+        "restrict-taxonomies": "1.3.3",
         "rss-shortcode": "0.2",
-        "polylang": "2.1.5",
-        "contact-form-7": "4.8",
+        "polylang": "2.2.8",
+        "contact-form-7": "4.9.2",
         "order-categories": "1.0.3",
-        "wp-mail-smtp": "0.10.1"
+        "wp-mail-smtp": "1.2.2"
     },
     "extra": {
         "require-npm": {
