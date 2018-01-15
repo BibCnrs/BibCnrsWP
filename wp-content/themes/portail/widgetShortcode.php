@@ -73,7 +73,7 @@ $getShortcode = function ($config) {
         if (!wp_script_is($config->tag . '-init', 'enqueued')) {
             wp_register_script(
                 $config->tag . '-init',
-                get_theme_root_uri() . DIRECTORY_SEPARATOR . portail . DIRECTORY_SEPARATOR . 'js/'.$config->tag.'Init.js',
+                get_theme_root_uri() . DIRECTORY_SEPARATOR . 'portail' . DIRECTORY_SEPARATOR . 'js/'.$config->tag.'Init.js',
                 [$config->tag],
                 $json['version'],
                 true
