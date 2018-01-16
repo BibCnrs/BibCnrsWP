@@ -48,11 +48,7 @@
     {% elseif currentCategory.slug == __('mathematics', 'bibcnrs') %}
         {{ sidebarOtherdomains.macro(allOtherPosts) }}
     {% elseif currentCategory.slug == __('nuclear', 'bibcnrs') %}
-        {% if site.language|slice(0,2) == 'en' %}
-            {{ sidebarRSS.macro(currentCategory.name, 'http://cc.in2p3.fr/spip.php?page=rss&id_rubrique=11&lang=en') }}
-        {% else %}
-            {{ sidebarRSS.macro(currentCategory.name, 'http://cc.in2p3.fr/spip.php?page=rss&id_rubrique=11&lang=fr') }}
-        {% endif %}
+            {{ sidebarRSS.macro(currentCategory.name, 'http://cc.in2p3.fr/feed') }}
     {% elseif currentCategory.slug == __('physics', 'bibcnrs') %}
     <a class="twitter-timeline" href="https://twitter.com/INP_CNRS" height="350">
         Tweets INP CNRS
