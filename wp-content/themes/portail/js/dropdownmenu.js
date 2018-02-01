@@ -9,7 +9,7 @@
         $("<option />", {
             "selected": "selected",
             "value"   : "http://bib-preprod.cnrs.fr/",
-            "text"    : "Menu ..."
+            "text"    : "Actus en ..."
         }).appendTo("nav select");
 
         // Populate dropdown with menu items
