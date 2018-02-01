@@ -260,8 +260,18 @@ Accueil
     background-size: 100% 100%;
 }
 .navigations {
+    position: relative;
     width: 85%;
     margin: 0 auto;
+}
+.navHeader {
+    position: absolute;
+    left: -80px;
+    top: 15px;
+    background-color: #fff;
+    line-height: 1.5;
+    width: 90px;
+    text-align: center;
 }
 .bread {
     color: #fff;
@@ -417,10 +427,9 @@ nav select {
             display: none;
         }
     }
-    .principalbas {
+    .principalbas, .navHeader {
         display: none;
     }
-
 }
 
 /*****************************

@@ -8,14 +8,14 @@
                 {% set dateFin = post.periode|split(' - ', 2)|last %}
                 {% if lang == 'fr' %}
                     {% set dateFr = dateFin|split('/') %}
-                    {% set dateEng = [dateFr.1, dateFr.0, dateFr.2]|join("/") %}
+                    {% set dateEng = [dateFr.2, dateFr.1, dateFr.0]|join("/") %}
                 {% else %}
                     {% set dateEng = dateFin %}
                 {% endif %}
             {% else %}
-                {% set dateEng = '12/31/2020' %}
+                {% set dateEng = '2020/12/31' %}
             {% endif %}
-            {% if now|date('m/d/Y') <= dateEng %}
+            {% if now|date('Y/m/d') <= dateEng %}
                 <div class="disctitle">
                     {% if post.disc_url %}
                     <a href="http://{{slug.description}}.bib.cnrs.fr/login?url={{post.disc_url}}" target="_blank" class="font-{{slug.description}}">

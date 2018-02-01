@@ -41,7 +41,9 @@
     {% elseif currentCategory.slug == __('engineering', 'bibcnrs') %}
         {{ sidebarOtherdomains.macro(allOtherPosts) }}
     {% elseif currentCategory.slug == __('humanities', 'bibcnrs') %}
-        {{ sidebarOtherdomains.macro(allOtherPosts) }}
+        <a class="twitter-timeline" href="https://twitter.com/INSHS_CNRS" height="350">
+            Tweets INSHS CNRS
+        </a>
     {% elseif currentCategory.slug == __('information-en', 'bibcnrs') %}
         {{ sidebarRSS.macro(currentCategory.name, 'http://www.cnrs.fr/ins2i/spip.php?page=rss') }}
         {{ sidebarOtherdomains.macro(allOtherPosts) }}
@@ -50,10 +52,10 @@
     {% elseif currentCategory.slug == __('nuclear', 'bibcnrs') %}
             {{ sidebarRSS.macro(currentCategory.name, 'http://cc.in2p3.fr/feed') }}
     {% elseif currentCategory.slug == __('physics', 'bibcnrs') %}
-    <a class="twitter-timeline" href="https://twitter.com/INP_CNRS" height="350">
-        Tweets INP CNRS
-    </a>
-    <br/><br/>
+        <a class="twitter-timeline" href="https://twitter.com/INP_CNRS" height="350">
+            Tweets INP CNRS
+        </a>
+        <br/><br/>
         {{ sidebarRSS.macro(currentCategory.name, 'http://www.cnrs.fr/inp/spip.php?page=backend') }}
     {% endif %}
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
