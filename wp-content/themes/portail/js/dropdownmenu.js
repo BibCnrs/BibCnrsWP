@@ -1,6 +1,18 @@
 (function ($) {
     // DOM ready
     $(function() {
+        // Translation of menu title
+        var oRegex = new RegExp("(?:; )?pll_language=([^;]*);?");
+            if (oRegex.test(document.cookie)) {
+                    var lang = decodeURIComponent(RegExp["$1"]);
+            } else {
+                    var lang = "fr";
+            }
+            if (lang == "fr") {
+                var title = "Actus en ...";
+            } else {
+                var title = "News in ...";
+            }
 
         // Create the dropdown base
         $("<select />").appendTo("nav");
@@ -9,7 +21,7 @@
         $("<option />", {
             "selected": "selected",
             "value"   : "http://bib-preprod.cnrs.fr/",
-            "text"    : "Actus en ..."
+            "text"    : title,
         }).appendTo("nav select");
 
         // Populate dropdown with menu items

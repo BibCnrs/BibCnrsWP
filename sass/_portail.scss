@@ -266,11 +266,12 @@ Accueil
 }
 .navHeader {
     position: absolute;
-    left: -80px;
+    left: -100px;
     top: 15px;
     background-color: #fff;
     line-height: 1.5;
-    width: 90px;
+    font-size: 15px;
+    width: 100px;
     text-align: center;
 }
 .bread {
@@ -777,7 +778,6 @@ Responsive
         top: 0px;
     }
 }
-
 @media only screen and (max-width: 590px){
     .logocnrs {
         display: none;
