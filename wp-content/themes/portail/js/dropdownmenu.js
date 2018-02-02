@@ -3,15 +3,16 @@
     $(function() {
         // Translation of menu title
         var oRegex = new RegExp("(?:; )?pll_language=([^;]*);?");
+        var lang, title;
             if (oRegex.test(document.cookie)) {
-                    var lang = decodeURIComponent(RegExp["$1"]);
+                    lang = decodeURIComponent(RegExp.$1);
             } else {
-                    var lang = "fr";
+                    lang = "fr";
             }
             if (lang == "fr") {
-                var title = "Actus en ...";
+                title = "Actus en ...";
             } else {
-                var title = "News in ...";
+                title = "News in ...";
             }
 
         // Create the dropdown base
