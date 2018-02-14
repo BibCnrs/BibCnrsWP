@@ -117,7 +117,7 @@
     },
     "extra": {
         "require-npm": {
-            "bibcnrs-widget": "1.0.8"
+            "bibcnrs-widget": "2.0.0"
         }
     }
 }
