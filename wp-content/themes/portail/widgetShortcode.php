@@ -12,10 +12,10 @@ $getShortcode = function ($config) {
         $language = $atts['language'];
         if ( !function_exists( 'get_home_path' ) )
 	       require_once( dirname(__FILE__) . '/../../../wp-admin/includes/file.php' );
-        $widgetDir = get_home_path() . "wp-content/node_modules/bibcnrs-widget";
-        $widgetUrl = site_url() . DIRECTORY_SEPARATOR . "wp-content/node_modules/bibcnrs-widget";
+        $nodeModulesDir = get_home_path() . "wp-content/node_modules";
+        $nodeModulesUrl = site_url() . DIRECTORY_SEPARATOR . "wp-content/node_modules";
 
-        $string = file_get_contents($widgetDir . "/package.json");
+        $string = file_get_contents($nodeModulesDir . "/bibcnrs-widget/package.json");
         $json = json_decode($string, true);
         // Define the URL path to the plugin...
         // Enqueue the styles in they are not already...
@@ -23,7 +23,7 @@ $getShortcode = function ($config) {
 
             wp_register_style(
                 $config->tag,
-                $widgetUrl . DIRECTORY_SEPARATOR . 'build/app.css',
+                $nodeModulesUrl . DIRECTORY_SEPARATOR . '/bibcnrs-widget/build/app.css',
                 [],
                 $json['version']
             );
@@ -34,27 +34,27 @@ $getShortcode = function ($config) {
         if(!wp_script_is('babel-polyfill', 'enqueued')) {
             wp_register_script(
                 'babel-polyfill',
-                $widgetUrl . DIRECTORY_SEPARATOR . 'node_modules/babel-polyfill/dist/polyfill.min.js',
+                $nodeModulesUrl . DIRECTORY_SEPARATOR . 'babel-polyfill/dist/polyfill.min.js',
                 [],
-                '6.3.14'
+                '6.3.20'
             );
         }
 
         if(!wp_script_is('react', 'enqueued')) {
             wp_register_script(
                 'react',
-                $widgetUrl . DIRECTORY_SEPARATOR . 'node_modules/react/dist/react-with-addons.min.js',
+                $nodeModulesUrl . DIRECTORY_SEPARATOR . 'react/umd/react.production.min.js',
                 [],
-                '0.14.3'
+                '16.2.0'
             );
         }
 
         if(!wp_script_is('react-dom', 'enqueued')) {
             wp_register_script(
                 'react-dom',
-                $widgetUrl . DIRECTORY_SEPARATOR . 'node_modules/react-dom/dist/react-dom.min.js',
+                $nodeModulesUrl . DIRECTORY_SEPARATOR . 'react-dom/umd/react-dom.production.min.js',
                 ['react'],
-                '0.14.3'
+                '16.2.0'
             );
         }
 
@@ -62,7 +62,7 @@ $getShortcode = function ($config) {
         if (!wp_script_is($config->tag, 'enqueued')) {
             wp_register_script(
                 $config->tag,
-                $widgetUrl . DIRECTORY_SEPARATOR . 'build/app.js',
+                $nodeModulesUrl . DIRECTORY_SEPARATOR . 'bibcnrs-widget/build/app.js',
                 ['babel-polyfill', 'react', 'react-dom'],
                 $json['version'],
                 true
