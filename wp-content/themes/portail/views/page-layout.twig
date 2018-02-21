@@ -7,7 +7,7 @@
         <meta name="robots" content="{{ robot_index == 'true' ? 'index follow' : 'noindex nofollow' }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% block css %}
-            <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css?v=1" type="text/css">
+            <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css" type="text/css">
         {% endblock %}
         {% block js %}
             <script src="{{theme.uri}}/js/flipflop.js" type="text/javascript"></script>
@@ -27,7 +27,21 @@
             {% block header %}
             <header id="header" class="bsbb">
                 <div class="clear"></div>
-                <div>{{ bibcnrs_header|shortcodes }}</div>
+                <div class="connexion bsbb">
+                    <a href="/">
+                        <img
+                            src="{{theme.uri}}/images/bibcnrs-logo-{{currentCategory ? currentCategory.slug : 'visite'}}.png"
+                            class="bibcnrslogo"
+                            alt="logo bibcnrs {{currentCategory.title}}"
+                        />
+                    </a>
+                    <img src="{{theme.uri}}/images/decor-header.png" class="decoheader"/>
+                    <div class="sitetitle bsbb">
+                        <div class="largetitle">CNRS research units documents access</div>
+                        <div class="smalltitle">CNRS documents access</div>
+                    </div>
+                    {{ "[ebsco_widget_header]"|shortcodes }}
+                </div>
                 <div class="language">
                     {{language_switcher}}
                 </div>
@@ -36,7 +50,7 @@
             <div class="main">
                 <div class="navigations">
                     <div class="navHeader">
-                        {{__('News', 'bibcnrs')}} &rarr;                      
+                        {{__('News', 'bibcnrs')}} &rarr;
                     </div>
                     {% block navigation %}
                     <nav role="navigation" class="principal">

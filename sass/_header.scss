@@ -1,0 +1,73 @@
+
+.bsbb {
+    box-sizing: border-box;
+    .connexion {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: stretch;
+        padding: 5px 10px 5px 10px;
+    }
+    a {
+        max-height:70px;
+        align-self: center;
+    }
+    .bibcnrslogo {
+        max-width: 70px;
+        height: auto;
+    }
+    .sitetitle {
+        color: #00294B;
+        text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+        width: 45%;
+        padding-left: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        align-self: center;
+    }
+    .infos {
+        width: 55%;
+        padding: 5px 0px 5px 0px;
+        font-style: italic;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .name, .otherdomains{
+            text-align: right;
+        }
+    }
+    .decoheader {
+        position: absolute;
+        top: 12px;
+        left: 125px;
+        z-index: -5;
+    }
+    .largetitle {
+        vertical-align: middle;
+        display: inline-block;
+    }
+    .smalltitle {
+        display: none;
+    }
+    @media (max-width: 867px) {
+        .decoheader {
+            display:none;
+        }
+        .largetitle {
+            display: none;
+        }
+        .smalltitle {
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+    @media (max-width: 660px) {
+        .infos {
+            display: none;
+        }
+        .sitetitle {
+            width:100%;
+        }
+    }
+}
