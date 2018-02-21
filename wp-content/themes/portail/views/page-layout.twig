@@ -26,7 +26,7 @@
         <div class="bib-container" >
             {% block header %}
             <header id="header" class="bsbb">
-                <div class="clear"></div>
+                {# <div class="clear"></div> #}
                 <div class="connexion bsbb">
                     <a href="/">
                         <img
@@ -40,10 +40,10 @@
                         <div class="largetitle">CNRS research units documents access</div>
                         <div class="smalltitle">CNRS documents access</div>
                     </div>
+                    <div class="language">
+                        {{language_switcher}}
+                    </div>
                     {{ "[ebsco_widget_header]"|shortcodes }}
-                </div>
-                <div class="language">
-                    {{language_switcher}}
                 </div>
             </header>
             {% endblock %}

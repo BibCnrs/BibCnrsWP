@@ -8,7 +8,6 @@ require 'config.php';
 $context = Timber::get_context();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $language = substr($context['site']->language, 0, 2);
-$context['bibcnrs_header'] = sprintf('[bibcnrs_header language="%s"]', $language);
 $multicat=get_the_category();
 
 for ($i = 0; $i < sizeof($multicat); $i++){
