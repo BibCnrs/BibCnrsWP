@@ -49,13 +49,15 @@
             {% endblock %}
             <div class="main">
                 <div class="navigations">
-                    <div class="navHeader">
-                        {{__('News', 'bibcnrs')}} &rarr;
-                    </div>
                     {% block navigation %}
                     <nav role="navigation" class="principal">
                         <div class=principalbas>
                             <ul class="menu">
+                                <div class="navHeader">
+                                    <div class="turnText">
+                                        &darr;{{__('Newp', 'bibcnrs')}}&darr;
+                                    </div>
+                                </div>                    
                                 {% for item in principal.get_items %}
                                 <li class="nav-main-item  {{item.classes | join(' ')}}">
                                     <a class="nav-main-link" href="{{item.get_link}}">
