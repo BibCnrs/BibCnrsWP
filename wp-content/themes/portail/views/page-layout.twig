@@ -40,10 +40,14 @@
                         <div class="largetitle">{{long_title}}</div>
                         <div class="smalltitle">{{short_title}}</div>
                     </div>
-                    <div class="language">
-                        {{language_switcher}}
-                    </div>
                     {{ "[ebsco_widget_header]"|shortcodes }}
+
+                    <div class="actions">
+                        <div class="language">
+                            {{language_switcher}}
+                        </div>
+                        {{ "[ebsco_widget_connection]"|shortcodes }}
+                    </div>
                 </div>
             </header>
             {% endblock %}
@@ -57,7 +61,7 @@
                                     <div class="turnText">
                                         &darr;{{__('News', 'bibcnrs')}}&darr;
                                     </div>
-                                </div>                    
+                                </div>
                                 {% for item in principal.get_items %}
                                 <li class="nav-main-item  {{item.classes | join(' ')}}">
                                     <a class="nav-main-link" href="{{item.get_link}}">
