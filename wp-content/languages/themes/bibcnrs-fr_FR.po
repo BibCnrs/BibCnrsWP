@@ -107,7 +107,7 @@ msgstr "A la une"
 
 #: sidebar-right.php
 msgid "News"
-msgstr "Actualités"
+msgstr "Actus"
 
 #: sidebar-right.php
 msgid "News from other disciplines"
