@@ -1,5 +1,7 @@
 <?php
 
+require 'widgetShortcode.php';
+
 function modify_contact_methods($profile_fields) {
 
     // Add new fields
@@ -150,3 +152,7 @@ function custom_excerpt_length($length) {
     return 15;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+add_shortcode('bibcnrs_header', $getShortcode((object)[
+    "tag" => 'bib_header'
+]));
