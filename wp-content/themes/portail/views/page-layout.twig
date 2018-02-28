@@ -26,42 +26,22 @@
         <div class="bib-container" >
             {% block header %}
             <header id="header" class="bsbb">
-                {# <div class="clear"></div> #}
-                <div class="connexion bsbb">
-                    <a href="/">
-                        <img
-                            src="{{theme.uri}}/images/bibcnrs-logo-{{currentCategory ? currentCategory.slug : 'visite'}}.png"
-                            class="bibcnrslogo"
-                            alt="logo bibcnrs {{currentCategory.title}}"
-                        />
-                    </a>
-                    <img src="{{theme.uri}}/images/decor-header.png" class="decoheader"/>
-                    <div class="sitetitle bsbb">
-                        <div class="largetitle">{{long_title}}</div>
-                        <div class="smalltitle">{{short_title}}</div>
-                    </div>
-                    {{ "[ebsco_widget_header]"|shortcodes }}
-
-                    <div class="actions">
-                        <div class="language">
-                            {{language_switcher}}
-                        </div>
-                        {{ "[ebsco_widget_connection]"|shortcodes }}
-                    </div>
+                <div class="clear"></div>
+                <div>{{ bibcnrs_header|shortcodes }}</div>
+                <div class="language">
+                    {{language_switcher}}
                 </div>
             </header>
             {% endblock %}
             <div class="main">
                 <div class="navigations">
+                    <div class="navHeader">
+                        {{__('News', 'bibcnrs')}} &rarr;
+                    </div>
                     {% block navigation %}
                     <nav role="navigation" class="principal">
                         <div class=principalbas>
                             <ul class="menu">
-                                <div class="navHeader">
-                                    <div class="turnText">
-                                        &darr;{{__('News', 'bibcnrs')}}&darr;
-                                    </div>
-                                </div>
                                 {% for item in principal.get_items %}
                                 <li class="nav-main-item  {{item.classes | join(' ')}}">
                                     <a class="nav-main-link" href="{{item.get_link}}">
