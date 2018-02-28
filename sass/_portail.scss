@@ -43,7 +43,7 @@ html {
 .biologie:hover,
 .biologie.current-menu-item,
 .biologie.current-menu-parent {
-    border-bottom: 4px solid rgb(156,018,109);
+    border-bottom: 3px solid rgb(156,018,109);
 }
 
 .chimie:hover,
@@ -260,8 +260,19 @@ Accueil
     background-size: 100% 100%;
 }
 .navigations {
-     width: 85%;
+    position: relative;
+    width: 85%;
     margin: 0 auto;
+}
+.navHeader {
+    position: absolute;
+    left: -100px;
+    top: 15px;
+    background-color: #fff;
+    line-height: 1.5;
+    font-size: 15px;
+    width: 100px;
+    text-align: center;
 }
 .bread {
     color: #fff;
@@ -371,30 +382,14 @@ Navigation
         -moz-padding-start: 0px;
         @include display-flex;
         @include flex-direction(row);
-        .navHeader {
-            height: 55px;
-            width: 45px;
-            background-color: rgba(51, 122, 183, .65);
-            color: #000;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            .turnText {
-                height: 25px;
-                width: 55px;
-                transform: rotate(270deg);
-                transform-origin: 65% 80%;
-                text-align: center;
-            }
-        }
         li {
             padding: 0 1px 5px 1px;
             border-right: 1px solid #f0f0f0;
-            border-top: 4px solid rgba(51, 122, 183, .65);
-            border-bottom: 4px solid rgba(51, 122, 183, .65);
+            border-top: 4px solid #f0f0f0;
+            border-bottom: 4px solid #f0f0f0;
             list-style-type: none;
-            width: calc((100% - 20px)/10);
-            line-height: 2;
+            width: 10%;
+            line-height: 1.5;
             text-align: center;
             &:hover {
                 transform: scale(1.2);
@@ -613,9 +608,7 @@ FAQ
 .repfaq ul {
     -webkit-margin-after: 0px;
 }
-.repfaq:target {
-    display: block;
-}
+
 /*****************************
 Discovery
 *****************************/
