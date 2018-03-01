@@ -346,17 +346,6 @@ Navigation
             height: 55px;
             width: 45px;
             background-color: rgba(51, 122, 183, .65);
-            color: #000;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            .turnText {
-                height: 25px;
-                width: 55px;
-                transform: rotate(270deg);
-                transform-origin: 65% 80%;
-                text-align: center;
-            }
         }
         li {
             padding: 0 1px 5px 1px;
@@ -388,7 +377,7 @@ nav select {
     display: none;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1241px) {
     .principal {
         text-align: left;
         background-image: none;
