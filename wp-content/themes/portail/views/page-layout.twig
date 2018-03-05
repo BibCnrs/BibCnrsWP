@@ -30,7 +30,7 @@
                 <div class="connexion bsbb">
                     <a href="/">
                         <img
-                            src="{{theme.uri}}/images/bibcnrs-logo-{{currentCategory ? currentCategory.slug : 'visite'}}.png"
+                            src="{{theme.uri}}/images/bibcnrs-logo-{{currentCategory and currentCategory.description ? currentCategory.description : 'visite'}}.png"
                             class="bibcnrslogo"
                             alt="logo bibcnrs {{currentCategory.title}}"
                         />
