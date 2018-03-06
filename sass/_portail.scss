@@ -345,37 +345,31 @@ Navigation
         .navHeader {
             height: 55px;
             width: 45px;
-            background-color: rgba(51, 122, 183, .65);
-            color: #000;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            .turnText {
-                height: 25px;
-                width: 55px;
-                transform: rotate(270deg);
-                transform-origin: 65% 80%;
-                text-align: center;
-            }
+            background-color: #456487;
         }
         li {
             padding: 0 1px 5px 1px;
             border-right: 1px solid #f0f0f0;
-            border-top: 4px solid rgba(51, 122, 183, .65);
-            border-bottom: 4px solid rgba(51, 122, 183, .65);
+            border-top: 4px solid #456487;
+            border-bottom: 4px solid #456487;
             list-style-type: none;
             width: calc((100% - 20px)/10);
             line-height: 2;
             text-align: center;
-            &:hover {
-                transform: scale(1.2);
-            }
+            background-color: #456487;
             a {
             display: block;
             text-transform: uppercase;
             font-size: 10px;
             text-decoration: none;
-            color: #000;
+            color: #fff;
+            }
+            &:hover {
+                transform: scale(1.2);
+                background-color: #fff;
+                a {
+                    color: #456487;
+                }
             }
         }
         li:last-child {
@@ -388,7 +382,7 @@ nav select {
     display: none;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1241px) {
     .principal {
         text-align: left;
         background-image: none;

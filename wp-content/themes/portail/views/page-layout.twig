@@ -58,10 +58,8 @@
                         <div class=principalbas>
                             <ul class="menu">
                                 <div class="navHeader">
-                                    <div class="turnText">
-                                        &darr;{{__('News', 'bibcnrs')}}&darr;
-                                    </div>
-                                </div>
+                                    <img src="{{theme.uri}}/images/{{__('News', 'bibcnrs')}}.png" alt="">
+                                </div>                    
                                 {% for item in principal.get_items %}
                                 <li class="nav-main-item  {{item.classes | join(' ')}}">
                                     <a class="nav-main-link" href="{{item.get_link}}">
