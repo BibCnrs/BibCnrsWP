@@ -55,18 +55,18 @@
                     {% block navigation %}
                     <nav role="navigation" class="principal">
                         <div class=principalbas>
-                            <ul class="menu">
+                            <div class="menu">
                                 <div class="navHeader">
                                     <img src="{{theme.uri}}/images/{{__('News', 'bibcnrs')}}.png" alt="">
                                 </div>
                                 {% for item in principal.get_items %}
-                                <li class="nav-main-item  {{item.classes | join(' ')}}">
+                                <div class="nav-main-item  {{item.classes | join(' ')}}">
                                     <a class="nav-main-link" href="{{item.get_link}}">
                                         {{item.title}}
                                     </a>
-                                </li>
+                                </div>
                                 {% endfor %}
-                            </ul>
+                            </div>
                         </div>
                     </nav>
                     {% endblock %}
