@@ -335,11 +335,8 @@ Navigation
 *****************************/
 .principal {
     background-color: #fff;
-    ul {
-        margin: 0;
+    .menu {
         width: 100%;
-        -webkit-padding-start: 0px;
-        -moz-padding-start: 0px;
         @include display-flex;
         @include flex-direction(row);
         .navHeader {
@@ -347,13 +344,12 @@ Navigation
             width: 45px;
             background-color: #456487;
         }
-        li {
+        .nav-main-item {
             padding: 0 1px 5px 1px;
             border-right: 1px solid #f0f0f0;
             border-top: 4px solid #456487;
             border-bottom: 4px solid #456487;
-            list-style-type: none;
-            width: calc((100% - 20px)/10);
+            width: 10%;
             line-height: 2;
             text-align: center;
             background-color: #456487;
@@ -372,7 +368,7 @@ Navigation
                 }
             }
         }
-        li:last-child {
+        .menu-item:last-child {
             border-right: 0px;
         }
     }
@@ -394,7 +390,7 @@ nav select {
             width: 30%;
             min-width: 130px;
         }
-        ul {
+        .menu {
             display: none;
         }
     }

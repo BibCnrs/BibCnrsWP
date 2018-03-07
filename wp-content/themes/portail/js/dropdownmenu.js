@@ -21,17 +21,17 @@
         // Create default option "Go to..."
         $("<option />", {
             "selected": "selected",
-            "value"   : "http://bib-preprod.cnrs.fr/",
+            "value"   : "http://bib.cnrs.fr/",
             "text"    : title,
         }).appendTo("nav select");
 
         // Populate dropdown with menu items
-        $("nav > div > ul > li").each(function() {
+        $("nav > div > div.menu > div.nav-main-item").each(function() {
 
           var el = $(this);
 
-          var hasChildren = el.find("ul"),
-              children    = el.find("li > a");
+          var hasChildren = el.find("div.menu"),
+              children    = el.find("div.nav-main-item > a");
 
           if (hasChildren.length) {
 
