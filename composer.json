@@ -45,10 +45,10 @@
             "package": {
                 "name": "polylang",
                 "type": "wordpress-plugin",
-                "version": "2.3.1",
+                "version": "2.3.2",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/polylang.2.3.1.zip"
+                    "url": "https://downloads.wordpress.org/plugin/polylang.2.3.2.zip"
                 }
             }
         },
@@ -57,10 +57,10 @@
             "package": {
                 "name": "contact-form-7",
                 "type": "wordpress-plugin",
-                "version": "5.0",
+                "version": "5.0.1",
                 "dist": {
                     "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.0.zip"
+                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.0.1.zip"
                 }
             }
         },
@@ -110,8 +110,8 @@
         "timber": "1.6.0",
         "restrict-taxonomies": "1.3.3",
         "rss-shortcode": "0.2",
-        "polylang": "2.3.1",
-        "contact-form-7": "5.0",
+        "polylang": "2.3.2",
+        "contact-form-7": "5.0.1",
         "order-categories": "1.0.3",
         "wp-mail-smtp": "1.2.5"
     }
