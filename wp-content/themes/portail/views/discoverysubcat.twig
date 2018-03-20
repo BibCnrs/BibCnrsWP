@@ -6,11 +6,11 @@
         {% for post in posts %}
             {% if post.periode %}
                 {% set dateFin = post.periode|split(' - ', 2)|last %}
+                {% set dateCalc = dateFin|split('/') %}
                 {% if lang == 'fr' %}
-                    {% set dateFr = dateFin|split('/') %}
-                    {% set dateEng = [dateFr.2, dateFr.1, dateFr.0]|join("/") %}
+                    {% set dateEng = [dateCalc.2, dateCalc.1, dateCalc.0]|join("/") %}
                 {% else %}
-                    {% set dateEng = dateFin %}
+                    {% set dateEng = [dateCalc.2, dateCalc.0, dateCalc.1]|join("/") %}
                 {% endif %}
             {% else %}
                 {% set dateEng = '2020/12/31' %}
