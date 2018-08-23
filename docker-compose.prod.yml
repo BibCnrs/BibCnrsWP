@@ -1,5 +1,5 @@
 wordpress:
-    image: vsregistry.intra.inist.fr:5000/bibcnrs:${bibcnrs_version}
+    image: vsnexus.intra.inist.fr:8083/bibcnrs/bibcnrs:${bibcnrs_version}
     ports:
         - 8080:8080
     links:
