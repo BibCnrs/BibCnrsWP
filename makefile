@@ -95,11 +95,11 @@ composer-update: ## update dependency
 	docker-compose run --rm composer update --no-dev --prefer-dist
 	sudo cp -Rf ./wp-content/plugins/bibcnrs/wp-ebsco-widget/ ./wp-content/plugins/
 
-build-docker: ## args: <version> build vsnexus.intra.inist.fr:8083/bibcnrs/bibcnrs:<version> docker image default <version> to latest
+build-docker: ## args: <version> build vsnexus-registry.intra.inist.fr:8083/bibcnrs/bibcnrs:<version> docker image default <version> to latest
 ifdef COMMAND_ARGS
-	docker build --no-cache -t 'vsnexus.intra.inist.fr:8083/bibcnrs/bibcnrs:$(COMMAND_ARGS)' .
+	docker build --no-cache -t 'vsnexus-registry.intra.inist.fr:8083/bibcnrs/bibcnrs:$(COMMAND_ARGS)' .
 else
-	docker build --no-cache -t 'vsnexus.intra.inist.fr:8083/bibcnrs/bibcnrs:latest' .
+	docker build --no-cache -t 'vsnexus-registry.intra.inist.fr:8083/bibcnrs/bibcnrs:latest' .
 endif
 
 bump: ## create a file with current commit hash
