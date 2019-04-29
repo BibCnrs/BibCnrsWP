@@ -1,5 +1,5 @@
 wordpress:
-  image: bibcnrs/wordpress:4.9.8-apache
+  image: bibcnrs/wordpress:5.1.1-apache
   ports:
     - 8080:8080
   links:
