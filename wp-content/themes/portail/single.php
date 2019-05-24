@@ -29,13 +29,30 @@ if ($discovery == TRUE) {
     $parentCatID = get_cat_ID($parentCatName);
     $slugs = get_categories( 'child_of='.$parentCatID );
     foreach($slugs as $slug){
+        $i = 0;
+        $j = 0;
+        $commun =array();
+        $theme=array();
         $nom=$slug->slug;
         $description=$slug->description;
+        $posts = Timber::get_posts(array('category_name' => $nom));
+        foreach($posts as $post) {
+            $meta = get_post_meta($post->ID);
+            if ($meta['commune'][0] == 'yes') {
+                $commun[] = $post;
+                $i++;
+            }
+            else {
+                $theme[] = $post;
+                $j++;
+            }
+        }  
     	$context['discoveryPosts'][] = [
             'title' => $config['correspondence_map'][$description],
     		'slug' => $slug,
-    		'posts' => Timber::get_posts(array('category_name' => $nom , 'order' => 'ASC'))
-    	];
+            'theme' => $theme,
+            'commun' => $commun
+        ];
     }
     $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
     Timber::render('discovery.twig', $context);

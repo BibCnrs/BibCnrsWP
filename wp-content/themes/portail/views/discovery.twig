@@ -18,7 +18,7 @@
             {{presentation.content}}
             {% set lang = site.language|split('-')|first %}
             {% for sscat in discoveryPosts %}
-                {{ discoverysubcat.macro(sscat.title, sscat.slug, sscat.posts, lang) }}
+                {{ discoverysubcat.macro(sscat.title, sscat.slug, sscat.theme, sscat.commun, lang) }}
             {% endfor %}
             {% block sidebar %}
                 {% include 'sidebar-right.twig' %}

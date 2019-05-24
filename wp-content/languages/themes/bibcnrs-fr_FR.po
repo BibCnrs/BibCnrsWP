@@ -308,3 +308,7 @@ msgstr Terre & Univers
 #: single.php
 msgid Go back
 msgstr Retour
+
+#: discovery.twig
+msgid To discover also:
+msgstr A découvrir également :
