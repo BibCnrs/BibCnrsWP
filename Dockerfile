@@ -1,4 +1,4 @@
-FROM bibcnrs/wordpress:5.2.4-apache
+FROM bibcnrs/wordpress:5.3.0-apache
 
 MAINTAINER BibCNRS <bibcnrs@inist.fr>
 
