@@ -312,3 +312,15 @@ msgstr Retour
 #: discovery.twig
 msgid To discover also:
 msgstr A découvrir également :
+
+msgid news
+msgstr Les actualités
+
+msgid integer
+msgstr Intégrer BibCnrs
+
+msgid discover
+msgstr Découvrir BibCnrs
+
+msgid mostbibcnrs
+msgstr Les plus de BibCnrs

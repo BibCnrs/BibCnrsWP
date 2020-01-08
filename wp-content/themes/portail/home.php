@@ -16,14 +16,6 @@ $domain = $config['profile_map'][$currentCategory->description];
 $dbUrl = $language === 'fr' ? '\/bases-de-donnees\/' : '\/data-bases\/';
 $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
 $slugs = $config['category']['news'];
-$context['news'] = array();
-foreach($slugs as $slug){
-	$context['news'][] = [
-		'title' => get_category_by_slug($slug)->name,
-		'slug' => $slug,
-		'posts' => Timber::get_posts(['category_name' => $slug, 'numberposts' => 3])
-	];
-}
 $alert = $language === 'fr' ? 'alertes' : 'warning';
 $context['alerte']=Timber::get_posts(['category_name' => $alert, 'numberposts' => 1]);
 Timber::render('homepage.twig', $context);

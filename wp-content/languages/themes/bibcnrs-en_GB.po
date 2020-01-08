@@ -1,0 +1,26 @@
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: bibcnrs\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-06-15 10:40+0100\n"
+"Last-Translator: kremer <patrick.kremer@inist.fr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: en_GB\n"
+
+msgid news
+msgstr News
+
+msgid integer
+msgstr Integrate BibCnrs
+
+msgid discover
+msgstr Discover BibCnrs
+
+msgid mostbibcnrs
+msgstr More of BibCnrs
