@@ -16,21 +16,20 @@ General
 *****************************/
 
 html {
-    margin-top: 10px;
+    margin-top: 35px;
     body {
-        max-width: 1403px;
+        max-width: 1920px;
         margin:  0 auto;
+        font-size: 1.7rem;
+        line-height: 2.2rem;
     }
 }
-
-
 .wph1{
     font-size: 2em;
 }
 .italic {
     font-style: italic;
 }
-
 #ebsco_widget{
     position: relative;
     z-index: 1;
@@ -39,66 +38,6 @@ html {
     padding: 20px 20px 20px 20px;
     margin-top: 10px;
 }
-
-.biologie:hover,
-.biologie.current-menu-item,
-.biologie.current-menu-parent {
-    border-bottom: 4px solid rgb(156,018,109);
-}
-
-.chimie:hover,
-.chimie.current-menu-item,
-.chimie.current-menu-parent {
-    border-bottom: 4px solid rgb(000,126,148);
-}
-.ecologie:hover,
-.ecologie.current-menu-item,
-.ecologie.current-menu-parent {
-    border-bottom: 4px solid rgb(098,174,037);
-}
-
-.homme:hover,
-.homme.current-menu-item,
-.homme.current-menu-parent {
-    border-bottom: 4px solid rgb(130,014,018);
-}
-
-.ingenierie:hover,
-.ingenierie.current-menu-item,
-.ingenierie.current-menu-parent {
-    border-bottom: 4px solid rgb(212,000,45);
-}
-
-.mathematiques:hover,
-.mathematiques.current-menu-item,
- .mathematiques.current-menu-parent{
-    border-bottom: 4px solid rgb(084,125,61);
-}
-
-.nucleaire:hover,
-.nucleaire.current-menu-item,
-.nucleaire.current-menu-parent {
-    border-bottom: 4px solid rgb(231,081,019);
-}
-
-.physique:hover,
-.physique.current-menu-item,
-.physique.current-menu-parent {
-    border-bottom: 4px solid rgb(000,068,148);
-}
-
-.information:hover,
-.information.current-menu-item,
-.information.current-menu-parent{
-    border-bottom: 4px solid rgb(086,042,132);
-}
-
-.terre:hover,
-.terre.current-menu-item,
-.terre.current-menu-parent {
-    border-bottom: 4px solid rgb(204,035,129);
-}
-
 .visite {
     background-color: #f0f0f0;
 }
@@ -106,57 +45,46 @@ html {
 .font-, .font-visit {
     color: grey;
 }
-
 .font-insb {
     color: rgb(156,018,109);
     border-color: rgb(156,018,109);
 }
-
 .font-inc {
     color: rgb(000,126,148);
     border-color: rgb(000,126,148);
 }
-
 .font-inee {
     color: rgb(098,174,037);
     border-color: rgb(098,174,037);
 }
-
 .font-inshs {
     color: rgb(130,014,018);
     border-color: rgb(130,014,018);
 }
-
 .font-insis {
     color: rgb(212,000,45);
     border-color: rgb(212,000,45);
 }
-
 .font-insmi {
     color: rgb(084,125,61);
     border-color: rgb(084,125,61);
 }
-
 .font-in2p3 {
     color: rgb(231,081,019);
     border-color: rgb(231,081,019);
 }
-
 .font-inp {
     color: rgb(000,068,148);
     border-color: rgb(000,068,148);
 }
-
 .font-ins2i {
     color: rgb(086,042,132);
     border-color: rgb(086,042,132);
 }
-
 .font-insu {
     color: rgb(204,035,129);
     border-color: rgb(204,035,129);
 }
-
 .font-cnrs {
     color: rgb(69,100,135);
 }
@@ -166,30 +94,24 @@ html {
 .bold {
     font-weight: bold;
 }
-
 .bsbb {
     box-sizing: border-box;
 }
-
 a {
-    margin: 1px;
     text-decoration: none;
+    cursor: pointer;
     &:hover, &:focus {
         color: #333333;
         text-decoration: none;
     }
 }
-
 /*****************************
 Entete
 *****************************/
 header {
-    width: 85%;
-    height: 120px;
-    margin: 0 auto;
-    position: relative;
+    height: 500px;
+    background-color: #0050A0;
 }
-
 #soustitre {
     display: inline-block;
     position: absolute;
@@ -197,7 +119,6 @@ header {
     top: 70%;
     font-style: italic;
 }
-
 #bouton {
     float: right;
     margin: 30px 25% 0 0;
@@ -209,127 +130,74 @@ header {
         color: #fff;
     }
 }
-
 #separateur {
     height: 30px;
     background: #f0f0f0;
 }
-
 .clear {
     clear: both
 }
-
 /*****************************
 Accueil
 *****************************/
-
 .main{
     width: 100%;
-    min-height: 760px;
-    background-image: url("images/fond.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-.navigations {
-     width: 85%;
-    margin: 0 auto;
-}
-.bread {
-    color: #fff;
-    margin-left: 2%;
-    font-weight: bold;
-    a {
-        color: #fff;
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-#contentaccueil {
-    width: 85%;
-    min-height: inherit;
-    background-color: rgba(255,255,255,.35);
-    margin: 0 auto;
-    padding: 10px 10px 10px 10px;
-}
+    padding: 50px 4.2% 80px 4.2%;
+ }
 #center3 {
-    @include display-flex;
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    @include justify-content(center);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: transparent;
     width: 100%;
     margin: 0 auto;
 }
-
-.boite {
-    @include display-flex;
-    @include flex-direction(column);
+#plusTexte {
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 2.6rem;
+}
+#plusBibCnrs {
+    margin-top: 25px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.homeLink {
     width: 400px;
-    border: #dcded9 solid 1px;
-    margin:  25px 10px 10px 10px;
-    padding: 5px 5px 5px 5px;
-    background: #fff;
+    height: 190px;
+    a {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        color: #073E6A;
+        font-weight: bold;
+         img {
+            max-height: 190px;
+            width: auto;
+            border: 0;
+        }
+    }
+    a:hover, a:focus, a:visited {
+        color: #073E6A;
+        text-decoration: none;
+    }
 }
-
-#titrerubactus {
-    position: relative;
-    height: 30px;
-    margin: 0 0 15px 0;
-    max-width: 400px;
-    background-color: rgb(069,100,135);
+.homeLinkText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 170px;    
 }
-
-#titreactus {
-    width: 100%;
-    line-height: 30px;
-    display: inline-block;
-    color: #ffffff;
-    font-size: 1.692rem;
-    font-family: "Open Sans";
+.homeLinkText span:after {
+    content: url(images/Fleche-droite-nav.png);
     padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 0;
-}
-.decohome {
-    position: absolute;
-    top: 2px;
-    right: 0px;
-}
 
-.itemactus {
-    padding:  0 5px 3px 10px;
-    a {
-        display: inline-block;
-        color: rgb(069,100,135);
-        font-family: Georgia;
-        font-size: 14px;
-        font-style: italic;
-    }
 }
-
-#archivesactus {
-    @include align-self(flex-end);
-    width: 300px;
-    line-height: 30px;
-    border-top: 1px solid rgb(069,100,135);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    background-position: 10%;
-    font-size: 14px;
-    font-style: italic;
-    text-align: center;
-    a {
-        color: rgb(069,100,135);
-        text-decoration: none;
-    }
-    &:hover {
-        text-decoration: none;
-        transform: scale(1.2);
-    }
-}
-
 /*****************************
 Navigation
 *****************************/
@@ -337,8 +205,8 @@ Navigation
     background-color: #fff;
     .menu {
         width: 100%;
-        @include display-flex;
-        @include flex-direction(row);
+        display: flex;
+        flex-direction: row;
         .navHeader {
             height: 55px;
             width: 45px;
@@ -372,11 +240,9 @@ Navigation
         }
     }
 }
-
 nav select {
     display: none;
 }
-
 @media screen and (max-width: 1241px) {
     .principal {
         text-align: left;
@@ -397,7 +263,6 @@ nav select {
         display: none;
     }
 }
-
 /*****************************
 Centre
 *****************************/
@@ -417,12 +282,10 @@ Centre
         margin: 0;
     }
 }
-
 #recherchegenerale {
     width: 75%;
     margin: 0 auto;
 }
-
 #atoz {
     max-width: 250px;
     margin: 20px auto;
@@ -432,18 +295,15 @@ Centre
     height: 40px;
     padding-left: 30px;
 }
-
 input::-webkit-input-placeholder {
     color: rgb(98,195,221);
     font-style: italic;
 }
-
 input:-moz-placeholder {
     padding-left: 30px;
     color: rgb(98,195,221);
     font-style: italic;
 }
-
 #content {
     padding: 10px 10px 10px 10px;
     background-color: rgba(255,255,255,.35);
@@ -451,14 +311,12 @@ input:-moz-placeholder {
     width: 85%;
     margin: 0 auto;
 }
-
 #center {
-    @include display-flex;
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    @include justify-content(center);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
 #pagenorm, #pagenormCat {
     background: #fff;
     width: 100%;
@@ -471,12 +329,10 @@ input:-moz-placeholder {
 #pagenormCat ul {
         list-style-type: none;
 }
-
 .dateDisplay {
     font-size: 12px;
     font-style: italic;
 }
-
 sidebar {
     flex-grow: 1;
     flex-shrink: 1;
@@ -490,7 +346,6 @@ sidebar {
         float: right;
     }
 }
-
 .box-container {
     border: #dcded9 solid 1px;
     margin-bottom: 20px;
@@ -516,18 +371,15 @@ sidebar {
         margin: 10px 0 5px 0;
     }
 }
-
 .titlepref {
     font-size: 1.5rem;
     font-style: italic;
     padding-left: 10px;
 }
-
 .imgwidget {
     vertical-align: middle;
     margin-right: 5px;
 }
-
 #retour {
     font-style: italic;
     padding-bottom: 10px;
@@ -580,7 +432,7 @@ FAQ
 Discovery
 *****************************/
 .h2disc {
-        margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 .discdomain {
     margin-top: 20px;
@@ -634,8 +486,6 @@ Discovery
 .repdisc p {
     margin: 0;
 }
-
-
 /*****************************
 Contact-form
 *****************************/
@@ -646,7 +496,6 @@ Contact-form
     text-align: right;
     margin: 0 15px 0 0;
 }
-
 #choix {
     position: relative;
 }
@@ -661,7 +510,6 @@ Search
     display: block;
     height: 1.6rem;
 }
-
 #onglet {
     padding: 0;
     margin: 0;
@@ -671,7 +519,6 @@ Search
     height: 1.6rem;
     clear: right;
 }
-
 #ongletli {
     display: inline-block;
     float: left;
@@ -687,66 +534,40 @@ Search
     margin-right: 2px;
     color: #9B9B9B;
 }
-
 /*****************************
 Pied de page
 *****************************/
 footer {
-    max-width: 85%;
     margin: 0 auto;
-    height: 70px;
-    background: #fff;
+    height: 120px;
+    background-color: #00264C;
     text-align: center;
-    display: block;
-    color: rgb(069,100,135);
+    display: flex!important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
     position: relative;
-    div {
-        @include display-flex;
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-        @include justify-content(center);
-        }
-    .logotwitter {
-        position: absolute;
-        top: 5px;
-        right: 10px;
-    }
-    .logocnrs {
-        position: absolute;
-        top: 5px;
-        left: 10px;
-    }
+    padding: 0 4.2% 0 4.2%;
+
     ul {
-        @include display-flex;
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-        @include justify-content(center);
-        font-size: 14px;;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         list-style-type: none;
         padding: 10px 0 0 0;
         li {
             display: inline-block;
             padding: 0 5px 0 5px;
-            a, a:hover {
-                color: #000;
+            a, a:hover, a:focus, a:active {
+                color: #fff;
                 text-decoration: none;
             }
         }
         .footerslash:last-child {
             display: none;
         }
-    }
-}
-
-/*****************************
-Responsive
-*****************************/
-
-@media only screen and (max-width: 590px){
-    .logocnrs {
-        display: none;
-    }
-    .logotwitter {
-        display: none;
     }
 }
