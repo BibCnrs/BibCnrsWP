@@ -33,11 +33,16 @@
                     </div>
                     {{ "[ebsco_widget_header]"|shortcodes }}
                 </div>
-                {{ ebsco_widget|shortcodes }}
+                <div class="actions">
+                    <div class="language">
+                        {{language_switcher}}
+                    </div>
+                </div>
             </header>
             {% endblock %}
             <div class="main">
-               {% block content %}
+                {{ ebsco_widget|shortcodes }}
+                {% block content %}
                 {% endblock %}
                 <div id="plusTexte">
                     {{__('mostbibcnrs', 'bibcnrs')}}

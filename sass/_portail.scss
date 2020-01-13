@@ -17,6 +17,7 @@ General
 
 html {
     margin-top: 35px;
+    font-size: 62.5%;
     body {
         max-width: 1920px;
         margin:  0 auto;
@@ -109,7 +110,7 @@ a {
 Entete
 *****************************/
 header {
-    height: 500px;
+    min-height: 200px;
     background-color: #0050A0;
 }
 #soustitre {
