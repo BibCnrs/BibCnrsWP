@@ -16,6 +16,9 @@ msgstr ""
 msgid news
 msgstr News
 
+msgid domains
+msgstr Domains
+
 msgid integer
 msgstr Integrate BibCnrs
 

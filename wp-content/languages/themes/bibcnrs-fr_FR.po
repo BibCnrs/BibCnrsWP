@@ -314,7 +314,10 @@ msgid To discover also:
 msgstr A découvrir également :
 
 msgid news
-msgstr Les actualités
+msgstr Actualités
+
+msgid domains
+msgstr Domaines
 
 msgid integer
 msgstr Intégrer BibCnrs

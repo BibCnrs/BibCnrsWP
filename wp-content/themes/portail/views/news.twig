@@ -1,0 +1,53 @@
+{% extends 'page-layout.twig' %}
+{% block title %}
+    {{site.name}} - {{currentCategory.name}}
+{% endblock %}
+{% block js %}
+    {{parent()}}
+    <script src="{{theme.uri}}/js/news.js" type="text/javascript"></script>
+{% endblock %}
+{% block content %}
+    <div id="content" class="bsbb">
+        <div id="newsContent">       
+            <div id="newsMenu">
+                <h2 class="menuTitle ">{{__('domains', 'bibcnrs')}}</h2>
+                {% for item in news %}
+                    <label for="menuNews-{{item.slug.cat_ID}}">
+                        <input id="menuNews-{{item.slug.cat_ID}}" class="menuItem" name="choice" type="radio">
+                        <span>{{item.slug.name}}
+                            <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
+                                <circle fill="{{item.color}}" cx="6" cy="6" r="6"></circle>
+                            </svg>
+                        </span>
+                    </label>
+                    <!-- <li class="menuItem" id="menuNews-{{item.slug.cat_ID}}">{{item.slug.name}}</li> -->
+                {% endfor %}
+            </div>
+            <div id="newsDetail">
+                {% for item in news %}
+                    <h2 class="domainTitle font-{{item.slug.description}}" id="domain-{{item.slug.cat_ID}}">{{__('news', 'bibcnrs')}} {{item.title}}</h2> 
+                    <div class="domainNews" id="detail-{{item.slug.cat_ID}}">
+                        {% for post in item.posts %}
+                        <div class="newsBox flexColumn" data-type="type-{{item.slug.cat_ID}}">
+                            <div class="newsBoxCategory font-{{post.category.description}}">
+                                <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
+                                <circle fill="{{post.color}}" cx="6" cy="6" r="6"></circle>
+                            </svg>
+                                {{post.category_name}}
+                            </div>
+                            <div class="newsBoxTitle">
+                                {{post.title}}
+                            </div>
+                            <div class="newsBoxDate font-{{post.category.description}}">
+                                {{post.date}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div id="newsPages"></div>
+            </div>  
+        </div>
+   </div>
+{% endblock %}
+

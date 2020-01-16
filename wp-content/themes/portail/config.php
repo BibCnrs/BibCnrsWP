@@ -31,6 +31,19 @@ $config = [
         'inp' => 'INP',
         'insu' => 'INSU'
     ],
+    'color' => [
+        'insb' => 'rgb(156,018,109)',
+        'inc' => 'rgb(000,126,148)',
+        'inee' => 'rgb(098,174,037)',
+        'inshs' => 'rgb(130,014,018)',
+        'ins2i' => 'rgb(086,042,132)',
+        'insis' => 'rgb(212,000,45)',
+        'insmi' => 'rgb(084,125,61)',
+        'in2p3' => 'rgb(231,081,019)',
+        'inp' => 'rgb(000,068,148)',
+        'insu' => 'rgb(204,035,129)',
+        'gene' => 'rgb(255,153,130)'
+    ],
     'correspondence_map' => [
         'insb' => __('Biological Sciences', 'bibcnrs'),
         'inc' => __('Chemistry', 'bibcnrs'),

@@ -54,7 +54,6 @@ if ($discovery == TRUE) {
             'commun' => $commun
         ];
     }
-    $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
     Timber::render('discovery.twig', $context);
 }
 else {
@@ -90,9 +89,6 @@ else {
         $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
         $context['currentCategory'] = $currentCategory;
         $context['userCategory'] = $userCategory;
-        $domain = $config['profile_map'][$currentCategory->description];
-        $dbUrl = $language === 'fr' ? '\/bases-de-donnees\/' : '\/data-bases\/';
-        $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s" db_url="%s"]', $domain, $language, $dbUrl);
         $context['post'] = new TimberPost();
         $context['page'] = "single";
         $context['links'] = $config['cnrs_links'][$currentCategory->description];

@@ -33,12 +33,14 @@ $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $
 $alert = $language === 'fr' ? 'alertes' : 'warning';
 $context['alerte']=Timber::get_posts(['category_name' => $alert, 'numberposts' => 1]);
 
+$nicename = $currentCategory->slug;
+$name = $currentCategory->name;
+$parentCatID = get_cat_ID($name);
+$slugs = get_categories( 'child_of='.$parentCatID );
+
+
 // IF FAQ sub-categories display
-$parentCatName = single_cat_title('',false);
-if ($parentCatName == "F.A.Q." OR $parentCatName == "FAQ"){
-    $parentCatID = get_cat_ID($parentCatName);
-    $slugs = get_categories( 'child_of='.$parentCatID );
-    $context['currentCategory'] = $currentCategory;
+if ($nicename == "faq-".$language){
     foreach($slugs as $slug){
         $nom=$slug->slug;
     	$context['faqPosts'][] = [
@@ -49,11 +51,41 @@ if ($parentCatName == "F.A.Q." OR $parentCatName == "FAQ"){
     }
     Timber::render('faq.twig', $context);
 }
-else{
-    $preferences="pref-".$currentCategory->slug;
-    $context['pref'] = Timber::get_posts(array('category_name' => $preferences));
-    $context['currentCategory'] = $currentCategory;
-    $context['categoryPosts'] = $postsProvider->getPostsFor($currentCategory, 5);
-    $context['allOtherPosts'] = $postsProvider->getPostsNotIn($currentCategory, 5);
+elseif ($nicename == "news" OR $nicename == "actus"){
+    $general= $language === 'fr' ? 'Générales' : 'General';
+    $generalID = get_cat_ID($general);
+    $generalCat = get_category($generalID);
+    foreach($slugs as $slug){
+        $catID = $slug->cat_ID;
+        $nom=$slug->slug;
+        if ($generalID == $catID) {
+            $posts = Timber::get_posts(['category' => $generalID, 'numberposts' => -1]);           
+        }
+        else {
+            $posts = Timber::get_posts(['category' => [$catID, $generalID], 'numberposts' => -1]);
+        }
+        for ($i = 0; $i < count($posts) ; $i++) {
+            $multicat = get_the_category($posts[$i]->ID);
+             if ($multicat[0]->cat_ID == $generalID) {
+                $posts[$i]->category_name = $generalCat->name;
+                $posts[$i]->category = $generalCat;
+                $posts[$i]->color = $config['color'][$generalCat->description];
+            }
+            else {
+                $posts[$i]->category_name = $slug->name;
+                $posts[$i]->category = $slug;
+                $posts[$i]->color = $config['color'][$slug->description]; 
+            }
+        }
+        $context['news'][] = [
+            'title' => get_category_by_slug($nom)->name,
+            'slug' => $slug,
+            'color' => $config['color'][$slug->description],
+            'posts' => $posts
+        ];
+    }
+    Timber::render('news.twig', $context);    
+}
+else {
     Timber::render('category.twig', $context);
 }
