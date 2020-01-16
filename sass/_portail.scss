@@ -23,7 +23,11 @@ html {
         margin:  0 auto;
         font-size: 1.7rem;
         line-height: 2.2rem;
+        font-family: 'DM Sans', sans-serif;
     }
+}
+* {
+    box-sizing: border-box;
 }
 .wph1{
     font-size: 2em;
@@ -89,6 +93,9 @@ html {
 .font-cnrs {
     color: rgb(69,100,135);
 }
+.font-gene {
+    color: rgb(255,153,130);
+}
 .white {
     color: white;
 }
@@ -105,6 +112,16 @@ a {
         color: #333333;
         text-decoration: none;
     }
+}
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.flexColumn {
+    display: flex;
+    flex-direction: column;
 }
 /*****************************
 Entete
@@ -144,6 +161,13 @@ Accueil
 .main{
     width: 100%;
     padding: 50px 4.2% 80px 4.2%;
+    background-color: #f7f7f7;
+
+ }
+ #idRepeat {
+    width: 100%;
+    padding: 50px 4.2% 80px 4.2%;
+    background-color: #fff;
  }
 #center3 {
     display: flex;
@@ -194,6 +218,10 @@ Accueil
     justify-content: center;
     width: 170px;    
 }
+.homeLink:first-child .homeLinkText {
+    width: 150px;
+}
+
 .homeLinkText span:after {
     content: url(images/Fleche-droite-nav.png);
     padding-left: 10px;
@@ -306,10 +334,7 @@ input:-moz-placeholder {
     font-style: italic;
 }
 #content {
-    padding: 10px 10px 10px 10px;
-    background-color: rgba(255,255,255,.35);
     min-height: inherit;
-    width: 85%;
     margin: 0 auto;
 }
 #center {
@@ -387,6 +412,100 @@ sidebar {
     a {
         text-decoration: none;
     }
+}
+/*****************************
+News
+*****************************/
+.menuTitle {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;    
+}
+.domainTitle {
+    display: none;
+    margin-left: 22px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#newsContent {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+#newsMenu {
+    width: 400px;
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+    label {
+      display: block;
+      cursor: pointer;
+      line-height: 2;
+      font-weight: 400;
+    }
+    [type="radio"] {
+      clip: rect(0 0 0 0); 
+      position: absolute; 
+    }
+    [type="radio"] + span {
+      display: block;
+    }
+    [type="radio"]:checked + span:before {
+      box-shadow: 0 0 0 0.125em #ff9982;
+      background:  #ff9982;
+    }
+    [type="radio"] + span:before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      display: inline-block;
+      border: 0.125em solid #fff;
+      transition: 0.5s ease all;
+      vertical-align: -0.25em;
+      box-shadow: 0 0 0 0.125em #000;
+      margin-right: 0.75em;
+    }
+    .itemCircle circle {
+        font-size: 4.2rem;
+
+    }
+}
+#newsDetail {
+    width: calc(100% - 400px);
+}
+.domainNews {
+}
+.newsBox {
+    width: 425px;
+    height: 186px;
+    background-color: #fff;
+    padding:17px 17px 17px 29px;
+    margin: 5px;
+    border-radius: 11px;
+}
+.newsBoxTitle {
+    margin-top: 14px;
+}
+.newsBoxDate {
+    margin-top: auto;
+}
+#newsPages {
+    display: inline-block;
+    float: right; 
+}
+.newsPage {
+    cursor: pointer;
+}
+
+.activePage {
+    color: #ff9982;
+}
+.newsPage:not(:last-child):after {
+    content: " - ";
+    color: #000;
 }
 /*****************************
 FAQ
