@@ -38,10 +38,7 @@ html {
 #ebsco_widget{
     position: relative;
     z-index: 1;
-    background-color: white;
     width: 100%;
-    padding: 20px 20px 20px 20px;
-    margin-top: 10px;
 }
 .visite {
     background-color: #f0f0f0;
@@ -127,7 +124,7 @@ a {
 Entete
 *****************************/
 header {
-    min-height: 200px;
+    min-height: 215px;
     background-color: #0050A0;
 }
 #soustitre {
@@ -160,7 +157,6 @@ Accueil
 *****************************/
 .main{
     width: 100%;
-    padding: 50px 4.2% 80px 4.2%;
     background-color: #f7f7f7;
 
  }
@@ -296,13 +292,12 @@ nav select {
 Centre
 *****************************/
 .alerte {
-    width: 100%;
     background-color: #fff;
     color: red;
     border-radius: 5px;
     min-height: 40px;
     text-align: center;
-    margin: 5px auto;
+    margin: 15px 4.2% 15px 4.2%;
     line-height: 30px;
     vertical-align: middle;
     border: 1px solid red;
@@ -335,6 +330,7 @@ input:-moz-placeholder {
 }
 #content {
     min-height: inherit;
+    padding: 50px 4.2% 80px 4.2%;
     margin: 0 auto;
 }
 #center {
