@@ -30,59 +30,6 @@ function bibcnrs_scripts_method() {
 }
 add_action('wp_enqueue_scripts', 'bibcnrs_scripts_method');
 
-/********************************************************************************************
-
-Add Discovery peiod, commune resource and url to posts
-
-********************************************************************************************/
-
-add_action("admin_init", "admin_init");
-function admin_init(){
-    add_meta_box("periode-meta", "Période", "periode", "post", "normal", "low");
-    add_meta_box("disc_url-meta", "URL", "disc_url", "post", "normal", "low");
-    add_meta_box("commune-meta", "Ressource commune", "commune", "post", "normal", "high");
-}
-function periode(){
-  global $post;
-  $custom = get_post_custom($post->ID);
-  $periode = $custom["periode"][0];
-  ?>
-  <label>Dates (format selon langue d/m/Y ou m/D/Y)</label>
-  <input name="periode" value="<?php echo $periode; ?>" />
-  <?php
-}
-function disc_url(){
-  global $post;
-  $custom = get_post_custom($post->ID);
-  $disc_url = $custom["disc_url"][0];
-  ?>
-  <label>Url ressource</label>
-  <input name="disc_url" value="<?php echo $disc_url; ?>" />
-  <?php
-}
-function commune(){
-  global $post;
-  $custom = get_post_custom($post->ID);
-  $commune = $custom["commune"][0];
-  ?>
-  <label>Ressource en commun pour tous les instituts</label>
-  <?php 
-    $commune_value = get_post_meta($post->ID, 'commune', true);
-    if($commune_value == "yes") {
-      $commune_checked = 'checked="checked"';
-    }
-  ?>
-  <input name="commune" type="checkbox" value="yes"  <?php echo $commune_checked; ?> />
-  <?php
-}
-add_action('save_post', 'save_details');
-function save_details(){
-    global $post;
-    update_post_meta ($post->ID, "periode", $_POST["periode"]);
-    update_post_meta ($post->ID, "disc_url", $_POST["disc_url"]);
-    update_post_meta ($post->ID, "commune", $_POST["commune"]);
-}
-
 /*********************************************************************************************
 
 Register menu
