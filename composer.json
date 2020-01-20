@@ -1,170 +1,169 @@
 {
-    "config": {
-        "vendor-dir": "wp-content/plugins"
-    },
-    "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "wp-block-admin",
-                "type": "wordpress-plugin",
-                "version": "0.2.3",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/wp-block-admin.0.2.3.0.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "restrict-taxonomies",
-                "type": "wordpress-plugin",
-                "version": "1.3.3",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/restrict-taxonomies.1.3.3.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "rss-shortcode",
-                "type": "wordpress-plugin",
-                "version": "0.2",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/rss-shortcode.0.2.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "polylang",
-                "type": "wordpress-plugin",
-                "version": "2.6.9",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/polylang.2.6.9.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "contact-form-7",
-                "type": "wordpress-plugin",
-                "version": "5.1.6",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.1.6.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "order-categories",
-                "type": "wordpress-plugin",
-                "version": "1.0.3",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/order-categories.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "timber",
-                "type": "wordpress-plugin",
-                "version": "1.6.0",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/timber-library.1.6.0.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "cookie-notice",
-                "type": "wordpress-plugin",
-                "version": "1.2.49",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/cookie-notice.1.2.49.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "add-to-any",
-                "type": "wordpress-plugin",
-                "version": "1.7.39",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/add-to-any.1.7.39.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "classic-editor",
-                "type": "wordpress-plugin",
-                "version": "1.5",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "advanced-custom-fields",
-                "type": "wordpress-plugin",
-                "version": "5.8.7",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.7.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "wp-mail-smtp",
-                "type": "wordpress-plugin",
-                "version": "1.8.1",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.1.8.1.zip"
-                }
-            }
+  "config": {
+    "vendor-dir": "wp-content/plugins"
+  },
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "wp-block-admin",
+        "type": "wordpress-plugin",
+        "version": "0.2.3",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/wp-block-admin.0.2.3.0.zip"
         }
-    ],
-    "require-dev": {
+      }
     },
-    "require": {
-        "koala-framework/composer-extra-assets": "2.0.8",
-        "wp-block-admin": "0.2.3",
-        "bibcnrs/wp-ebsco-widget": "3.8.5",
-        "timber": "1.6.0",
-        "restrict-taxonomies": "1.3.3",
-        "rss-shortcode": "0.2",
-        "polylang": "2.6.9",
-        "contact-form-7": "5.1.6",
-        "order-categories": "1.0.3",
-        "cookie-notice": "1.2.49",
-        "add-to-any": "1.7.39",
-        "classic-editor": "1.5",
-        "advanced-custom-fields": "5.8.7",
-        "wp-mail-smtp": "1.8.1"
+    {
+      "type": "package",
+      "package": {
+        "name": "restrict-taxonomies",
+        "type": "wordpress-plugin",
+        "version": "1.3.3",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/restrict-taxonomies.1.3.3.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "rss-shortcode",
+        "type": "wordpress-plugin",
+        "version": "0.2",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/rss-shortcode.0.2.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "polylang",
+        "type": "wordpress-plugin",
+        "version": "2.6.9",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/polylang.2.6.9.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "contact-form-7",
+        "type": "wordpress-plugin",
+        "version": "5.1.6",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.1.6.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "order-categories",
+        "type": "wordpress-plugin",
+        "version": "1.0.3",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/order-categories.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "timber",
+        "type": "wordpress-plugin",
+        "version": "1.6.0",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/timber-library.1.6.0.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "cookie-notice",
+        "type": "wordpress-plugin",
+        "version": "1.2.49",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/cookie-notice.1.2.49.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "add-to-any",
+        "type": "wordpress-plugin",
+        "version": "1.7.39",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/add-to-any.1.7.39.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "classic-editor",
+        "type": "wordpress-plugin",
+        "version": "1.5",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields",
+        "type": "wordpress-plugin",
+        "version": "5.8.7",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.7.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wp-mail-smtp",
+        "type": "wordpress-plugin",
+        "version": "1.8.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.1.8.1.zip"
+        }
+      }
     }
+  ],
+  "require-dev": {},
+  "require": {
+    "koala-framework/composer-extra-assets": "2.0.8",
+    "wp-block-admin": "0.2.3",
+    "bibcnrs/wp-ebsco-widget": "3.8.6",
+    "timber": "1.6.0",
+    "restrict-taxonomies": "1.3.3",
+    "rss-shortcode": "0.2",
+    "polylang": "2.6.9",
+    "contact-form-7": "5.1.6",
+    "order-categories": "1.0.3",
+    "cookie-notice": "1.2.49",
+    "add-to-any": "1.7.39",
+    "classic-editor": "1.5",
+    "advanced-custom-fields": "5.8.7",
+    "wp-mail-smtp": "1.8.1"
+  }
 }
