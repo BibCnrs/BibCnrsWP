@@ -121,38 +121,6 @@ a {
     flex-direction: column;
 }
 /*****************************
-Entete
-*****************************/
-header {
-    min-height: 215px;
-    background-color: #0050A0;
-}
-#soustitre {
-    display: inline-block;
-    position: absolute;
-    left: 30%;
-    top: 70%;
-    font-style: italic;
-}
-#bouton {
-    float: right;
-    margin: 30px 25% 0 0;
-    text-align: center;
-    border: 1px solid;
-    padding: 5px 5px 5px 5px;
-    border-radius: 10px;
-    a {
-        color: #fff;
-    }
-}
-#separateur {
-    height: 30px;
-    background: #f0f0f0;
-}
-.clear {
-    clear: both
-}
-/*****************************
 Accueil
 *****************************/
 .main{
@@ -212,7 +180,7 @@ Accueil
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 170px;    
+    width: 170px;
 }
 .homeLink:first-child .homeLinkText {
     width: 150px;
@@ -269,24 +237,6 @@ nav select {
     display: none;
 }
 @media screen and (max-width: 1241px) {
-    .principal {
-        text-align: left;
-        background-image: none;
-        position: relative;
-        select {
-            display: inline-block;
-            position: absolute;
-            right:0px;
-            width: 30%;
-            min-width: 130px;
-        }
-        .menu {
-            display: none;
-        }
-    }
-    .principalbas, .navHeader {
-        display: none;
-    }
 }
 /*****************************
 Centre
@@ -297,7 +247,7 @@ Centre
     border-radius: 5px;
     min-height: 40px;
     text-align: center;
-    margin: 15px 4.2% 15px 4.2%;
+    margin: 15px 50px 15px 50px;
     line-height: 30px;
     vertical-align: middle;
     border: 1px solid red;
@@ -416,7 +366,7 @@ News
     font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
 }
 .domainTitle {
     display: none;
@@ -442,8 +392,8 @@ News
       font-weight: 400;
     }
     [type="radio"] {
-      clip: rect(0 0 0 0); 
-      position: absolute; 
+      clip: rect(0 0 0 0);
+      position: absolute;
     }
     [type="radio"] + span {
       display: block;
@@ -490,7 +440,7 @@ News
 }
 #newsPages {
     display: inline-block;
-    float: right; 
+    float: right;
 }
 .newsPage {
     cursor: pointer;
@@ -531,7 +481,15 @@ FAQ
     margin-bottom: 5px;
     img {
         max-width: 100%;
-        height: auto;
+        height: auto;@media screen and (max-width: 970px) {
+    .largetitle {
+        display: none;
+    }
+    .smalltitle {
+        display: inline-block;
+    }
+}
+
         margin: 10px 0 10px 0;
     }
 }

@@ -5,7 +5,7 @@
         <meta name="description" content="Portail BibCnrs IST">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="robots" content="{{ robot_index == 'true' ? 'index follow' : 'noindex nofollow' }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
         {% block css %}
             <link rel="stylesheet" media="all" href="{{theme.uri}}/style.css?v=2.1" type="text/css">
@@ -18,9 +18,9 @@
     </head>
     <body>
             {% block header %}
-            <header class="bsbb">
+            <header class="flexrow">
                 {# <div class="clear"></div> #}
-                <div class="connexion bsbb">
+                <div class="headerLeft">
                     <a href="/">
                         <img
                             src="{{theme.uri}}/images/bibcnrs-logo-blanc.png"
@@ -32,9 +32,9 @@
                         <div class="largetitle">{{long_title}}</div>
                         <div class="smalltitle">{{short_title}}</div>
                     </div>
-                    {{ "[ebsco_widget_header]"|shortcodes }}
                 </div>
-                <div class="actions">
+                <div class="headerRight">
+                    {{ "[ebsco_widget_header]"|shortcodes }}
                     <div class="language">
                         {{language_switcher}}
                     </div>
@@ -137,8 +137,8 @@
                         <svg width="29px" height="26px" viewBox="0 0 22 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>twitter</title>
                             <path fill="#fff" d="M21.9786386,2.12515726 C21.1711619,2.48592871 20.3017782,2.72918586 19.3895457,2.83847158 C20.3205805,2.27815727 21.0341735,1.3894715 21.3723595,0.330942875 C20.5002898,0.85088576 19.5344643,1.22785721 18.5081387,1.43061436 C17.6858248,0.550028601 16.5134295,0 15.217604,0 C12.7266157,0 10.7076042,2.02860011 10.7076042,4.53201453 C10.7076042,4.88725741 10.747767,5.23324314 10.8243833,5.56495744 C7.07773225,5.37608601 3.75343007,3.57197162 1.53066272,0.829285759 C1.14297669,1.49875722 0.920162751,2.27751441 0.920162751,3.10821445 C0.920162751,4.68038597 1.71574411,6.0679289 2.92574406,6.8803718 C2.18669758,6.85748609 1.4916511,6.65318607 0.882686008,6.31337177 L0.882686008,6.37071463 C0.882686008,8.56658618 2.43880222,10.398472 4.49938353,10.8150434 C4.12231377,10.9189292 3.72388356,10.9740863 3.31215102,10.9740863 C3.02090685,10.9740863 2.7392557,10.9458006 2.46438361,10.892572 C3.03702312,12.6934721 4.70326724,14.0042579 6.67508111,14.040515 C5.13239513,15.256158 3.18999986,15.9802723 1.07582553,15.9802723 C0.712313923,15.9802723 0.354174403,15.9594437 0,15.9175294 C1.99598829,17.2032438 4.36508121,17.9535867 6.91260435,17.9535867 C15.2068598,17.9535867 19.742441,11.0471149 19.742441,5.05800027 C19.742441,4.86102883 19.7382201,4.66560025 19.7290108,4.47145739 C20.6102898,3.83220021 21.3750456,3.03390016 21.9786386,2.12515726" id="Fill-1"></path>
-                        </svg> 
-                        </a>                        
+                        </svg>
+                        </a>
                     </div>
                 </footer>
             {% endblock %}
