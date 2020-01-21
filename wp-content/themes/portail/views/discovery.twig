@@ -1,29 +1,53 @@
-{% import "discoverysubcat.twig" as discoverysubcat %}
-{% extends 'category.twig' %}
+{% extends 'page-layout.twig' %}
 {% block title %}
-    {{site.name}} - {{presentation.title}}
+    {{site.name}} - {{currentCategory_name}}
+{% endblock %}
+{% block js %}
+    {{parent()}}
+    <script src="{{theme.uri}}/js/discovery.js" type="text/javascript"></script>
 {% endblock %}
 {% block content %}
-<div id="content" class="bsbb">
-{% block breadcrumb %}
-    <span class="bread">{{parent()}} {{presentation.title}}</span>
-{% endblock %}
-    <br class="clear"/>
-    <div id="center">
-        {{ ebsco_widget|shortcodes }}
-        <div id="pagenorm">
-            <div style="position:relative; width:inherit; height:inherit;">
+    <div id="content" class="bsbb">
+        <div id="newsContent">       
+            <div id="newsMenu">
+                <h2 class="menuTitle ">{{__('domains', 'bibcnrs')}}</h2>
+                {% for item in disc %}
+                    <label for="menuNews-{{item.slug.cat_ID}}">
+                        <input id="menuNews-{{item.slug.cat_ID}}" class="menuItem" name="choice" type="radio">
+                        <span>{{item.slug.name}}
+                            <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
+                                <circle fill="{{item.color}}" cx="6" cy="6" r="6"></circle>
+                            </svg>
+                        </span>
+                    </label>
+                    <!-- <li class="menuItem" id="menuNews-{{item.slug.cat_ID}}">{{item.slug.name}}</li> -->
+                {% endfor %}
             </div>
-            <h1 class="font-{{currentCategory.description}}">{{presentation.title}}</h1>
-            {{presentation.content}}
-            {% set lang = site.language|split('-')|first %}
-            {% for sscat in discoveryPosts %}
-                {{ discoverysubcat.macro(sscat.title, sscat.slug, sscat.theme, sscat.commun, lang) }}
-            {% endfor %}
-            {% block sidebar %}
-                {% include 'sidebar-right.twig' %}
-            {% endblock %}
+            <div id="newsDetail">
+                {% for item in disc %}
+                    <h2 class="domainTitle font-{{item.slug.description}}" id="domain-{{item.slug.cat_ID}}">{{item.slug.name}}</h2> 
+                    <div class="domainNews flexrow" id="detail-{{item.slug.cat_ID}}">
+                        {% for post in item.posts %}
+                        <div class="newsBox flexColumn" data-type="type-{{item.slug.cat_ID}}">
+                            <div class="newsBoxCategory font-{{post.category.description}}">
+                                <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
+                                <circle fill="{{post.color}}" cx="6" cy="6" r="6"></circle>
+                            </svg>
+                                {{post.category_name}}
+                            </div>
+                            <div class="newsBoxTitle">
+                                {{post.title}}
+                            </div>
+                            <div class="newsBoxDate font-{{post.category.description}}">
+                                {{post.end_date}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div id="newsPages"></div>
+            </div>  
         </div>
-    </div>
-</div>
+   </div>
 {% endblock %}
+
