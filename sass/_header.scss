@@ -1,78 +1,72 @@
-.actions {
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    div {
-        margin: 5px;
-    }
-    select {
-        background-color: white;
-        margin: 0 16px;
+header {
+    height: 165px;
+    background-color: #0050A0;
+    padding-top: 23px;
+    padding-left: 30px;
+    padding-right: 50px;
+}
+#soustitre {
+    display: inline-block;
+    position: absolute;
+    left: 30%;
+    top: 70%;
+    font-style: italic;
+}
+#bouton {
+    float: right;
+    margin: 30px 25% 0 0;
+    text-align: center;
+    border: 1px solid;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    a {
+        color: #fff;
     }
 }
-.bsbb {
-    box-sizing: border-box;
-    .connexion {
-        width: 100%;
-        height: 120px;
-        display: flex;
-        align-items: stretch;
-        padding: 5px 10px 5px 10px;
+#separateur {
+    height: 30px;
+    background: #f0f0f0;
+}
+.clear {
+    clear: both
+}
+.headerRight {
+    display: flex;
+    flex-direction: row;
+    padding-right: 30px;
+    height: 100px;
+    align-items: center;
+    select {
+        appearance: none;
+        color: #fff;
+        background-color: #0050A0;
+        border-color: #0050A0;
     }
-    a {
-        max-height:70px;
-        align-self: center;
-    }
-    .bibcnrslogo {
-        max-width: 70px;
-        height: auto;
+}
+.headerLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+    img {
+        height: 100px;
+        width: auto;
     }
     .sitetitle {
         color: #fff;
-        width: 45%;
-        padding-left: 20px;
-        font-size: 18px;
+        padding-left: 42px;
+        font-size: 22px;
         align-self: center;
-    }
-    .infos {
-        text-align: right;
-        font-style: italic;
-        font-size: 14px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .name, .otherdomains{
-            line-height: 3.3rem;
-        }
-        .otherdomains {
-            padding-right: 10px;
-        }
-    }
-    .decoheader {
-        position: absolute;
-        top: 12px;
-        left: 125px;
-        z-index: -5;
     }
     .smalltitle {
         display: none;
     }
-    @media (max-width: 867px) {
-        .decoheader {
-            display:none;
-        }
-        .largetitle {
-            display: none;
-        }
-        .smalltitle {
-            vertical-align: middle;
-            display: inline-block;
-        }
+}
+@media screen and (max-width: 1215px) {
+    .headerLeft .largetitle {
+        display: none;
     }
-    @media (max-width: 660px) {
-        .sitetitle {
-            width:100%;
-        }
+    .headerLeft .smalltitle {
+        display: inline-block;
     }
 }
