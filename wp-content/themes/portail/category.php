@@ -35,6 +35,7 @@ $context['alerte']=Timber::get_posts(['category_name' => $alert, 'numberposts' =
 
 $nicename = $currentCategory->slug;
 $name = $currentCategory->name;
+$context['currentCategory_name'] = $name; 
 $parentCatID = get_cat_ID($name);
 $slugs = get_categories( 'child_of='.$parentCatID );
 
@@ -86,6 +87,33 @@ elseif ($nicename == "news" OR $nicename == "actus"){
     }
     Timber::render('news.twig', $context);    
 }
+else if ($nicename == "decouverte" OR $nicename == "discovery" ) {
+    $today = date(Ymd);
+    foreach($slugs as $slug){
+        $catID = $slug->cat_ID;
+        $nom=$slug->slug;
+        $posts = Timber::get_posts(['category' => $catID, 
+                                'numberposts' => -1, 
+                                'meta_query' => array(array(
+                                                'key' => 'end_date',
+                                                'value' => $today, 
+                                                'type' => 'NUMERIC', 
+                                                'compare' => '>'),
+                                                ),
+                                    ]);
+        for ($i = 0; $i < count($posts) ; $i++) {
+            $posts[$i]->category = $slug;
+            $posts[$i]->color = $config['color'][$slug->description];
+        }
+        $context['disc'][] = [
+            'slug' => $slug,
+            'color' => $config['color'][$slug->description],
+            'posts' => $posts
+        ];
+    }
+    Timber::render('discovery.twig', $context);
+}
+
 else {
     Timber::render('category.twig', $context);
 }
