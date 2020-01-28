@@ -25,10 +25,35 @@
             </div>
             <div id="newsDetail">
                 {% for item in news %}
-                    <h2 class="domainTitle font-{{item.slug.description}}" id="domain-{{item.slug.cat_ID}}">{{__('news', 'bibcnrs')}} {{item.title}}</h2> 
+                <div id="domain-{{item.slug.cat_ID}}">               
+                    <h2 class="domainTitle font-{{item.slug.description}}" id="title-{{item.slug.cat_ID}}">{{__('news', 'bibcnrs')}} {{item.title}}</h2> 
+                    {% for post in item.posts %}
+                        <div id="postDetail-{{post.ID}}" class="postDetail">
+                            <div class="newsBoxCategory font-{{post.category.description}}">
+                                <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
+                                <circle fill="{{post.color}}" cx="6" cy="6" r="6"></circle>
+                            </svg>
+                                {{post.category_name}}
+                            </div>
+                            <div class="newsBoxTitle">
+                                {{post.title}}
+                            </div>
+                            <div id="close-{{post.ID}}" class="detailClose">X</div>
+                            <div class="newsPostContent">
+                                {{post.content}}                                
+                            </div>
+                            <div class="newsBoxDate font-{{post.category.description}}">
+                                {% if site.language|slice(0,2) == 'fr' %}
+                                    {{post.date|date("d.m.y")}}
+                                {% else %}
+                                    {{post.date|date("m.d.y")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %} 
                     <div class="domainNews" id="detail-{{item.slug.cat_ID}}">
                         {% for post in item.posts %}
-                        <div class="newsBox flexColumn" data-type="type-{{item.slug.cat_ID}}">
+                        <div class="newsBox flexColumn" id="box-{{post.ID}}" data-type="type-{{item.slug.cat_ID}}">
                             <div class="newsBoxCategory font-{{post.category.description}}">
                                 <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
                                 <circle fill="{{post.color}}" cx="6" cy="6" r="6"></circle>
@@ -39,11 +64,17 @@
                                 {{post.title}}
                             </div>
                             <div class="newsBoxDate font-{{post.category.description}}">
-                                {{post.date}}
+                                {% if site.language|slice(0,2) == 'fr' %}
+                                    {{post.date|date("d.m.y")}}
+                                {% else %}
+                                    {{post.date|date("m.d.y")}}
+                                {% endif %}
+                                <span class="discDetail" id="post-{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
                             </div>
                         </div>
                         {% endfor %}
                     </div>
+                </div>
                 {% endfor %}
                 <div id="newsPages"></div>
             </div>  
