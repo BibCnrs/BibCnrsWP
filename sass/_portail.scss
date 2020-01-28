@@ -16,7 +16,6 @@ General
 *****************************/
 
 html {
-    margin-top: 35px;
     font-size: 62.5%;
     body {
         max-width: 1920px;
@@ -148,8 +147,8 @@ Accueil
     line-height: 2.6rem;
 }
 #plusBibCnrs {
-    margin-top: 25px;
-    margin-bottom: 80px;
+    margin-top: 5px;
+    margin-bottom: 60px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -158,6 +157,7 @@ Accueil
 .homeLink {
     width: 400px;
     height: 190px;
+    margin-top: 20px;
     a {
         display: flex;
         flex-direction: row;
@@ -422,15 +422,14 @@ News
 #newsDetail {
     width: calc(100% - 400px);
 }
-.domainNews {
-}
 .newsBox {
     width: 425px;
     height: 186px;
     background-color: #fff;
-    padding:17px 17px 17px 29px;
+    padding:17px 19px 17px 19px;
     margin: 5px;
     border-radius: 11px;
+    display: none;
 }
 .newsBoxTitle {
     margin-top: 14px;
@@ -445,6 +444,9 @@ News
 .newsPage {
     cursor: pointer;
 }
+.newsPostContent {
+    margin-top: 14px;
+}
 
 .activePage {
     color: #ff9982;
@@ -453,6 +455,55 @@ News
     content: " - ";
     color: #000;
 }
+/*****************************
+Discovery
+*****************************/
+.discBox {
+    width: 425px;
+    height: 160px;
+    background-color: #fff;
+    padding:17px 19px 17px 19px;
+    margin: 5px;
+    border-radius: 11px;
+    display: none;
+}
+.discBoxTitle {
+    font-size: 2.0rem;
+    font-style: italic;
+    font-weight: 700;
+}
+.discBoxDate {
+    margin-top: auto;
+    font-style: italic;
+}
+.discDetail {
+    font-size: 1.5rem;
+    color: #0050A0;
+    float: right;
+    cursor: pointer;
+}
+.postDetail {
+    display: none;
+    background-color: #fff;
+    position: relative;
+    min-width : 425px;
+    padding: 20px 45px 20px 20px;
+    position: relative;
+    margin: 5px;
+}
+.discPostContent {
+    margin-top: 14px;
+}
+.detailClose {
+    position: absolute;
+    top :5px;
+    right: 5px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    z-index: 10;
+    cursor:pointer;
+}
+
 /*****************************
 FAQ
 *****************************/

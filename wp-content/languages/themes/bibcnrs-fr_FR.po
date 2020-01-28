@@ -327,3 +327,9 @@ msgstr Découvrir BibCnrs
 
 msgid mostbibcnrs
 msgstr Les plus de BibCnrs
+
+msgid testdate
+msgstr Date de test
+
+msgid details
+msgstr détails

@@ -27,3 +27,9 @@ msgstr Discover BibCnrs
 
 msgid mostbibcnrs
 msgstr More of BibCnrs
+
+msgid testdate
+msgstr Test date
+
+msgid details
+msgstr details
