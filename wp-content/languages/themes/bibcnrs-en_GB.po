@@ -19,8 +19,8 @@ msgstr News
 msgid domains
 msgstr Domains
 
-msgid integer
-msgstr Integrate BibCnrs
+msgid resources
+msgstr Test resources
 
 msgid discover
 msgstr Discover BibCnrs
@@ -31,5 +31,5 @@ msgstr More of BibCnrs
 msgid testdate
 msgstr Test date
 
-msgid details
-msgstr details
+msgid noResources
+msgstr No test resources

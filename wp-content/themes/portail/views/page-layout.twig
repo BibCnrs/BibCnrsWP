@@ -12,7 +12,6 @@
         {% endblock %}
         {{ wp_head }}
         {% block js %}
-            <script src="{{theme.uri}}/js/flipflop.js" type="text/javascript"></script>
         {% endblock %}
         <link rel="shortcut icon" href="{{theme.uri}}/images/favicon.ico">
     </head>
@@ -42,8 +41,8 @@
             </header>
             {% endblock %}
             <div class="main">
-                {{ ebsco_widget|shortcodes }}
-                {% block content %}
+            {{ ebsco_widget|shortcodes }}
+            {% block content %}
                 {% endblock %}
             </div>
             <div id="idRepeat">
@@ -64,15 +63,23 @@
                         </a>
                     </div>
                     <div class="homeLink">
-                        <a href="">
+                        {% if site.language|slice(0,2) == 'en' %}
+                            <a href="{{site.uri}}/category/discover">
+                        {% else %}
+                            <a href="{{site.uri}}/category/decouverte">
+                        {% endif %}
                             <img src="{{theme.uri}}/images/Integrer_190@2x.png" alt="décoration">
                             <div class="homeLinkText">
-                                <span>{{__('integer', 'bibcnrs')}}</span>
+                                <span>{{__('resources', 'bibcnrs')}}</span>
                             </div>
                         </a>
                     </div>
                     <div class="homeLink">
-                        <a href="">
+                        {% if site.language|slice(0,2) == 'en' %}
+                            <a href="">
+                        {% else %}
+                            <a href="">
+                        {% endif %}
                             <img src="{{theme.uri}}/images/Decouvrir_190@2x.png" alt="décoration">
                             <div class="homeLinkText">
                                 <span>{{__('discover', 'bibcnrs')}}</span>

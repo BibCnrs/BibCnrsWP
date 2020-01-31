@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     {% endfor %} 
-                    <div class="domainNews" id="detail-{{item.slug.cat_ID}}">
+                    <div class="domainNewsBox" id="detail-{{item.slug.cat_ID}}">
                         {% for post in item.posts %}
                         <div class="newsBox flexColumn" id="box-{{post.ID}}" data-type="type-{{item.slug.cat_ID}}">
                             <div class="newsBoxCategory font-{{post.category.description}}">

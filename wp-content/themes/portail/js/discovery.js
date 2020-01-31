@@ -2,11 +2,12 @@
     // DOM ready
     $(function() {
 		function change_domain(){
-			$('.discBox').hide();
 			$('#domain-'+encours+'').hide();
+			$('#detail-'+encours+'').hide();
+			$('#postDetail-'+focus+'').hide();
+			$('#box-'+focus+'').css({"border":"none"});
 			$('#domain-'+prochaine+'').show();
-			var elems = $('.discBox[data-type="type-'+prochaine+'"]');
-			$('#detail-'+prochaine+' .discBox').css({"display":"flex"});
+			$('#detail-'+prochaine+'').css({"display":"flex"});
 			$('#menuNews-'+encours).prop( "checked", false );
 			$('#menuNews-'+prochaine).prop( "checked", true );
 			encours = prochaine;
@@ -14,7 +15,11 @@
 		function show_detail(){
 			$('.postDetail').hide();
 			$('.discBox').css({"border":"none"});
+			$('.commonBox').css({"border":"none"});
 			$('#postDetail-'+focus+'').show();
+			$('html, body').animate({
+        		scrollTop: $('#postDetail-'+focus+'').offset().top
+    		}, 200);
 			$('#box-'+focus+'').css({"border":"2px solid #FF9982"});
 		}
 		function close_detail(){
@@ -27,9 +32,8 @@
 		var focusnext;
 		var elems = $('.discBox[data-type="type-'+encours+'"]');
 		$('#domain-'+encours+'').show();
-		$('#detail-'+encours+' .discBox').css({"display":"flex"});
+		$('#detail-'+encours+'').css({"display":"flex"});
 		$('#menuNews-'+encours).prop( "checked", true );
-
 		$('.menuItem').click(function(e) {
 			prochaine = $(e.target).attr('id').split("-")[1];
 			change_domain();

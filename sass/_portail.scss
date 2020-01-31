@@ -368,12 +368,15 @@ News
     margin-top: 10px;
     margin-bottom: 15px;
 }
-.domainTitle {
-    display: none;
+.domainTitle, .domainCommon {
     margin-left: 22px;
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 15px;
+}
+.domainTitle {
+    display: none;
+    
 }
 #newsContent {
     display: flex;
@@ -458,25 +461,31 @@ News
 /*****************************
 Discovery
 *****************************/
-.discBox {
+.discBox, .commonBox {
     width: 425px;
     height: 160px;
     background-color: #fff;
     padding:17px 19px 17px 19px;
     margin: 5px;
     border-radius: 11px;
-    display: none;
+}
+.domainNews {
+    display: none;    
 }
 .discBoxTitle {
     font-size: 2.0rem;
     font-style: italic;
     font-weight: 700;
+    color:#00264C;
+    a, a:hover, a:focus, a:visited {
+        color:#00264C;
+    }
 }
 .discBoxDate {
     margin-top: auto;
     font-style: italic;
 }
-.discDetail {
+.discDetail, .commonDetail {
     font-size: 1.5rem;
     color: #0050A0;
     float: right;
@@ -494,7 +503,7 @@ Discovery
 .discPostContent {
     margin-top: 14px;
 }
-.detailClose {
+.detailClose, .commonClose {
     position: absolute;
     top :5px;
     right: 5px;
@@ -503,7 +512,9 @@ Discovery
     z-index: 10;
     cursor:pointer;
 }
-
+.noResources {
+    margin-left: 22px;
+}
 /*****************************
 FAQ
 *****************************/
@@ -517,18 +528,18 @@ FAQ
 .h2faq {
     margin-top: 5px;
     margin-bottom: 0;
-    line-height: 1.4rem;
+    line-height: 1.7rem;
 }
 .faqtitle {
     color: #455F7A;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     padding-left: 10px;
     cursor: pointer;
 }
 .repfaq {
     padding-left: 50px;
     display: none;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     margin-bottom: 5px;
     img {
         max-width: 100%;

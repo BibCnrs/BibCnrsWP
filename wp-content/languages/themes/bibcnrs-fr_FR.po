@@ -319,8 +319,8 @@ msgstr Actualités
 msgid domains
 msgstr Domaines
 
-msgid integer
-msgstr Intégrer BibCnrs
+msgid resources
+msgstr Ressources en test
 
 msgid discover
 msgstr Découvrir BibCnrs
@@ -333,3 +333,9 @@ msgstr Date de test
 
 msgid details
 msgstr détails
+
+msgid noResources
+msgstr détails
+
+msgid noResources
+msgstr Pas de ressources en test
