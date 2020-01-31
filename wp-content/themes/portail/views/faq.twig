@@ -3,12 +3,12 @@
 {% block title %}
     {{site.name}} - {{currentCategory.name}}
 {% endblock %}
+{% block js %}
+    {{parent()}}
+    <script src="{{theme.uri}}/js/faq.js" type="text/javascript"></script>
+{% endblock %}
 {% block content %}
     <div id="content" class="bsbb">
-        {% block breadcrumb %}
-            <span class="bread">{{parent()}} >> <a href="{{url}}/category/{{currentCategory.slug}}">{{currentCategory.name}}</a></span>
-        {% endblock %}
-        <br class="clear"/>
         <div id="center">
             <div id="pagefaq">
                 <h1 class="font-{{currentCategory.description}}">FAQ</h1>

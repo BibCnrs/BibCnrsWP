@@ -63,7 +63,7 @@ elseif ($nicename == "news" OR $nicename == "actus"){
             $posts = Timber::get_posts(['category' => $generalID, 'numberposts' => -1]);           
         }
         else {
-            $posts = Timber::get_posts(['category' => [$catID, $generalID], 'numberposts' => -1]);
+            $posts = Timber::get_posts(['category' => $catID, 'numberposts' => -1]);
         }
         for ($i = 0; $i < count($posts) ; $i++) {
             $multicat = get_the_category($posts[$i]->ID);
@@ -105,12 +105,22 @@ else if ($nicename == "decouverte" OR $nicename == "discovery" ) {
             $posts[$i]->category = $slug;
             $posts[$i]->color = $config['color'][$slug->description];
         }
-        $context['disc'][] = [
-            'slug' => $slug,
-            'color' => $config['color'][$slug->description],
-            'posts' => $posts
-        ];
+        if ($nom == "disc-commun" OR $nom =="disc-common") {
+            $context['common'][] =[
+                'slug' => $slug,
+                'color' => $config['color'][$slug->description],
+                'posts' => $posts
+            ];
+        }
+        else {
+            $context['disc'][] = [
+                'slug' => $slug,
+                'color' => $config['color'][$slug->description],
+                'posts' => $posts
+            ];
+        }
     }
+//     print_r($context['common']);
     Timber::render('discovery.twig', $context);
 }
 
