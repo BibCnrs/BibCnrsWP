@@ -44,9 +44,9 @@
                             </div>
                             <div class="newsBoxDate font-{{post.category.description}}">
                                 {% if site.language|slice(0,2) == 'fr' %}
-                                    {{post.date|date("d.m.y")}}
+                                    {{post.post_date|date("d.m.y")}}
                                 {% else %}
-                                    {{post.date|date("m.d.y")}}
+                                    {{post.post_date|date("m.d.y")}}
                                 {% endif %}
                             </div>
                         </div>
@@ -65,9 +65,9 @@
                             </div>
                             <div class="newsBoxDate font-{{post.category.description}}">
                                 {% if site.language|slice(0,2) == 'fr' %}
-                                    {{post.date|date("d.m.y")}}
+                                    {{post.post_date|date("d.m.y")}}
                                 {% else %}
-                                    {{post.date|date("m.d.y")}}
+                                    {{post.post_date|date("m.d.y")}}
                                 {% endif %}
                                 <span class="discDetail" id="post-{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
                             </div>
