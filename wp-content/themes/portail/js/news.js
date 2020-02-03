@@ -9,10 +9,15 @@
 		}
 		function change_domain(){
 			$('.newsBox').hide();
+			$('#domain-'+encours+' #postDetail-'+focus+'').hide();
+			$('#detail-'+encours+' #box-'+focus+'').css({"border":"none"});
 			$('#domain-'+encours+'').hide();
 			$('#domain-'+prochaine+'').show();
 			$('#title-'+encours+'').hide();
 			$('#title-'+prochaine+'').show();
+			$('html, body').animate({
+        		scrollTop: $('#title-'+prochaine+'').offset().top
+    		}, 200);
 			var elems = $('.newsBox[data-type="type-'+prochaine+'"]');
 			var nbpage = Math.ceil(elems.length/postperpage);
 			$('#newsPages').children('span').remove();
@@ -32,16 +37,23 @@
 		}
 		function change_page(){
 			$('.newsBox').hide();
+			$('#domain-'+encours+' #postDetail-'+focus+'').hide();
+			$('#detail-'+encours+' #box-'+focus+'').css({"border":"none"});
 			$('#grpNews-'+encours+'-'+nextpage+' .newsBox').css({"display":"flex"});
+			$('html, body').animate({
+        		scrollTop: $('#title-'+encours+'').offset().top
+    		}, 200);
 		}
 		function show_detail(){
 			$('.postDetail').hide();
 			$('.newsBox').css({"border":"none"});
 			$('#domain-'+encours+' #postDetail-'+focus+'').show();
+			$('html, body').animate({
+        		scrollTop: $('#postDetail-'+focus+'').offset().top
+    		}, 200);
 			$('#detail-'+encours+' #box-'+focus+'').css({"border":"2px solid #FF9982"});
 		}
 		function close_detail(){
-			console.log(encours);
 			$('#domain-'+encours+' #postDetail-'+focusnext+'').hide();
 			$('#detail-'+encours+' #box-'+focus+'').css({"border":"none"});
 		}
