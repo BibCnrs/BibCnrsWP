@@ -44,6 +44,7 @@ $slugs = get_categories( 'child_of='.$parentCatID );
 if ($nicename == "faq-".$language){
     foreach($slugs as $slug){
         $nom=$slug->slug;
+        $subfaqid=$slug->cat_ID;
     	$context['faqPosts'][] = [
             'title' => get_category_by_slug($nom)->name,
     		'slug' => $slug,
