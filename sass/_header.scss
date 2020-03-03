@@ -95,20 +95,14 @@ header {
         font-size: 22px;
         align-self: center;
     }
-    .smalltitle {
+}
+@media screen and (max-width: 1050px) {
+    .headerLeft .smalltitle {
         display: none;
     }
 }
-@media screen and (max-width: 1215px) {
-    .headerLeft .largetitle {
-        display: none;
-    }
-    .headerLeft .smalltitle {
-        display: inline-block;
-    }
-}
-@media screen and (max-width: 964px) {
-    .headerLeft .smalltitle {
+@media screen and (max-width: 510px) {
+    .headerLeft {
         display: none;
     }
 }
