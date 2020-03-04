@@ -57,6 +57,9 @@ header {
         :hover::after {
             color:#fff;
         }
+        option {
+            background-color: #0050A0;
+        }
     }
     .language::after {
         content: '>';
@@ -75,11 +78,6 @@ header {
         color: #fff;
     }
 }
-
-#lang_choice_1 option:checked {
-        background-color: #fff;
-        }
-
 .headerLeft {
     display: flex;
     flex-direction: row;
