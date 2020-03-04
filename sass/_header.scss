@@ -57,6 +57,9 @@ header {
         :hover::after {
             color:#fff;
         }
+        &::-ms-expand {
+            display: none;
+        }
     }
     .language::after {
         content: '>';
