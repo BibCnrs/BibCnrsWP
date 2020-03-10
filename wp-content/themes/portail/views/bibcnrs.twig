@@ -1,7 +1,6 @@
-{% import "faqsubcat.twig" as faqsubcat %}
 {% extends 'page-layout.twig' %}
 {% block title %}
-    {{site.name}} - FAQ
+    {{site.name}} - {{currentCategory.name}}
 {% endblock %}
 {% block js %}
     {{parent()}}
@@ -11,14 +10,19 @@
     <div id="content" class="bsbb">
         {% block breadcrumb %}
             <span class="bread">
-                <a href="/">{{__('Home', 'bibcnrs')}}</a> >> FAQ
+                <a href="/">{{__('Home', 'bibcnrs')}}</a> >> {{currentCategory.name}}
             </span>
         {% endblock %}       
         <div id="center">
             <div id="pagefaq">
-                <h1 class="font-{{currentCategory.description}}">FAQ</h1>
-                {% for sscat in faqPosts %}
-                {{ faqsubcat.macro(sscat.slug, sscat.posts) }}
+                <h1>{{currentCategory.name}}</h1>
+                {% for sscat in bibcnrs %}
+                    {{sscat.title}}
+                    <ul>
+                    {% for post in sscat.posts %}
+                        <li><a href="{{site.url}}/{{post.slug}}">{{post.title}}</a></li>
+                    {% endfor %}
+                </ul>
                 {% endfor %}
             </div>
        </div>

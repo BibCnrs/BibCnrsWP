@@ -8,15 +8,17 @@
     <div id="content" class="bsbb">
     {% for post in posts %}
         {% block breadcrumb %}
-            <span class="bread">{{parent()}} >> {{post.title}}</span>
-            {% endblock %}
-            <br class="clear"/>
-            <div id="center">
-                <div id="pagenorm">
-                    <h1 class="font-visit">{{post.title}}</h1>
-                        {{post.content}}
-                    </div>
-            </div>
-        {% endfor %}
+            <span class="bread">
+                <a href="/">{{__('Home', 'bibcnrs')}}</a> >> {{post.title}}
+            </span>
+        {% endblock %}
+        <br class="clear"/>
+        <div id="center">
+            <div id="pagenorm">
+                <h1 class="font-visit">{{post.title}}</h1>
+                    {{post.content}}
+                </div>
+        </div>
+    {% endfor %}
     </div>
 {% endblock %}
