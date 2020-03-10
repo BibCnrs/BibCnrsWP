@@ -4,19 +4,10 @@ Template Name: category
 */
 /*  Connexion */
 require 'config.php';
-require 'models/BibCnrsCategoriesProvider.php';
-$categoriesProvider = new BibCnrsCategoriesProvider('get_the_category', 'get_category_by_slug', 'wp_get_current_user');
 
-$userCategory = $categoriesProvider->getUserCategory();
-$currentCategory = get_queried_object();
-require 'models/BibCnrsPostsProvider.php';
-$getPosts = function ($args) {
-    return Timber::get_posts($args);
-};
-
-$postsProvider = new BibCnrsPostsProvider($config['category']['domains'], 'get_category_by_slug', $getPosts);
 /* Display */
 $context = Timber::get_context();
+$context['currentCategory'] = get_queried_object();
 $context['robot_index'] = $_ENV['ROBOT_INDEX'];
 $language = substr($context['site']->language, 0, 2);
 $context['long_title'] = $language === 'fr' ?
@@ -33,18 +24,15 @@ $context['ebsco_widget'] = sprintf('[ebsco_widget domain="%s" language="%s"]', $
 $alert = $language === 'fr' ? 'alertes' : 'warning';
 $context['alerte']=Timber::get_posts(['category_name' => $alert, 'numberposts' => 1]);
 
-$nicename = $currentCategory->slug;
-$name = $currentCategory->name;
-$context['currentCategory_name'] = $name; 
+$nicename = $context['currentCategory']->slug;
+$name = $context['currentCategory']->name;
 $parentCatID = get_cat_ID($name);
 $slugs = get_categories( 'child_of='.$parentCatID );
-
 
 // IF FAQ sub-categories display
 if ($nicename == "faq-".$language){
     foreach($slugs as $slug){
         $nom=$slug->slug;
-        $subfaqid=$slug->cat_ID;
     	$context['faqPosts'][] = [
             'title' => get_category_by_slug($nom)->name,
     		'slug' => $slug,
@@ -88,7 +76,7 @@ elseif ($nicename == "news" OR $nicename == "actus"){
     }
     Timber::render('news.twig', $context);    
 }
-else if ($nicename == "decouverte" OR $nicename == "discovery" ) {
+elseif ($nicename == "decouverte" OR $nicename == "discovery" ) {
     $today = date(Ymd);
     foreach($slugs as $slug){
         $catID = $slug->cat_ID;
@@ -121,10 +109,19 @@ else if ($nicename == "decouverte" OR $nicename == "discovery" ) {
             ];
         }
     }
-//     print_r($context['common']);
     Timber::render('discovery.twig', $context);
 }
-
+elseif ($nicename == "decouvrir_bibcnrs" OR $nicename == "discover_bibcnrs" ) {
+    foreach($slugs as $slug){
+        $nom=$slug->slug;
+        $context['bibcnrs'][] = [
+            'title' => get_category_by_slug($nom)->name,
+            'slug' => $slug,
+            'posts' => Timber::get_posts(array('category_name' => $nom))
+        ];
+    }
+    Timber::render('bibcnrs.twig', $context);
+}
 else {
     Timber::render('category.twig', $context);
 }

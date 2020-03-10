@@ -16,20 +16,6 @@ Add Translation Option
 ********************************************************************************************/
 load_theme_textdomain('bibcnrs', get_template_directory().'/languages');
 
-/********************************************************************************************
-
-Call dropdownmenu
-
-********************************************************************************************/
-function bibcnrs_scripts_method() {
-    wp_enqueue_script(
-        'dropdownmenu',
-        get_stylesheet_directory_uri() . '/js/dropdownmenu.js',
-        array('jquery')
-    );
-}
-add_action('wp_enqueue_scripts', 'bibcnrs_scripts_method');
-
 /*********************************************************************************************
 
 Register menu

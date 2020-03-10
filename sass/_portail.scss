@@ -189,9 +189,11 @@ Accueil
 .homeLinkText span:after {
     content: url(images/Fleche-droite-nav.png);
     padding-left: 10px;
-
 }
-/*****************************
+.bread a, .bread a:visited, .bread a:focus, .bread a:hover{
+    color: rgb(102,102,102);
+}
+/****************************
 Navigation
 *****************************/
 .principal {
