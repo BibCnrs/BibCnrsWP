@@ -45,10 +45,10 @@
       "package": {
         "name": "polylang",
         "type": "wordpress-plugin",
-        "version": "2.6.10",
+        "version": "2.7.1",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/polylang.2.6.10.zip"
+          "url": "https://downloads.wordpress.org/plugin/polylang.2.7.1.zip"
         }
       }
     },
@@ -57,10 +57,10 @@
       "package": {
         "name": "contact-form-7",
         "type": "wordpress-plugin",
-        "version": "5.1.6",
+        "version": "5.1.7",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.1.6.zip"
+          "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.1.7.zip"
         }
       }
     },
@@ -93,10 +93,10 @@
       "package": {
         "name": "cookie-notice",
         "type": "wordpress-plugin",
-        "version": "1.2.50",
+        "version": "1.3.1",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/cookie-notice.1.2.50.zip"
+          "url": "https://downloads.wordpress.org/plugin/cookie-notice.1.3.1.zip"
         }
       }
     },
@@ -105,10 +105,10 @@
       "package": {
         "name": "add-to-any",
         "type": "wordpress-plugin",
-        "version": "1.7.39",
+        "version": "1.7.40",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/add-to-any.1.7.39.zip"
+          "url": "https://downloads.wordpress.org/plugin/add-to-any.1.7.40.zip"
         }
       }
     },
@@ -129,10 +129,10 @@
       "package": {
         "name": "advanced-custom-fields",
         "type": "wordpress-plugin",
-        "version": "5.8.7",
+        "version": "5.8.9",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.7.zip"
+          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.9.zip"
         }
       }
     },
@@ -141,10 +141,10 @@
       "package": {
         "name": "wp-mail-smtp",
         "type": "wordpress-plugin",
-        "version": "1.8.1",
+        "version": "1.9.0",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.1.8.1.zip"
+          "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.1.9.0.zip"
         }
       }
     }
@@ -157,13 +157,13 @@
     "timber": "1.6.0",
     "restrict-taxonomies": "1.3.3",
     "rss-shortcode": "0.2",
-    "polylang": "2.6.10",
-    "contact-form-7": "5.1.6",
+    "polylang": "2.7.1",
+    "contact-form-7": "5.1.7",
     "order-categories": "1.0.3",
-    "cookie-notice": "1.2.50",
-    "add-to-any": "1.7.39",
+    "cookie-notice": "1.3.1",
+    "add-to-any": "1.7.40",
     "classic-editor": "1.5",
-    "advanced-custom-fields": "5.8.7",
-    "wp-mail-smtp": "1.8.1"
+    "advanced-custom-fields": "5.8.9",
+    "wp-mail-smtp": "1.9.0"
   }
 }

@@ -124,8 +124,9 @@ Accueil
 *****************************/
 .main{
     width: 100%;
+ }
+ #mainContent {
     background-color: #f7f7f7;
-
  }
  #idRepeat {
     width: 100%;
@@ -534,9 +535,10 @@ FAQ
 }
 .faqtitle {
     color: #455F7A;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     padding-left: 10px;
     cursor: pointer;
+    line-height: 1.8rem;
 }
 .repfaq {
     padding-left: 50px;
