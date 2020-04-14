@@ -42,26 +42,26 @@ header {
         width: 90px;
         height: 22px;
         font-size: 1.4rem;
-    }
-    select {
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        width: 100%;
-        height: 100%;
-        color: #fff;
-        background-color: #0050A0;
-        outline: 0;
-        border: 0 !important;
-        box-shadow: none;
-        :hover::after {
-            color:#fff;
-        }
-        &::-ms-expand {
-            display: none;
-        }
-        option {
+        select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 100%;
+            color: #fff;
             background-color: #0050A0;
+            outline: 0;
+            border: 0 !important;
+            box-shadow: none;
+            :hover::after {
+                color:#fff;
+            }
+            &::-ms-expand {
+                display: none;
+            }
+            option {
+                background-color: #0050A0;
+            }
         }
     }
     .language::after {
