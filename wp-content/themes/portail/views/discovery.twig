@@ -1,142 +1,30 @@
 {% extends 'page-layout.twig' %}
 {% block title %}
-    {{site.name}} - {{currentCategory_name}}
+    {{site.name}} - {{currentCategory.name}}
 {% endblock %}
 {% block js %}
     {{parent()}}
     <script src="{{theme.uri}}/js/discovery.js" type="text/javascript"></script>
 {% endblock %}
 {% block content %}
-<div id="mainContent">
     <div id="content" class="bsbb">
-        <div id="newsContent">       
-            <div id="newsMenu">
-                <h2 class="menuTitle ">{{__('domains', 'bibcnrs')}}</h2>
-                {% for item in disc %}
-                    <label for="menuNews-{{item.slug.cat_ID}}">
-                        <input id="menuNews-{{item.slug.cat_ID}}" class="menuItem" name="choice" type="radio">
-                        <span>{{item.slug.name}}
-                            <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
-                                <circle fill="{{item.color}}" cx="6" cy="6" r="6"></circle>
-                            </svg>
-                        </span>
-                    </label>
+        {% block breadcrumb %}
+            <span class="bread">
+                <a href="/">{{__('Home', 'bibcnrs')}}</a> >> {{currentCategory.name}}
+            </span>
+        {% endblock %}       
+        <div id="center">
+            <div id="pagefaq">
+                <h1>{{currentCategory.name}}</h1>
+                {% for post in posts %}
+                    <div class="bibDiscTitle" id="bibDiscTitle-{{post.id}}" onclick="flipflop({{post.id}})">
+                        {{post.title}}
+                    </div>
+                    <div class="bibDiscContent"id="bibDiscContent-{{post.id}}">
+                        {{post.content}}
+                    </div>
                 {% endfor %}
             </div>
-            <div id="newsDetail">
-                {% for item in disc %}
-                    <h2 class="domainTitle font-{{item.slug.description}}" id="domain-{{item.slug.cat_ID}}">{{item.slug.name}}</h2>
-                {% endfor %}
-                {% for item in disc %}
-                    {% for post in item.posts %}
-                        <div id="postDetail-{{item.slug.cat_ID}}_{{post.ID}}" class="postDetail">
-                            <div class="discBoxTitle">
-                                {% if post.url %}
-                                    <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
-                                        {{post.title}}
-                                    </a>
-                                {% else %}
-                                    {{post.title}}
-                                {% endif %}
-                            </div>
-                            <div id="close-{{item.slug.cat_ID}}_{{post.ID}}" class="detailClose">X</div>
-                            <div class="discPostContent">
-                                {{post.content}}                                
-                            </div>
-                            <div class="discBoxDate font-{{post.category.description}}">
-                                {% if site.language|slice(0,2) == 'fr' %}
-                                    {{__('testdate', 'bibcnrs')}} : {{post.start_date|date("d.m.y")}} > {{post.end_date|date("d.m.y")}}
-                                {% else %}
-                                    {{__('testdate', 'bibcnrs')}}: {{post.start_date|date("m.d.y")}} > {{post.end_date|date("m.d.y")}}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %} 
-                    <div class="domainNews flexrow" id="detail-{{item.slug.cat_ID}}">
-                        {% if item.posts %}
-                            {% for post in item.posts %}
-                             <div class="discBox flexColumn" id="box-{{item.slug.cat_ID}}_{{post.ID}}" data-type="type-{{item.slug.cat_ID}}">
-                                    <div class="discBoxTitle">
-                                    {% if post.url %}
-                                        <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
-                                            {{post.title}}
-                                        </a>
-                                    {% else %}
-                                        {{post.title}}
-                                    {% endif %}
-                                </div>
-                                <div class="discBoxDate font-{{post.category.description}}">
-                                    {% if site.language|slice(0,2) == 'fr' %}
-                                        {{__('testdate', 'bibcnrs')}} : {{post.start_date|date("d.m.y")}} > {{post.end_date|date("d.m.y")}}
-                                    {% else %}
-                                        {{__('testdate', 'bibcnrs')}}: {{post.start_date|date("m.d.y")}} > {{post.end_date|date("m.d.y")}}
-                                    {% endif %}
-                                    <span class="discDetail" id="post-{{item.slug.cat_ID}}_{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        {% else %}
-                            <span class="noResources">{{__('noResources', 'bibcnrs')}}</span>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-                {% for item in common %}
-                    <h2 class="domainCommon font-{{item.slug.description}}" id="domain-{{item.slug.cat_ID}}">{{item.slug.name}}</h2>
-                    {% for post in item.posts %}
-                        <div id="postDetail-{{item.slug.cat_ID}}_{{post.ID}}" class="postDetail">
-                            <div class="discBoxTitle">
-                                {% if post.url %}
-                                    <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
-                                        {{post.title}}
-                                    </a>
-                                {% else %}
-                                    {{post.title}}
-                                {% endif %}
-                            </div>
-                            <div id="close-{{item.slug.cat_ID}}_{{post.ID}}" class="detailClose">X</div>
-                            <div class="discPostContent">
-                                {{post.content}}                                
-                            </div>
-                            <div class="discBoxDate font-{{post.category.description}}">
-                                {% if site.language|slice(0,2) == 'fr' %}
-                                    {{__('testdate', 'bibcnrs')}} : {{post.start_date|date("d.m.y")}} > {{post.end_date|date("d.m.y")}}
-                                {% else %}
-                                    {{__('testdate', 'bibcnrs')}}: {{post.start_date|date("m.d.y")}} > {{post.end_date|date("m.d.y")}}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %} 
-                    <div class="commonNews flexrow" id="detail-{{item.slug.cat_ID}}">
-                        {% if item.posts %}
-                            {% for post in item.posts %}
-                                 <div class="commonBox flexColumn" id="box-{{item.slug.cat_ID}}_{{post.ID}}" data-type="type-{{item.slug.cat_ID}}">
-                                    <div class="discBoxTitle">
-                                        {% if post.url %}
-                                            <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
-                                                {{post.title}}
-                                            </a>
-                                        {% else %}
-                                            {{post.title}}
-                                        {% endif %}
-                                    </div>
-                                    <div class="discBoxDate font-{{post.category.description}}">
-                                        {% if site.language|slice(0,2) == 'fr' %}
-                                            {{__('testdate', 'bibcnrs')}} : {{post.start_date|date("d.m.y")}} > {{post.end_date|date("d.m.y")}}
-                                        {% else %}
-                                            {{__('testdate', 'bibcnrs')}}: {{post.start_date|date("m.d.y")}} > {{post.end_date|date("m.d.y")}}
-                                        {% endif %}
-                                        <span class="discDetail" id="post-{{item.slug.cat_ID}}_{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            <span class="noResources">{{__('noResources', 'bibcnrs')}}</span>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>  
-        </div>
+       </div>
    </div>
-</div>
 {% endblock %}
-

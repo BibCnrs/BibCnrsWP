@@ -339,3 +339,10 @@ msgstr détails
 
 msgid noResources
 msgstr Pas de ressources en test
+
+msgid tests
+msgstr Tests
+
+msgid tools
+msgstr Outils
+

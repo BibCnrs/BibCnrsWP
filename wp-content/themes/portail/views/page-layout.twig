@@ -51,41 +51,41 @@
             <div id="plusBibCnrs">
                 <div class="homeLink">
                     {% if site.language|slice(0,2) == 'en' %}
-                        <a href="{{site.uri}}/category/news">
-                    {% else %}
-                        <a href="{{site.uri}}/category/actus">
-                    {% endif %}
-                        <img src="{{theme.uri}}/images/News_190@2x.png" alt="décoration">
-                        <div class="homeLinkText">
-                            <span>{{__('news', 'bibcnrs')}}</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="homeLink">
-                    {% if site.language|slice(0,2) == 'en' %}
-                        <a href="{{site.uri}}/category/discover">
-                    {% else %}
-                        <a href="{{site.uri}}/category/decouverte">
-                    {% endif %}
-                        <img src="{{theme.uri}}/images/Integrer_190@2x.png" alt="décoration">
-                        <div class="homeLinkText">
-                            <span>{{__('resources', 'bibcnrs')}}</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="homeLink">
-                    {% if site.language|slice(0,2) == 'en' %}
                         <a href="{{site.uri}}/category/discover_bibcnrs">
                     {% else %}
                         <a href="{{site.uri}}/category/decouvrir_bibcnrs">
                     {% endif %}
                         <img src="{{theme.uri}}/images/Decouvrir_190@2x.png" alt="décoration">
                         <div class="homeLinkText">
-                            <span>{{__('discover', 'bibcnrs')}}</span>
+                            {{__('discover', 'bibcnrs')}}
                         </div>
                     </a>
                 </div>
-            </div>
+                <div class="homeLink">
+                    {% if site.language|slice(0,2) == 'en' %}
+                        <a href="{{site.uri}}/category/tools">
+                    {% else %}
+                        <a href="{{site.uri}}/category/outils">
+                    {% endif %}
+                        <img src="{{theme.uri}}/images/Integrer_190@2x.png" alt="décoration">
+                        <div class="homeLinkText">
+                            {{__('tools', 'bibcnrs')}}
+                        </div>
+                    </a>
+                </div>
+                 <div class="homeLink">
+                    {% if site.language|slice(0,2) == 'en' %}
+                        <a href="{{site.uri}}/category/news">
+                    {% else %}
+                        <a href="{{site.uri}}/category/actus">
+                    {% endif %}
+                        <img src="{{theme.uri}}/images/News_190@2x.png" alt="décoration">
+                        <div class="homeLinkText">
+                            {{__('news', 'bibcnrs')}} / {{__('tests', 'bibcnrs')}}
+                        </div>
+                    </a>
+                </div>
+           </div>
         </div>
         {% block footer %}
             <footer>

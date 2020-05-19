@@ -156,14 +156,12 @@ Accueil
     justify-content: space-between;
 }
 .homeLink {
-    width: 400px;
-    height: 190px;
+    max-width: 230px;
     margin-top: 20px;
     a {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
         color: #073E6A;
         font-weight: bold;
          img {
@@ -178,18 +176,7 @@ Accueil
     }
 }
 .homeLinkText {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 170px;
-}
-.homeLink:first-child .homeLinkText {
-    width: 150px;
-}
-
-.homeLinkText span:after {
-    content: url(images/Fleche-droite-nav.png);
-    padding-left: 10px;
+    margin-top: 20px;
 }
 .bread a, .bread a:visited, .bread a:focus, .bread a:hover{
     color: rgb(102,102,102);
@@ -308,19 +295,6 @@ input:-moz-placeholder {
     font-size: 12px;
     font-style: italic;
 }
-sidebar {
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
-    min-width: 255px;
-    margin: 25px 5px 0 10px;
-    &.left {
-        float: left;
-    }
-    &.right {
-        float: right;
-    }
-}
 .box-container {
     border: #dcded9 solid 1px;
     margin-bottom: 20px;
@@ -379,7 +353,6 @@ News
 }
 .domainTitle {
     display: none;
-    
 }
 #newsContent {
     display: flex;
@@ -387,7 +360,7 @@ News
     margin-bottom: 50px;
 }
 #newsMenu {
-    width: 400px;
+    width: 350px;
     list-style: none;
     padding: 10px;
     cursor: pointer;
@@ -422,63 +395,73 @@ News
     }
     .itemCircle circle {
         font-size: 4.2rem;
-
     }
 }
-#newsDetail {
-    width: calc(100% - 400px);
+#newsDisc {
+    width: calc(100% - 350px);
+    align-self: flex-start;
+}
+#newsDiscDetail {
+    width: 100%;
+}
+#newsDetail, #discDetail {
+    max-width: 420px;
 }
 .newsBox {
-    width: 425px;
-    height: 186px;
+    width: 400px;
+    height: 150px;
     background-color: #fff;
     padding:17px 19px 17px 19px;
-    margin: 5px;
+    margin: 20px 10px 20px 10px;
     border-radius: 11px;
     display: none;
 }
 .newsBoxTitle {
     margin-top: 14px;
+    font-size: 2rem;
 }
 .newsBoxDate {
     margin-top: auto;
 }
-#newsPages {
-    display: inline-block;
-    float: right;
+#newsPages, #discPages {
+    display: block;
+    text-align: center;
 }
-.newsPage {
+.newsPage, .discPage {
     cursor: pointer;
 }
 .newsPostContent {
     margin-top: 14px;
 }
-
 .activePage {
     color: #ff9982;
 }
-.newsPage:not(:last-child):after {
+.newsPage:not(:last-child):after, .discPage:not(:last-child):after {
     content: " - ";
     color: #000;
+}
+.detailTitle {
+    font-size: 2.5rem;
+    margin-top: 10px;
 }
 /*****************************
 Discovery
 *****************************/
-.discBox, .commonBox {
-    width: 425px;
-    height: 160px;
+.discBox {
+    width: 400px;
+    height: 150px;
     background-color: #fff;
     padding:17px 19px 17px 19px;
-    margin: 5px;
+    margin: 20px 10px 20px 10px;
     border-radius: 11px;
+    display: none;
 }
 .domainNews {
     display: none;    
 }
 .discBoxTitle {
-    font-size: 2.0rem;
-    font-style: italic;
-    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 14px;
     color:#00264C;
     a, a:hover, a:focus, a:visited {
         color:#00264C;
@@ -488,7 +471,7 @@ Discovery
     margin-top: auto;
     font-style: italic;
 }
-.discDetail, .commonDetail {
+.detailOpen, .commonDetail {
     font-size: 1.5rem;
     color: #0050A0;
     float: right;
@@ -535,10 +518,10 @@ FAQ
 }
 .faqtitle {
     color: #455F7A;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     padding-left: 10px;
     cursor: pointer;
-    line-height: 1.8rem;
+    line-height: 2rem;
 }
 .repfaq {
     padding-left: 50px;
@@ -569,62 +552,26 @@ FAQ
     display: block;
 }
 /*****************************
-Discovery
+BibCnrs Discovery
 *****************************/
-.h2disc {
-    margin-bottom: 5px;
-}
-.discdomain {
-    margin-top: 20px;
-    font-size: 16px;
-}
-.disctitle {
-    line-height: 20px;
-    font-size: 14px;
-    padding-left: 20px;
-    margin-top: 5px;
-    a {
-    cursor: pointer;
-    }
-}
-.testdate {
-    font-weight: bold;
-}
-.titleline {
-    width: 400px;
-    -webkit-margin-start: 0px;
-    margin: 0;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-top: none;
-}
-.flipflop {
-    line-height: 20px;
-    cursor: pointer;
-    font-style: italic;
-    padding-left: 20px;
-    font-size:14px;
-}
-.arrow{
-    font-size: 16px;
-}
-.discoverAlso {
-    margin-top: 10px;
-    font-size: 15px;
-}
-.repdisc {
-    padding-left: 50px;
+.bibDiscContent {
     display: none;
-    font-size: 14px;
-    margin-bottom: 15px;
-    img {
-        max-width: 100%;
-        height: auto;
-        margin: 10px 0 10px 0;
-    }
+    margin-left: 30px;
 }
-.repdisc p {
-    margin: 0;
+.bibDiscTitle {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    cursor: pointer;
+}
+#toolsList {
+    a, a:hover, a:visited a:focus {
+        text-decoration: none;
+        cursor: pointer;
+        color: rgb(51,51,51);
+    } 
+    li {
+        height: 30px;
+    }
 }
 /*****************************
 Contact-form

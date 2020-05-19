@@ -8,7 +8,9 @@
             <span class="bread">
                 <a href="/">{{__('Home', 'bibcnrs')}}</a> >>
                 <a href="{{site.url}}/category/{{parentCat.slug}}">{{parentCat.name}}</a> >> 
-                {{single.title}}
+                {% for post in posts %}
+                    {{post.title}}
+                {% endfor %}
             </span>
         {% endblock %}       
     <br class="clear"/>

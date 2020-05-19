@@ -33,3 +33,10 @@ msgstr Test date
 
 msgid noResources
 msgstr No test resources
+
+msgid tests
+msgstr Tests
+
+msgid tools
+msgstr Tools
+

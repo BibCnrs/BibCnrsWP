@@ -16,14 +16,22 @@
         <div id="center">
             <div id="pagefaq">
                 <h1>{{currentCategory.name}}</h1>
+                <ul id="toolsList">
                 {% for sscat in bibcnrs %}
-                    {{sscat.title}}
-                    <ul>
+                    {% if sscat.slug.slug == 'extensions-fr' %}
+                        <li>{{sscat.slug.name}}</li>
+                        <ul>
+                            {% for post in sscat.posts %}
+                                <li><a href="{{site.url}}/{{post.slug}}">{{post.title}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
                     {% for post in sscat.posts %}
                         <li><a href="{{site.url}}/{{post.slug}}">{{post.title}}</a></li>
                     {% endfor %}
-                </ul>
+                    {% endif %}
                 {% endfor %}
+                </ul>
             </div>
        </div>
    </div>
