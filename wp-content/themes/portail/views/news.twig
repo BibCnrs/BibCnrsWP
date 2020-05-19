@@ -13,54 +13,71 @@
             <div id="newsMenu">
                 <h2 class="menuTitle ">{{__('domains', 'bibcnrs')}}</h2>
                 {% for item in news %}
-                    <label for="menuNews-{{item.slug.cat_ID}}">
-                        <input id="menuNews-{{item.slug.cat_ID}}" class="menuItem" name="choice" type="radio">
+                    <label for="menuNews-{{item.tag}}">
+                        <input id="menuNews-{{item.tag}}" class="menuItem" name="choice" type="radio">
                         <span>{{item.slug.name}}
                             <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
                                 <circle fill="{{item.color}}" cx="6" cy="6" r="6"></circle>
                             </svg>
                         </span>
                     </label>
-                    <!-- <li class="menuItem" id="menuNews-{{item.slug.cat_ID}}">{{item.slug.name}}</li> -->
                 {% endfor %}
             </div>
-            <div id="newsDetail">
-                {% for item in news %}
-                <div id="domain-{{item.slug.cat_ID}}">               
-                    <h2 class="domainTitle font-{{item.slug.description}}" id="title-{{item.slug.cat_ID}}">{{__('news', 'bibcnrs')}} {{item.title}}</h2> 
-                    {% for post in item.posts %}
-                        <div id="postDetail-{{post.ID}}" class="postDetail">
-                            <div class="newsBoxCategory font-{{post.category.description}}">
-                                <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
-                                <circle fill="{{post.color}}" cx="6" cy="6" r="6"></circle>
-                            </svg>
-                                {{post.category_name}}
+            <div id="newsDisc" class="flexrow">
+                <div id="newsDiscDetail">
+                    {% for item in news %}
+                        {% for post in item.posts %}
+                            <div id="postDetail-{{post.ID}}" class="postDetail">
+                                <div class="detailTitle font-{{post.category.description}}">
+                                    {{post.title}}
+                                </div>
+                                <div id="close-{{post.ID}}" class="detailClose">X</div>
+                                <div class="newsPostContent">
+                                    {{post.content}}                                
+                                </div>
+                                <div class="newsBoxDate font-{{post.category.description}}">
+                                    {% if site.language|slice(0,2) == 'fr' %}
+                                        {{post.post_date|date("d.m.y")}}
+                                    {% else %}
+                                        {{post.post_date|date("m.d.y")}}
+                                    {% endif %}
+                                </div>
                             </div>
-                            <div class="newsBoxTitle">
-                                {{post.title}}
+                        {% endfor %} 
+                    {% endfor %}
+                    {% for item in disc %}
+                        {% for post in item.posts %}
+                        <div id="postDetail-{{post.ID}}" class="postDetail">
+                            <div class="detailTitle font-{{post.category.description}}">
+                                {% if post.url and post.category.slug != 'disc-commun' and post.category.slug != 'disc-common'  %}
+                                    <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
+                                        {{post.title}}
+                                    </a>
+                                {% else %}
+                                    {{post.title}}
+                                {% endif %}
                             </div>
                             <div id="close-{{post.ID}}" class="detailClose">X</div>
-                            <div class="newsPostContent">
+                            <div class="discPostContent">
                                 {{post.content}}                                
                             </div>
-                            <div class="newsBoxDate font-{{post.category.description}}">
+                            <div class="discBoxDate font-{{post.category.description}}">
                                 {% if site.language|slice(0,2) == 'fr' %}
-                                    {{post.post_date|date("d.m.y")}}
+                                    {{__('testdate', 'bibcnrs')}} : {{post.start_date|date("d.m.y")}} > {{post.end_date|date("d.m.y")}}
                                 {% else %}
-                                    {{post.post_date|date("m.d.y")}}
+                                    {{__('testdate', 'bibcnrs')}}: {{post.start_date|date("m.d.y")}} > {{post.end_date|date("m.d.y")}}
                                 {% endif %}
                             </div>
                         </div>
+                        {% endfor %}
                     {% endfor %} 
-                    <div class="domainNewsBox" id="detail-{{item.slug.cat_ID}}">
+                </div>
+                <div id="newsDetail">
+                    {% for item in news %} 
+                    <div class="domainNewsBox" id="detailnews-{{item.tag}}">
+                        <h2 class="domainTitle font-{{item.slug.description}}" id="titlenews-{{item.tag}}">{{__('news', 'bibcnrs')}} {{item.slug.name}}</h2>
                         {% for post in item.posts %}
-                        <div class="newsBox flexColumn" id="box-{{post.ID}}" data-type="type-{{item.slug.cat_ID}}">
-                            <div class="newsBoxCategory font-{{post.category.description}}">
-                                <svg class="itemCircle" viewBox="0 0 12 12" width="12" height="12">
-                                <circle fill="{{post.color}}" cx="6" cy="6" r="6"></circle>
-                            </svg>
-                                {{post.category_name}}
-                            </div>
+                        <div class="newsBox flexColumn" id="box-{{item.tag}}-{{post.ID}}" data-type="news-{{item.tag}}">
                             <div class="newsBoxTitle">
                                 {{post.title}}
                             </div>
@@ -70,14 +87,51 @@
                                 {% else %}
                                     {{post.post_date|date("m.d.y")}}
                                 {% endif %}
-                                <span class="discDetail" id="post-{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
+                                <span class="detailOpen" id="post-{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
                             </div>
                         </div>
                         {% endfor %}
                     </div>
+                    {% endfor %}
+                    <div id="newsPages"></div>
                 </div>
-                {% endfor %}
-                <div id="newsPages"></div>
+                <div id="discDetail">
+                    {% for item in disc %}
+                        <div class="domainDiscsBox" id="detaildisc-{{item.tag}}">
+                            <h2 class="domainTitle font-{{item.slug.description}}" id="titledisc-{{item.tag}}">{{__('tests', 'bibcnrs')}}</h2>
+                            {% if item.posts %}
+                            {% for post in item.posts %}
+                             <div class="discBox flexColumn" id="box-{{item.tag}}-{{post.ID}}" data-type="disc-{{item.tag}}">
+                                    <div class="discBoxTitle">
+                                    {% if post.url and post.category.slug != 'disc-commun' and post.category.slug != 'disc-common'  %}
+                                        <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
+                                            {{post.title}}
+                                        </a>
+                                    {% else %}
+                                        {{post.title}}
+                                    {% endif %}
+                                </div>
+                                <div class="discBoxDate font-{{post.category.description}}">
+                                    {% if site.language|slice(0,2) == 'fr' %}
+                                        {{__('testdate', 'bibcnrs')}} : {{post.start_date|date("d.m.y")}} > {{post.end_date|date("d.m.y")}}
+                                    {% else %}
+                                        {{__('testdate', 'bibcnrs')}}: {{post.start_date|date("m.d.y")}} > {{post.end_date|date("m.d.y")}}
+                                    {% endif %}
+                                    <span class="detailOpen" id="post-{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                             <div class="discBox flexColumn" id="box-{{item.tag}}-{{post.ID}}" data-type="disc-{{item.tag}}">
+                                <div class="discBoxTitle">
+                                    {{__('noResources', 'bibcnrs')}}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <div id="discPages"></div>
+                 </div>
             </div>  
         </div>
    </div>

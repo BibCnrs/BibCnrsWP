@@ -30,98 +30,93 @@ $parentCatID = get_cat_ID($name);
 $slugs = get_categories( 'child_of='.$parentCatID );
 
 // IF FAQ sub-categories display
-if ($nicename == "faq-".$language){
-    foreach($slugs as $slug){
-        $nom=$slug->slug;
-    	$context['faqPosts'][] = [
-            'title' => get_category_by_slug($nom)->name,
-    		'slug' => $slug,
-    		'posts' => Timber::get_posts(array('category_name' => $nom))
-    	];
-    }
-    Timber::render('faq.twig', $context);
-}
-elseif ($nicename == "news" OR $nicename == "actus"){
-    $general= $language === 'fr' ? 'Générales' : 'General';
-    $generalID = get_cat_ID($general);
-    $generalCat = get_category($generalID);
-    foreach($slugs as $slug){
-        $catID = $slug->cat_ID;
-        $nom=$slug->slug;
-        if ($generalID == $catID) {
-            $posts = Timber::get_posts(['category' => $generalID, 'numberposts' => -1]);           
+switch ($nicename) {
+    case "faq-".$language:
+        foreach($slugs as $slug){
+            $nom=$slug->slug;
+        	$context['faqPosts'][] = [
+                'title' => $slug->name,
+        		'slug' => $slug,
+        		'posts' => Timber::get_posts(array('category_name' => $nom))
+        	];
         }
-        else {
-            $posts = Timber::get_posts(['category' => $catID, 'numberposts' => -1]);
-        }
-        for ($i = 0; $i < count($posts) ; $i++) {
-            $multicat = get_the_category($posts[$i]->ID);
-             if ($multicat[0]->cat_ID == $generalID) {
-                $posts[$i]->category_name = $generalCat->name;
-                $posts[$i]->category = $generalCat;
-                $posts[$i]->color = $config['color'][$generalCat->description];
+        Timber::render('faq.twig', $context);
+        break;
+    case "news":
+    case "actus":
+        /* news */
+        $general= $language === 'fr' ? 'Commun' : 'Common';
+        $generalID = get_cat_ID($general);
+        $generalCat = get_category($generalID);
+        foreach($slugs as $slug){
+            $catID = $slug->cat_ID;
+            $nom = explode("-",$slug->slug);
+            $tag = $nom[1];
+            $posts = Timber::get_posts(['category' => $catID,
+                                        'date_query' => array(
+                                         array(
+                                         'after' => '-1 years',
+                                         'column' => 'post_date',
+                                         ),
+                                         ),
+                                     ]);
+            for ($i = 0; $i < count($posts) ; $i++) {
+                    $posts[$i]->category = $slug;
+                    $posts[$i]->color = $config['color'][$slug->description]; 
             }
-            else {
-                $posts[$i]->category_name = $slug->name;
-                $posts[$i]->category = $slug;
-                $posts[$i]->color = $config['color'][$slug->description]; 
-            }
-        }
-        $context['news'][] = [
-            'title' => get_category_by_slug($nom)->name,
-            'slug' => $slug,
-            'color' => $config['color'][$slug->description],
-            'posts' => $posts
-        ];
-    }
-    Timber::render('news.twig', $context);    
-}
-elseif ($nicename == "decouverte" OR $nicename == "discovery" ) {
-    $today = date(Ymd);
-    foreach($slugs as $slug){
-        $catID = $slug->cat_ID;
-        $nom=$slug->slug;
-        $posts = Timber::get_posts(['category' => $catID, 
-                                'numberposts' => -1, 
-                                'meta_query' => array(array(
-                                                'key' => 'end_date',
-                                                'value' => $today, 
-                                                'type' => 'NUMERIC', 
-                                                'compare' => '>'),
-                                                ),
-                                    ]);
-        for ($i = 0; $i < count($posts) ; $i++) {
-            $posts[$i]->category = $slug;
-            $posts[$i]->color = $config['color'][$slug->description];
-        }
-        if ($nom == "disc-commun" OR $nom =="disc-common") {
-            $context['common'][] =[
+            $context['news'][] = [
+                'tag' => $tag,
                 'slug' => $slug,
                 'color' => $config['color'][$slug->description],
                 'posts' => $posts
             ];
         }
-        else {
+        /* discovery */
+        $discovery= $language === 'fr' ? 'Découverte' : 'Discovery';
+        $discoveryID = get_cat_ID($discovery);
+        $ssdiscs = get_categories( 'child_of='.$discoveryID );
+        $today = date(Ymd);
+        foreach($ssdiscs as $ssdisc){
+            $catID = $ssdisc->cat_ID;
+            $nom = explode("-",$ssdisc->slug);
+            $tag = $nom[1];
+            $discs = Timber::get_posts(['category' => $catID, 
+                                    'numberposts' => -1, 
+                                    'meta_query' => array(array(
+                                                    'key' => 'end_date',
+                                                    'value' => $today, 
+                                                    'type' => 'NUMERIC', 
+                                                    'compare' => '>'),
+                                                    ),
+                                        ]);
+           for ($i = 0; $i < count($discs) ; $i++) {
+                $discs[$i]->category = $ssdisc;
+                $discs[$i]->color = $config['color'][$slug->description];
+            }
             $context['disc'][] = [
-                'slug' => $slug,
-                'color' => $config['color'][$slug->description],
-                'posts' => $posts
+                'tag' => $tag,
+                'slug' => $ssdisc,
+                'color' => $config['color'][$ssdisc->description],
+                'posts' => $discs
             ];
         }
-    }
-    Timber::render('discovery.twig', $context);
-}
-elseif ($nicename == "decouvrir_bibcnrs" OR $nicename == "discover_bibcnrs" ) {
-    foreach($slugs as $slug){
-        $nom=$slug->slug;
-        $context['bibcnrs'][] = [
-            'title' => get_category_by_slug($nom)->name,
-            'slug' => $slug,
-            'posts' => Timber::get_posts(array('category_name' => $nom))
-        ];
-    }
-    Timber::render('bibcnrs.twig', $context);
-}
-else {
-    Timber::render('category.twig', $context);
+        Timber::render('news.twig', $context);
+        break;   
+    case "outils":
+    case "tools":
+        foreach($slugs as $slug){
+            $nom=$slug->slug;
+            $context['bibcnrs'][] = [
+                'slug' => $slug,
+                'posts' => Timber::get_posts(array('category_name' => $nom))
+            ];
+        }
+        Timber::render('tools.twig', $context);
+        break;   
+    case "decouvrir_bibcnrs":
+    case "discover_bibcnrs":
+        Timber::render('discovery.twig', $context);
+        break;
+    default:
+        Timber::render('category.twig', $context);
 }
