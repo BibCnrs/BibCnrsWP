@@ -9,6 +9,11 @@
 {% block content %}
 <div id="mainContent">
     <div id="content" class="bsbb">
+        {% block breadcrumb %}
+            <span class="bread">
+                <a href="/">{{__('Home', 'bibcnrs')}}</a> >> {{__('news', 'bibcnrs')}} / {{__('tests', 'bibcnrs')}}
+            </span>
+        {% endblock %}
         <div id="newsContent">       
             <div id="newsMenu">
                 <h2 class="menuTitle ">{{__('domains', 'bibcnrs')}}</h2>

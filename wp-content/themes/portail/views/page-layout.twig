@@ -92,14 +92,17 @@
                 <a href="http://www.cnrs.fr" target="_blank" >
                     <img src="{{theme.uri}}/images/logo_cnrs_80x80.png" alt="logo cnrs" class="logocnrs"/>
                 </a>
-                <ul class="menu-bas-fr">
+                {% if fn('is_front_page') %}
+                    <ul class="menu-bas-fr menu-bas-home">
+                {% else %}
+                    <ul class="menu-bas-fr">
+                {% endif %}            
                     {% for item in secondaire.get_items %}
                         <li class="nav-main-item {{item.classes | join(' ')}}">
                             <a class="nav-main-link" href="{{item.get_link}}">
                                 {{item.title}}
                             </a>
                         </li>
-                        <li class="footerslash">&nbsp;|&nbsp;</li>
                     {% endfor %}
                 </ul>
                 <div id="socialMedia">
