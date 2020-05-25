@@ -350,6 +350,7 @@ News
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 15px;
+    margin-top: 50px;
 }
 .domainTitle {
     display: none;
@@ -360,9 +361,9 @@ News
     margin-bottom: 50px;
 }
 #newsMenu {
-    width: 350px;
+    width: 340px;
     list-style: none;
-    padding: 10px;
+    padding: 40px 10px 10px 0px;
     cursor: pointer;
     label {
       display: block;
@@ -398,7 +399,7 @@ News
     }
 }
 #newsDisc {
-    width: calc(100% - 350px);
+    width: calc(100% - 340px);
     align-self: flex-start;
 }
 #newsDiscDetail {
@@ -647,14 +648,17 @@ footer {
         padding: 10px 0 0 0;
         li {
             display: inline-block;
-            padding: 0 5px 0 5px;
+            padding: 0 10px 0 10px;
             a, a:hover, a:focus, a:active {
                 color: #fff;
                 text-decoration: none;
             }
         }
-        .footerslash:last-child {
-            display: none;
+        li:not(:last-child) {
+            border-right: 1px solid #fff;
         }
+    }
+    .menu-bas-home .nothome {
+        display: none;
     }
 }
