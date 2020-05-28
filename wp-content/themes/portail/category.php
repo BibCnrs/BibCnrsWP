@@ -32,14 +32,6 @@ $slugs = get_categories( 'child_of='.$parentCatID );
 // IF FAQ sub-categories display
 switch ($nicename) {
     case "faq-".$language:
-        foreach($slugs as $slug){
-            $nom=$slug->slug;
-        	$context['faqPosts'][] = [
-                'title' => $slug->name,
-        		'slug' => $slug,
-        		'posts' => Timber::get_posts(array('category_name' => $nom))
-        	];
-        }
         Timber::render('faq.twig', $context);
         break;
     case "news":

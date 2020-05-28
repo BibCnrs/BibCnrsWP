@@ -226,8 +226,6 @@ Navigation
 nav select {
     display: none;
 }
-@media screen and (max-width: 1241px) {
-}
 /*****************************
 Centre
 *****************************/
@@ -512,42 +510,29 @@ FAQ
     margin-bottom: 20px;
     padding: 0px 20px 20px 20px;
 }
-.h2faq {
-    margin-top: 5px;
-    margin-bottom: 0;
-    line-height: 1.7rem;
-}
 .faqtitle {
     color: #455F7A;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     padding-left: 10px;
     cursor: pointer;
-    line-height: 2rem;
+    line-height: 2.4rem;
 }
 .repfaq {
     padding-left: 50px;
     display: none;
-    font-size: 1.4rem;
-    margin-bottom: 5px;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
     img {
         max-width: 100%;
-        height: auto;@media screen and (max-width: 970px) {
-    .largetitle {
-        display: none;
-    }
-    .smalltitle {
-        display: inline-block;
-    }
-}
-
+        height: auto;
         margin: 10px 0 10px 0;
     }
-}
-.repfaq p {
-    margin: 0;
-}
-.repfaq ul {
-    -webkit-margin-after: 0px;
+    p {
+        margin: 0;
+    }
+    ul {
+        -webkit-margin-after: 0px;
+    }
 }
 .repfaq:target {
     display: block;
