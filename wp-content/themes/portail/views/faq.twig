@@ -17,8 +17,11 @@
         <div id="center">
             <div id="pagefaq">
                 <h1 class="font-{{currentCategory.description}}">FAQ</h1>
-                {% for sscat in faqPosts %}
-                {{ faqsubcat.macro(sscat.slug, sscat.posts) }}
+                {% for post in posts %}
+                        <div class="faqtitle" id="faq-{{post.id}}">{{post.post_title}}</div>
+                        <div id="rep-{{post.id}}" class="repfaq">
+                            {{post.content}}
+                        </div>
                 {% endfor %}
             </div>
        </div>
