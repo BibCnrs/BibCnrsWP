@@ -129,10 +129,10 @@
       "package": {
         "name": "advanced-custom-fields",
         "type": "wordpress-plugin",
-        "version": "5.8.11",
+        "version": "5.8.12",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.11.zip"
+          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.12.zip"
         }
       }
     },
@@ -141,10 +141,10 @@
       "package": {
         "name": "wp-mail-smtp",
         "type": "wordpress-plugin",
-        "version": "2.0.1",
+        "version": "2.1.1",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.2.0.1.zip"
+          "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.2.1.1.zip"
         }
       }
     }
@@ -163,7 +163,7 @@
     "cookie-notice": "1.3.2",
     "add-to-any": "1.7.40",
     "classic-editor": "1.5",
-    "advanced-custom-fields": "5.8.11",
-    "wp-mail-smtp": "2.0.1"
+    "advanced-custom-fields": "5.8.12",
+    "wp-mail-smtp": "2.1.1"
   }
 }

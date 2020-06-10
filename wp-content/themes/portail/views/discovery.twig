@@ -15,7 +15,7 @@
         {% endblock %}       
         <div id="center">
             <div id="pagefaq">
-                <h1>{{currentCategory.name}}</h1>
+                <h1 class="font-gene">{{currentCategory.name}}</h1>
                 {% for post in posts %}
                     <div class="bibDiscTitle" id="bibDiscTitle-{{post.id}}" onclick="flipflop({{post.id}})">
                         {{post.title}}
