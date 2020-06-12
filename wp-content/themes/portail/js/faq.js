@@ -18,7 +18,7 @@
 		if (searchfaq) {
 			flipflop(searchfaq,"yes");
 		}
-		$('.faqTitle').click(function(e) {
+		$('.faqtitle').click(function(e) {
 			var focus = $(e.target).attr('id').split("-")[1];
 			flipflop(focus,"no");
 		});
