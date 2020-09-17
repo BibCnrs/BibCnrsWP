@@ -80,7 +80,7 @@
                 <div id="newsDetail">
                     {% for item in news %} 
                     <div class="domainNewsBox" id="detailnews-{{item.tag}}">
-                        <h2 class="domainTitle font-{{item.slug.description}}" id="titlenews-{{item.tag}}">{{__('news', 'bibcnrs')}} {{item.slug.name}}</h2>
+                        <h2 class="domainTitle font-{{item.slug.description}}" id="titlenews-{{item.tag}}">{{__('news', 'bibcnrs')}}&nbsp;{{item.slug.name}}</h2>
                         {% for post in item.posts %}
                         <div class="newsBox flexColumn" id="box-{{item.tag}}-{{post.ID}}" data-type="news-{{item.tag}}">
                             <div class="newsBoxTitle">

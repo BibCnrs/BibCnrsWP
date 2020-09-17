@@ -108,3 +108,6 @@ bump: ## create a file with current commit hash
 install: build-css composer-update bump ## install dependency and build css
 
 build: install build-docker $(COMMAND_ARGS) ## install and build docker
+
+update: stop cleanup-docker install build
+
