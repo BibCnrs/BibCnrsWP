@@ -1,4 +1,7 @@
-phpunit:
-  image: phpunit/phpunit:5.0.3
-  volumes:
-    - .:/app
+version: "3.5"
+
+services:
+  phpunit:
+    image: phpunit/phpunit:5.0.3
+    volumes:
+      - .:/app

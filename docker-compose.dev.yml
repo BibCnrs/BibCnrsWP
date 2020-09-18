@@ -1,2 +1,5 @@
-compass:
-  command: watch
+version: "3.5"
+
+services:
+  compass:
+    command: watch
