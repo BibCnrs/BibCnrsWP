@@ -1,53 +1,68 @@
-wordpress:
-  image: bibcnrs/wordpress:5.5.1-apache
-  ports:
-    - 8080:8080
-  links:
-    - db:mysql
-  environment:
-    ROBOT_INDEX: "false"
-    http_proxy: ${http_proxy}
-    https_proxy: ${https_proxy}
-    WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
-    WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
-    AUTH_KEY: AUTH_KEY
-    SECURE_AUTH_KEY: SECURE_AUTH_KEY
-    LOGGED_IN_KEY: LOGGED_IN_KEY
-    NONCE_KEY: NONCE_KEY
-    AUTH_SALT: AUTH_SALT
-    SECURE_AUTH_SALT: SECURE_AUTH_SALT
-    LOGGED_IN_SALT: LOGGED_IN_SALT
-    NONCE_SALT: NONCE_SALT
-  working_dir: /var/www/html
-  volumes:
-    - ./wp-content/plugins:/var/www/html/wp-content/plugins
-    - ./wp-content/themes:/var/www/html/wp-content/themes
-    - ./wp-content/vendor:/var/www/html/wp-content/vendor
-    - ./node_modules:/var/www/html/wp-content/node_modules
-    - ./wp-content/uploads:/var/www/html/wp-content/uploads
-    - ./wp-content/languages:/var/www/html/wp-content/languages
+version: "3.5"
 
-db:
-  image: mariadb:10.0
-  environment:
-    MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-    PORT: 3305
-    TERM: dumb
-  volumes:
-    - /applis/bibcnrs/home/mariadb:/var/lib/mysql
+services:
+  wordpress:
+    image: bibcnrs/wordpress:5.5.1-apache
+    ports:
+      - 8080:8080
+    links:
+      - db:mysql
+    environment:
+      ROBOT_INDEX: "false"
+      http_proxy: ${http_proxy}
+      https_proxy: ${https_proxy}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      AUTH_KEY: AUTH_KEY
+      SECURE_AUTH_KEY: SECURE_AUTH_KEY
+      LOGGED_IN_KEY: LOGGED_IN_KEY
+      NONCE_KEY: NONCE_KEY
+      AUTH_SALT: AUTH_SALT
+      SECURE_AUTH_SALT: SECURE_AUTH_SALT
+      LOGGED_IN_SALT: LOGGED_IN_SALT
+      NONCE_SALT: NONCE_SALT
+    working_dir: /var/www/html
+    volumes:
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/themes:/var/www/html/wp-content/themes
+      - ./wp-content/vendor:/var/www/html/wp-content/vendor
+      - ./node_modules:/var/www/html/wp-content/node_modules
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads
+      - ./wp-content/languages:/var/www/html/wp-content/languages
+    networks:
+      - bibfrontend
+      - bibbackend
+  db:
+    image: mariadb:10.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      PORT: 3305
+      TERM: dumb
+    volumes:
+      - /applis/bibcnrs/home/mariadb:/var/lib/mysql
+    networks:
+      - bibbackend
+  composer:
+    image: bibcnrs/composer-npm:1.3
+    environment:
+      http_proxy: ${http_proxy}
+      https_proxy: ${https_proxy}
+    volumes:
+      - .:/app
+    networks:
+      - bibbackend
 
-composer:
-  image: bibcnrs/composer-npm:1.3
-  environment:
-    http_proxy: ${http_proxy}
-    https_proxy: ${https_proxy}
-  volumes:
-    - .:/app
-
-compass:
-  image: bibcnrs/compass
-  volumes:
-    - ./sass:/src/sass
-    - ./config.rb:/src/config.rb
-    - ./wp-content/themes/portail:/src/wp-content/themes/portail
-  command: compile
+  compass:
+    image: bibcnrs/compass
+    volumes:
+      - ./sass:/src/sass
+      - ./config.rb:/src/config.rb
+      - ./wp-content/themes/portail:/src/wp-content/themes/portail
+    command: compile
+    networks:
+      - bibbackend
+networks:
+    bibbackend:
+      driver: bridge
+    bibfrontend:
+      driver: bridge

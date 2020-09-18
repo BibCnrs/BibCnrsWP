@@ -1,14 +1,6 @@
 sudo: required
 services:
   - docker
-env:
-  DOCKER_COMPOSE_VERSION: 1.6.2
-before_install:
-  # docker-compose upgrade
-  - sudo rm -f /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
 language: php
 php:
   - 5.6
@@ -20,6 +12,3 @@ cache:
   directories:
   - wp-content/vendor
   - wp-content/plugins
-notifications:
-  slack:
-    secure: QrUM+xEVnE6n9UKm9gVQjtPwsYaPbJfxuHkBq3HUBurmnUEmHMCLGXyz785E9Sg9QHD/xpENEVM1lNjUgZyMjySt9WTNVQu8g2xyh3Rg3oqzCiJ08UgBqEmpd2CM3kacN1uMKHHRhWVayaSWdHySLyr+mW2idaLSP92wkZWHihl+JsUEOgMB/wf2KBpbqZhATNkm6ZVg5pngzuHy7ANwV3IEbH8g7cC7S8n5P2YSGAD5ZzlYHInLuf7IsQA2ixh275IvIF6QxKgTx80FKaarQzaJl9NQFWkDAVMGjYbrTXKNFz4nz9YbjVa8aQ5VGNdy1S0Xd7KwIkZTtfxZYqZt27H1k9UGAdPVaNbwfFja2OshMXyXtN1g7Zw3neFfs5RIA7SC1EG1pufhp5qdLFTbah7BJ19Wcfe6bgqcjm495cvviWDkP/T6n4A9bBvaM/yfuVLM9f+ZV0qA0DIA3tD34ix90haf56bQEPASjupvqQDOte3pv1IGZ7z9kqnULQUflPzT8GMZsUwNiwflWo4VsIsgBHTiRniU2DEWL3SIUu5W9uE3fAtqnKn+B9ULyrU24sTZ0zYYG7lF1Yx8rhjkyz1/6OUb92Ycx6wXpHIXL2c6TPMOpeuFk9FPJ3syFzDYtCBY/V/9DoNxCh2y53frDQCJE4nw2KTtdq2Zvw9bgQU=
