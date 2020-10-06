@@ -32,11 +32,11 @@
                 <div id="newsDiscDetail">
                     {% for item in news %}
                         {% for post in item.posts %}
-                            <div id="postDetail-{{post.ID}}" class="postDetail">
+                            <div id="postDetail-{{item.tag}}_{{post.ID}}" class="postDetail">
                                 <div class="detailTitle font-{{post.category.description}}">
                                     {{post.title}}
                                 </div>
-                                <div id="close-{{post.ID}}" class="detailClose">X</div>
+                                <div id="close-{{item.tag}}_{{post.ID}}" class="detailClose">X</div>
                                 <div class="newsPostContent">
                                     {{post.content}}                                
                                 </div>
@@ -52,7 +52,7 @@
                     {% endfor %}
                     {% for item in disc %}
                         {% for post in item.posts %}
-                        <div id="postDetail-{{post.ID}}" class="postDetail">
+                        <div id="postDetail-{{item.tag}}_{{post.ID}}" class="postDetail">
                             <div class="detailTitle font-{{post.category.description}}">
                                 {% if post.url and post.category.slug != 'disc-commun' and post.category.slug != 'disc-common'  %}
                                     <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
@@ -62,7 +62,7 @@
                                     {{post.title}}
                                 {% endif %}
                             </div>
-                            <div id="close-{{post.ID}}" class="detailClose">X</div>
+                            <div id="close-{{item.tag}}_{{post.ID}}" class="detailClose">X</div>
                             <div class="discPostContent">
                                 {{post.content}}                                
                             </div>
@@ -82,7 +82,7 @@
                     <div class="domainNewsBox" id="detailnews-{{item.tag}}">
                         <h2 class="domainTitle font-{{item.slug.description}}" id="titlenews-{{item.tag}}">{{__('news', 'bibcnrs')}}&nbsp;{{item.slug.name}}</h2>
                         {% for post in item.posts %}
-                        <div class="newsBox flexColumn" id="box-{{item.tag}}-{{post.ID}}" data-type="news-{{item.tag}}">
+                        <div class="newsBox flexColumn" id="box-{{item.tag}}_{{post.ID}}" data-type="news-{{item.tag}}">
                             <div class="newsBoxTitle">
                                 {{post.title}}
                             </div>
@@ -92,7 +92,7 @@
                                 {% else %}
                                     {{post.post_date|date("m.d.y")}}
                                 {% endif %}
-                                <span class="detailOpen" id="post-{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
+                                <span class="detailOpen" id="post-{{item.tag}}_{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
                             </div>
                         </div>
                         {% endfor %}
@@ -106,7 +106,7 @@
                             <h2 class="domainTitle font-{{item.slug.description}}" id="titledisc-{{item.tag}}">{{__('tests', 'bibcnrs')}}</h2>
                             {% if item.posts %}
                             {% for post in item.posts %}
-                             <div class="discBox flexColumn" id="box-{{item.tag}}-{{post.ID}}" data-type="disc-{{item.tag}}">
+                             <div class="discBox flexColumn" id="box-{{item.tag}}_{{post.ID}}" data-type="disc-{{item.tag}}">
                                     <div class="discBoxTitle">
                                     {% if post.url and post.category.slug != 'disc-commun' and post.category.slug != 'disc-common'  %}
                                         <a href="http://{{item.slug.description}}.bib.cnrs.fr/login?url={{post.url}}" target="_blank">
@@ -122,7 +122,7 @@
                                     {% else %}
                                         {{__('testdate', 'bibcnrs')}}: {{post.start_date|date("m.d.y")}} > {{post.end_date|date("m.d.y")}}
                                     {% endif %}
-                                    <span class="detailOpen" id="post-{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
+                                    <span class="detailOpen" id="post-{{item.tag}}_{{post.ID}}"> + {{__('details', 'bibcnrs')}}</span>
                                 </div>
                             </div>
                             {% endfor %}
