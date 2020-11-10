@@ -3,8 +3,6 @@ version: "3.5"
 services:
   wordpress:
     image: vsnexus-registry.intra.inist.fr:8083/bibcnrs/bibcnrs:${bibcnrs_version}
-    links:
-        - db:mysql
     environment:
         ROBOT_INDEX: ${ROBOT_INDEX}
         http_proxy: ${http_proxy}
@@ -22,8 +20,11 @@ services:
         - ./wp-content/uploads:/var/www/html/wp-content/uploads
     restart: always
     networks:
-        - bibfrontend
-        - bibbackend
+      bibfrontend :
+      bibbackend :
+        aliases: 
+          - wordpress
+
   db:
     image: mariadb:10.0
     environment:
@@ -34,7 +35,10 @@ services:
         - /applis/bibcnrs/home/mariadb:/var/lib/mysql
     restart: always
     networks:
-      - bibbackend
+      bibbackend :
+        aliases: 
+          - mysql
+          
 networks:
   bibbackend:
     driver: bridge
