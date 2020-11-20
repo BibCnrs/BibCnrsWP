@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   wordpress:
-    image: vsnexus-registry.intra.inist.fr:8083/bibcnrs/bibcnrs:${bibcnrs_version}
+    image: vxnexus-registry.intra.inist.fr:8083/bibcnrs/bibcnrs:${bibcnrs_version}
     environment:
         ROBOT_INDEX: ${ROBOT_INDEX}
         http_proxy: ${http_proxy}
