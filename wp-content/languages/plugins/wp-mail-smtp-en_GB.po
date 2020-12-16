@@ -1,0 +1,86 @@
+# Translation of Plugins - WP Mail SMTP by WPForms - Stable (latest release) in English (UK)
+# This file is distributed under the same license as the Plugins - WP Mail SMTP by WPForms - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-11-29 18:52:44+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: en_GB\n"
+"Project-Id-Version: Plugins - WP Mail SMTP by WPForms - Stable (latest release)\n"
+
+#: src/Admin/Pages/MiscTab.php:124
+msgid "Check this if you would like to hide plugin announcements and update details."
+msgstr "Check this if you would like to hide plugin announcements and update details."
+
+#: src/Admin/Pages/MiscTab.php:115
+msgid "Hide Announcements"
+msgstr "Hide Announcements"
+
+#. Author of the plugin
+msgid "WPForms"
+msgstr "WPForms"
+
+#. Author URI of the plugin
+msgid "https://wpforms.com/"
+msgstr "https://wpforms.com/"
+
+#: src/Admin/Pages/SettingsTab.php:241
+msgid "Return Path indicates where non-delivery receipts - or bounce messages - are to be sent."
+msgstr "Return Path indicates where non-delivery receipts - or bounce messages - are to be sent."
+
+#: src/Admin/Area.php:217 src/Admin/Area.php:218 src/Admin/Area.php:956
+msgid "Settings"
+msgstr "Settings"
+
+#: src/Providers/OptionsAbstract.php:288
+msgid "Authentication"
+msgstr "Authentication"
+
+#: src/Admin/Pages/SettingsTab.php:101
+msgid "From Email"
+msgstr "From Email"
+
+#: src/Admin/Pages/SettingsTab.php:183
+msgid "From Name"
+msgstr "From Name"
+
+#: src/Providers/OptionsAbstract.php:252
+msgid "SMTP Port"
+msgstr "SMTP Port"
+
+#: src/Admin/Pages/TestTab.php:59
+msgid "Send a Test Email"
+msgstr "Send a Test Email"
+
+#: src/Providers/OptionsAbstract.php:212
+msgid "Encryption"
+msgstr "Encryption"
+
+#: src/Providers/OptionsAbstract.php:198
+msgid "SMTP Host"
+msgstr "SMTP Host"
+
+#: src/Admin/Pages/SettingsTab.php:237
+msgid "Set the return-path to match the From Email"
+msgstr "Set the return-path to match the From Email"
+
+#: src/Admin/Pages/SettingsTab.php:228
+msgid "Return Path"
+msgstr "Return Path"
+
+#: src/Admin/Pages/SettingsTab.php:250
+msgid "Mailer"
+msgstr "Mailer"
+
+#. Plugin Name of the plugin
+#: src/Admin/Area.php:206 src/Admin/Area.php:207 src/Admin/Area.php:252
+#: src/Admin/Area.php:253 src/SiteHealth.php:40
+msgid "WP Mail SMTP"
+msgstr "WP Mail SMTP"
+
+#: src/Providers/Gmail/Options.php:33
+msgid "Gmail"
+msgstr "Gmail"

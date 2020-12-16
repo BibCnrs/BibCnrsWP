@@ -1,0 +1,76 @@
+# Translation of Plugins - Classic Editor - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Classic Editor - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-12-06 17:28:22+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Classic Editor - Stable (latest release)\n"
+
+#: classic-editor.php:489
+msgid "Change settings"
+msgstr "Modifier les réglages"
+
+#: classic-editor.php:476
+msgid "Default editor for all sites"
+msgstr "Éditeur par défaut pour tous le sites"
+
+#: classic-editor.php:472
+msgid "Editor Settings"
+msgstr "Réglages de l’éditeur"
+
+#: classic-editor.php:456
+msgid "Default Editor"
+msgstr "Éditeur par défaut"
+
+#: classic-editor.php:492
+msgid "Allow site admins to change settings"
+msgstr "Autoriser les administrateurs et les administratrices à modifier les réglages"
+
+#: classic-editor.php:638
+msgid "Editor"
+msgstr "Éditeur"
+
+#: classic-editor.php:431
+msgid "No"
+msgstr "Non"
+
+#: classic-editor.php:427
+msgid "Yes"
+msgstr "Oui"
+
+#: classic-editor.php:354
+msgid "Allow users to switch editors"
+msgstr "Autoriser les utilisateurs et utilisatrices à changer d’éditeur"
+
+#: classic-editor.php:353
+msgid "Default editor for all users"
+msgstr "Éditeur par défaut pour tous les utilisateurs et utilisatrices"
+
+#. Author URI of the plugin
+msgid "https://github.com/WordPress/classic-editor/"
+msgstr "https://github.com/WordPress/classic-editor/"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/classic-editor/"
+msgstr "https://wordpress.org/plugins/classic-editor/"
+
+#. Author of the plugin
+msgid "WordPress Contributors"
+msgstr "Contributeurs et contributrices WordPress"
+
+#. Description of the plugin
+msgid "Enables the WordPress classic editor and the old-style Edit Post screen with TinyMCE, Meta Boxes, etc. Supports the older plugins that extend this screen."
+msgstr "Active l’éditeur classique de WordPress et l’ancienne disposition de l'écran de modification d’article (TinyMCE, boites à méta, etc.). Prend en charge les anciennes extensions qui étendent cet écran."
+
+#. Plugin Name of the plugin
+msgid "Classic Editor"
+msgstr "Classic Editor"
+
+#: classic-editor.php:700
+msgid "Settings"
+msgstr "Réglages"
