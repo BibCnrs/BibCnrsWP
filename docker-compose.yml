@@ -40,7 +40,7 @@ services:
       PORT: 3305
       TERM: dumb
     volumes:
-      - /private/applis/bibcnrs/home/mariadb:/var/lib/mysql
+      - /applis/bibcnrs/home/mariadb:/var/lib/mysql
     networks:
       bibbackend :
         aliases: 
