@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   wordpress:
-    image: bibcnrs/wordpress:5.6.1-apache
+    image: bibcnrs/wordpress:5.7.0-apache
     ports:
       - 8080:8080
     environment:
@@ -40,7 +40,7 @@ services:
       PORT: 3305
       TERM: dumb
     volumes:
-      - /applis/bibcnrs/home/mariadb:/var/lib/mysql
+      - /private/applis/bibcnrs/home/mariadb:/var/lib/mysql
     networks:
       bibbackend :
         aliases: 
