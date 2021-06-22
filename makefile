@@ -59,7 +59,9 @@ _load_fixtures:
 connect-mysql: ## connect into mysql
 	docker exec -it bibcnrs_db_1 mysql --password wordpress
 
-test: ## launch phpunit test
+test : install test2
+
+test2: ## launch phpunit test
 	docker-compose -f docker-compose.test.yml run --rm phpunit test
 
 run-dev: ## launch bibcnrs for development environment
