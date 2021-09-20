@@ -5,3 +5,9 @@ services:
     image: phpunit/phpunit:5.0.3
     volumes:
       - .:/app
+    networks:
+      - bibbackend
+      
+networks:
+  bibbackend:
+    external: true

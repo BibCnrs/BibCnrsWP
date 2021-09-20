@@ -67,7 +67,9 @@ services:
       bibbackend :
 
 networks:
-    bibbackend:
-      driver: bridge
-    bibfrontend:
-      driver: bridge
+  bibbackend:
+    driver: bridge
+    name: bibbackend
+  bibfrontend:
+    driver: bridge
+    name: bibfrontend
