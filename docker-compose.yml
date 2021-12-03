@@ -10,7 +10,7 @@ services:
       http_proxy: ${http_proxy}
       https_proxy: ${https_proxy}
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: wordpress
       AUTH_KEY: AUTH_KEY
       SECURE_AUTH_KEY: SECURE_AUTH_KEY
       LOGGED_IN_KEY: LOGGED_IN_KEY
