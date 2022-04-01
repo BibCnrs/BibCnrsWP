@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   wordpress:
-    image: bibcnrs/wordpress:5.9.0-apache
+    image: bibcnrs/wordpress:5.9.2-apache
     ports:
       - 8080:8080
     environment:
