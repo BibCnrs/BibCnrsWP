@@ -34,11 +34,10 @@ services:
           - wordpress
 
   db:
-    image: mariadb:10.0
+    image: mariadb:10.7
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      PORT: 3305
-      TERM: dumb
+      MYSQL_DATABASE: wordpress
     volumes:
       - /applis/bibcnrs/home/mariadb:/var/lib/mysql
     networks:
