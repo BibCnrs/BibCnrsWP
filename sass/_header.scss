@@ -32,8 +32,7 @@ header {
 }
 .headerRight {
     display: flex;
-    flex-direction: row;
-    padding-right: 30px;
+    flex-direction: row-reverse;
     height: 100px;
     align-items: center;
     .language {
