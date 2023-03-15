@@ -47,7 +47,7 @@ deactivate_plugin: ## deactivate all wordpress plugin
 	docker exec -i bibcnrs_db_1 mysql --password='$(DB_PASSWORD)' wordpress -e "UPDATE wp_options SET option_value = '' WHERE option_name = 'active_plugins';"
 
 _restore_db:
-	cat backups/$(COMMAND_ARGS) | docker exec -i bibcnrs_db_1 sh -c 'cat | mysql --password='$(DB_PASSWORD)' '
+	cat backups/$(COMMAND_ARGS) | docker exec -i bibcnrs_db_1 sh -c 'cat | mysql --password='$(DB_PASSWORD)' wordpress';
 
 load-fixtures: ## load fixtures for wordpress
 	@make _load_fixtures > /dev/null;
