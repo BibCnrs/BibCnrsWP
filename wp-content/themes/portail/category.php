@@ -67,7 +67,7 @@ switch ($nicename) {
         $discovery= $language === 'fr' ? 'Découverte' : 'Discovery';
         $discoveryID = get_cat_ID($discovery);
         $ssdiscs = get_categories( 'child_of='.$discoveryID );
-        $today = date(Ymd);
+        $today = date("Ymd");
         foreach($ssdiscs as $ssdisc){
             $catID = $ssdisc->cat_ID;
             $nom = explode("-",$ssdisc->slug);
