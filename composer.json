@@ -7,6 +7,23 @@
     {
       "type": "package",
       "package": {
+        "name": "bibcnrs/wp-ebsco-widget",
+        "version": "3.17.16",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/BibCnrs/wp-EBSCO-widget/archive/refs/heads/master.zip"
+         },
+        "type": "wordpress-plugin",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "CeCILL"
+        ],
+        "description": "Wordpress plugin for EBSCO widget"  
+      }
+    },
+    {
+      "type": "package",
+      "package": {
         "name": "wp-block-admin",
         "type": "wordpress-plugin",
         "version": "0.2.3",
@@ -45,10 +62,10 @@
       "package": {
         "name": "polylang",
         "type": "wordpress-plugin",
-        "version": "3.3.3",
+        "version": "3.5.2",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/polylang.3.3.3.zip"
+          "url": "https://downloads.wordpress.org/plugin/polylang.3.5.2.zip"
         }
       }
     },
@@ -57,10 +74,10 @@
       "package": {
         "name": "contact-form-7",
         "type": "wordpress-plugin",
-        "version": "5.7.6",
+        "version": "5.8.3",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.7.6.zip"
+          "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.8.3.zip"
         }
       }
     },
@@ -93,10 +110,10 @@
       "package": {
         "name": "cookie-notice",
         "type": "wordpress-plugin",
-        "version": "2.4.8",
+        "version": "2.4.11.1",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/cookie-notice.2.4.8.zip"
+          "url": "https://downloads.wordpress.org/plugin/cookie-notice.2.4.11.1.zip"
         }
       }
     },
@@ -105,10 +122,10 @@
       "package": {
         "name": "add-to-any",
         "type": "wordpress-plugin",
-        "version": "1.8.6",
+        "version": "1.8.9",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/add-to-any.1.8.6.zip"
+          "url": "https://downloads.wordpress.org/plugin/add-to-any.1.8.9.zip"
         }
       }
     },
@@ -129,10 +146,10 @@
       "package": {
         "name": "advanced-custom-fields",
         "type": "wordpress-plugin",
-        "version": "6.1.5",
+        "version": "6.2.3",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.1.5.zip"
+          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.2.3.zip"
         }
       }
     },
@@ -141,10 +158,10 @@
       "package": {
         "name": "wp-mail-smtp",
         "type": "wordpress-plugin",
-        "version": "3.8.0",
+        "version": "3.10.0",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.3.8.0.zip"
+          "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.3.10.0.zip"
         }
       }
     }
@@ -153,17 +170,17 @@
   "require": {
     "koala-framework/composer-extra-assets": "2.0.8",
     "wp-block-admin": "0.2.3",
-    "bibcnrs/wp-ebsco-widget": "3.17.15",
+    "bibcnrs/wp-ebsco-widget": "3.17.16",
     "timber": "1.22.1",
     "restrict-taxonomies": "1.3.3",
     "rss-shortcode": "0.2",
-    "polylang": "3.3.3",
-    "contact-form-7": "5.7.6",
+    "polylang": "3.5.2",
+    "contact-form-7": "5.8.3",
     "order-categories": "1.0.3",
-    "cookie-notice": "2.4.8",
-    "add-to-any": "1.8.6",
+    "cookie-notice": "2.4.11.1",
+    "add-to-any": "1.8.9",
     "classic-editor": "1.6.3",
-    "advanced-custom-fields": "6.1.5",
-    "wp-mail-smtp": "3.8.0"
+    "advanced-custom-fields": "6.2.3",
+    "wp-mail-smtp": "3.10.0"
   }
 }
