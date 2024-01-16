@@ -8,10 +8,10 @@
       "type": "package",
       "package": {
         "name": "bibcnrs/wp-ebsco-widget",
-        "version": "3.17.16",
+        "version": "3.17.19",
         "dist": {
             "type": "zip",
-            "url": "https://github.com/BibCnrs/wp-EBSCO-widget/archive/refs/heads/master.zip"
+            "url": "https://github.com/BibCnrs/wp-EBSCO-widget/archive/refs/tags/3.17.19.zip"
          },
         "type": "wordpress-plugin",
         "notification-url": "https://packagist.org/downloads/",
@@ -170,7 +170,7 @@
   "require": {
     "koala-framework/composer-extra-assets": "2.0.8",
     "wp-block-admin": "0.2.3",
-    "bibcnrs/wp-ebsco-widget": "3.17.16",
+    "bibcnrs/wp-ebsco-widget": "3.17.19",
     "timber": "1.22.1",
     "restrict-taxonomies": "1.3.3",
     "rss-shortcode": "0.2",
